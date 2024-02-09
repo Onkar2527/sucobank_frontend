@@ -7,12 +7,12 @@
   margin-top: 10px;
 } */
 
-.page-margin-top{
+/* .page-margin-top{
   margin-top:15px;
 }
 .border-all{
   border:1px solid black;
-  /* font-size: 12px; */
+  font-size: 12px;
   padding: 5px;
   padding-left: 10px;
 }
@@ -40,5 +40,30 @@
 #contentToConvert{
   font-weight:bold;
   font-size: 11px;
-}
+} */
 
+
+
+.heading{
+  background-color: rgb(237, 27, 36);
+  color :rgb(255, 212, 209);
+  font-size: 16;
+}
+.center{
+  text-align: center;
+}
+.data-heading{
+font-size: 14px;
+}
+.dark-data-headings{
+  /* font-size: 14; */
+  font-weight: bold;
+
+}
+.data{
+  text-align: center;
+
+}
+.margin{
+  margin-top: 10px;
+}
