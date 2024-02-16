@@ -70,7 +70,8 @@
                         <!-- <input nz-input name="PERMANENT_ADDRESS_PROOF"
                             [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF"> -->
                         <nz-select nzShowSearch nzPlaceHolder="Select Identity Proof"
-                            [(ngModel)]="personalInfo.ID_PROOF" style="width: 100%;">
+                            [(ngModel)]="personalInfo.ID_PROOF" (ngModelChange)="copyDocumentNoInIDProof()"
+                            style="width: 100%;">
                             <nz-option *ngFor="let address of MASTERS[2].data" [nzValue]="address.IDTPROOFID"
                                 [nzLabel]="address.IDTPROOFDESC">
                             </nz-option>
@@ -85,7 +86,7 @@
                     <nz-form-label nzRequired nzNoColon>ID Proof Number</nz-form-label>
                     <nz-form-control>
 
-                        <input nz-input name="ID_PROOF_NUMBER" [(ngModel)]="personalInfo.ID_PROOF_NUMBER">
+                        <input nz-input name="ID_PROOF_NUMBER" [(ngModel)]="personalInfo.ID_PROOF_NUMBER" [hiddenInput]="true" [mask]="id_mask">
 
                     </nz-form-control>
                 </nz-form-item>
@@ -438,7 +439,8 @@
                             <!-- <input nz-input name="PERMANENT_ADDRESS_PROOF"
                                 [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF"> -->
                             <nz-select nzShowSearch nzPlaceHolder="Select Proof of Address"
-                                [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF" style="width: 100%;">
+                                [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF"
+                                (ngModelChange)="copyDocumentNoInAddressProof()" style="width: 100%;">
                                 <nz-option *ngFor="let address of MASTERS[1].data" [nzValue]="address.ADDPROOFID"
                                     [nzLabel]="address.ADDPROOFDESC">
                                 </nz-option>
@@ -454,7 +456,7 @@
                         <nz-form-control>
 
                             <input nz-input name="ADDRESS_PROOF_NUMBER"
-                                [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF_NUMBER">
+                                [(ngModel)]="personalInfo.PERMANENT_ADDRESS_PROOF_NUMBER" [hiddenInput]="true" [mask]="address_mask">
 
                         </nz-form-control>
                     </nz-form-item>
@@ -730,7 +732,7 @@
                     <nz-form-label nzRequired [nzNoColon]="true">Religion</nz-form-label>
                     <nz-form-control>
 
-                        <nz-select [(ngModel)]="personalInfo.RELIGION">
+                        <!-- <nz-select [(ngModel)]="personalInfo.RELIGION">
                             <nz-option [nzValue]="'A'" nzLabel="Hindu"></nz-option>
                             <nz-option [nzValue]="'B'" nzLabel="Muslim"></nz-option>
                             <nz-option [nzValue]="'C'" nzLabel="Sikh"></nz-option>
@@ -738,7 +740,13 @@
                             <nz-option [nzValue]="'E'" nzLabel="Buddist"></nz-option>
                             <nz-option [nzValue]="'F'" nzLabel="Zoroastrian"></nz-option>
                             <nz-option [nzValue]="'G'" nzLabel="Other (Please Specify)"></nz-option>
+                        </nz-select> -->
+
+                        <nz-select [(ngModel)]="personalInfo.RELIGION">
+                            <nz-option *ngFor="let option of MASTERS[10].data" [nzValue]="option.REL_CD"
+                                [nzLabel]="option.REL_DESC"></nz-option>
                         </nz-select>
+
                     </nz-form-control>
                 </nz-form-item>
 
@@ -757,7 +765,7 @@
                 <nz-form-item nz-col nzSpan="5">
                     <nz-form-label nzRequired [nzNoColon]="true">Caste</nz-form-label>
                     <nz-form-control>
-                        <nz-select [(ngModel)]="personalInfo.CASTE">
+                        <!-- <nz-select [(ngModel)]="personalInfo.CASTE">
                             <nz-option [nzValue]="'A'" nzLabel="General"></nz-option>
                             <nz-option [nzValue]="'B'" nzLabel="OBC"></nz-option>
                             <nz-option [nzValue]="'C'" nzLabel="SC"></nz-option>
@@ -765,7 +773,13 @@
                             <nz-option [nzValue]="'E'" nzLabel="NT"></nz-option>
                             <nz-option [nzValue]="'F'" nzLabel="VJNT"></nz-option>
                             <nz-option [nzValue]="'G'" nzLabel="Other (Please Specify)"></nz-option>
+                        </nz-select> -->
+
+                        <nz-select [(ngModel)]="personalInfo.CASTE">
+                            <nz-option *ngFor="let option of MASTERS[11].data" [nzValue]="option.CST_CD"
+                                [nzLabel]="option.CST_NM"></nz-option>
                         </nz-select>
+
                     </nz-form-control>
                 </nz-form-item>
 
