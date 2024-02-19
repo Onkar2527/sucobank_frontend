@@ -146,8 +146,8 @@ td {
 
 .photo {
   border: 1px solid gray;
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 30px;
 }
 
 .instruction {
@@ -166,10 +166,10 @@ td {
   height: 100%;
 }
 
-/* .page_second{
+.page_second{
   border-top: 1px solid gray;
-  padding-top: 30px;
-} */
+  margin-top: 10px;
+}
 
 .margin-t-20 {
   margin-top: 20px;
