@@ -1,0 +1,522 @@
+<div nz-row class="margin">
+    <div nz-col nzSpan="24">
+        <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
+    </div>
+</div>
+
+<div class="page" id="page3" style="font-size: 11px;">
+
+    <div nz-row>
+        <div nz-col nzSpan="24" class="margin dark-data-headings center">CUSTOMER MASTER FORM</div>
+    </div>
+
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Customer ID:</div>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">{{basicInfo.CUSTOMER_ID_1}}</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> Date :</div>
+        <div nz-col nzSpan="7" class="data-heading dark-data-headings">{{basicInfo.APPLICATION_DATE |
+            date:"dd/MM/yyyy"}}
+        </div>
+    </div>
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">1. Individual Details :</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Prefix / Title: </div>
+        <div nz-col nzSpan="6" class="dark-data-headings">Mr.☐ &nbsp;&nbsp;Mrs.☐ &nbsp;&nbsp; Ms.☐ &nbsp;&nbsp;Mx.☐
+            &nbsp;&nbsp;</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Short Name</div>
+        <div nz-col nzSpan="11">{{ApplicantPersonal[0].FIRST_NAME}}</div>
+    </div>
+
+    <!-- <div nz-row>
+    <div nz-col nzSpan="24" *ngFor="let applicant of ApplicantPersonal; index as i;"> -->
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">First Name : </div>
+        <div nz-col nzSpan="11" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].FIRST_NAME}}
+
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Last Name : </div>
+        <div nz-col nzSpan="11" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].LAST_NAME}}
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Mobile No.: </div>
+        <div nz-col nzSpan="7" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Landline<br> with STD Code.</div>
+        <div nz-col nzSpan="10"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Date of Birth : </div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].DATE_OF_BIRTH}}</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">PAN No.:</div>
+        <div nz-col nzSpan="9" class="data-heading dark-data-headings">
+            <span>{{basicInfo.PAN_NUMBER}}</span>
+            <span>{{basicInfo.PAN_NUMBER2}}</span>
+            <span>{{basicInfo.PAN_NUMBER3}}</span>
+            <span>{{basicInfo.PAN_NUMBER4}}</span>
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Deciaration Form &nbsp;</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">&nbsp;&nbsp;60 ☐&nbsp;61 ☐</div>
+
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Email ID : </div>
+        <div nz-col nzSpan="21" class="databox data-heading dark-data-headings">{{ApplicantPersonal[0].EMAIL_ID}}</div>
+    </div>
+
+
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">2. Proprietor / Partnership / Trust /Company /Association /Club / Society </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> Name : </div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings">
+            <!-- {{ApplicantPersonal[0].FIRST_NAME}}
+          {{ApplicantPersonal[0].LAST_NAME}} -->
+        </div>
+    </div>
+
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Mobile No.: </div>
+        <div nz-col nzSpan="7" class="data-heading dark-data-headings">
+            <!-- {{ApplicantPersonal[0].MOBILE_NUMBER}} -->
+        </div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Landline<br> with STD Code.</div>
+        <div nz-col nzSpan="10"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Date of Registration: </div>
+        <div nz-col nzSpan="5"></div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">PAN No.:</div>
+        <div nz-col nzSpan="14" class="data-heading dark-data-headings">
+            <span>{{basicInfo.PAN_NUMBER}}</span>
+            <span>{{basicInfo.PAN_NUMBER2}}</span>
+            <span>{{basicInfo.PAN_NUMBER3}}</span>
+            <span>{{basicInfo.PAN_NUMBER4}}</span>
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"> VAT/<br>Registration No.: </div>
+        <div nz-col nzSpan="20"></div>
+    </div>
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">3. Present / Mailing Address : (Proof of address should be submitted)</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"> Address Line 1 </div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].CURRENT_ADDRESS}} &nbsp;&nbsp;
+        </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Address Line 2 </div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].CURRENT_LANDMARK}} &nbsp;&nbsp;
+        </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Address Line 3 </div>
+        <div nz-col nzSpan="20"></div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"> City /Town : </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.current_city}}</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> Taluk :</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.current_taluka}}</span>
+          <span *ngIf="i > 0">{{ApplicantPersonal[0].CURRENT_TALUKA}} &nbsp;&nbsp;</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">District :</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.current_dist}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].CURRENT_DISTRICT}} &nbsp;&nbsp;</span> -->
+        </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">State : </div>
+        <div nz-col nzSpan="15" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.current_state}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].CURRENT_STATE}} &nbsp;&nbsp;</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Pin/Zip:</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}
+            &nbsp;&nbsp;</div>
+    </div>
+
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">4. Permanent Address :<span style="font-size: 11px;">(Proof of address should be
+                submitted)If the address is
+                different fram the address mentioned above in Calumn(2)</span></div>
+    </div>
+
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"> Address Line 1 </div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}}</div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Address Line 2 </div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Address Line 3 </div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"> City /Town : </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.permanent_city}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].PERMANENT_CITY}} &nbsp;&nbsp;</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> Taluk :</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.permanent_taluka}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].PERMANENT_TALUKA}} &nbsp;&nbsp;</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">District :</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.permanent_dist}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].PERMANENT_DISTRICT}} &nbsp;&nbsp;</span> -->
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">State : </div>
+        <div nz-col nzSpan="15" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.permanent_state}}</span>
+          <span *ngIf="i > 0"> {{ApplicantPersonal[0].PERMANENT_STATE}}</span> -->
+        </div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Pin/Zip:</div>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_PINCODE}}
+        </div>
+    </div>
+
+
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">5. KYC Documents :</div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">ID/ Adress Proof: </div>
+        <div nz-col nzSpan="19"> Aadhaar ☐ &nbsp;&nbsp;&nbsp; Passport ☐ &nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Document Number : </div>
+        <div nz-col nzSpan="11"></div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Expiry Date(if any):</div>
+        <div nz-col nzSpan="4"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Only ID Proof: </div>
+        <div nz-col nzSpan="8">Driving Licence ☐ &nbsp;&nbsp; Pan Card ☐ &nbsp;&nbsp; Voter ID ☐ &nbsp;&nbsp;</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Specify<br> if other:</div>
+        <div nz-col nzSpan="8"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Document Number : </div>
+        <div nz-col nzSpan="11"></div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Expiry Date(if any):</div>
+        <div nz-col nzSpan="4"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Only Address Proof : </div>
+        <div nz-col nzSpan="15">Electricity Bill ☐ &nbsp;&nbsp; Tel.Bill ☐ &nbsp;&nbsp; Ration Card ☐ &nbsp;&nbsp; Bank
+            Statment ☐ &nbsp;&nbsp; Rent Agrement ☐ &nbsp;&nbsp;</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Specify<br> if other:</div>
+        <div nz-col nzSpan="2"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Document Number : </div>
+        <div nz-col nzSpan="11"></div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Expiry Date(if any):</div>
+        <div nz-col nzSpan="4"></div>
+    </div>
+
+
+
+    <div nz-row class="margin heading">
+        <div nz-col nzSpan="24">6.Photograph and Signature :</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="3" class="photo"></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="7" class="box"></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="7" class="box"></div>
+        <div nz-col nzSpan="4"></div>
+    </div>
+</div>
+
+
+
+<div class="page page_second" id="page4" style="font-size: 11px;">
+    <div nz-row class="margin-t-20 heading">
+        <div nz-col nzSpan="24">7. Personal Details:</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Marital Status : </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">
+            <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ?'Married' : 'Unmarried'}} -->
+            Single ☐ &nbsp;&nbsp; Married ☐ &nbsp;&nbsp;
+        </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Anniversary Date:</div>
+        <div nz-col nzSpan="6"></div>
+    </div>
+
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Religion/Ethnic Origin: </div>
+        <div nz-col nzSpan="9" class="data-heading dark-data-headings">
+
+            Hindu ☐ &nbsp;&nbsp; Muslim ☐ &nbsp;&nbsp; Christian ☐ &nbsp;&nbsp;
+            <!-- <span *ngIf="applicant.RELIGION == 'G'">
+            {{ApplicantPersonal[0].OTHER_RELIGION}}
+          </span>
+          <span *ngIf="applicant.RELIGION != 'G'">
+            {{religion[ApplicantPersonal[0].RELIGION]}}
+          </span> -->
+        </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Specify if others</div>
+        <div nz-col nzSpan="3"></div>
+    </div>
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Caste category </div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            General/Other ☐ &nbsp;&nbsp; BC ☐ &nbsp;&nbsp; OBC ☐ &nbsp;&nbsp; SC/ST ☐ &nbsp;&nbsp;
+            <!-- <span *ngIf="applicant.CASTE == 'G'">
+            {{ApplicantPersonal[0].OTHER_CASTE}}
+          </span>
+          <span *ngIf="applicant.CASTE != 'G'">
+            {{caste[ApplicantPersonal[0].CASTE]}}
+          </span> -->
+        </div>
+    </div>
+
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Risk category </div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            Low ☐ &nbsp;&nbsp; Medium ☐ &nbsp;&nbsp; High ☐ &nbsp;&nbsp;
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.risk_cat}}</span>
+          <span *ngIf="i > 0">{{risk_type[ApplicantPersonal[0].RISK_CATEGORY]}}</span> -->
+        </div>
+    </div>
+
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Father Name: </div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+        </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Mother Name:</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}
+            {{ApplicantPersonal[0].MOTHERS_NAME}} {{ApplicantPersonal[0].MOTHERS_MIDDLE_NAME}}
+        </div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Spouse Name: </div>
+        <div nz-col nzSpan="18"></div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Spouse Occupation:</div>
+        <div nz-col nzSpan="18"></div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">No. of Children: </div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">No. of Dependents</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Gender:</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{gender[ApplicantPersonal[0].GENDER]}}</div>
+    </div>
+
+    <div nz-row class="margin-t-20 heading">
+        <div nz-col nzSpan="24">8. Other Details :</div>
+    </div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Education :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            <!-- {{education[ApplicantPersonal[0].EDUCATION]}} -->
+            Under Graduate ☐ &nbsp;&nbsp; Graduate ☐ &nbsp;&nbsp; Post Graduate ☐ &nbsp;&nbsp; Professional ☐
+            &nbsp;&nbsp;
+            Not Educated ☐ &nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Occupation/Profession :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+
+            <span class="margin">Salaried ☐ &nbsp;&nbsp;&nbsp; Business ☐ &nbsp;&nbsp;&nbsp; Self Employed ☐
+                &nbsp;&nbsp;&nbsp; Retired ☐ &nbsp;&nbsp;&nbsp; Home Maker ☐ &nbsp;&nbsp;&nbsp; Student ☐
+                &nbsp;&nbsp;&nbsp;</span><br>
+            <span class="margin">Doctor ☐ &nbsp;&nbsp;&nbsp; C.A ☐ &nbsp;&nbsp;&nbsp; Engineer ☐ &nbsp;&nbsp;&nbsp;
+                Architect ☐ &nbsp;&nbsp;&nbsp; Lawyer ☐ &nbsp;&nbsp;&nbsp; Banker ☐ &nbsp;&nbsp;&nbsp;</span>
+
+            <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.occupation}}</span>
+          <span *ngIf="i > 0"> {{profession[ApplicantPersonal[0].PROFESSION]}}</span> -->
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings"> Consultant ☐ &nbsp;&nbsp;&nbsp; Software/IT ☐
+            &nbsp;&nbsp;&nbsp; Agriculturist ☐ &nbsp;&nbsp;&nbsp;</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Specify Other :</div>
+        <div nz-col nzSpan="3"></div>
+    </div>
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employment Details :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+
+            Public Sector ☐ &nbsp;&nbsp; Private Sector ☐ &nbsp;&nbsp; Government ☐ &nbsp;&nbsp; Multinational ☐
+            &nbsp;&nbsp; Self Employed ☐ &nbsp;&nbsp;
+        </div>
+    </div>
+
+    <div class="dashed-border"></div>
+
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
+        <div nz-col nzSpan="14"></div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
+        <div nz-col nzSpan="2"></div>
+    </div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
+        <div nz-col nzSpan="20"></div>
+    </div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Annual Income (In Lakhs) :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="ApplicantFinancial.length > i">{{ApplicantFinancial[0].INCOME}}</span> -->
+
+            Below 1.20 ☐ &nbsp;&nbsp; 1.21 to 2.40 ☐ &nbsp;&nbsp; 2.41 to 6.00 ☐ &nbsp;&nbsp; 6.01 to 9.00 ☐
+            &nbsp;&nbsp; 9.01 to 12.00 ☐ &nbsp;&nbsp; <br>
+            12.01 to 25.00 ☐ &nbsp;&nbsp; 25.01 to 50.00 ☐ &nbsp;&nbsp; 50.01 to 100.0 ☐ &nbsp;&nbsp; Above 100.00 ☐
+            &nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="dashed-border"></div>
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Residence :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+            <!-- <span *ngIf="ApplicantProperty.length > i">{{residential_status[ApplicantProperty[i].HOUSE_DETAIL]}}</span> -->
+            Rented ☐ &nbsp;&nbsp; Own ☐ &nbsp;&nbsp; Company ☐ &nbsp;&nbsp; Ancestral ☐ &nbsp;&nbsp;
+        </div>
+    </div>
+
+    <!-- </div>
+    </div> -->
+
+
+    <div nz-row class="margin-t-20 heading">
+        <div nz-col nzSpan="24">9. Declaration</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading text">(i) Form 60 (See third proviso of rule 114B) -I hereby declare
+            that I am not having Permanent Account Number or General Index Register Number and I will not
+            make any payment in respect of transactions specified in clauses (a) to (h) of rule 114 B.</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading text">(ii) Form 61 (See proviso to clause (a) of rule 114C)-1 hereby
+            declare that I am having agricultural income and not in receipt of any other income chargeable to
+            Income Tax in respect of transactions specified in clauses (a) to (h) of rule 114 B.</div>
+    </div>
+
+    <div nz-row class="margin">
+        <div nz-col nzSpan="18" class="data-heading text">(iii) I hereby certify that the information provided in this
+            form
+            is true and correct to the best of my
+            knowledge.! also undertake to inform any changes in future, in respect of any of the information
+            furnished .In the event of Change in address due to relocation or any other reason, I will intimate the
+            new address to the bank within two weeks of such a change</div>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="5" class="box"></div>
+
+    </div>
+
+    <div nz-row class="margin-t-20 heading">
+        <div nz-col nzSpan="24">10. For Office Use:</div>
+    </div>
+
+
+    <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="7" class="box"></div>
+        <div nz-col nzSpan="1"> </div>
+        <div nz-col nzSpan="7" class="box"></div>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="7" class="box"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="7" class="data-heading data">(Scrutinised by) Signature with DATE</div>
+        <div nz-col nzSpan="1"> </div>
+        <div nz-col nzSpan="7" class="data-heading data">(Verified by) Signature with DATE</div>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="7" class="data-heading data">(Auditor) Signature with DATE</div>
+        <div nz-col nzSpan="1"></div>
+    </div>
+</div>

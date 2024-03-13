@@ -75,8 +75,13 @@
 }
 
 .margin {
-  margin-top: 10px;
+  margin-top: 5px;
 }
+
+
+/* .margindata {
+  margin-top: auto;
+} */
 
 .margin2 {
   margin-top: 30px;
@@ -183,4 +188,44 @@ td {
 
 .data{
   font-weight: bold;
+}
+
+.new-data{
+  font-size: 10px;
+}
+.data-font{
+  font-size: 12px;
+
+}
+
+
+
+.page0{
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-bottom: 480px;
+  height: 100%;
+}
+ .page1{
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 140px;
+  height: 100%;
+}
+ .page3{
+  margin-top: 40px;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+border-top:1px solid gray ;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 600px;
+  height: 100%;
 }
