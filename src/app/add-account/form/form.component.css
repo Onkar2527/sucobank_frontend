@@ -163,12 +163,26 @@ td {
   border-right: 1px solid gray;
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
-
+  font-size: 12px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom: 50px;
-
+  padding-bottom:50px;
   height: 100%;
+}
+
+.page1 {
+
+  padding-bottom: 450px;
+ 
+}
+.page2{
+  padding-bottom: 200px;
+ 
+}
+.page3{
+  border-top: 1px solid gray;
+  padding-bottom: 690px;
+ 
 }
 
 .page_second{

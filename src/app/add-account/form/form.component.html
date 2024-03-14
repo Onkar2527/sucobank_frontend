@@ -1325,7 +1325,565 @@
     </div>
 
   </div>
+
+  <div nz-row class="margin">
+    <div nz-col nzSpan="24">
+      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
+    </div>
+  </div>
+  <div class="page page1">
+    <div>
+      <div nz-row>
+        <div nz-col nzSpan="14" style="margin-top:20px;">
+          <div nz-row>
+            <div nz-col nzSpan="24">
+              To,
+            </div>
+            <div nz-col nzSpan="24">
+              SUCO SOUHARDA SAHAKARI BANK LTD..
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:60px;">
+              {{branchData.BRANCH_NAME}} Branch
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="3" style="border: 1px solid black; width: 100px; height: 100px; margin-top: 20px;">
+          <span *ngIf="PHOTOS.length > 0">
+            <img [src]="PHOTOS[0]" width="100%" height="100%">
+          </span>
+        </div>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="6" style="margin-top:10px;">
+          <div nz-row>
+            <div nz-col nzSpan="24" style="margin-top:10px;">
+              CIF NO.
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:10px;">
+              SB AC NO
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:10px;">
+              SHARE NO.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24" style="text-align: center;font-weight: bold;margin-top:30px;">
+          Request for Nominal /Regular Membership
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24" style="margin-top:20px;">
+          I request you to enroll me as a member and allot me _______________________________________________ shares of
+          your Bank. I hereby declare that I understood various provisions contained in Karnataka Souharda Sahakari Act
+          and also the Bank's byelaws. I have furnished necessary KYC documents.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          1.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Name&Age:&nbsp;
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          2.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Name of Father/Husband:&nbsp; &nbsp;
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          3.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Category
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          4.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Name of the Nominee:&nbsp; &nbsp; {{nominationInfo.NOMINEE_NAME}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          5.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Address
+
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          A)
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Residential Address:&nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+          {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_PINCODE}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          B)
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Business/Professional Address:
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1" style="margin-top:20px;">
+          6.
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:20px;">
+          Membership of other Souharda Sahakari Society/Bank,if any: Yes/No
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="2" style="margin-top:20px;">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:20px;">
+          I hereby declare that the information furnished above is true and correct.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="19" style="margin-top:20px;">
+          Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        </div>
+        <div nz-col nzSpan="5" style="margin-top:20px;">
+          Signature
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="16" style="margin-top:20px;">
+          Place:
+        </div>
+        <div nz-col nzSpan="8" style="margin-top:20px;">
+          (Name:&nbsp;
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}})
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY -->
+
+  <div nz-row class="margin" style="font-size: 12px;margin-top: 10px;">
+    <div nz-col nzSpan="24">
+      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
+    </div>
+  </div>
+  <div class="page page2">
+    <div>
+      <div nz-row>
+        <div nz-col nzSpan="24" style="margin-top: 10px;">
+          <div class="heading" style="font-size: 10px;">
+            LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY
+          </div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="17" style="margin-top:10px;">
+          Loan A/c. No:
+        </div>
+        <div nz-col nzSpan="6" style="margin-top:10px;">
+          Date:
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;">
+          From:&nbsp;{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="margin-top:10px;">
+          To,
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;">
+          &nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="font-weight: bold">
+          The Manager,<br>
+          SUCO Souharda Sahakari Bank
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11">
+          {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{ ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{ ApplicantPersonal[0].CURRENT_PINCODE}}
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9">
+          Branch: {{branchData.BRANCH_NAME}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:10px;">
+          I am a member of the consumer group promoted and served by M/s.97 North Technologies Pvt Ltd, Bangalore.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22">
+          1. &nbsp;&nbsp;&nbsp;&nbsp;I request you to grant me financial assistance of Rs.5,000/- (Rupees Five Thousands
+          only) against the security of
+          the balance deposit in Savings banks Account for purpose of purchasing consumer goods on an ongoing basis. The
+          branch can note lien/freeze SB account to the extent of loan amount.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:5px;font-weight: bold">
+          SBACOUNT No.:_____________________________
+        </div>
+        <div nz-col nzSpan="2">
+        </div>
+        <div nz-col nzSpan="10" style="margin-top:5px;font-weight: bold">
+          Balance Amount::_____________________________
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          2. &nbsp;&nbsp;&nbsp;&nbsp;I agree to pay the interest upfront at 12.00% pa rate for the above loan amount
+          requested by me.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          3. &nbsp;&nbsp;&nbsp;&nbsp;I hereby undertake to repay the loan with remittances from time to time and however
+          ensure closure of the loan with up to date interest with in 12 months from the date of loan disbursement.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          4. &nbsp;&nbsp;&nbsp;&nbsp;The demand promissory note together with the Take Delivery letter duly executed by
+          me
+          in bank's favour is here with enclosed
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          5. &nbsp;&nbsp;&nbsp;&nbsp; I hereby authorize you to debit the loan amount of Rs.5,000/- and credit the same
+          to
+          the said SB Account.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          6. &nbsp;&nbsp;&nbsp;&nbsp; Also authorize you to debit and recover from My SB account an advance interest
+          amount
+          for one year period payable
+          on the above said loan to the bank.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          7. &nbsp;&nbsp;&nbsp;&nbsp;Bank is authorized to appropriate the balance in the saving deposit account for due
+          repayment of the outstanding
+          balance in the loan account/s including interest/charges etc.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          8. &nbsp;&nbsp;&nbsp;&nbsp;It is specifically agreed that the security/ies held be continuing security for
+          ultimate balance of all monies that have fallen due or may become due for whom the Bank has provided financial
+          assistance. Neither the security/ies nor the under taking shall be considered as terminated for reasons of
+          repayment of any particular loan/advance or by any change in the constitution by death or otherwise of
+          depositor/s.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="22" style="margin-top:5px;">
+          9. &nbsp;&nbsp;&nbsp;&nbsp;I/We agree to abide by all the rules and regulations of the Bank, already in force
+          and
+          to be in force in future.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
+          Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="margin-top:10px;font-weight: bold">
+          BORROWER:&nbsp;
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:10px;font-weight: bold">
+          Recommendations of the Business Correspondent: M/s.97 North Technologies Pvt Ltd. Bangalore
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:10px;">
+          We confirm having subjected the applicant to the due diligence for enroling him/her as a member of the group
+          promoted by our company. The KYC documents have been verified and certified with due reference to the
+          originals
+          before us.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:10px;">
+          We recommend for sanctioning a loan of Rs.5,000/- to the applicant against the security of deposit amount held
+          in
+          SB account of the said the applicant. We understand that as the business correspondent of the bank we have the
+          responsibility to monitor, follow up and recover the loan amount for and on behalf of the bank,
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11">
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="margin-top:10px;font-weight: bold">
+
+          Name and Designation of the Authorized Officer
+        </div>
+      </div>
+      <hr>
+      <div nz-row>
+
+        <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
+          FOR BRANCH USE
+        </div>
+
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="23" style="margin-top:10px;">
+          The KYC particulars submitted by the BC and the loan documents executed by the applicant are found to be in
+          order.
+        </div>
+      </div>
+      <div nz-row>
+
+        <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
+          Sanctioned Rs.5,000/- LoanS
+        </div>
+
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
+          Credit Officer
+        </div>
+        <div nz-col nzSpan="6">
+        </div>
+        <div nz-col nzSpan="6" style="margin-top:10px;font-weight: bold">
+          Manager
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <!-- demand note -->
+  <div>
+    <div class="page page3" style="margin-top: 10px;">
+      <div nz-row>
+
+        <div nz-col nzSpan="24" style="font-weight: bold;text-align: center;margin-top: 10px;">
+          DEMAND PROMISSORY NOTE
+        </div>
+
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
+          Place:
+        </div>
+        <div nz-col nzSpan="6">
+        </div>
+        <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
+          Rs.
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
+          Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="21" style="margin-top: 10px;">
+          On demand I, &nbsp;
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+          &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{ApplicantPersonal[0].CURRENT_CITY}}
+          &nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+          {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_PINCODE}}&nbsp;do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO: Ballari or order the sum of Rs_______________________(Rupees ___________________ only) together
+          with interest at 12% per annum at yearly rests and collected in advance for one year period at the time of loan disbursement.
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="13" style="margin-top:10px;">
+          <div nz-row>
+            <div nz-col nzSpan="24">
+              Witness:
+            </div>
+            <div nz-col nzSpan="24">
+              1) _______________________________________________________
+            </div>
+            <div nz-col nzSpan="24">
+              (Name and designation of the BC authorized official)
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="2" style="border: 1px solid black; max-width: 180px; height: 80px; margin-top: 20px;">
+        </div>
+      </div>
+      <div nz-row>
+
+        <div nz-col nzSpan="24" style="font-weight: bold;margin-top: 10px;text-align: center;">
+          TAKE DELEVERY TO PRO NOTE
+        </div>
+
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;">
+          From:&nbsp;{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="margin-top:10px;">
+          To,
+        </div>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="11" style="margin-top:10px;">
+        &nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+      </div>
+      <div nz-col nzSpan="3">
+      </div>
+      <div nz-col nzSpan="9" style="font-weight: bold">
+        The Manager,<br>
+        SUCO Souharda Sahakari Bank
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="11">
+
+        {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_PINCODE}}&nbsp;
+      </div>
+      <div nz-col nzSpan="3">
+      </div>
+      <div nz-col nzSpan="9">
+        Branch:{{branchData.BRANCH_NAME}}
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="4">
+      </div>
+      <div nz-col nzSpan="18" style="font-weight: bold;margin-top: 10px;">
+        Subject: Delivery of Pro note executed by me in favour of your bank.
+      </div>
+      <div nz-col nzSpan="2">
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="1">
+      </div>
+      <div nz-col nzSpan="21" style="margin-top: 10px;">
+        I thank you for considering my request for sanction of Rs.5,000/-loan to meet my emergent personal needs. In
+        this regard I am delivering the demand promissory note dated {{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        executed by me for Rs.5,000/- in favour of your bank. I hereby undertake to repay the loan with remittances from time to time and however ensure closure of the loan
+        with up to date interest with in 12 months from the date of loan disbursement. I am agreeable to pay the penal
+        charges/service charges towards the loan/SB account as per the rules in force form time to time
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
+        Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+      </div>
+      <div nz-col nzSpan="6">
+      </div>
+      <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
+        Signature
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="1">
+      </div>
+      <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
+        Place:
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 
 
