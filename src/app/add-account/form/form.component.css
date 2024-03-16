@@ -166,26 +166,28 @@ td {
   font-size: 12px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom:50px;
+  padding-bottom: 50px;
   height: 100%;
 }
 
 .page1 {
 
   padding-bottom: 450px;
- 
-}
-.page2{
-  padding-bottom: 200px;
- 
-}
-.page3{
-  border-top: 1px solid gray;
-  padding-bottom: 690px;
- 
+
 }
 
-.page_second{
+.page2 {
+  padding-bottom: 200px;
+
+}
+
+.page3 {
+  border-top: 1px solid gray;
+  padding-bottom: 690px;
+
+}
+
+.page_second {
   border-top: 1px solid gray;
   margin-top: 10px;
 }
@@ -194,27 +196,28 @@ td {
   margin-top: 20px;
 }
 
-.dashed-border{
-  border-bottom: 1px dashed rgba(255, 45, 22,0.3);
+.dashed-border {
+  border-bottom: 1px dashed rgba(255, 45, 22, 0.3);
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.data{
+.data {
   font-weight: bold;
 }
 
-.new-data{
+.new-data {
   font-size: 10px;
 }
-.data-font{
+
+.data-font {
   font-size: 12px;
 
 }
 
 
 
-.page0{
+.page0 {
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
   border-left: 1px solid gray;
@@ -223,21 +226,24 @@ td {
   padding-bottom: 480px;
   height: 100%;
 }
- .page1{
+
+.page1 {
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
   border-left: 1px solid gray;
+  border-top: 1px solid gray;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 140px;
+  padding-bottom: 160px;
   height: 100%;
 }
- .page3{
+
+.page3 {
   margin-top: 40px;
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
   border-left: 1px solid gray;
-border-top:1px solid gray ;
+  border-top: 1px solid gray;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 600px;

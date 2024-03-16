@@ -118,41 +118,41 @@ export class AddAccountComponent implements OnInit, OnDestroy {
 
     else if (isOk) {
 
-      let onBoardingResult = await lastValueFrom(this.api.onBoardCustomer(this.personalComp.basicInfo.ID));
-
-      if (onBoardingResult['code'] == 200) {
-        this.message.success("customer created. ", `Customer ID = ${onBoardingResult.success_data['Customer Code']}`);
-
-
-        this.personalComp.basicInfo.TRACK_ID = 4;
-        let personal = this.personalComp.save();
-        // this.personalComp.basicInfo.STATUS = 'V'; do not remove comment of this line.
-        personal.subscribe({
-          next: (res) => {
-            if (res.code == 200) {
-              this.saveRemark();
-              this.message.success("Account has been created", `Account Number = ${onBoardingResult.success_data['Account number']}`)
-              this.CloseDrawer.emit();
-            }
-            else {
-              this.message.error("Something went wrong", '');
-            }
-          }, error: () => {
-
-          },
-          complete: () => {
-
+      this.personalComp.basicInfo.TRACK_ID = 4;
+      let personal = this.personalComp.save();
+      // this.personalComp.basicInfo.STATUS = 'V'; do not remove comment of this line.
+      personal.subscribe({
+        next: (res) => {
+          if (res.code == 200) {
+            this.saveRemark();
+            this.message.success("Account has been created", "");
+            this.CloseDrawer.emit();
           }
-        })
+          else {
+            this.message.error("Something went wrong", '');
+          }
+        }, error: () => {
+          this.message.error("Something went wrong", '');
+        },
+        complete: () => {
 
-      }
-
-      else{
-        this.message.error("Unable to create account.",'')
-      }
+        }
+      })
 
 
     }
+
+    // let onBoardingResult = await lastValueFrom(this.api.onBoardCustomer(this.personalComp.basicInfo.ID));
+
+    // if (onBoardingResult['code'] == 200) {
+    //   this.message.success("customer created. ", `Customer ID = ${onBoardingResult.success_data['Customer Code']}`);
+    // }
+
+    // else {
+    //   this.message.error("Unable to create account.", '')
+    // }
+
+
 
   }
 

@@ -180,8 +180,12 @@ export class ProposalComponent implements OnInit {
     }
 
     else if (role_id == 2 && data.TRACK_ID == 2) {
-      this.header = this.TabHeaderTemplate;
-      this.footer = this.TabFooterTplChecker;
+      // this.header = this.TabHeaderTemplate;
+      // this.footer = this.TabFooterTplChecker;
+
+      this.header = this.tabHeaderVerifierTamplete;
+      this.footer = this.TabFooterTplVerifier;
+      this.title = 'Verify All Information';
     }
 
     else if (role_id == 3 && data.TRACK_ID == 3) {
@@ -353,14 +357,14 @@ export class ProposalComponent implements OnInit {
       return value.ID == track_id
     });
 
-    if(our_status.length > 0){
+    if (our_status.length > 0) {
       return our_status[0].NAME ? our_status[0].NAME : ''
     }
-    else{
+    else {
       return '';
     }
 
-    
+
   }
 
   getBranchList() {
@@ -381,10 +385,10 @@ export class ProposalComponent implements OnInit {
       return value.ID == branch_id
     });
 
-    if(our_branch.length > 0 ){
+    if (our_branch.length > 0) {
       return our_branch[0].BRANCH_NAME ? our_branch[0].BRANCH_NAME : ''
     }
-    else{
+    else {
       return '';
     }
 
