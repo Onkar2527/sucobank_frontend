@@ -259,7 +259,7 @@ export class ProposalComponent implements OnInit {
   }
 
   completeVerifier() {
-    this.validateDocs('V');
+    this.validateDocs('C');
   }
 
   openBasicDrawer() {
@@ -566,7 +566,7 @@ export class ProposalComponent implements OnInit {
       next: (res) => {
         if (res['code'] == 200) {
           if (type == 'C')
-            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeChecker() : this.message.error("Verify All Documents first", '');
+          this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');
 
           if (type == 'V')
             this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');

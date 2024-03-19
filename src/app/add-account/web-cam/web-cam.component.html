@@ -123,10 +123,10 @@
         <th [nzWidth]="'100px'" [nzAlign]="'center'">View</th>
         <th [nzWidth]="'250px'" [nzAlign]="'center'">Document name</th>
         <th [nzWidth]="'200px'" [nzAlign]="'center'">Approved by Checker</th>
-        <th [nzWidth]="'200px'" [nzAlign]="'center'">Approved by Verifier</th>
+        <!-- <th [nzWidth]="'200px'" [nzAlign]="'center'">Approved by Verifier</th> -->
         <th [nzWidth]="'400px'" [nzAlign]="'center'">Remark (Maker)</th>
         <th [nzWidth]="'400px'" [nzAlign]="'center'">Remark (Checker)</th>
-        <th [nzWidth]="'400px'" [nzAlign]="'center'">Remark (Verifier)</th>
+        <!-- <th [nzWidth]="'400px'" [nzAlign]="'center'">Remark (Verifier)</th> -->
 
       </tr>
     </thead>
@@ -167,15 +167,15 @@
           <i nz-icon nzType="close-circle" style="color: #f10404;" *ngIf="!document.IS_APPROVED_CHECKER"></i>
         </td>
 
-        <td>
+        <!-- <td>
           <i nz-icon nzType="check-circle" style="color: #00b963;" *ngIf="document.IS_APPROVED_VERIFIER"></i>
           <i nz-icon nzType="close-circle" style="color: #f10404;" *ngIf="!document.IS_APPROVED_VERIFIER"></i>
-        </td>
+        </td> -->
 
 
         <td>{{document.MAKER_REMARK}}</td>
         <td>{{document.CHECKER_REMARK}}</td>
-        <td>{{document.VERIFIER_REMARK}}</td>
+        <!-- <td>{{document.VERIFIER_REMARK}}</td> -->
       </tr>
     </tbody>
 

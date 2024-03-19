@@ -7,7 +7,7 @@
                 <tr>
                     <th [nzAlign]="'center'">Tab Name</th>
                     <th [nzAlign]="'center'">Accepted By BM</th>
-                    <th [nzAlign]="'center'">Accepted By CPC</th>
+                    <!-- <th [nzAlign]="'center'">Accepted By CPC</th> -->
                     <th [nzAlign]="'center'">Refill Count</th>
                 </tr>
             </thead>
@@ -25,13 +25,13 @@
 
                     </td>
 
-                    <td>
+                    <!-- <td>
                         <span *ngIf="!tab.IS_VERIFIED"> <i nz-icon nzType="close-circle" style="color: #f10404;"></i>
                             Not Accepted</span>
 
                         <span *ngIf="tab.IS_VERIFIED"><i nz-icon nzType="check-circle" style="color: #00b963;"></i>
                             Accepted</span>
-                    </td>
+                    </td> -->
                     <td>{{tab.SEND_TO_REFILL_COUNT}}</td>
 
                 </tr>

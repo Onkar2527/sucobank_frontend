@@ -227,13 +227,13 @@
     </button>
 
     <span *ngIf="selectedIndex < 5">
-      <button nz-button nzType="primary" (click)="sendTorefill('V')" *ngIf="Tabs[selectedIndex].SEND_TO_REFILL">
+      <button nz-button nzType="primary" (click)="sendTorefill('C')" *ngIf="Tabs[selectedIndex].SEND_TO_REFILL">
         <span>
           Send to refill and Next
         </span>
       </button>
 
-      <button nz-button nzType="primary" (click)="Accept('V')" *ngIf="!Tabs[selectedIndex].SEND_TO_REFILL">
+      <button nz-button nzType="primary" (click)="Accept('C')" *ngIf="!Tabs[selectedIndex].SEND_TO_REFILL">
         <span>
           Accept and Next
         </span>
