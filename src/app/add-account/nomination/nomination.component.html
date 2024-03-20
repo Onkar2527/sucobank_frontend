@@ -9,6 +9,13 @@
                                 nzUnCheckedChildren="No"></nz-switch></span></p>
                 </div>
 
+                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label [nzNoColon]="true">Nominee Customer ID</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="NOMINEE_CUSTOMER_ID" [(ngModel)]="nomineeInfo.NOMINEE_CUSTOMER_ID">
+                    </nz-form-control>
+                </nz-form-item>
+
                 <nz-form-item nz-col nzSpan="12">
                     <nz-form-label nzRequired [nzNoColon]="true">Nominee's DOB</nz-form-label>
                     <nz-form-control>
@@ -72,6 +79,13 @@
                     <nz-form-control>
                         <input nz-input name="appointed" [(ngModel)]="nomineeInfo.APONITED_NAME"
                             placeholder="Enter Name of Appointed Person" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label [nzNoColon]="true">Apointed Person Age</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="APOINTED_PERSON_AGE" [(ngModel)]="nomineeInfo.APOINTED_PERSON_AGE">
                     </nz-form-control>
                 </nz-form-item>
 

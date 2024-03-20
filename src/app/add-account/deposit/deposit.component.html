@@ -377,7 +377,7 @@
                 </p>
             </div>
 
-            <div *ngIf="depositInfo.CREDIT_FACILITY_OTHER">
+            <div *ngIf="!depositInfo.CREDIT_FACILITY_OTHER">
                 <nz-form-item nz-col nzSpan="11">
                     <nz-form-label nzNoColon>Bank</nz-form-label>
                     <nz-form-control>
