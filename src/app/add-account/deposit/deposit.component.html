@@ -9,13 +9,13 @@
                         <nz-form-label nzRequired [nzNoColon]="true">Account Type</nz-form-label>
                         <nz-select [(ngModel)]="depositInfo.ACCOUNT_TYPE" (ngModelChange)="changeCatagory()">
                             <nz-option [nzValue]="'A'" nzLabel="Saving"></nz-option>
-                            <nz-option [nzValue]="'B'" nzLabel="Janata Deposite"></nz-option>
+                            <!-- <nz-option [nzValue]="'B'" nzLabel="Janata Deposite"></nz-option>
                             <nz-option [nzValue]="'C'" nzLabel="Current Account"></nz-option>
                             <nz-option [nzValue]="'D'" nzLabel="Fixed Deposit"></nz-option>
                             <nz-option [nzValue]="'E'" nzLabel="Fixed Deposit (Reinvestment)"></nz-option>
                             <nz-option [nzValue]="'F'" nzLabel="Recurring Deposit"></nz-option>
                             <nz-option [nzValue]="'G'" nzLabel="Pigmy Deposit"></nz-option>
-                            <nz-option [nzValue]="'H'" nzLabel="Other"></nz-option>
+                            <nz-option [nzValue]="'H'" nzLabel="Other"></nz-option> -->
                         </nz-select>
 
                     </nz-form-control>
@@ -25,7 +25,19 @@
                     <nz-form-control>
                         <nz-form-label nzRequired [nzNoColon]="true">Sub Account Type</nz-form-label>
                         <nz-select [(ngModel)]="depositInfo.SCHEME_CODE" (ngModelChange)="changeCatagory()">
-                            <nz-option *ngFor="let scheme of schemes" [nzValue]="scheme.SMP_CODE" [nzLabel]="scheme.SMP_NAME"></nz-option>
+                            <!-- <nz-option *ngFor="let scheme of schemes" [nzValue]="scheme.SMP_CODE"
+                                [nzLabel]="scheme.SMP_NAME"></nz-option> -->
+
+                            <!-- <nz-option *ngFor="let scheme of schemes" [nzValue]="scheme.SMP_CODE"
+                                [nzLabel]="scheme.SMP_NAME"></nz-option> -->
+                                <nz-option [nzValue]="'A'" nzLabel="Regular"></nz-option>
+                                <nz-option [nzValue]="'B'" nzLabel="Premium*"></nz-option>
+                                <nz-option [nzValue]="'C'" nzLabel=" Basic "></nz-option>
+                                <nz-option [nzValue]="'D'" nzLabel=" Supreme"></nz-option>
+                                <nz-option [nzValue]="'E'" nzLabel=" Elite*"></nz-option>
+                                <nz-option [nzValue]="'F'" nzLabel=" Blip"></nz-option>
+
+
                         </nz-select>
                     </nz-form-control>
                 </nz-form-item>
@@ -34,14 +46,35 @@
                     <nz-form-control>
                         <nz-form-label nzRequired [nzNoColon]="true">Mode of Operation</nz-form-label>
                         <nz-select [(ngModel)]="depositInfo.ACCOUNT_OPERATION">
-                            <nz-option *ngFor="let option of MASTERS[1].data" [nzValue]="option.OPRINSTID"
-                                [nzLabel]="option.OPRINSTDTLS"></nz-option>
+                            <!-- <nz-option *ngFor="let option of MASTERS[1].data" [nzValue]="option.OPRINSTID"
+                                [nzLabel]="option.OPRINSTDTLS"></nz-option> -->
+
+
+                                <nz-option [nzValue]="'A'" nzLabel="Single"></nz-option>
+                                <nz-option [nzValue]="'B'" nzLabel=" Jointly"></nz-option>
+                                <nz-option [nzValue]="'C'" nzLabel=" Either or Survivor "></nz-option>
+                                <nz-option [nzValue]="'D'" nzLabel=" Former / Survivor"></nz-option>
+                                <nz-option [nzValue]="'E'" nzLabel=" Minor by Guardian"></nz-option>
+                                <nz-option [nzValue]="'F'" nzLabel=" Other"></nz-option>
                         </nz-select>
                     </nz-form-control>
                 </nz-form-item>
 
+                <nz-form-item nz-col nzSpan="24" *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'">
 
-                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label [nzNoColon]="true">Other(Please Specify)</nz-form-label>
+                    <nz-form-control>
+
+                        <nz-input-group>
+                            <input nz-input name="transAccount" [(ngModel)]="depositInfo.OTHER_ACCOUNT_OP">
+                        </nz-input-group>
+
+                    </nz-form-control>
+
+                </nz-form-item>
+
+
+                <!-- <nz-form-item nz-col nzSpan="24">
                     <nz-form-control>
                         <nz-form-label nzRequired [nzNoColon]="true">Payment Instruction</nz-form-label>
                         <nz-select [(ngModel)]="depositInfo.PAYMENT_INSTRUCTION">
@@ -49,7 +82,7 @@
                                 [nzLabel]="option.PAYINSTDTLS"></nz-option>
                         </nz-select>
                     </nz-form-control>
-                </nz-form-item>
+                </nz-form-item> -->
 
             </div>
         </div>
@@ -284,9 +317,9 @@
     </div>
 
 
-    <div nz-col nzSpan="12" *ngIf="catagoryB">
+    <div nz-col nzSpan="12">
 
-        <div class="box">
+        <div class="box" *ngIf="catagoryB">
             <nz-divider nzText="Bank Details"></nz-divider>
             <div class="content-box" nz-row>
 
@@ -334,6 +367,65 @@
             </div>
         </div>
 
+        <div class="content-box">
+
+            <div nz-col nzSpan="24">
+                <p>I/We declare that I/we do not enjoy any credit facility with any other banks?<span><nz-switch
+                            [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER" nzCheckedChildren="Yes"
+                            nzUnCheckedChildren="No"></nz-switch>
+                    </span>
+                </p>
+            </div>
+
+            <div *ngIf="depositInfo.CREDIT_FACILITY_OTHER">
+                <nz-form-item nz-col nzSpan="11">
+                    <nz-form-label nzNoColon>Bank</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_BANK"
+                            name="CREDIT_FACILITY_OTHER_BANK">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <!-- <div nz-col nzSpan="1"></div> -->
+                <nz-form-item nz-col nzSpan="2"></nz-form-item>
+
+                <nz-form-item nz-col nzSpan="11">
+                    <nz-form-label nzNoColon>Branch</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_BRANCH"
+                            name="CREDIT_FACILITY_OTHER_BRANCH">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item nz-col nzSpan="11">
+                    <nz-form-label nzNoColon>Facility</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_FACILITY"
+                            name="CREDIT_FACILITY_OTHER_FACILITY">
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item nz-col nzSpan="2"></nz-form-item>
+
+                <nz-form-item nz-col nzSpan="11">
+                    <nz-form-label nzNoColon>Account Number</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_AC_NO"
+                            name="CREDIT_FACILITY_OTHER_AC_NO">
+                    </nz-form-control>
+                </nz-form-item>
+
+
+                <nz-form-item nz-col nzSpan="11">
+                    <nz-form-label nzNoColon>Amount</nz-form-label>
+                    <nz-form-control>
+                        <!-- <inputNumber [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_AMOUNT"
+                        name="CREDIT_FACILITY_OTHER_AMOUNT"></input-number> -->
+                        <input  nz-input type="number" [(ngModel)]="depositInfo.CREDIT_FACILITY_OTHER_AMOUNT"
+                            name="CREDIT_FACILITY_OTHER_AMOUNT">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
 
         <!-- <div class="box">
             <nz-divider nzText="TDS Preference"></nz-divider>

@@ -25,11 +25,20 @@
     <div nz-row class="content-box">
         <nz-form-item nz-col nzSpan="24">
             <nz-form-control>
-                <nz-radio-group [(ngModel)]="propertyInfo.HOUSE_DETAIL">
+
+                <nz-select [(ngModel)]="propertyInfo.HOUSE_DETAIL">
+                    <nz-option [nzValue]="'A'" nzLabel="Rented"></nz-option>
+                    <nz-option [nzValue]="'B'" nzLabel="Own"></nz-option>
+                    <nz-option [nzValue]="'C'" nzLabel="Company"></nz-option>
+                    <nz-option [nzValue]="'D'" nzLabel="Ancestral"></nz-option>
+
+                </nz-select>
+                <!-- <nz-radio-group [(ngModel)]="propertyInfo.HOUSE_DETAIL">
+
                     <label nz-radio [nzValue]="'A'">Owned</label>
                     <label nz-radio [nzValue]="'B'">Rented</label>
                     <label nz-radio [nzValue]="'C'">Occupied</label>
-                </nz-radio-group>
+                </nz-radio-group> -->
             </nz-form-control>
         </nz-form-item>
     </div>

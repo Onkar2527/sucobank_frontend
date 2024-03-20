@@ -149,4 +149,16 @@ export class BasicInfo {
     // }
 
 
+    JOINT_APP_1_TITLE: string = '';
+    JOINT_APP_1_F_NAME: string = '';
+    JOINT_APP_1_M_NAME: string = '';
+    JOINT_APP_1_L_NAME: string = '';
+    JOINT_APP_2_TITLE: string = '';
+    JOINT_APP_2_F_NAME: string = '';
+    JOINT_APP_2_M_NAME: string = '';
+    JOINT_APP_2_L_NAME: string = '';
+    NAREGA_JOB_CARD:string='';
+    OTHER_DOC_NUMBER:string='';
+    ID_NUMBER:string='';
+    
 }

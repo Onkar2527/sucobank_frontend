@@ -12,16 +12,16 @@ export class PersonalInfo {
 
     CURRENT_ADDRESS: string = '';
     CURRENT_CITY: any
-    CURRENT_TALUKA:any
+    CURRENT_TALUKA: any
     CURRENT_DISTRICT: any
-    CURRENT_LANDMARK:string = '';
+    CURRENT_LANDMARK: string = '';
     CURRENT_STATE: any
     CURRENT_PINCODE: string = '';
 
     PERMANENT_ADDRESS: string = '';
     PERMANENT_CITY: any;
     PERMANENT_TALUKA: any;
-    PERMANENT_DISTRICT:any;
+    PERMANENT_DISTRICT: any;
     PERMANENT_LANDMARK: string = '';
     PERMANENT_STATE: any;
     PERMANENT_PINCODE: string = '';
@@ -84,7 +84,7 @@ export class PersonalInfo {
     DATE_OF_BIRTH: string = '';
     GENDER: "M" | "F" | "T" = "M";
 
-   
+
     IS_DOB_MISMATCH: boolean = false;
     IS_VERNACULAR: boolean = false;
 
@@ -109,26 +109,64 @@ export class PersonalInfo {
     DRIVING_LICENSE_NO: string = '';
     VOTER_ID: string = '';
     PASSPORT_NO: string = '';
-    
+
 
     OVD_DOC: string = '';
-    OVD_DOC_NO:string = '';
+    OVD_DOC_NO: string = '';
 
     IS_CURRENT_ADDRESS_ON_OVD: boolean = false;
     ADDRESS_DOCUMENT: string = '';
     ADDRESS_DOCUMENT_NUMBER: string = '';
 
-    PERMANENT_ADDRESS_PROOF:string = '';
-    CURRUNT_ADDRESS_PROOF:string = '';
+    PERMANENT_ADDRESS_PROOF: string = '';
+    CURRUNT_ADDRESS_PROOF: string = '';
 
-    CONSTITUTION:string = '';
+    CONSTITUTION: string = '';
 
-    ID_PROOF:string = '';
-    ID_PROOF_NUMBER:string = '';
-    CURRENT_ADDRESS_PROOF_NUMBER:string = '';
-    PERMANENT_ADDRESS_PROOF_NUMBER:string = '';
-    CURRENT_AREA:any;
-    PERMANENT_AREA:any;
-    FATHER_OR_SPOUSE:string = 'F';
+    ID_PROOF: string = '';
+    ID_PROOF_NUMBER: string = '';
+    CURRENT_ADDRESS_PROOF_NUMBER: string = '';
+    PERMANENT_ADDRESS_PROOF_NUMBER: string = '';
+    CURRENT_AREA: any;
+    PERMANENT_AREA: any;
+    FATHER_OR_SPOUSE: string = 'F';
+
+
+    APPLICANT_MAIDEN_TITLE: string = '';
+
+    APPLICANT_MAIDEN_F_NAME: string = '';
+    APPLICANT_MAIDEN_L_NAME: string = '';
+    APPLICANT_MAIDEN_M_NAME: string = '';
+
+    // age:string='';
+
+
+    RESIDENTIAL_STATUS: string = '';
+
+    COUNTRY_CODE_RESIDENCY: string = '';
+    TAX_ID_NUMBER: string = '';
+    BIRTH_PLACE: string = '';
+    COUNTRY_CODE_BIRTH: string = '';
+    BUSINESS_ADDRESS: string = '';
+    BUSINESS_LANDMARK: string = '';
+    BUSINESS_AREA: string = '';
+    BUSINESS_STATE: string = '';
+    BUSINESS_DISTRICT: string = '';
+    BUSINESS_TALUKA: string = '';
+    BUSINESS_CITY: string = '';
+    BUSINESS_PINCODE: string = '';
+    BUSINESS_ADDRESS_PROOF: string = '';
+
+    ANNIVERSARY_DATE: string = '';
+    IS_FATHER_OR_SPOUSE: string = '';
+    F_OR_S_OCCUPATION: string = '';
+    F_OR_S_DEPENDENTS: string = '';
+
+
+
+    EMPLOYER_FIRM_NAME: string = '';
+    EMPLOYER_FIRM_ADDRESS: string = '';
+    YEARS_OF_SERVICES: string = '';
+    GUARDIAN_ADDRESS: string = '';
 
 }

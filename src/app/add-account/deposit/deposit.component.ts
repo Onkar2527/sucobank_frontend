@@ -21,7 +21,7 @@ export class DepositComponent implements OnInit {
     { field: 'ACCOUNT_TYPE', message: 'Account Type' },
     { field: 'ACCOUNT_OPERATION', message: 'Account Operation' },
     { field: 'INITIAL_AMOUNT', message: 'Initial Amount' },
-    { field: 'PAYMENT_INSTRUCTION', message: 'Payment Instruction' }
+    // { field: 'PAYMENT_INSTRUCTION', message: 'Payment Instruction' }
   ]
 
   mendetory_saving = [

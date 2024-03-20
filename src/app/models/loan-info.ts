@@ -29,4 +29,9 @@ export class LoanInfo {
     IS_TOUR_LOAN_REQUIRED: boolean = false;
     IS_EDUCATION_LOAN_REQUIRED: boolean = false;
 
+    NO_OF_SHARES?:number;
+    CATEGORY : "A" | "B" | "C" | "D" = "A" ;
+    IS_MEMBER_OTHER : boolean = false;
+    LOAN_AMOUNT ?:number;
+
 }
