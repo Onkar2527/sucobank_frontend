@@ -433,9 +433,9 @@ export class ProposalComponent implements OnInit {
   }
 
   mendetoryDocs = [
-    "Applicant ID Proof",
-    "Applicant Address Proof",
-    "Applicant Photo"
+    "Aadhaar",
+    "PAN",
+    
   ]
 
   saveANext() {

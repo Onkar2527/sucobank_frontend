@@ -29,7 +29,7 @@ export class ApplicantTabsComponent implements OnInit {
     { title: 'Personal Information', disabled: false },
     { title: 'Financial Information', disabled: true },
     { title: 'Property Information', disabled: true },
-    // { title: 'Loan Information', disabled: true },
+    { title: 'Loan Information', disabled: true },
     // { title: 'Account In Other Banks', disabled: true },
 
   ]

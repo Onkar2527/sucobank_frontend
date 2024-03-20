@@ -15,8 +15,8 @@
       <td>{{ data.FIRST_NAME }} {{data.MIDDLE_NAME}} {{ data.LAST_NAME }}</td>
       <td>
         <input [hiddenInput]="true" mask="XXXX XXXX 0000"
-        style="border :none !important;font-weight: bold;text-align: center;" disabled
-        [ngModel]="data.AADHAAR_NUMBER">
+          style="border :none !important;font-weight: bold;text-align: center;" disabled
+          [ngModel]="data.AADHAAR_NUMBER">
       </td>
       <td>{{ data.MOBILE_NUMBER }}</td>
     </tr>
@@ -26,24 +26,22 @@
 
 
 <ng-template #applicantTamplate>
-    <app-applicant-tabs [personalInfo]="personalInfo"></app-applicant-tabs>
+  <app-applicant-tabs [personalInfo]="personalInfo"></app-applicant-tabs>
 </ng-template>
 
 <ng-template #footertpl>
   <div style="float: right">
-    <button nz-button style="margin-right: 8px;" *ngIf="showPreviousButton" (click)="previous()" >Previous</button>
+    <button nz-button style="margin-right: 8px;" *ngIf="showPreviousButton" (click)="previous()">Previous</button>
     <button nz-button nzType="primary" (click)="save()" [nzLoading]="saveButtonLoading">{{saveButtonTitle}}</button>
   </div>
 </ng-template>
 
 <ng-template #noActionTamplate>
   <div style="float:right">
-    <button nz-button style="margin-right: 8px;" *ngIf="showPreviousButton" (click)="previous()" >Previous</button>
+    <button nz-button style="margin-right: 8px;" *ngIf="showPreviousButton" (click)="previous()">Previous</button>
     <button nz-button nzType="primary" (click)="next()" [nzLoading]="saveButtonLoading">
-      <span *ngIf="tabComp.selectedTab != 2">Next</span>
-      <span *ngIf="tabComp.selectedTab == 2">Close</span>
+      <span *ngIf="tabComp.selectedTab != 3">Next</span>
+      <span *ngIf="tabComp.selectedTab == 3">Close</span>
     </button>
   </div>
 </ng-template>
-
-
