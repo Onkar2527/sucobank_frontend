@@ -189,20 +189,21 @@
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">ISO 3166 Country Code of Jurisdiction of Residence</div>
-      <div nz-col nzSpan="12">{{ApplicantPersonal[0].COUNTRY_CODE_RESIDENCY}}</div>
+      <div nz-col nzSpan="12"> <span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_RESIDENCY}}</span>
+      </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">Tax Identification Number or equivalent (If issued by jurisdiction)
       </div>
-      <div nz-col nzSpan="12">{{ApplicantPersonal[0].TAX_ID_NUMBER}}</div>
+      <div nz-col nzSpan="12"><span class="dark-data-headings">{{ApplicantPersonal[0].TAX_ID_NUMBER}}</span></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Place / City of Birth</div>
-      <div nz-col nzSpan="6">{{ApplicantPersonal[0].BIRTH_PLACE}}</div>
+      <div nz-col nzSpan="6"><span class="dark-data-headings">{{ApplicantPersonal[0].BIRTH_PLACE}}</span></div>
       <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code of Birth</div>
-      <div nz-col nzSpan="4">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</div>
+      <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</span></div>
     </div>
 
     <div nz-row class="heading">
@@ -226,37 +227,37 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ B- Voter ID Card </div>
-      <div nz-col nzSpan="18">{{basicInfo.VOTER_ID_1}}</div>
+      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.VOTER_ID_1}}</span></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ C- PAN Card </div>
-      <div nz-col nzSpan="18">{{basicInfo.PAN_NUMBER}}</div>
+      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.PAN_NUMBER}}</span></div>
     </div>
 
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ D- Driving Licence </div>
-      <div nz-col nzSpan="6">{{basicInfo.LICENSE_NO_1}}</div>
+      <div nz-col nzSpan="6"><span class="dark-data-headings">{{basicInfo.LICENSE_NO_1}}</span></div>
       <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
       <div nz-col nzSpan="6"></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
-      <div nz-col nzSpan="18">{{basicInfo.AADHAAR_NO_1}}</div>
+      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.AADHAAR_NO_1}}</span></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ F- NREGA Job Card </div>
-      <div nz-col nzSpan="18">{{basicInfo.NAREGA_JOB_CARD}}</div>
+      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.NAREGA_JOB_CARD}}</span></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">☐ Z- Others (any document notified by the central government) </div>
-      <div nz-col nzSpan="3">{{basicInfo.OTHER_DOC_NUMBER}}</div>
+      <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.OTHER_DOC_NUMBER}}</span></div>
       <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
-      <div nz-col nzSpan="3">{{basicInfo.ID_NUMBER}}</div>
+      <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.ID_NUMBER}}</span></div>
     </div>
 
     <div nz-row class="heading">
@@ -277,8 +278,9 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Address Type</div>
-      <div nz-col nzSpan="18">☐ Residential/Business &nbsp;&nbsp;&nbsp; ☐ Residential &nbsp;&nbsp;&nbsp; ☐ Business
-        &nbsp;&nbsp;&nbsp; ☐ Registered Office &nbsp;&nbsp;&nbsp; ☐ Unspecified &nbsp;&nbsp;&nbsp; </div>
+      <div nz-col nzSpan="18"><span>☐ Residential/Business &nbsp;&nbsp;&nbsp; ☐ Residential &nbsp;&nbsp;&nbsp; ☐
+          Business
+          &nbsp;&nbsp;&nbsp; ☐ Registered Office &nbsp;&nbsp;&nbsp; ☐ Unspecified &nbsp;&nbsp;&nbsp;</span> </div>
     </div>
 
     <div nz-row>
@@ -382,6 +384,7 @@
 
 
   </div>
+  <!-- page-2 -->
 
   <div class="page page_second margindata" id="page=6" style="font-size: 11px;">
 
@@ -438,18 +441,18 @@
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">Tel. (Off. )</div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="6" class="dark-data-headings"></div>
       <div nz-col nzSpan="2" class="data-heading">Tel. (Res.)</div>
-      <div nz-col nzSpan="6">{{ApplicantPersonal[0].MOBILE_NUMBER_2}}</div>
+      <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER_2}}</div>
       <div nz-col nzSpan="2" class="data-heading">Mobile</div>
-      <div nz-col nzSpan="6">{{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
+      <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">FAX </div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="6" class="dark-data-headings"></div>
       <div nz-col nzSpan="2" class="data-heading"> Email ID</div>
-      <div nz-col nzSpan="14">{{ApplicantPersonal[0].EMAIL_ID}}</div>
+      <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMAIL_ID}}</div>
     </div>
 
     <div nz-row class="margin heading">
@@ -558,7 +561,8 @@
       </div>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Specify if others</div>
       <div nz-col nzSpan="3">
-        <span *ngIf="ApplicantPersonal[0].RELIGION == 'G'">{{ApplicantPersonal[0].OTHER_RELIGION}}</span>
+        <span *ngIf="ApplicantPersonal[0].RELIGION == 'G'"
+          class="dark-data-headings">{{ApplicantPersonal[0].OTHER_RELIGION}}</span>
       </div>
     </div>
     <div class="dashed-border"></div>
@@ -667,11 +671,11 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employment Details :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
 
-        Public Sector {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "A"? "☑" : "☐"}} &nbsp;&nbsp;
-        Private Sector {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "B"? "☑" : "☐"}} &nbsp;&nbsp;
-        Government {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "C"? "☑" : "☐"}} &nbsp;&nbsp;
-        Multinational {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "D"? "☑" : "☐"}} &nbsp;&nbsp;
-        Self Employed {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "E"? "☑" : "☐"}} &nbsp;&nbsp;
+        Public Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "A"? "☑" : "☐"}} &nbsp;&nbsp;
+        Private Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "B"? "☑" : "☐"}} &nbsp;&nbsp;
+        Government {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "C"? "☑" : "☐"}} &nbsp;&nbsp;
+        Multinational {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+        Self Employed {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "E"? "☑" : "☐"}} &nbsp;&nbsp;
       </div>
     </div>
 
@@ -680,14 +684,14 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
-      <div nz-col nzSpan="14">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
+      <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
       <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
-      <div nz-col nzSpan="2">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
+      <div nz-col nzSpan="2" class="dark-data-headings">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
-      <div nz-col nzSpan="20">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
+      <div nz-col nzSpan="20" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
     </div>
 
     <div nz-row>
@@ -835,21 +839,21 @@
 
       <div nz-col nzSpan="11">Date</div>
       <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"> Name <span>SUCO SOU SAHAKARI BANK</span></div>
+      <div nz-col nzSpan="11"> Name <span class="dark-data-headings">SUCO SOU SAHAKARI BANK</span></div>
 
-      <div nz-col nzSpan="11">Emp.Name <span>{{makerUserData.NAME}}</span></div>
+      <div nz-col nzSpan="11">Emp.Name <span class="dark-data-headings">{{makerUserData.NAME}}</span></div>
       <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11">code <span>IN1299</span></div>
+      <div nz-col nzSpan="11">code <span class="dark-data-headings">IN1299</span></div>
 
-      <div nz-col nzSpan="11">Emp.Code <span>{{basicInfo.MAKER_USER_ID }}</span></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"></div>
-
-      <div nz-col nzSpan="11">Emp.Designation <span>BA</span></div>
+      <div nz-col nzSpan="11">Emp.Code <span class="dark-data-headings">{{basicInfo.MAKER_USER_ID }}</span></div>
       <div nz-col nzSpan="2"></div>
       <div nz-col nzSpan="11"></div>
 
-      <div nz-col nzSpan="11">Emp.Branch <span>{{branchData.BRANCH_NAME}}</span></div>
+      <div nz-col nzSpan="11">Emp.Designation <span class="dark-data-headings">BA</span></div>
+      <div nz-col nzSpan="2"></div>
+      <div nz-col nzSpan="11"></div>
+
+      <div nz-col nzSpan="11">Emp.Branch <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
       <div nz-col nzSpan="2"></div>
       <div nz-col nzSpan="11"></div>
 
@@ -880,17 +884,18 @@
 
     <div nz-row class="margin">
       <div nz-col nzSpan="2" class="data-heading">Branch:</div>
-      <div nz-col nzSpan="14" class="data">{{branchData.BRANCH_NAME}}</div>
+      <div nz-col nzSpan="14" class="data"><span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
       <div nz-col nzSpan="2" class="data-heading">Date:</div>
-      <div nz-col nzSpan="4" class="data">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+      <div nz-col nzSpan="4" class="data"> <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE |
+          date:"dd/MM/yyyy"}}</span>
       </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="3" class="data-heading">Customer ID:</div>
-      <div nz-col nzSpan="7" class="data">{{basicInfo.CUSTOMER_ID_1}}</div>
+      <div nz-col nzSpan="7" class="data dark-data-headings">{{basicInfo.CUSTOMER_ID_1}}</div>
       <div nz-col nzSpan="3" class="data-heading"> Account No:</div>
-      <div nz-col nzSpan="11" class="data">{{basicInfo['ACCOUNT_NUMBER']}}</div>
+      <div nz-col nzSpan="11" class="data dark-data-headings">{{basicInfo['ACCOUNT_NUMBER']}}</div>
     </div>
 
     <div nz-row class="heading margin">
@@ -928,24 +933,26 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="6"></div>
       <div nz-col nzSpan="6" class="data-heading">Other (Please Specify)</div>
-      <div nz-col nzSpan="12"><span *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'">{{depositInfo.OTHER_ACCOUNT_OP}}</span>
+      <div nz-col nzSpan="12"><span *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'"
+          class="dark-data-headings">{{depositInfo.OTHER_ACCOUNT_OP}}</span>
       </div>
     </div>
 
     <div class="dashed-border"></div>
 
     <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">1St Applicant's Name:</div>
-      <div nz-col nzSpan="18" class="data">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+      <div nz-col nzSpan="10" class="data-heading">1St Applicant's Name:</div>
+      <div nz-col nzSpan="14" class="data dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
         {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
-        {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</div>
+        {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+      </div>
     </div>
 
 
 
     <div nz-row class="margin">
       <div nz-col nzSpan="10" class="data-heading">2nd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14">
+      <div nz-col nzSpan="14" class="dark-data-headings">
         {{basicInfo.JOINT_APP_1_F_NAME}}
         {{basicInfo.JOINT_APP_1_M_NAME}}
         {{basicInfo.JOINT_APP_1_L_NAME}}
@@ -955,7 +962,7 @@
 
     <div nz-row class="margin">
       <div nz-col nzSpan="10" class="data-heading">3rd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14">
+      <div nz-col nzSpan="14" class="dark-data-headings">
         {{basicInfo.JOINT_APP_2_F_NAME}}
         {{basicInfo.JOINT_APP_2_M_NAME}}
         {{basicInfo.JOINT_APP_2_L_NAME}}
@@ -1011,9 +1018,9 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="3"></div>
       <div nz-col nzSpan="4" class="data-heading">Amount of Deposit</div>
-      <div nz-col nzSpan="4">{{depositInfo.DEPOSIT_AMOUNT}}</div>
+      <div nz-col nzSpan="4" class="dark-data-headings">{{depositInfo.DEPOSIT_AMOUNT}}</div>
       <div nz-col nzSpan="4" class="data-heading">Duration</div>
-      <div nz-col nzSpan="4" class="data">
+      <div nz-col nzSpan="4" class="data dark-data-headings">
         {{depositInfo.TANURE_YEARS}} {{depositInfo.TANURE_MONTHS}} {{depositInfo.TANURE_DAYS}}
       </div>
       <div nz-col nzSpan="5" class="data-heading">Rate of Interest <span>{{depositInfo.RATE_OF_INTEREST}}</span></div>
@@ -1147,7 +1154,7 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="4" class="data-heading">Guardian's Address</div>
       <div nz-col nzSpan="20">
-        <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
+        <span *ngIf="ApplicantPersonal[0].IS_MINOR" class="dark-data-headings">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
       </div>
     </div>
 
@@ -1474,7 +1481,7 @@
               SUCO SOUHARDA SAHAKARI BANK LTD..
             </div>
             <div nz-col nzSpan="24" style="margin-top:60px;">
-              {{branchData.BRANCH_NAME}} Branch
+              <span class="dark-data-headings"> {{branchData.BRANCH_NAME}}</span> Branch
             </div>
           </div>
         </div>
@@ -1518,7 +1525,7 @@
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
           Name&Age:&nbsp;
-          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
+          <span class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}} </span>
         </div>
       </div>
       <div nz-row>
@@ -1527,8 +1534,10 @@
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
           Name of Father/Husband:&nbsp; &nbsp;
+          <span class="dark-data-headings">
           {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
           {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+          </span>
         </div>
       </div>
       <div nz-row>
@@ -1536,7 +1545,8 @@
           3.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Category <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].CATEGORY}}</span>
+          Category <span *ngIf="ApplicantLoanInfo.length > 0"
+            class="dark-data-headings">{{ApplicantLoanInfo[0].CATEGORY}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1544,7 +1554,7 @@
           4.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name of the Nominee:&nbsp; &nbsp; {{nominationInfo.NOMINEE_NAME}}
+          Name of the Nominee:&nbsp; &nbsp; <span class="dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1561,12 +1571,13 @@
           A)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Residential Address:&nbsp; &nbsp;{{
-          ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-          ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-          {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_PINCODE}}
+          Residential Address:&nbsp; &nbsp; <span class="dark-data-headings">{{
+            ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+            ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+            {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+            {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+            ApplicantPersonal[0].CURRENT_PINCODE}}
+          </span>
         </div>
       </div>
       <div nz-row>
@@ -1574,12 +1585,13 @@
           B)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Business/Professional Address:&nbsp; &nbsp;{{
-          ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
-          ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
-          {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
-          {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
-          ApplicantPersonal[0].BUSINESS_PINCODE}}
+          Business/Professional Address:&nbsp; &nbsp; <span class="dark-data-headings">{{
+            ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
+            ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
+            {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
+            {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
+            ApplicantPersonal[0].BUSINESS_PINCODE}}
+          </span>
         </div>
       </div>
       <div nz-row>
@@ -1587,7 +1599,7 @@
           6.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Membership of other Souharda Sahakari Society/Bank,if any: <span
+          Membership of other Souharda Sahakari Society/Bank,if any: <span class="dark-data-headings"
             *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].IS_MEMBER_OTHER ? "Yes" : "No"}}</span>
         </div>
       </div>
@@ -1600,7 +1612,7 @@
       </div>
       <div nz-row>
         <div nz-col nzSpan="19" style="margin-top:20px;">
-          Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+          Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
         </div>
         <div nz-col nzSpan="5" style="margin-top:20px;">
           Signature
@@ -1612,7 +1624,8 @@
         </div>
         <div nz-col nzSpan="8" style="margin-top:20px;">
           (Name:&nbsp;
-          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}})
+          <span
+            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>)
         </div>
       </div>
     </div>
@@ -1648,7 +1661,8 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;">
-          From:&nbsp;{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+          From:&nbsp; <span
+            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
         </div>
         <div nz-col nzSpan="3">
         </div>
@@ -1658,7 +1672,7 @@
       </div>
       <div nz-row>
         <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11" style="margin-top:10px;">
+        <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
           {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
           ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
           {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
@@ -1680,7 +1694,7 @@
         <div nz-col nzSpan="3">
         </div>
         <div nz-col nzSpan="9">
-          Branch: {{branchData.BRANCH_NAME}}
+          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1787,13 +1801,14 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
-          Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+          Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}</span>
         </div>
         <div nz-col nzSpan="3">
         </div>
         <div nz-col nzSpan="9" style="margin-top:10px;font-weight: bold">
           BORROWER:&nbsp;
-          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+          <span
+            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1890,14 +1905,15 @@
       <div nz-col nzSpan="6">
       </div>
       <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
-        Rs. <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span>
+        Rs. <span *ngIf="ApplicantLoanInfo.length > 0"
+          class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span>
       </div>
     </div>
     <div nz-row>
       <div nz-col nzSpan="1">
       </div>
       <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
-        Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
       </div>
     </div>
     <div nz-row>
@@ -1905,15 +1921,20 @@
       </div>
       <div nz-col nzSpan="21" style="margin-top: 10px;">
         On demand I, &nbsp;
-        {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-        {{ ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-        ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-        {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-        {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_PINCODE}}do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
+        <span class="dark-data-headings">
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+          {{ ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+          ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+          {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_PINCODE}}
+        </span>
+        do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
         Ballari or order the sum of Rs
-        <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span> (Rupees <span
-          *ngIf="ApplicantLoanInfo.length > 0">{{toWords.convert(ApplicantLoanInfo[0].LOAN_AMOUNT ?
+        <span *ngIf="ApplicantLoanInfo.length > 0"
+          class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span> (Rupees <span
+          *ngIf="ApplicantLoanInfo.length > 0"
+          class="dark-data-headings">{{toWords.convert(ApplicantLoanInfo[0].LOAN_AMOUNT ?
           ApplicantLoanInfo[0].LOAN_AMOUNT : 0)}}</span> only)
         together
         with interest at 12% per annum at yearly rests and collected in advance for one year period at the time of
@@ -1956,7 +1977,9 @@
     <div nz-row>
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="margin-top:10px;">
-        From:&nbsp;{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        From:&nbsp; <span
+          class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </span>
       </div>
       <div nz-col nzSpan="3">
       </div>
@@ -1966,7 +1989,7 @@
     </div>
     <div nz-row>
       <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="margin-top:10px;">
+      <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
         {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
         ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
         {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
@@ -1982,7 +2005,7 @@
     </div>
     <div nz-row>
       <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11">
+      <div nz-col nzSpan="11" class="dark-data-headings">
 
         {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
         ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
@@ -1993,7 +2016,7 @@
       <div nz-col nzSpan="3">
       </div>
       <div nz-col nzSpan="9">
-        Branch:{{branchData.BRANCH_NAME}}
+        Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}} </span>
       </div>
     </div>
     <div nz-row>
@@ -2020,7 +2043,7 @@
     <div nz-row>
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
-        Date:{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
       </div>
       <div nz-col nzSpan="6">
       </div>
