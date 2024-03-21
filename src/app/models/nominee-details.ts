@@ -12,4 +12,7 @@ export class NomineeDetails {
 
     APONITED_NAME: string = ''
     APONITED_ADDRESS: string = ''
+
+    NOMINEE_CUSTOMER_ID :string ='';
+    APOINTED_PERSON_AGE?:number;
 }
