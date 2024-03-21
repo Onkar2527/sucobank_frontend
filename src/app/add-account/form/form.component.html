@@ -1428,10 +1428,11 @@
           A)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Residential Address:&nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
-          {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
+          Residential Address:&nbsp; &nbsp;{{
+          ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+          ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+          {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
           ApplicantPersonal[0].CURRENT_PINCODE}}
         </div>
       </div>
