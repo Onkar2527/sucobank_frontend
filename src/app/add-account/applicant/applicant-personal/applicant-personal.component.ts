@@ -39,6 +39,7 @@ export class ApplicantPersonalComponent implements OnInit {
     { id: 19, data: <any>[], name: "constitution" },
     { id: 8, data: <any>[], name: "religion" },
     { id: 9, data: <any>[], name: "caste" },
+    { id: 2, data: <any>[], name: "title" }
   ]
 
 
@@ -100,30 +101,31 @@ export class ApplicantPersonalComponent implements OnInit {
 
     { field: 'EMAIL_ID', message: "Email ID" },
 
-    { field: 'RELIGION', message: "Religion" },
+    // { field: 'RELIGION', message: "Religion" },
 
-    { field: 'CASTE', message: "Caste" },
+    // { field: 'CASTE', message: "Caste" },
 
-    { field: 'ID_PROOF', message: "Identity Proof" },
+    // { field: 'ID_PROOF', message: "Identity Proof" },
 
-    { field: 'ID_PROOF_NUMBER', message: "Identity Proof Number" },
+    // { field: 'ID_PROOF_NUMBER', message: "Identity Proof Number" },
 
-    { field: 'PERMANENT_ADDRESS_PROOF_NUMBER', message: "Permanent Address Proof Number" },
+    // { field: 'PERMANENT_ADDRESS_PROOF_NUMBER', message: "Permanent Address Proof Number" },
 
-    { field: 'PERMANENT_AREA', message: "Permanent Area" },
+    // { field: 'PERMANENT_AREA', message: "Permanent Area" },
 
-    { field: 'CURRENT_AREA', message: "Current Area" },
+    // { field: 'CURRENT_AREA', message: "Current Area" },
 
-    { field: 'CONSTITUTION', message: "Constitution" }
+    // { field: 'CONSTITUTION', message: "Constitution" }
 
   ]
 
   mendetory_religion = [
-    { field: 'OTHER_RELIGION', message: "Other Religion" }
+    // { field: 'OTHER_RELIGION', message: "Other Religion" }
   ]
 
   mendentory_cast = [
-    { field: 'OTHER_CASTE', message: "Other Caste" }
+    // { field: 'OTHER_CASTE', message: "Other Caste" }
+    
   ]
 
   mendentory_minor = [
@@ -136,6 +138,10 @@ export class ApplicantPersonalComponent implements OnInit {
     {
       label: 'Indian',
       value: 'A'
+    },
+    {
+      label: 'Other',
+      value: 'B'
     }
   ]
 
@@ -416,23 +422,23 @@ export class ApplicantPersonalComponent implements OnInit {
       }
     }
 
-    if (this.personalInfo.RELIGION == 'G') {
-      for (let field of this.mendetory_religion) {
-        if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-          this.message.error(`${field.message} is Mandetory`, '');
-          isOk = false;
-        }
-      }
-    }
+    // if (this.personalInfo.RELIGION == 'G') {
+    //   for (let field of this.mendetory_religion) {
+    //     if (!this.personalInfo[field.field as keyof PersonalInfo]) {
+    //       this.message.error(`${field.message} is Mandetory`, '');
+    //       isOk = false;
+    //     }
+    //   }
+    // }
 
-    if (this.personalInfo.CASTE == 'G') {
-      for (let field of this.mendentory_cast) {
-        if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-          this.message.error(`${field.message} is Mandetory`, '');
-          isOk = false;
-        }
-      }
-    }
+    // if (this.personalInfo.CASTE == 'G') {
+    //   for (let field of this.mendentory_cast) {
+    //     if (!this.personalInfo[field.field as keyof PersonalInfo]) {
+    //       this.message.error(`${field.message} is Mandetory`, '');
+    //       isOk = false;
+    //     }
+    //   }
+    // }
 
     if (this.personalInfo.IS_MINOR) {
       for (let field of this.mendentory_minor) {

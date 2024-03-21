@@ -77,15 +77,16 @@
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ Name (Same as ID proof)</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}} {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
+        {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
       </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Maiden Name (If any)</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{ApplicantPersonal[0].LAST_NAME}} {{ApplicantPersonal[0].FIRST_NAME}}
-        {{ApplicantPersonal[0].MIDDLE_NAME}} </div>
+        {{ApplicantPersonal[0].APPLICANT_MAIDEN_F_NAME}} {{ApplicantPersonal[0].APPLICANT_MAIDEN_M_NAME}}
+        {{ApplicantPersonal[0].APPLICANT_MAIDEN_L_NAME}} </div>
     </div>
 
     <div nz-row>
@@ -114,7 +115,9 @@
       <div nz-col nzSpan="18" class="data-heading">
         <!-- {{gender[ApplicantPersonal[0].GENDER]}} -->
 
-        ☐ M-Male &nbsp;&nbsp;&nbsp; ☐ F-Female &nbsp;&nbsp;&nbsp; ☐ T-Transgender &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].GENDER == "M"? "☑" : "☐"}} M-Male &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER ==
+        "F"? "☑" : "☐"}} F-Female &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER == "T"? "☑" : "☐"}} T-Transgender
+        &nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
@@ -123,34 +126,52 @@
       <div nz-col nzSpan="6" class="data-heading">Marital Status</div>
       <div nz-col nzSpan="18" class="data-heading">
         <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ? 'Married' : 'Unmarried'}} -->
-        ☐ Married &nbsp;&nbsp;&nbsp; ☐ Unmarried &nbsp;&nbsp;&nbsp; ☐ Others &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} Married &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} Unmarried &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].MARITAL_STATUS == "O"? "☑" : "☐"}} Others &nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Citizenship (Nationality)</div>
       <div nz-col nzSpan="18">
-        ☐ IN-Indian &nbsp;&nbsp;&nbsp; ☐ Other(ISO 3166 Country Code ) &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].NATIONALITY == "A"? "☑" : "☐"}} IN-Indian &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].NATIONALITY == "B"? "☑" : "☐"}} Other(ISO 3166 Country Code ) &nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Residential Status</div>
       <div nz-col nzSpan="18">
-        ☐ Resident Individual &nbsp;&nbsp;&nbsp; ☐ Non Resident Indian &nbsp;&nbsp;&nbsp;<br>
-        ☐ Foreign National &nbsp;&nbsp;&nbsp; ☐ Person of Indian Origin &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "A"? "☑" : "☐"}} Resident Individual &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "B"? "☑" : "☐"}} Non Resident Indian &nbsp;&nbsp;&nbsp;<br>
+        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "C"? "☑" : "☐"}} Foreign National &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "D"? "☑" : "☐"}} Person of Indian Origin &nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Occupation Type</div>
       <div nz-col nzSpan="18">
-        ☐ S-Service &nbsp;&nbsp;&nbsp;( ☐ Private Sector &nbsp;&nbsp;&nbsp; ☐ Public Sector &nbsp;&nbsp;&nbsp; ☐
-        Government sector &nbsp;&nbsp;&nbsp;)<br>
-        ☐ O-Others &nbsp;&nbsp;&nbsp;( ☐ Professional &nbsp;&nbsp;&nbsp; ☐ Self Employed &nbsp;&nbsp;&nbsp; ☐ retired
-        &nbsp;&nbsp;&nbsp; ☐ Housewife &nbsp;&nbsp;&nbsp; ☐ Student &nbsp;&nbsp;&nbsp;)<br>
-        ☐ B-Business &nbsp;&nbsp;&nbsp;<br>
-        ☐ X-Not Categorised &nbsp;&nbsp;&nbsp;
+        {{(ApplicantPersonal[0].PROFESSION == "A" || ApplicantPersonal[0].PROFESSION == "B" ||
+        ApplicantPersonal[0].PROFESSION == "C") ? "☑" : "☐"}}
+        S-Service &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "A"? "☑" : "☐"}} Private &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PROFESSION == "B"? "☑" : "☐"}} Public &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PROFESSION == "C"? "☑" : "☐"}}
+        Government &nbsp;&nbsp;&nbsp;)<br>
+
+        {{(ApplicantPersonal[0].PROFESSION == "D" || ApplicantPersonal[0].PROFESSION == "E" ||
+        ApplicantPersonal[0].PROFESSION == "F" ||
+        ApplicantPersonal[0].PROFESSION == "G"||
+        ApplicantPersonal[0].PROFESSION == "H") ? "☑" : "☐"}}
+
+        O-Others &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "D"? "☑" : "☐"}} Professional
+        &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "E"? "☑" : "☐"}} Self Employed &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PROFESSION == "F"? "☑" : "☐"}} retired
+        &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "G"? "☑" : "☐"}} Housewife &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PROFESSION == "H"? "☑" : "☐"}} Student &nbsp;&nbsp;&nbsp;)<br>
+        {{ApplicantPersonal[0].PROFESSION == "I"? "☑" : "☐"}} B-Business &nbsp;&nbsp;&nbsp;<br>
+        {{ApplicantPersonal[0].PROFESSION == "J"? "☑" : "☐"}} X-Not Categorised &nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
@@ -168,20 +189,20 @@
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">ISO 3166 Country Code of Jurisdiction of Residence</div>
-      <div nz-col nzSpan="12"></div>
+      <div nz-col nzSpan="12">{{ApplicantPersonal[0].COUNTRY_CODE_RESIDENCY}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">Tax Identification Number or equivalent (If issued by jurisdiction)
       </div>
-      <div nz-col nzSpan="12"></div>
+      <div nz-col nzSpan="12">{{ApplicantPersonal[0].TAX_ID_NUMBER}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Place / City of Birth</div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="6">{{ApplicantPersonal[0].BIRTH_PLACE}}</div>
       <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code of Birth</div>
-      <div nz-col nzSpan="4"></div>
+      <div nz-col nzSpan="4">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</div>
     </div>
 
     <div nz-row class="heading">
@@ -205,37 +226,37 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ B- Voter ID Card </div>
-      <div nz-col nzSpan="18"></div>
+      <div nz-col nzSpan="18">{{basicInfo.VOTER_ID_1}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ C- PAN Card </div>
-      <div nz-col nzSpan="18"></div>
+      <div nz-col nzSpan="18">{{basicInfo.PAN_NUMBER}}</div>
     </div>
 
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ D- Driving Licence </div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="6">{{basicInfo.LICENSE_NO_1}}</div>
       <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
       <div nz-col nzSpan="6"></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
-      <div nz-col nzSpan="18"></div>
+      <div nz-col nzSpan="18">{{basicInfo.AADHAAR_NO_1}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">☐ F- NREGA Job Card </div>
-      <div nz-col nzSpan="18"></div>
+      <div nz-col nzSpan="18">{{basicInfo.NAREGA_JOB_CARD}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="12" class="data-heading">☐ Z- Others (any document notified by the central government) </div>
-      <div nz-col nzSpan="3"></div>
+      <div nz-col nzSpan="3">{{basicInfo.OTHER_DOC_NUMBER}}</div>
       <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
-      <div nz-col nzSpan="3"></div>
+      <div nz-col nzSpan="3">{{basicInfo.ID_NUMBER}}</div>
     </div>
 
     <div nz-row class="heading">
@@ -263,14 +284,67 @@
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Proof of Address</div>
       <div nz-col nzSpan="18">
-        ☐ Passport &nbsp;&nbsp;&nbsp; ☐ Driving Licence &nbsp;&nbsp;&nbsp; ☐ UID(Aadhaar)<br>
-        ☐ Voter Identity Card &nbsp;&nbsp;&nbsp; ☐ NREGA Job Card &nbsp;&nbsp;&nbsp; ☐ Others
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "A"? "☑" : "☐"}} Passport &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "B"? "☑" : "☐"}} Driving Licence &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "C"? "☑" : "☐"}} UID(Aadhaar)<br>
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "D"? "☑" : "☐"}} Voter Identity Card &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "E"? "☑" : "☐"}} NREGA Job Card &nbsp;&nbsp;&nbsp;
+        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "F"? "☑" : "☐"}} Others <span
+          *ngIf="ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == 'F'">{{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF_NUMBER}}</span>
       </div>
     </div>
 
 
     <div nz-row>
       <div nz-col nzSpan="24" class="data-heading dark-data-headings">Address</div>
+    </div>
+
+
+
+
+    <div nz-row>
+      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
+      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}} </div>
+    </div>
+
+
+    <div nz-row>
+      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
+      <div nz-col nzSpan="22" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}</div>
+    </div>
+
+
+    <div nz-row>
+      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
+      <div nz-col nzSpan="10" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_AREA}}</div>
+      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
+      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_city}}
+      </div>
+    </div>
+
+
+    <div nz-row>
+      <div nz-col nzSpan="2" class="data-heading">District</div>
+      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_dist}}
+      </div>
+      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
+      <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
+      <div nz-col nzSpan="6" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
+          {{applicantPersonalMasterData.permanent_state}}</span></div>
+      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
+    </div>
+
+
+    <div nz-row>
+      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.2 CORRESPONDENCE / LOCAL ADDRESS DETAILS * (Please see
+        instruction E
+        at the end)</div>
+    </div>
+
+    <div nz-row>
+      <div nz-col nzSpan="24" class="data1"> ☐ Same as Current / Permanent / Overseas Address details (In case of
+        multiple
+        correspondence / local addresses. please fill 'Annexure A1')</div>
     </div>
 
 
@@ -288,34 +362,40 @@
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10"></div>
+      <div nz-col nzSpan="10" class="data-heading dark-data-headings">
+        {{ApplicantPersonal[0].CURRENT_AREA}}
+      </div>
       <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].CURRENT_CITY}}</div>
+      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_city}}</div>
     </div>
 
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].CURRENT_DISTRICT}}</div>
+      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_dist}}</div>
       <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
       <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
       <div nz-col nzSpan="6" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
-        {{ApplicantPersonal[0].CURRENT_STATE}}</div>
+        {{applicantPersonalMasterData.current_state}}</div>
       <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
     </div>
 
 
+  </div>
+
+  <div class="page page_second margindata" id="page=6" style="font-size: 11px;">
+
+
 
     <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.2 CORRESPONDENCE / LOCAL ADDRESS DETAILS * (Please see
-        instruction E
-        at the end)</div>
+      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.3 ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS
+        RESIDENT
+        OUTSIDE INDIA FOR TAX PURPOSES* (Applicable if section 2 is ticked)</div>
     </div>
 
     <div nz-row>
-      <div nz-col nzSpan="24" class="data1"> ☐ Same as Current / Permanent / Overseas Address details (In case of
-        multiple
-        correspondence / local addresses. please fill 'Annexure A1')</div>
+      <div nz-col nzSpan="12" class="data1"> ☐ Same as Current / Permanent / Overseas Address details </div>
+      <div nz-col nzSpan="12" class="data1"> ☐ Same as Correspondence / Local Address details</div>
     </div>
 
 
@@ -349,97 +429,6 @@
     </div>
 
 
-    <!-- <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.3 ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS RESIDENT
-        OUTSIDE INDIA FOR TAX PURPOSES* (Applicable if section 2 is ticked)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data1">  ☐ Same as Current / Permanent / Overseas Address details </div>
-      <div nz-col nzSpan="12" class="data1">  ☐ Same as Correspondence / Local Address details</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}} </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10"></div>
-      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_CITY}} </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_DISTRICT}}</div>
-      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
-      <div nz-col nzSpan="6" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
-          {{ApplicantPersonal[0].PERMANENT_STATE}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
-    </div> -->
-
-
-  </div>
-
-  <div class="page page_second margindata" id="page=6" style="font-size: 11px;">
-
-
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.3 ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS
-        RESIDENT
-        OUTSIDE INDIA FOR TAX PURPOSES* (Applicable if section 2 is ticked)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data1"> ☐ Same as Current / Permanent / Overseas Address details </div>
-      <div nz-col nzSpan="12" class="data1"> ☐ Same as Correspondence / Local Address details</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}} </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10"></div>
-      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_CITY}} </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_DISTRICT}}</div>
-      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
-      <div nz-col nzSpan="6" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
-          {{ApplicantPersonal[0].PERMANENT_STATE}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
-    </div>
-
-
     <div nz-row class="margin heading">
       <div nz-col nzSpan="24" class="data-font">5. CONTACT DETAILS <span class="new-data">(All communications will be
           sent on provided Mobile No./Email-ID)
@@ -450,17 +439,17 @@
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">Tel. (Off. )</div>
       <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="2" class="data-heading"> Tel. (Res.)</div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="2" class="data-heading">Tel. (Res.)</div>
+      <div nz-col nzSpan="6">{{ApplicantPersonal[0].MOBILE_NUMBER_2}}</div>
       <div nz-col nzSpan="2" class="data-heading">Mobile</div>
-      <div nz-col nzSpan="6"></div>
+      <div nz-col nzSpan="6">{{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">FAX </div>
       <div nz-col nzSpan="6"></div>
       <div nz-col nzSpan="2" class="data-heading"> Email ID</div>
-      <div nz-col nzSpan="14"></div>
+      <div nz-col nzSpan="14">{{ApplicantPersonal[0].EMAIL_ID}}</div>
     </div>
 
     <div nz-row class="margin heading">
@@ -545,7 +534,8 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Marital Status : </div>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">
         <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ?'Married' : 'Unmarried'}} -->
-        Single ☐ &nbsp;&nbsp; Married ☐ &nbsp;&nbsp;
+        Single {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} &nbsp;&nbsp; Married
+        {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} &nbsp;&nbsp;
       </div>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Anniversary Date:</div>
       <div nz-col nzSpan="6"></div>
@@ -557,7 +547,8 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Religion/Ethnic Origin: </div>
       <div nz-col nzSpan="9" class="data-heading dark-data-headings">
 
-        Hindu ☐ &nbsp;&nbsp; Muslim ☐ &nbsp;&nbsp; Christian ☐ &nbsp;&nbsp;
+        Hindu {{ApplicantPersonal[0].RELIGION == "A"? "☑" : "☐"}} &nbsp;&nbsp; Muslim {{ApplicantPersonal[0].RELIGION ==
+        "B"? "☑" : "☐"}} &nbsp;&nbsp; Christian {{ApplicantPersonal[0].RELIGION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
         <!-- <span *ngIf="applicant.RELIGION == 'G'">
             {{ApplicantPersonal[0].OTHER_RELIGION}}
           </span>
@@ -566,14 +557,20 @@
           </span> -->
       </div>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Specify if others</div>
-      <div nz-col nzSpan="3"></div>
+      <div nz-col nzSpan="3">
+        <span *ngIf="ApplicantPersonal[0].RELIGION == 'G'">{{ApplicantPersonal[0].OTHER_RELIGION}}</span>
+      </div>
     </div>
     <div class="dashed-border"></div>
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Caste category </div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        General/Other ☐ &nbsp;&nbsp; BC ☐ &nbsp;&nbsp; OBC ☐ &nbsp;&nbsp; SC/ST ☐ &nbsp;&nbsp;
+        General/Other {{ApplicantPersonal[0].CASTE == "A"? "☑" : "☐"}} &nbsp;&nbsp;
+        BC {{ApplicantPersonal[0].CASTE == "D"? "☑" : "☐"}} &nbsp;&nbsp; OBC
+        {{ApplicantPersonal[0].CASTE == "B"? "☑" : "☐"}} &nbsp;&nbsp;
+        SC/ST {{ApplicantPersonal[0].CASTE == "C"? "☑" : "☐"}}
+        &nbsp;&nbsp;
 
       </div>
     </div>
@@ -584,16 +581,27 @@
 
 
     <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name: </div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation:</div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children:</div>
+      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name: <span
+          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span></div>
+      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation: <span
+          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span></div>
+      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children: <span
+          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
 
     </div>
 
     <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Spouse Name: </div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Spouse Occupation:</div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents</div>
+      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Spouse Name:
+        <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span>
+      </div>
+      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Spouse Occupation:
+        <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span>
+      </div>
+
+      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents: <span
+          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
 
     </div>
 
@@ -609,8 +617,11 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Education :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
         <!-- {{education[ApplicantPersonal[0].EDUCATION]}} -->
-        Under Graduate ☐ &nbsp;&nbsp; Graduate ☐ &nbsp;&nbsp; Post Graduate ☐ &nbsp;&nbsp; Professional ☐ &nbsp;&nbsp;
-        Not Educated ☐ &nbsp;&nbsp;
+        Under Graduate {{ApplicantPersonal[0].EDUCATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;
+        Graduate {{ApplicantPersonal[0].EDUCATION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+        Post Graduate {{ApplicantPersonal[0].EDUCATION == "E"? "☑" : "☐"}} &nbsp;&nbsp;
+        Professional {{ApplicantPersonal[0].EDUCATION == "F"? "☑" : "☐"}} &nbsp;&nbsp;
+        Not Educated {{ApplicantPersonal[0].EDUCATION == "G"? "☑" : "☐"}} &nbsp;&nbsp;
       </div>
     </div>
     <div class="dashed-border"></div>
@@ -619,11 +630,21 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Occupation/Profession :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
 
-        <span class="margin">Salaried ☐ &nbsp;&nbsp;&nbsp; Business ☐ &nbsp;&nbsp;&nbsp; Self Employed ☐
-          &nbsp;&nbsp;&nbsp; Retired ☐ &nbsp;&nbsp;&nbsp; Home Maker ☐ &nbsp;&nbsp;&nbsp; Student ☐
-          &nbsp;&nbsp;&nbsp;</span><br>
-        <span class="margin">Doctor ☐ &nbsp;&nbsp;&nbsp; C.A ☐ &nbsp;&nbsp;&nbsp; Engineer ☐ &nbsp;&nbsp;&nbsp;
-          Architect ☐ &nbsp;&nbsp;&nbsp; Lawyer ☐ &nbsp;&nbsp;&nbsp; Banker ☐ &nbsp;&nbsp;&nbsp;</span>
+        <span class="margin">
+          Salaried {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Business {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Self Employed {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Retired {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "D"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Home Maker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "E"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Student {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "F"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span><br>
+
+        <span class="margin">
+          Doctor {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "G"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          C.A {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "H"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Engineer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "I"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Architect {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "J"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Lawyer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "K"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Banker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "L"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span>
 
         <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.occupation}}</span>
           <span *ngIf="i > 0"> {{profession[ApplicantPersonal[0].PROFESSION]}}</span> -->
@@ -632,10 +653,13 @@
 
     <div nz-row>
       <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings"> Consultant ☐ &nbsp;&nbsp;&nbsp; Software/IT ☐
-        &nbsp;&nbsp;&nbsp; Agriculturist ☐ &nbsp;&nbsp;&nbsp;</div>
+      <div nz-col nzSpan="12" class="data-heading dark-data-headings">
+        Consultant {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "M"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+        Software/IT {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "N"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+        Agriculturist {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "O"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</div>
       <div nz-col nzSpan="3" class="data-heading dark-data-headings">Specify Other :</div>
-      <div nz-col nzSpan="3"></div>
+      <div nz-col nzSpan="3"><span
+          *ngIf="ApplicantPersonal[0].SOURCE_OF_FUNDS == 'P'">{{ApplicantPersonal[0].NATURE_OF_BUSINESS}}</span></div>
     </div>
     <div class="dashed-border"></div>
 
@@ -643,8 +667,11 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employment Details :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
 
-        Public Sector ☐ &nbsp;&nbsp; Private Sector ☐ &nbsp;&nbsp; Government ☐ &nbsp;&nbsp; Multinational ☐
-        &nbsp;&nbsp; Self Employed ☐ &nbsp;&nbsp;
+        Public Sector {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "A"? "☑" : "☐"}} &nbsp;&nbsp;
+        Private Sector {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "B"? "☑" : "☐"}} &nbsp;&nbsp;
+        Government {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "C"? "☑" : "☐"}} &nbsp;&nbsp;
+        Multinational {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+        Self Employed {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "E"? "☑" : "☐"}} &nbsp;&nbsp;
       </div>
     </div>
 
@@ -653,14 +680,14 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
-      <div nz-col nzSpan="14"></div>
+      <div nz-col nzSpan="14">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
       <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
-      <div nz-col nzSpan="2"></div>
+      <div nz-col nzSpan="2">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
-      <div nz-col nzSpan="20"></div>
+      <div nz-col nzSpan="20">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
     </div>
 
     <div nz-row>
@@ -668,9 +695,51 @@
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
         <!-- <span *ngIf="ApplicantFinancial.length > i">{{ApplicantFinancial[0].INCOME}}</span> -->
 
-        Below 1.20 ☐ &nbsp;&nbsp; 1.21 to 2.40 ☐ &nbsp;&nbsp; 2.41 to 6.00 ☐ &nbsp;&nbsp; 6.01 to 9.00 ☐ &nbsp;&nbsp;
-        9.01 to 12.00 ☐ &nbsp;&nbsp; <br>
-        12.01 to 25.00 ☐ &nbsp;&nbsp; 25.01 to 50.00 ☐ &nbsp;&nbsp; 50.01 to 100.0 ☐ &nbsp;&nbsp; Above 100.00 ☐
+        Below 1.20
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "A"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span>&nbsp;&nbsp;
+        1.21 to 2.40
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "B"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        2.41 to 6.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "C"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        6.01 to 9.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "D"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        9.01 to 12.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "E"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp; <br>
+        12.01 to 25.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "F"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        25.01 to 50.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "G"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        50.01 to 100.0
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "H"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+        Above 100.00
+        <span *ngIf="ApplicantFinancial.length > 0">
+          {{ApplicantFinancial[0].INCOME == "I"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantFinancial.length ==  0">☐</span>
         &nbsp;&nbsp;
       </div>
     </div>
@@ -680,7 +749,26 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Residence :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
         <!-- <span *ngIf="ApplicantProperty.length > i">{{residential_status[ApplicantProperty[i].HOUSE_DETAIL]}}</span> -->
-        Rented ☐ &nbsp;&nbsp; Own ☐ &nbsp;&nbsp; Company ☐ &nbsp;&nbsp; Ancestral ☐ &nbsp;&nbsp;
+        Rented 
+        <span *ngIf="ApplicantProperty.length > 0">
+          {{ApplicantProperty[0].HOUSE_DETAIL == "A"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp; 
+        Own 
+        <span *ngIf="ApplicantProperty.length > 0">
+          {{ApplicantProperty[0].HOUSE_DETAIL == "B"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp; 
+        Company 
+        <span *ngIf="ApplicantProperty.length > 0">
+          {{ApplicantProperty[0].HOUSE_DETAIL == "C"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp; 
+        Ancestral 
+        <span *ngIf="ApplicantProperty.length > 0">
+          {{ApplicantProperty[0].HOUSE_DETAIL == "D"? "☑" : "☐"}}
+        </span>
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
       </div>
     </div>
 

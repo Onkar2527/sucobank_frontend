@@ -41,17 +41,17 @@ export class PersonalInfo {
     WORK: "E" | "S" | "B" | "R" | "T" | "H" | "O" = 'E';
     ESTABLISHMENT: string = ' ';
 
-    RELIGION: "A" | "B" | "C" | "D" | "E" | "F" | "G" = 'A';
+    RELIGION: string = 'A';
     OTHER_RELIGION: string = '';
 
     CASTE: "A" | "B" | "C" | "D" | "E" | "F" | "G" = 'A';
     OTHER_CASTE: string = '';
 
-    MARITAL_STATUS: "M" | "U" = 'M'
+    MARITAL_STATUS: string = 'M'
 
     FAMILY_COUNT!: number;
 
-    EDUCATION: "S" | "H" | "D" | "G" | "P" | "O" = 'S';
+    EDUCATION: string = 'A';
 
     IS_INSURED: boolean = false;
 
@@ -65,7 +65,7 @@ export class PersonalInfo {
     BLOOD_TYPE: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" = 'A';
     // BLOOD_TYPE_SIGN?: string;
 
-    EMPLOYMENT_DETAIL: "P" | "E" | "C" | "M" | "J" | "O" | " " = ' ';
+    EMPLOYMENT_DETAIL: string = ' ';
 
     EMPLOYMENT_COMPANY: string = '';
     EMPLOYMENT_DESIGNATION: string = '';
@@ -99,11 +99,11 @@ export class PersonalInfo {
     MINOR_DATE_OF_BIRTH_PROOF: string = ''; //dropdown
 
 
-    PROFESSION: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | ' ' = ' '
+    PROFESSION: string= ' '
     NATURE_OF_SERVICE: 'A' | 'B' | ' ' = ' ';
     SELF_EMPLOYED: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'H' | 'G' | ' ' = ' ';
-    NATURE_OF_BUSINESS: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | ' ' = ' ';
-    SOURCE_OF_FUNDS: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | ' ' = ' ';
+    NATURE_OF_BUSINESS: string = ' ';
+    SOURCE_OF_FUNDS:string= ' ';
 
 
     DRIVING_LICENSE_NO: string = '';
