@@ -23,10 +23,16 @@
                 <nz-form-item nz-col nzSpan="5">
                     <nz-form-label nzRequired [nzNoColon]="true">Risk Category</nz-form-label>
                     <nz-form-control>
-                        <nz-select [(ngModel)]="personalInfo.RISK_CATEGORY">
+                        <!-- <nz-select [(ngModel)]="personalInfo.RISK_CATEGORY">
                             <nz-option *ngFor="let option of MASTERS[3].data" [nzValue]="option.CAT_CODE"
                                 [nzLabel]="option.CAT_DESC"></nz-option>
+                        </nz-select> -->
+                        <nz-select [(ngModel)]="personalInfo.RISK_CATEGORY">
+                            <nz-option [nzValue]="'A'" nzLabel="High"></nz-option>
+                            <nz-option [nzValue]="'B'" nzLabel="Medium"></nz-option>
+                            <nz-option [nzValue]="'C'" nzLabel="Low"></nz-option>
                         </nz-select>
+
                     </nz-form-control>
                 </nz-form-item>
 

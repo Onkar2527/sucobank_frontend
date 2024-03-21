@@ -824,7 +824,9 @@
       <div nz-col nzSpan="11">Documents received &nbsp;&nbsp;&nbsp;&nbsp; ☐ Self-Certified &nbsp;&nbsp; ☐ True Copies
         &nbsp;&nbsp; ☐ Notary</div>
       <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11">Risk Category &nbsp;&nbsp;&nbsp;&nbsp; ☐ High &nbsp;&nbsp; ☐ Medium &nbsp;&nbsp; ☐ Low
+      <div nz-col nzSpan="11">Risk Category &nbsp;&nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "A"? "☑" :
+        "☐"}} High &nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "B"? "☑" : "☐"}} Medium &nbsp;&nbsp;
+        {{ApplicantPersonal[0].RISK_CATEGORY == "C"? "☑" : "☐"}} Low
       </div>
 
       <div nz-col nzSpan="11" class="last-box-div">KYC VERIFICATION CARRIED OUT BY</div>
@@ -833,17 +835,21 @@
 
       <div nz-col nzSpan="11">Date</div>
       <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"> Name</div>
+      <div nz-col nzSpan="11"> Name <span>SUCO SOU SAHAKARI BANK</span></div>
 
-      <div nz-col nzSpan="11">Emp.Name</div>
+      <div nz-col nzSpan="11">Emp.Name <span>{{makerUserData.NAME}}</span></div>
       <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11">code</div>
+      <div nz-col nzSpan="11">code <span>IN1299</span></div>
 
-      <div nz-col nzSpan="11">Emp.Designation</div>
+      <div nz-col nzSpan="11">Emp.Code <span>{{basicInfo.MAKER_USER_ID }}</span></div>
       <div nz-col nzSpan="2"></div>
       <div nz-col nzSpan="11"></div>
 
-      <div nz-col nzSpan="11">Emp.Branch</div>
+      <div nz-col nzSpan="11">Emp.Designation <span>BA</span></div>
+      <div nz-col nzSpan="2"></div>
+      <div nz-col nzSpan="11"></div>
+
+      <div nz-col nzSpan="11">Emp.Branch <span>{{branchData.BRANCH_NAME}}</span></div>
       <div nz-col nzSpan="2"></div>
       <div nz-col nzSpan="11"></div>
 
@@ -1653,8 +1659,7 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;">
-          {{
-          ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+          {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
           ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
           {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
           {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
@@ -1670,7 +1675,7 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11">
-        
+
         </div>
         <div nz-col nzSpan="3">
         </div>
@@ -1885,7 +1890,7 @@
       <div nz-col nzSpan="6">
       </div>
       <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
-        Rs.
+        Rs. <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span>
       </div>
     </div>
     <div nz-row>
@@ -1901,12 +1906,16 @@
       <div nz-col nzSpan="21" style="margin-top: 10px;">
         On demand I, &nbsp;
         {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-        &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{ApplicantPersonal[0].CURRENT_CITY}}
-        &nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
-        {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_PINCODE}}&nbsp;do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
-        Ballari or order the sum of Rs_______________________(Rupees ___________________ only) together
+        {{ ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+        ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+        {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+        {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_PINCODE}}do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
+        Ballari or order the sum of Rs
+        <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span> (Rupees <span
+          *ngIf="ApplicantLoanInfo.length > 0">{{toWords.convert(ApplicantLoanInfo[0].LOAN_AMOUNT ?
+          ApplicantLoanInfo[0].LOAN_AMOUNT : 0)}}</span> only)
+        together
         with interest at 12% per annum at yearly rests and collected in advance for one year period at the time of
         loan disbursement.
       </div>
@@ -1958,8 +1967,11 @@
     <div nz-row>
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="margin-top:10px;">
-        &nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+        {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+        ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+        {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+        {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_PINCODE}}
       </div>
       <div nz-col nzSpan="3">
       </div>
@@ -1972,9 +1984,11 @@
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11">
 
-        {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_PINCODE}}&nbsp;
+        {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+        ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+        {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+        {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+        ApplicantPersonal[0].CURRENT_PINCODE}}
       </div>
       <div nz-col nzSpan="3">
       </div>

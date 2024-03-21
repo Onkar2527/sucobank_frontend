@@ -16,7 +16,7 @@ import { ImageData } from 'src/app/models/image-data';
 const html2pdf = require('html2pdf.js');
 import { HttpClient } from '@angular/common/http';
 import { Documents } from 'src/app/models/documents';
-
+import { ToWords } from 'to-words';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -26,6 +26,8 @@ export class FormComponent implements OnInit, AfterViewInit {
   @Input() APPLICANT_ID!: number;
 
   @Output() pdfButtonLoading: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  toWords = new ToWords();
 
   basicInfo: BasicInfo = new BasicInfo();
   depositInfo: TermDeposite = new TermDeposite();
