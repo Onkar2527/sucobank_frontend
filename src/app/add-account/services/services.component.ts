@@ -24,7 +24,8 @@ export class ServicesComponent implements OnInit {
     { label: 'Consent to communicate new products', checked: this.serviceInfo.CONSENT_NEW_PRODUCT, value: 'CONSENT_NEW_PRODUCT' },
     { label: 'Add on  Card', checked: this.serviceInfo.ADDON_CARD, value: 'ADDON_CARD' },
     { label: 'UPI', checked: this.serviceInfo.UPI, value: 'UPI' },
-    { label: 'Mobile Banking', checked: this.serviceInfo.MOBILE_BANKING, value: 'MOBILE_BANKING' }
+    { label: 'Mobile Banking', checked: this.serviceInfo.MOBILE_BANKING, value: 'MOBILE_BANKING' },
+    { label: 'IMPS', checked: this.serviceInfo.IMPS, value: 'IMPS' }
   ]
   changeInOption() {
 
@@ -142,7 +143,7 @@ export class ServicesComponent implements OnInit {
       { label: 'Add on  Card', checked: this.serviceInfo.ADDON_CARD ? true : false, value: 'ADDON_CARD' },
       { label: 'UPI', checked: this.serviceInfo.UPI ? true : false, value: 'UPI' },
       { label: 'Mobile Banking', checked: this.serviceInfo.MOBILE_BANKING ? true : false, value: 'MOBILE_BANKING' },
-   
+      { label: 'IMPS', checked: this.serviceInfo.IMPS ? true : false, value: 'IMPS' }
     ]
   }
 
@@ -182,5 +183,5 @@ interface checkInterface {
   "CONSENT_NEW_PRODUCT" |
   "ADDON_CARD" |
   "UPI" |
-  "MOBILE_BANKING"
+  "MOBILE_BANKING" | "IMPS"
 }

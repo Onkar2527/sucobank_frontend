@@ -11,6 +11,7 @@ export class Facilities {
     UPI:boolean = false;
     MOBILE_BANKING:boolean = false;
     TEMP:boolean = false;
+    IMPS:boolean = false
 
     APPLICANT1_NAME:string = '';
     APPLICANT2_NAME:string = '';
