@@ -10,7 +10,7 @@ import { PDFDocument } from 'pdf-lib';
 import { PersonalInfo } from 'src/app/models/personal-info';
 import { Financial } from 'src/app/models/financial';
 import { Property } from 'src/app/models/property';
-// import { LoanInfo } from 'src/app/models/loan-info';
+import { LoanInfo } from 'src/app/models/loan-info';
 // import { OtherBankAccount } from 'src/app/models/other-bank-account';
 import { ImageData } from 'src/app/models/image-data';
 const html2pdf = require('html2pdf.js');
@@ -35,7 +35,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   ApplicantPersonal: PersonalInfo[] = []
   ApplicantFinancial: Financial[] = []
   ApplicantProperty: Property[] = []
-  // ApplicantLoanInfo: LoanInfo[] = []
+  ApplicantLoanInfo: LoanInfo[] = []
   // ApplicantOtherBank: OtherBankAccount[] = []
 
 
@@ -322,7 +322,13 @@ export class FormComponent implements OnInit, AfterViewInit {
     operation: "",
 
     religion: "",
-    caste: ""
+    caste: "",
+
+    business_state: "",
+    business_area: "",
+    business_dist: "",
+    business_taluka: "",
+    business_city: ""
 
   }
 
@@ -340,6 +346,12 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.assignValueFromMaster(this.filterValues(7, Number(this.ApplicantPersonal[0].CURRENT_TALUKA)), "current_taluka");
     this.assignValueFromMaster(this.filterValues(8, Number(this.ApplicantPersonal[0].CURRENT_CITY)), "current_city");
 
+    this.assignValueFromMaster(this.filterValues(5, Number(this.ApplicantPersonal[0].CURRENT_STATE)), "business_state");
+    this.assignValueFromMaster(this.filterValues(9, Number(this.ApplicantPersonal[0].CURRENT_AREA)), "business_area");
+    this.assignValueFromMaster(this.filterValues(6, Number(this.ApplicantPersonal[0].CURRENT_DISTRICT)), "business_dist");
+    this.assignValueFromMaster(this.filterValues(7, Number(this.ApplicantPersonal[0].CURRENT_TALUKA)), "business_taluka");
+    this.assignValueFromMaster(this.filterValues(8, Number(this.ApplicantPersonal[0].CURRENT_CITY)), "business_city");
+
     this.assignValueFromMaster(this.filterValues(2, this.ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF), "address_proof");
 
     this.assignValueFromMaster(this.filterValues(4, this.ApplicantPersonal[0].RISK_CATEGORY), "risk_cat");
@@ -353,7 +365,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     console.log(this.applicantPersonalMasterData)
   }
 
-  allowedTypes!: "caste" | "religion" | "operation" | "risk_cat" | "address_proof" | "occupation" | "permanent_state" | "permanent_area" | "permanent_dist" | "permanent_taluka" | "permanent_city" | "current_state" | "current_area" | "current_dist" | "current_taluka" | "current_city"
+  allowedTypes!: "business_state" | "business_area" | "business_dist" | "business_taluka" | "business_city" | "caste" | "religion" | "operation" | "risk_cat" | "address_proof" | "occupation" | "permanent_state" | "permanent_area" | "permanent_dist" | "permanent_taluka" | "permanent_city" | "current_state" | "current_area" | "current_dist" | "current_taluka" | "current_city"
 
   assignValueFromMaster(res: any, label: typeof this.allowedTypes) {
 
@@ -395,7 +407,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     let applicantPersonal = this.getApplicantPersonal();
     let applicantFinancial = this.getApplicantFinancial();
     let applicantProperty = this.getApplicantProperty();
-    // let applicantLoanInfo = this.getApplicantLoanInfo();
+    let applicantLoanInfo = this.getApplicantLoanInfo();
     // let applicantOtherAccount = this.getApplicantOtherAccount();
     let applicantPhoto = this.getApplicantPhoto();
     let applicantDocument = this.getDocuments();
@@ -549,28 +561,27 @@ export class FormComponent implements OnInit, AfterViewInit {
       }
     })
 
-    // applicantLoanInfo.subscribe({
-    //   next: (res2) => {
-    //     if (res2 == 200) {
+    applicantLoanInfo.subscribe({
+      next: (res2: any) => {
+        if (res2 == 200) {
 
-    //       count++;
-    //       console.log("count in p", count);
-    //       if (count >= 10) {
-    //         //this.fillField()
-    //         //this.fillPdf();
-    //       }
-    //     }
-    //     else {
-    //       // this.message.warning('Applicant Earlier Loan Information is not Filled.', '');
-    //     }
-    //   },
-    //   error: () => {
-    //     // this.message.warning('Something went wrong! While getting Applicant Earlier Loan Information.', '');
-    //   },
-    //   complete: () => {
+          count++;
+          console.log("count in p", count);
+          if (count >= 10) {
 
-    //   }
-    // })
+          }
+        }
+        else {
+          // this.message.warning('Applicant Earlier Loan Information is not Filled.', '');
+        }
+      },
+      error: () => {
+        // this.message.warning('Something went wrong! While getting Applicant Earlier Loan Information.', '');
+      },
+      complete: () => {
+
+      }
+    })
 
     // applicantOtherAccount.subscribe({
     //   next: (res2) => {
@@ -831,28 +842,28 @@ export class FormComponent implements OnInit, AfterViewInit {
     return applicantProperty;
   }
 
-  // getApplicantLoanInfo() {
-  //   let applicantLoanInfo: Subject<any> = new Subject();
-  //   this.api.getAllLoanInfo(this.APPLICANT_ID).subscribe({
-  //     next: (res) => {
-  //       if (res['code'] == 200 && res['data'].length > 0) {
-  //         this.ApplicantLoanInfo = res['data'];
-  //         console.log("applicant property:", this.ApplicantLoanInfo);
-  //         applicantLoanInfo.next(200);
-  //       }
-  //       else {
-  //         applicantLoanInfo.next(res);
-  //       }
-  //     },
-  //     error: (err) => {
-  //       applicantLoanInfo.error(err);
-  //     },
-  //     complete: () => {
-  //       applicantLoanInfo.complete();
-  //     }
-  //   });
-  //   return applicantLoanInfo;
-  // }
+  getApplicantLoanInfo() {
+    let applicantLoanInfo: Subject<any> = new Subject();
+    this.api.getAllLoanInfo(this.APPLICANT_ID).subscribe({
+      next: (res) => {
+        if (res['code'] == 200 && res['data'].length > 0) {
+          this.ApplicantLoanInfo = res['data'];
+          console.log("applicant property:", this.ApplicantLoanInfo);
+          applicantLoanInfo.next(200);
+        }
+        else {
+          applicantLoanInfo.next(res);
+        }
+      },
+      error: (err) => {
+        applicantLoanInfo.error(err);
+      },
+      complete: () => {
+        applicantLoanInfo.complete();
+      }
+    });
+    return applicantLoanInfo;
+  }
 
   // getApplicantOtherAccount() {
   //   let applicantOtherAccount: Subject<any> = new Subject();

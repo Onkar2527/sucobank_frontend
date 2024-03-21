@@ -150,10 +150,12 @@ export class PersonalInfo {
     BUSINESS_ADDRESS: string = '';
     BUSINESS_LANDMARK: string = '';
     BUSINESS_AREA: string = '';
-    BUSINESS_STATE: string = '';
-    BUSINESS_DISTRICT: string = '';
-    BUSINESS_TALUKA: string = '';
-    BUSINESS_CITY: string = '';
+
+    BUSINESS_STATE: any = '';
+    BUSINESS_DISTRICT: any = '';
+    BUSINESS_TALUKA: any = '';
+    BUSINESS_CITY: any = '';
+
     BUSINESS_PINCODE: string = '';
     BUSINESS_ADDRESS_PROOF: string = '';
 

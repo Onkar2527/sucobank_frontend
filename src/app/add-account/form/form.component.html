@@ -749,22 +749,22 @@
       <div nz-col nzSpan="6" class="data-heading dark-data-headings">Residence :</div>
       <div nz-col nzSpan="18" class="data-heading dark-data-headings">
         <!-- <span *ngIf="ApplicantProperty.length > i">{{residential_status[ApplicantProperty[i].HOUSE_DETAIL]}}</span> -->
-        Rented 
+        Rented
         <span *ngIf="ApplicantProperty.length > 0">
           {{ApplicantProperty[0].HOUSE_DETAIL == "A"? "☑" : "☐"}}
         </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp; 
-        Own 
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
+        Own
         <span *ngIf="ApplicantProperty.length > 0">
           {{ApplicantProperty[0].HOUSE_DETAIL == "B"? "☑" : "☐"}}
         </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp; 
-        Company 
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
+        Company
         <span *ngIf="ApplicantProperty.length > 0">
           {{ApplicantProperty[0].HOUSE_DETAIL == "C"? "☑" : "☐"}}
         </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp; 
-        Ancestral 
+        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
+        Ancestral
         <span *ngIf="ApplicantProperty.length > 0">
           {{ApplicantProperty[0].HOUSE_DETAIL == "D"? "☑" : "☐"}}
         </span>
@@ -778,6 +778,12 @@
     <div nz-row class="heading">
       <div nz-col nzSpan="6" class="data-font">8. REMARKS (if any)</div>
       <div nz-col nzSpan="18" class="data-font"> Mobile no. / Email-ID (Please refer instruction F at the end)</div>
+    </div>
+
+    <div nz-row class="heading">
+      <div nz-col nzSpan="24" class="data-font">
+
+      </div>
     </div>
 
     <div nz-row class="margin heading">
@@ -890,8 +896,12 @@
       <div nz-col nzSpan="3" class="data-heading dark-data-headings">Savings :</div>
       <div nz-col nzSpan="3"></div>
       <div nz-col nzSpan="18">
-        Regular ☐ &nbsp;&nbsp;&nbsp; Premium* ☐ &nbsp;&nbsp;&nbsp; Basic ☐ &nbsp;&nbsp;&nbsp; Supreme ☐
-        &nbsp;&nbsp;&nbsp; Elite* ☐ &nbsp;&nbsp;&nbsp; Blip ☐
+        Regular {{depositInfo.SCHEME_CODE == "A"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Premium* {{depositInfo.SCHEME_CODE == "B"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Basic {{depositInfo.SCHEME_CODE == "C"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Supreme {{depositInfo.SCHEME_CODE == "D"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Elite* {{depositInfo.SCHEME_CODE == "E"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Blip {{depositInfo.SCHEME_CODE == "F"? "☑" : "☐"}}
       </div>
     </div>
 
@@ -900,8 +910,11 @@
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Account Operation By :</div>
       <div nz-col nzSpan="18" class="data-heading">
-        Single ☐ &nbsp;&nbsp;&nbsp; Jointly ☐ &nbsp;&nbsp;&nbsp; Either or Survivor ☐ &nbsp;&nbsp;&nbsp; Former /
-        Survivor ☐ &nbsp;&nbsp;&nbsp; Minor by Guardian ☐
+        Single {{depositInfo.ACCOUNT_OPERATION == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+        Jointly {{depositInfo.ACCOUNT_OPERATION == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+        Either or Survivor {{depositInfo.ACCOUNT_OPERATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+        Former / Survivor {{depositInfo.ACCOUNT_OPERATION == "D"? "☑" : "☐"}}
+        &nbsp;&nbsp;&nbsp; Minor by Guardian {{depositInfo.ACCOUNT_OPERATION == "E"? "☑" : "☐"}}
       </div>
     </div>
 
@@ -909,7 +922,8 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="6"></div>
       <div nz-col nzSpan="6" class="data-heading">Other (Please Specify)</div>
-      <div nz-col nzSpan="12"></div>
+      <div nz-col nzSpan="12"><span *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'">{{depositInfo.OTHER_ACCOUNT_OP}}</span>
+      </div>
     </div>
 
     <div class="dashed-border"></div>
@@ -925,13 +939,21 @@
 
     <div nz-row class="margin">
       <div nz-col nzSpan="10" class="data-heading">2nd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14"></div>
+      <div nz-col nzSpan="14">
+        {{basicInfo.JOINT_APP_1_F_NAME}}
+        {{basicInfo.JOINT_APP_1_M_NAME}}
+        {{basicInfo.JOINT_APP_1_L_NAME}}
+      </div>
     </div>
 
 
     <div nz-row class="margin">
       <div nz-col nzSpan="10" class="data-heading">3rd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14"></div>
+      <div nz-col nzSpan="14">
+        {{basicInfo.JOINT_APP_2_F_NAME}}
+        {{basicInfo.JOINT_APP_2_M_NAME}}
+        {{basicInfo.JOINT_APP_2_L_NAME}}
+      </div>
     </div>
 
 
@@ -1105,7 +1127,8 @@
 
     <div nz-row class="margin">
       <div nz-col nzSpan="4" class="data-heading">Guardian's Name</div>
-      <div nz-col nzSpan="20" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].GUARDIAN_NAME}}</div>
+      <div nz-col nzSpan="20" class="data-heading dark-data-headings"> <span
+          *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].GUARDIAN_NAME}}</span></div>
     </div>
 
     <div nz-row class="margin">
@@ -1117,7 +1140,9 @@
 
     <div nz-row class="margin">
       <div nz-col nzSpan="4" class="data-heading">Guardian's Address</div>
-      <div nz-col nzSpan="20"></div>
+      <div nz-col nzSpan="20">
+        <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
+      </div>
     </div>
 
     <div nz-row class="margin">
@@ -1178,8 +1203,8 @@
 
       <div nz-col nzSpan="15" class="data-heading text">are given below, may be returned by SUCO Souharda Sahakari Bank
         Ltd.</div>
-      <div nz-col nzSpan="4"></div>
-      <div nz-col nzSpan="5" class="data-heading text"> Branch</div>
+      <div nz-col nzSpan="4">{{branchData.BRANCH_NAME}}</div>
+      <div nz-col nzSpan="5" class="data-heading text">Branch</div>
     </div>
 
     <div nz-row class="margin">
@@ -1198,7 +1223,7 @@
           <tbody>
             <tr class="data-heading dark-data-headings">
               <td></td>
-              <td></td>
+              <td>{{nominationInfo.NOMINEE_CUSTOMER_ID}}</td>
               <td>
                 {{nominationInfo.NOMINEE_NAME}} &nbsp;
                 {{nominationInfo.NOMINEE_ADDRESS}}
@@ -1206,7 +1231,7 @@
               <td>
                 {{relation[nominationInfo.RELATION]}}
               </td>
-              <td></td>
+              <td>{{nominationInfo.NOMINEE_AGE}}</td>
               <td>
                 <span>{{nominationInfo.DOB}}</span>
               </td>
@@ -1219,6 +1244,11 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="24" class="data-heading">As the nominee is a minor on this date, I/ we appoint Shri./Smt./Kum.
         (Name, address & age)</div>
+    </div>
+
+    <div nz-row class="margin">
+      <div nz-col nzSpan="24" class="data-heading">Name : {{nominationInfo.APONITED_NAME}} Address :
+        {{nominationInfo.APONITED_ADDRESS}} Age : {{nominationInfo.APOINTED_PERSON_AGE}}</div>
     </div>
 
     <div nz-row class="margin">
@@ -1249,12 +1279,12 @@
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">Name</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</div>
+      <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
     </div>
 
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">Address</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{nominationInfo.NOMINEE_ADDRESS}}</div>
+      <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
     </div>
 
     <div nz-row>
@@ -1313,7 +1343,7 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="16" class="data-heading">I/We declare that I/we do not enjoy any credit facility with any
         other
-        banks.</div>
+        banks. <span>{{depositInfo.CREDIT_FACILITY_OTHER_BANK ? "Yes" : "No"}}</span></div>
       <div nz-col nzSpan="8"></div>
     </div>
 
@@ -1331,18 +1361,18 @@
             <tr>
               <th>Bank</th>
               <th>Branch</th>
-              <th> Facility</th>
-              <th> Account No.</th>
-              <th> Amount</th>
+              <th>Facility</th>
+              <th>Account No.</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{depositInfo.CREDIT_FACILITY_OTHER_BANK}}</td>
+              <td>{{depositInfo.CREDIT_FACILITY_OTHER_BRANCH}}</td>
+              <td>{{depositInfo.CREDIT_FACILITY_OTHER_FACILITY}}</td>
+              <td>{{depositInfo.CREDIT_FACILITY_OTHER_AC_NO}}</td>
+              <td>{{depositInfo.CREDIT_FACILITY_OTHER_AMOUNT}}</td>
             </tr>
           </tbody>
         </table>
@@ -1377,14 +1407,22 @@
 
     </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="16" class="data-heading">Introducer:- (Name & Signature) (Not Mandatory / Optional)</div>
-      <div nz-col nzSpan="8"></div>
-    </div>
-
     <div nz-row>
-      <div nz-col nzSpan="8" class="data-heading">Introducer Customer ID:</div>
-      <div nz-col nzSpan="16"></div>
+      <div nz-col nzSpan="6">
+        <b>The antecedents and KYC details of applicant <br>
+          have been subjected to due diligence by us.The <br>
+          the applicant has signed before me. We recommend for <br>
+          opening of the Bank account for extending the <br>
+          baking facilities.</b>
+      </div>
+      <div nz-col nzSpan="12">
+
+      </div>
+      <div nz-col nzSpan="6" style="text-align: center;">
+        <b>For 97 North Technologies Pvt. Ltd. <br><br><br><br><br>
+          Authorized Person<br>
+          Name & Designation</b>
+      </div>
     </div>
 
     <div nz-row class="margin heading center">
@@ -1462,7 +1500,8 @@
       </div>
       <div nz-row>
         <div nz-col nzSpan="24" style="margin-top:20px;">
-          I request you to enroll me as a member and allot me _______________________________________________ shares of
+          I request you to enroll me as a member and allot me <span
+            *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].NO_OF_SHARES}}</span> shares of
           your Bank. I hereby declare that I understood various provisions contained in Karnataka Souharda Sahakari Act
           and also the Bank's byelaws. I have furnished necessary KYC documents.
         </div>
@@ -1491,7 +1530,7 @@
           3.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Category
+          Category <span *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].CATEGORY}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1529,7 +1568,12 @@
           B)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Business/Professional Address:
+          Business/Professional Address:&nbsp; &nbsp;{{
+          ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
+          ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
+          {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
+          {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
+          ApplicantPersonal[0].BUSINESS_PINCODE}}
         </div>
       </div>
       <div nz-row>
@@ -1537,7 +1581,8 @@
           6.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Membership of other Souharda Sahakari Society/Bank,if any: Yes/No
+          Membership of other Souharda Sahakari Society/Bank,if any: <span
+            *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].IS_MEMBER_OTHER ? "Yes" : "No"}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1608,8 +1653,12 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;">
-          &nbsp; &nbsp;{{ ApplicantPersonal[0].CURRENT_ADDRESS}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_CITY}}&nbsp;{{ ApplicantPersonal[0].CURRENT_TALUKA}}&nbsp;
+          {{
+          ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+          ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+          {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+          ApplicantPersonal[0].CURRENT_PINCODE}}
         </div>
         <div nz-col nzSpan="3">
         </div>
@@ -1621,8 +1670,7 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11">
-          {{ ApplicantPersonal[0].CURRENT_DISTRICT}}&nbsp;{{ ApplicantPersonal[0].CURRENT_LANDMARK}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_STATE}}&nbsp;{{ ApplicantPersonal[0].CURRENT_PINCODE}}
+        
         </div>
         <div nz-col nzSpan="3">
         </div>

@@ -451,7 +451,7 @@ export class ApplicantPersonalComponent implements OnInit {
 
     if (isOk) {
       if (this.personalInfo.ID) {
-        this.convertToString();
+        // this.convertToString();
         this.api.updateAplicant(this.personalInfo).subscribe({
           next: (res) => {
             if (res.code == 200) {

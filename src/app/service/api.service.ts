@@ -235,7 +235,24 @@ export class ApiService implements HttpInterceptor {
     return this.httpClient.post(this.baseUrl + 'personalInformation/get', data, this.optionMain)
   }
 
-  updateAplicant(data: PersonalInfo): Observable<any> {
+  updateAplicant(data2: PersonalInfo): Observable<any> {
+    let data = Object.assign({}, data2);
+
+    data.CURRENT_CITY = data.CURRENT_CITY.toString()
+    data.PERMANENT_CITY = data.PERMANENT_CITY.toString()
+    data.BUSINESS_CITY = data.BUSINESS_CITY.toString()
+
+    data.CURRENT_TALUKA = data.CURRENT_TALUKA.toString()
+    data.PERMANENT_TALUKA = data.PERMANENT_TALUKA.toString()
+    data.BUSINESS_TALUKA = data.BUSINESS_TALUKA.toString()
+
+    data.CURRENT_DISTRICT = data.CURRENT_DISTRICT.toString()
+    data.PERMANENT_DISTRICT = data.PERMANENT_DISTRICT.toString()
+    data.BUSINESS_DISTRICT = data.BUSINESS_DISTRICT.toString()
+
+    data.CURRENT_STATE = data.CURRENT_STATE.toString()
+    data.PERMANENT_STATE = data.PERMANENT_STATE.toString()
+    data.BUSINESS_STATE = data.BUSINESS_STATE.toString()
 
     return this.httpClient.post(this.baseUrl + 'personalInformation/update', data, this.optionMain)
   }
