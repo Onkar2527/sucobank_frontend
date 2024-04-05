@@ -21,7 +21,7 @@
             <div nz-row class="content-box">
 
                 <nz-form-item nz-col nzSpan="5">
-                    <nz-form-label nzRequired [nzNoColon]="true">Risk Category</nz-form-label>
+                    <nz-form-label [nzNoColon]="true">Risk Category</nz-form-label>
                     <nz-form-control>
                         <!-- <nz-select [(ngModel)]="personalInfo.RISK_CATEGORY">
                             <nz-option *ngFor="let option of MASTERS[3].data" [nzValue]="option.CAT_CODE"
@@ -31,6 +31,7 @@
                             <nz-option [nzValue]="'A'" nzLabel="High"></nz-option>
                             <nz-option [nzValue]="'B'" nzLabel="Medium"></nz-option>
                             <nz-option [nzValue]="'C'" nzLabel="Low"></nz-option>
+                            <nz-option [nzValue]="' '" nzLabel="None"></nz-option>
                         </nz-select>
 
                     </nz-form-control>
@@ -1098,7 +1099,7 @@
                         <nz-radio-group [(ngModel)]="personalInfo.MARITAL_STATUS">
                             <label nz-radio [nzValue]="'U'">Single</label>
                             <label nz-radio [nzValue]="'M'">Married</label>
-                            <label nz-radio [nzValue]="'O'">OtherS</label>
+                            <label nz-radio [nzValue]="'O'">Others</label>
                         </nz-radio-group>
                     </nz-form-control>
                 </nz-form-item>
@@ -1241,7 +1242,7 @@
 
                 <nz-form-item nz-col nzSpan="11">
 
-                    <nz-form-label [nzNoColon]="true">Profession</nz-form-label>
+                    <nz-form-label [nzNoColon]="true">Occupation Type</nz-form-label>
                     <nz-form-control>
 
                         <!-- <nz-select [(ngModel)]="personalInfo.PROFESSION" (ngModelChange)="changeProfession()">

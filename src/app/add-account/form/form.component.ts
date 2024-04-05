@@ -348,11 +348,11 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.assignValueFromMaster(this.filterValues(7, Number(this.ApplicantPersonal[0].CURRENT_TALUKA)), "current_taluka");
     this.assignValueFromMaster(this.filterValues(8, Number(this.ApplicantPersonal[0].CURRENT_CITY)), "current_city");
 
-    this.assignValueFromMaster(this.filterValues(5, Number(this.ApplicantPersonal[0].CURRENT_STATE)), "business_state");
-    this.assignValueFromMaster(this.filterValues(9, Number(this.ApplicantPersonal[0].CURRENT_AREA)), "business_area");
-    this.assignValueFromMaster(this.filterValues(6, Number(this.ApplicantPersonal[0].CURRENT_DISTRICT)), "business_dist");
-    this.assignValueFromMaster(this.filterValues(7, Number(this.ApplicantPersonal[0].CURRENT_TALUKA)), "business_taluka");
-    this.assignValueFromMaster(this.filterValues(8, Number(this.ApplicantPersonal[0].CURRENT_CITY)), "business_city");
+    this.assignValueFromMaster(this.filterValues(5, Number(this.ApplicantPersonal[0].BUSINESS_STATE)), "business_state");
+    this.assignValueFromMaster(this.filterValues(9, Number(this.ApplicantPersonal[0].BUSINESS_AREA)), "business_area");
+    this.assignValueFromMaster(this.filterValues(6, Number(this.ApplicantPersonal[0].BUSINESS_DISTRICT)), "business_dist");
+    this.assignValueFromMaster(this.filterValues(7, Number(this.ApplicantPersonal[0].BUSINESS_TALUKA)), "business_taluka");
+    this.assignValueFromMaster(this.filterValues(8, Number(this.ApplicantPersonal[0].BUSINESS_CITY)), "business_city");
 
     this.assignValueFromMaster(this.filterValues(2, this.ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF), "address_proof");
 

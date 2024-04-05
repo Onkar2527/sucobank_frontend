@@ -20,7 +20,7 @@ export class ApplicantPersonalComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllAddress();
-    
+
     this.getMasters()
   }
 
@@ -60,7 +60,7 @@ export class ApplicantPersonalComponent implements OnInit {
 
 
   mendetory_all = [
-    { field: 'RISK_CATEGORY', message: "Risk Category" },
+    // { field: 'RISK_CATEGORY', message: "Risk Category" },
     { field: 'BLOOD_TYPE', message: 'Blood Type' },
 
     { field: 'FIRST_NAME', message: "Applicant First Name" },
@@ -97,6 +97,14 @@ export class ApplicantPersonalComponent implements OnInit {
     { field: 'CURRENT_STATE', message: "Current Address State" },
     { field: 'CURRENT_PINCODE', message: "Current Address Pincode" },
 
+    // { field: 'BUSINESS_ADDRESS', message: "Business Address Flat No, Name of Building" },
+    // { field: 'BUSINESS_CITY', message: "Business Address City / Village" },
+    // { field: 'BUSINESS_TALUKA', message: "Business Address Taluka" },
+    // { field: 'BUSINESS_DISTRICT', message: "Business Address District" },
+    // { field: 'BUSINESS_LANDMARK', message: "Business Address Road, Area Name" },
+    // { field: 'BUSINESS_STATE', message: "Business Address State" },
+    // { field: 'BUSINESS_PINCODE', message: "Business Address Pincode" },
+
     { field: 'MOBILE_NUMBER', message: "Mobile Number 1" },
 
     { field: 'EMAIL_ID', message: "Email ID" },
@@ -125,7 +133,7 @@ export class ApplicantPersonalComponent implements OnInit {
 
   mendentory_cast = [
     // { field: 'OTHER_CASTE', message: "Other Caste" }
-    
+
   ]
 
   mendentory_minor = [

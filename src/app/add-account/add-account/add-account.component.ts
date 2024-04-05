@@ -416,6 +416,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
           }
 
           else if (this.selectedIndex == 4) {
+            
             this.Tabs[4].disabled = true;
             this.Tabs[5].disabled = false;
             this.remarkComp.Tabs = this.Tabs.filter(value => value.INDEX != 5);
@@ -424,6 +425,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
             this.remarkComp.getRemarkData();
             this.selectedIndex++;
             this.changeIndex();
+
           }
 
         }
@@ -533,14 +535,29 @@ export class AddAccountComponent implements OnInit, OnDestroy {
       })
     }
     else if (this.selectedIndex == 4) {
-      this.Tabs[4].disabled = true;
-      this.Tabs[5].disabled = false;
-      this.updateTabsProvided(this.selectedIndex);
-      this.remarkComp.Tabs = this.Tabs.filter(value => value.INDEX != 5);
-      this.remarkComp.APPLICAT_ID = this.APPLICANT_ID;
-      this.remarkComp.show_remark = true;
-      this.remarkComp.getRemarkData();
-      this.loadSaveButton = false;
+
+      this.api.getLoanInfo(this.APPLICANT_ID, 1).subscribe(
+        {
+          next: (res) => {
+            if (res['code'] == 200) {
+              if (res['data'].length > 0) {
+                this.Tabs[4].disabled = true;
+                this.Tabs[5].disabled = false;
+                this.updateTabsProvided(this.selectedIndex);
+                this.remarkComp.Tabs = this.Tabs.filter(value => value.INDEX != 5);
+                this.remarkComp.APPLICAT_ID = this.APPLICANT_ID;
+                this.remarkComp.show_remark = true;
+                this.remarkComp.getRemarkData();
+                this.loadSaveButton = false;
+              }
+              else {
+                this.message.error("Fill All The Information", "Personal, Financial, Property and Loan.")
+              }
+            }
+          }
+        }
+      )
+
     }
     else if (this.selectedIndex == 5) {
       this.saveAsComplete();

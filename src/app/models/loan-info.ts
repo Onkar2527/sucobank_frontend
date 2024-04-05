@@ -12,13 +12,13 @@ export class LoanInfo {
     IS_EDUCATION_LOAN: boolean = false;
 
 
-    IS_VEHICLE_LOAN_YEAR:       string = '1';
-    IS_HOME_LOAN_YEAR:          string = '1';
-    IS_CONSUMER_LOAN_YEAR:      string = '1';
-    IS_BUSINESS_LOAN_YEAR:      string = '1';
-    IS_INSURANCE_LOAN_YEAR:     string = '1';
-    IS_TOUR_LOAN_YEAR:          string = '1';
-    IS_EDUCATION_LOAN_YEAR:     string = '1';
+    IS_VEHICLE_LOAN_YEAR: string = '1';
+    IS_HOME_LOAN_YEAR: string = '1';
+    IS_CONSUMER_LOAN_YEAR: string = '1';
+    IS_BUSINESS_LOAN_YEAR: string = '1';
+    IS_INSURANCE_LOAN_YEAR: string = '1';
+    IS_TOUR_LOAN_YEAR: string = '1';
+    IS_EDUCATION_LOAN_YEAR: string = '1';
 
 
     IS_VEHICLE_LOAN_REQUIRED: boolean = false;
@@ -29,9 +29,9 @@ export class LoanInfo {
     IS_TOUR_LOAN_REQUIRED: boolean = false;
     IS_EDUCATION_LOAN_REQUIRED: boolean = false;
 
-    NO_OF_SHARES?:number;
-    CATEGORY : "A" | "B" | "C" | "D" = "A" ;
-    IS_MEMBER_OTHER : boolean = false;
-    LOAN_AMOUNT ?:number;
+    NO_OF_SHARES?: number;
+    CATEGORY !: string;
+    IS_MEMBER_OTHER: boolean = false;
+    LOAN_AMOUNT?: number;
 
 }

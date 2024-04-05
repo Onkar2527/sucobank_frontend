@@ -883,11 +883,10 @@
     </div>
 
     <div nz-row class="margin">
-      <div nz-col nzSpan="2" class="data-heading">Branch:</div>
-      <div nz-col nzSpan="14" class="data"><span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
+      <div nz-col nzSpan="16" class="data-heading">Branch: <span
+          class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
       <div nz-col nzSpan="2" class="data-heading">Date:</div>
-      <div nz-col nzSpan="4" class="data"> <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE |
-          date:"dd/MM/yyyy"}}</span>
+      <div nz-col nzSpan="4" class="data"> <span class="dark-data-headings"></span>
       </div>
     </div>
 
@@ -1154,7 +1153,8 @@
     <div nz-row class="margin">
       <div nz-col nzSpan="4" class="data-heading">Guardian's Address</div>
       <div nz-col nzSpan="20">
-        <span *ngIf="ApplicantPersonal[0].IS_MINOR" class="dark-data-headings">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
+        <span *ngIf="ApplicantPersonal[0].IS_MINOR"
+          class="dark-data-headings">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
       </div>
     </div>
 
@@ -1246,7 +1246,7 @@
               </td>
               <td>{{nominationInfo.NOMINEE_AGE}}</td>
               <td>
-                <span>{{nominationInfo.DOB}}</span>
+                <span *ngIf="nominationInfo.IS_MINOR">{{nominationInfo.DOB}}</span>
               </td>
             </tr>
           </tbody>
@@ -1421,14 +1421,14 @@
     </div>
 
     <div nz-row>
-      <div nz-col nzSpan="6">
-        <b>The antecedents and KYC details of applicant <br>
-          have been subjected to due diligence by us.The <br>
-          the applicant has signed before me. We recommend for <br>
-          opening of the Bank account for extending the <br>
+      <div nz-col nzSpan="16">
+        <b>The antecedents and KYC details of applicant
+          have been subjected to due diligence by us.The
+          the applicant has signed before me. We recommend for
+          opening of the Bank account for extending the
           baking facilities.</b>
       </div>
-      <div nz-col nzSpan="12">
+      <div nz-col nzSpan="2">
 
       </div>
       <div nz-col nzSpan="6" style="text-align: center;">
@@ -1453,7 +1453,8 @@
 
     <div nz-row class="margin2">
       <div nz-col nzSpan="2">Date:</div>
-      <div nz-col nzSpan="10" class="data-heading dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+      <div nz-col nzSpan="10" class="data-heading dark-data-headings">
+
       </div>
       <div nz-col nzSpan="2">Officer </div>
       <div nz-col nzSpan="4"></div>
@@ -1462,13 +1463,13 @@
     </div>
   </div>
 
-
   <!-- page-1 -->
   <div nz-row class="margin">
     <div nz-col nzSpan="24">
       <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
     </div>
   </div>
+
   <div class="page page1">
     <div>
       <div nz-row>
@@ -1525,7 +1526,9 @@
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
           Name&Age:&nbsp;
-          <span class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}} </span>
+          <span
+            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
+          </span>
         </div>
       </div>
       <div nz-row>
@@ -1535,8 +1538,8 @@
         <div nz-col nzSpan="23" style="margin-top:20px;">
           Name of Father/Husband:&nbsp; &nbsp;
           <span class="dark-data-headings">
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
           </span>
         </div>
       </div>
@@ -1611,18 +1614,18 @@
         </div>
       </div>
       <div nz-row>
-        <div nz-col nzSpan="19" style="margin-top:20px;">
-          Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
+        <div nz-col nzSpan="16" style="margin-top:20px;">
+          Date: <span class="dark-data-headings"> </span>
         </div>
-        <div nz-col nzSpan="5" style="margin-top:20px;">
+        <div nz-col nzSpan="8" style="margin-top:20px;text-align: center;">
           Signature
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="16" style="margin-top:20px;">
+      <div nz-row style="margin-top:40px;">
+        <div nz-col nzSpan="16">
           Place:
         </div>
-        <div nz-col nzSpan="8" style="margin-top:20px;">
+        <div nz-col nzSpan="8" style="text-align: center;">
           (Name:&nbsp;
           <span
             class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>)
@@ -1631,7 +1634,6 @@
     </div>
   </div>
 
-
   <!-- LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY -->
 
   <div nz-row class="margin" style="font-size: 12px;margin-top: 10px;">
@@ -1639,6 +1641,7 @@
       <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
     </div>
   </div>
+
   <div class="page page2">
     <div>
       <div nz-row>
@@ -1670,6 +1673,23 @@
           To,
         </div>
       </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="margin-top:10px;">
+          <span class="dark-data-headings">
+            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+          </span>
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="9" style="margin-top:10px;">
+
+        </div>
+      </div>
+
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
@@ -1798,14 +1818,14 @@
           to be in force in future.
         </div>
       </div>
-      <div nz-row>
+      <div nz-row style="margin-top:60px">
         <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
-          Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}</span>
+        <div nz-col nzSpan="11" style="font-weight: bold">
+          Date: <span class="dark-data-headings"></span>
         </div>
         <div nz-col nzSpan="3">
         </div>
-        <div nz-col nzSpan="9" style="margin-top:10px;font-weight: bold">
+        <div nz-col nzSpan="9" style="font-weight: bold">
           BORROWER:&nbsp;
           <span
             class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
@@ -1838,17 +1858,12 @@
           responsibility to monitor, follow up and recover the loan amount for and on behalf of the bank,
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11">
-        </div>
-        <div nz-col nzSpan="3">
-        </div>
-        <div nz-col nzSpan="9" style="margin-top:10px;font-weight: bold">
-
+      <div nz-row style="margin-top:60px;font-weight: bold;">
+        <div nz-col nzSpan="24" style="text-align: right;">
           Name and Designation of the Authorized Officer
         </div>
       </div>
+
       <hr>
       <div nz-row>
 
@@ -1868,7 +1883,7 @@
       <div nz-row>
 
         <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
-          Sanctioned Rs.5,000/- LoanS
+          Sanctioned Rs.5,000/- Loan
         </div>
 
       </div>
@@ -1890,7 +1905,7 @@
   <!-- demand note -->
 
   <div class="page page3" style="margin-top: 10px;">
-    <div nz-row>
+    <div nz-row style="margin-top: 50px;">
 
       <div nz-col nzSpan="24" style="font-weight: bold;text-align: center;margin-top: 10px;">
         DEMAND PROMISSORY NOTE
@@ -1913,7 +1928,7 @@
       <div nz-col nzSpan="1">
       </div>
       <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
-        Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
+        Date: <span class="dark-data-headings"></span>
       </div>
     </div>
     <div nz-row>
@@ -1922,9 +1937,17 @@
       <div nz-col nzSpan="21" style="margin-top: 10px;">
         On demand I, &nbsp;
         <span class="dark-data-headings">
-          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-          {{ ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-          ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+          {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
+          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+
+          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+
+          {{ApplicantPersonal[0].CURRENT_LANDMARK}}
+          {{ApplicantPersonal[0].CURRENT_ADDRESS}}
+          {{ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
           {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
           {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
           ApplicantPersonal[0].CURRENT_PINCODE}}
@@ -1967,7 +1990,7 @@
     </div>
 
 
-    <div nz-row style="margin-top:20px">
+    <div nz-row style="margin-top:300px">
 
       <div nz-col nzSpan="24" style="font-weight: bold;margin-top: 10px;text-align: center;">
         TAKE DELEVERY TO PRO NOTE
@@ -1987,6 +2010,23 @@
         To,
       </div>
     </div>
+
+    <div nz-row>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="11" style="margin-top:10px;">
+        <span class="dark-data-headings">
+          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+        </span>
+      </div>
+      <div nz-col nzSpan="3">
+      </div>
+      <div nz-col nzSpan="9" style="margin-top:10px;">
+      </div>
+    </div>
+
+
     <div nz-row>
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
@@ -2026,22 +2066,23 @@
       <div nz-col nzSpan="1">
       </div>
       <div nz-col nzSpan="21" style="margin-top: 10px;">
-        I thank you for considering my request for sanction of Rs.5,000/-loan to meet my emergent personal needs. In
-        this regard I am delivering the demand promissory note dated {{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}}
+        I thank you for considering my request for sanction of Rs.5,000/- loan to meet my emergent personal needs. In
+        this regard I am delivering the demand promissory note dated
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         executed by me for Rs.5,000/- in favour of your bank. I hereby undertake to repay the loan with remittances from
         time to time and however ensure closure of the loan
         with up to date interest with in 12 months from the date of loan disbursement. I am agreeable to pay the penal
         charges/service charges towards the loan/SB account as per the rules in force form time to time
       </div>
     </div>
-    <div nz-row>
+    <div nz-row style="margin-top: 60px;">
       <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
-        Date: <span class="dark-data-headings">{{basicInfo.APPLICATION_DATE | date:"dd/MM/yyyy"}} </span>
+      <div nz-col nzSpan="11" style="font-weight: bold;">
+        Date: <span class="dark-data-headings"></span>
       </div>
       <div nz-col nzSpan="6">
       </div>
-      <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
+      <div nz-col nzSpan="6" style="font-weight: bold;">
         Signature
       </div>
     </div>

@@ -54,13 +54,14 @@ export class NominationComponent implements OnInit {
   }
 
   mendetory_all = [
-    { field: 'DOB', message: "Nominee's DOB" },
+
     { field: 'NOMINEE_NAME', message: 'Name of Nominee' },
     { field: 'RELATION', message: "Relationship with Applicant" },
     { field: 'NOMINEE_ADDRESS', message: 'Address of Nominee' }
   ]
 
   mendetory_minor = [
+    { field: 'DOB', message: "Nominee's DOB" },
     { field: 'APONITED_NAME', message: "Name of Appointed Person" },
     { field: 'APONITED_ADDRESS', message: 'Address of Appointed Person' },
   ]

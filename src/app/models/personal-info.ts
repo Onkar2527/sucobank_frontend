@@ -33,7 +33,7 @@ export class PersonalInfo {
     IS_EMAIL_VERIFIED: boolean = false;
 
 
-    RISK_CATEGORY: "A" | "B" | "C" = "A";
+    RISK_CATEGORY: "A" | "B" | "C" | " " = " ";
 
     MOBILE_NUMBER: string = '';
     MOBILE_NUMBER_2: string = '';
@@ -47,7 +47,7 @@ export class PersonalInfo {
     CASTE: "A" | "B" | "C" | "D" | "E" | "F" | "G" = 'A';
     OTHER_CASTE: string = '';
 
-    MARITAL_STATUS: string = 'M'
+    MARITAL_STATUS!: string;
 
     FAMILY_COUNT!: number;
 
@@ -99,11 +99,11 @@ export class PersonalInfo {
     MINOR_DATE_OF_BIRTH_PROOF: string = ''; //dropdown
 
 
-    PROFESSION: string= ' '
+    PROFESSION: string = ' '
     NATURE_OF_SERVICE: 'A' | 'B' | ' ' = ' ';
     SELF_EMPLOYED: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'H' | 'G' | ' ' = ' ';
     NATURE_OF_BUSINESS: string = ' ';
-    SOURCE_OF_FUNDS:string= ' ';
+    SOURCE_OF_FUNDS: string = ' ';
 
 
     DRIVING_LICENSE_NO: string = '';
