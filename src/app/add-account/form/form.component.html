@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class="page" id="page=5" style="font-size: 11px;">
+  <div class="page" id="page1" style="font-size: 11px;">
     <div nz-row>
       <div nz-col nzSpan="24" class="margin heading data-font">CENTRAL KYC REGISTRY I Know Your Customer (KYC)
         Application Form I
@@ -201,7 +201,7 @@
 
     <div nz-row>
       <div nz-col nzSpan="6" class="data-heading">Place / City of Birth</div>
-      <div nz-col nzSpan="6"><span class="dark-data-headings">{{ApplicantPersonal[0].BIRTH_PLACE}}</span></div>
+      <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].BIRTH_PLACE}}</span></div>
       <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code of Birth</div>
       <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</span></div>
     </div>
@@ -329,11 +329,11 @@
       <div nz-col nzSpan="2" class="data-heading">District</div>
       <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_dist}}
       </div>
-      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
-      <div nz-col nzSpan="6" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
+      <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
+      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
+      <div nz-col nzSpan="4" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
           {{applicantPersonalMasterData.permanent_state}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
+      <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
     </div>
 
 
@@ -375,18 +375,18 @@
     <div nz-row>
       <div nz-col nzSpan="2" class="data-heading">District</div>
       <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_dist}}</div>
-      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
-      <div nz-col nzSpan="6" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
+      <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
+      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
+      <div nz-col nzSpan="4" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
         {{applicantPersonalMasterData.current_state}}</div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
+      <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
     </div>
 
 
   </div>
   <!-- page-2 -->
 
-  <div class="page page_second margindata" id="page=6" style="font-size: 11px;">
+  <div class="page page_second margindata" id="page=2" style="font-size: 11px;">
 
 
 
@@ -472,7 +472,7 @@
     <div nz-row>
       <div nz-col nzSpan="4" class="data-heading">Related Person Type</div>
       <div nz-col nzSpan="20">
-        ☐ Fuardian of Minor &nbsp;&nbsp; ☐ Nominee &nbsp;&nbsp; ☐ Assignee &nbsp;&nbsp; ☐ Authorized Representative
+        ☐ Guardian of Minor &nbsp;&nbsp; ☐ Nominee &nbsp;&nbsp; ☐ Assignee &nbsp;&nbsp; ☐ Authorized Representative
         &nbsp;&nbsp; ☐ Beneficial owner &nbsp;&nbsp; ☐ Beneficiary
       </div>
       <div nz-col nzSpan="4" class="data-heading">Name</div>
@@ -873,7 +873,7 @@
     </div>
   </div>
 
-  <div class="page" id="page1" style="font-size: 11px;">
+  <div class="page" id="page2" style="font-size: 11px;">
 
 
     <div nz-row>
@@ -941,7 +941,7 @@
 
     <div nz-row>
       <div nz-col nzSpan="10" class="data-heading">1St Applicant's Name:</div>
-      <div nz-col nzSpan="14" class="data dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+      <div nz-col nzSpan="14" class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
         {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
         {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
       </div>
@@ -1166,12 +1166,12 @@
 
 
     <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading">I hereby declare that the date of birth of minor who is my
+      <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">I hereby declare that the date of birth of minor who is my
         <span></span>is <span></span>
       </div>
 
 
-      <div nz-col nzSpan="24" class="data-heading margin">and I am his/her natural guardian/legal guardian appointed by
+      <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">and I am his/her natural guardian/legal guardian appointed by
         the
         court order (copy enclosed).I shall represent the said minor in all
         future transactions of any description in the above until the said minor attains majority. I indemnify the bank
@@ -1182,7 +1182,7 @@
 
 
     <div nz-row class="margin-t-20">
-      <div nz-col nzSpan="3" style="font-size: 12px;">signatures</div>
+      <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
 
       <div nz-col nzSpan="1">1]</div>
       <div nz-col nzSpan="5" class="box"></div>
@@ -1199,25 +1199,25 @@
     </div>
   </div>
 
-  <div class="page page_second" id="page2" style="font-size: 11px;">
+  <div class="page page_second" id="nomform" style="font-size: 11px;">
 
     <div nz-row class="margin heading center">
       <div nz-col nzSpan="24" class="data-font">Nomination Form - DA -1</div>
     </div>
 
     <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading text">Nominations under section 45 ZA read with section 56 of the
+      <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">Nominations under section 45 ZA read with section 56 of the
         Banking
         Regulation Act,1949 and rule 2 (1) of the Co-operative Banks
         (Nomination) Rules,1985 in respect of bank deposits.
       </div>
-      <div nz-col nzSpan="24" class="data-heading text">I/ We Nominate the following person to whom in the event of my /
+      <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">I/ We Nominate the following person to whom in the event of my /
         our /minor's death ,the amount of the deposit, particulars whereof</div>
 
       <div nz-col nzSpan="15" class="data-heading text">are given below, may be returned by SUCO Souharda Sahakari Bank
         Ltd.</div>
-      <div nz-col nzSpan="4">{{branchData.BRANCH_NAME}}</div>
-      <div nz-col nzSpan="5" class="data-heading text">Branch</div>
+      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{branchData.BRANCH_NAME}} Branch</div>
+    
     </div>
 
     <div nz-row class="margin">
@@ -1260,8 +1260,8 @@
     </div>
 
     <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading">Name : {{nominationInfo.APONITED_NAME}} Address :
-        {{nominationInfo.APONITED_ADDRESS}} Age : {{nominationInfo.APOINTED_PERSON_AGE}}</div>
+      <div nz-col nzSpan="24" class="data-heading"> {{nominationInfo.APONITED_NAME}}
+        {{nominationInfo.APONITED_ADDRESS}}  {{nominationInfo.APOINTED_PERSON_AGE}}</div>
     </div>
 
     <div nz-row class="margin">
@@ -1276,7 +1276,7 @@
       <div nz-col nzSpan="8">3]</div>
     </div>
 
-    <div nz-row>
+    <div nz-row style="margin-top: 20px;">
       <div nz-col nzSpan="24" class="data-heading data">Signature(s)/Thumb Impression(s) of Depositor(s) </div>
     </div>
 
@@ -1290,17 +1290,17 @@
       <div nz-col nzSpan="22"></div>
     </div>
 
-    <div nz-row>
+    <div nz-row style="margin-top: 10px;">
       <div nz-col nzSpan="2" class="data-heading">Name</div>
       <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
     </div>
 
-    <div nz-row>
+    <div nz-row style="margin-top: 5px;">
       <div nz-col nzSpan="2" class="data-heading">Address</div>
       <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
     </div>
 
-    <div nz-row>
+    <div nz-row style="margin-top: 5px;">
       <div nz-col nzSpan="24" class="data-heading text">Where deposit is made in the name of minor, the nomination
         should
         be signed by a person lawfully entitled to act on behalf of the minor.</div>
@@ -1404,7 +1404,7 @@
     </div> -->
 
     <div nz-row class="margin-t-20">
-      <div nz-col nzSpan="3" style="font-size: 12px;">signatures</div>
+      <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
 
       <div nz-col nzSpan="1">1]</div>
       <div nz-col nzSpan="5" class="box"></div>
@@ -1470,7 +1470,7 @@
     </div>
   </div>
 
-  <div class="page page1">
+  <div class="page" id="page5" >
     <div>
       <div nz-row>
         <div nz-col nzSpan="14" style="margin-top:20px;">
@@ -1486,14 +1486,14 @@
             </div>
           </div>
         </div>
-        <div nz-col nzSpan="3" style="border: 1px solid black; width: 100px; height: 100px; margin-top: 20px;">
-          <span *ngIf="PHOTOS.length > 0">
+        <div nz-col nzSpan="4" >
+          <div *ngIf="PHOTOS.length > 0" style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px; ">
             <img [src]="PHOTOS[0]" width="100%" height="100%">
-          </span>
+          </div>
         </div>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="6" style="margin-top:10px;">
+        <div nz-col nzSpan="4" style="margin-top:10px;">
           <div nz-row>
             <div nz-col nzSpan="24" style="margin-top:10px;">
               CIF NO.
@@ -1513,7 +1513,7 @@
         </div>
       </div>
       <div nz-row>
-        <div nz-col nzSpan="24" style="margin-top:20px;">
+        <div nz-col nzSpan="24" style="margin-top:20px;text-align: justify;">
           I request you to enroll me as a member and allot me <span
             *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].NO_OF_SHARES}}</span> shares of
           your Bank. I hereby declare that I understood various provisions contained in Karnataka Souharda Sahakari Act
@@ -1525,7 +1525,7 @@
           1.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name&Age:&nbsp;
+          Name&Age :&nbsp;
           <span
             class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
           </span>
@@ -1536,7 +1536,7 @@
           2.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name of Father/Husband:&nbsp; &nbsp;
+          Name of Father/Husband :&nbsp; &nbsp;
           <span class="dark-data-headings">
             {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
             {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
@@ -1548,7 +1548,7 @@
           3.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Category <span *ngIf="ApplicantLoanInfo.length > 0"
+          Category : <span *ngIf="ApplicantLoanInfo.length > 0"
             class="dark-data-headings">{{ApplicantLoanInfo[0].CATEGORY}}</span>
         </div>
       </div>
@@ -1557,7 +1557,7 @@
           4.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name of the Nominee:&nbsp; &nbsp; <span class="dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</span>
+          Name of the Nominee :&nbsp; &nbsp; <span class="dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1565,7 +1565,7 @@
           5.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Address
+          Address :
 
         </div>
       </div>
@@ -1574,7 +1574,7 @@
           A)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Residential Address:&nbsp; &nbsp; <span class="dark-data-headings">{{
+          Residential Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
             ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
             ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
             {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
@@ -1588,7 +1588,7 @@
           B)
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Business/Professional Address:&nbsp; &nbsp; <span class="dark-data-headings">{{
+          Business/Professional Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
             ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
             ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
             {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
@@ -1602,7 +1602,7 @@
           6.
         </div>
         <div nz-col nzSpan="23" style="margin-top:20px;">
-          Membership of other Souharda Sahakari Society/Bank,if any: <span class="dark-data-headings"
+          Membership of other Souharda Sahakari Society/Bank,if any : <span class="dark-data-headings"
             *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].IS_MEMBER_OTHER ? "Yes" : "No"}}</span>
         </div>
       </div>
@@ -1617,7 +1617,7 @@
         <div nz-col nzSpan="16" style="margin-top:20px;">
           Date: <span class="dark-data-headings"> </span>
         </div>
-        <div nz-col nzSpan="8" style="margin-top:20px;text-align: center;">
+        <div nz-col nzSpan="8" style="margin-top:40px;text-align: center;">
           Signature
         </div>
       </div>
@@ -1642,11 +1642,11 @@
     </div>
   </div>
 
-  <div class="page page2">
+  <div class="page" id="page6">
     <div>
       <div nz-row>
         <div nz-col nzSpan="24" style="margin-top: 10px;">
-          <div class="heading" style="font-size: 10px;">
+          <div class="heading" style="font-size: 12px;">
             LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY
           </div>
         </div>
@@ -1667,7 +1667,7 @@
           From:&nbsp; <span
             class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
         </div>
-        <div nz-col nzSpan="3">
+        <div nz-col nzSpan="2">
         </div>
         <div nz-col nzSpan="9" style="margin-top:10px;">
           To,
@@ -1685,8 +1685,9 @@
         </div>
         <div nz-col nzSpan="3">
         </div>
-        <div nz-col nzSpan="9" style="margin-top:10px;">
-
+        <div nz-col nzSpan="9" style="font-weight: bold">
+          The Manager,<br>
+          SUCO Souharda Sahakari Bank
         </div>
       </div>
 
@@ -1699,11 +1700,10 @@
           {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
           ApplicantPersonal[0].CURRENT_PINCODE}}
         </div>
-        <div nz-col nzSpan="3">
+        <div nz-col nzSpan="2">
         </div>
-        <div nz-col nzSpan="9" style="font-weight: bold">
-          The Manager,<br>
-          SUCO Souharda Sahakari Bank
+        <div nz-col nzSpan="9">
+          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
         </div>
       </div>
       <div nz-row>
@@ -1711,23 +1711,21 @@
         <div nz-col nzSpan="11">
 
         </div>
-        <div nz-col nzSpan="3">
+        <div nz-col nzSpan="2">
         </div>
-        <div nz-col nzSpan="9">
-          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
-        </div>
+        
       </div>
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;">
+        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
           I am a member of the consumer group promoted and served by M/s.97 North Technologies Pvt Ltd, Bangalore.
         </div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22">
+        <div nz-col nzSpan="22" style="text-align: justify;">
           1. &nbsp;&nbsp;&nbsp;&nbsp;I request you to grant me financial assistance of Rs.5,000/- (Rupees Five Thousands
           only) against the security of
           the balance deposit in Savings banks Account for purpose of purchasing consumer goods on an ongoing basis. The
@@ -1737,7 +1735,7 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:5px;font-weight: bold">
-          SBACOUNT No.:_____________________________
+          SBACCOUNT No.:_____________________________
         </div>
         <div nz-col nzSpan="2">
         </div>
@@ -1748,7 +1746,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           2. &nbsp;&nbsp;&nbsp;&nbsp;I agree to pay the interest upfront at 12.00% pa rate for the above loan amount
           requested by me.
         </div>
@@ -1756,7 +1754,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           3. &nbsp;&nbsp;&nbsp;&nbsp;I hereby undertake to repay the loan with remittances from time to time and however
           ensure closure of the loan with up to date interest with in 12 months from the date of loan disbursement.
         </div>
@@ -1764,7 +1762,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           4. &nbsp;&nbsp;&nbsp;&nbsp;The demand promissory note together with the Take Delivery letter duly executed by
           me
           in bank's favour is here with enclosed
@@ -1773,7 +1771,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           5. &nbsp;&nbsp;&nbsp;&nbsp; I hereby authorize you to debit the loan amount of Rs.5,000/- and credit the same
           to
           the said SB Account.
@@ -1782,7 +1780,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           6. &nbsp;&nbsp;&nbsp;&nbsp; Also authorize you to debit and recover from My SB account an advance interest
           amount
           for one year period payable
@@ -1792,7 +1790,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           7. &nbsp;&nbsp;&nbsp;&nbsp;Bank is authorized to appropriate the balance in the saving deposit account for due
           repayment of the outstanding
           balance in the loan account/s including interest/charges etc.
@@ -1801,7 +1799,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           8. &nbsp;&nbsp;&nbsp;&nbsp;It is specifically agreed that the security/ies held be continuing security for
           ultimate balance of all monies that have fallen due or may become due for whom the Bank has provided financial
           assistance. Neither the security/ies nor the under taking shall be considered as terminated for reasons of
@@ -1812,7 +1810,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;">
+        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
           9. &nbsp;&nbsp;&nbsp;&nbsp;I/We agree to abide by all the rules and regulations of the Bank, already in force
           and
           to be in force in future.
@@ -1841,7 +1839,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;">
+        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
           We confirm having subjected the applicant to the due diligence for enroling him/her as a member of the group
           promoted by our company. The KYC documents have been verified and certified with due reference to the
           originals
@@ -1851,7 +1849,7 @@
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;">
+        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
           We recommend for sanctioning a loan of Rs.5,000/- to the applicant against the security of deposit amount held
           in
           SB account of the said the applicant. We understand that as the business correspondent of the bank we have the
@@ -1904,7 +1902,7 @@
   </div>
   <!-- demand note -->
 
-  <div class="page page3" style="margin-top: 10px;">
+  <div class="page" id="page7" style="margin-top: 10px;">
     <div nz-row style="margin-top: 50px;">
 
       <div nz-col nzSpan="24" style="font-weight: bold;text-align: center;margin-top: 10px;">
@@ -1912,7 +1910,7 @@
       </div>
 
     </div>
-    <div nz-row>
+    <div nz-row style="margin-top: 30px;">
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
         Place:
@@ -1927,7 +1925,7 @@
     <div nz-row>
       <div nz-col nzSpan="1">
       </div>
-      <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
+      <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 20px;">
         Date: <span class="dark-data-headings"></span>
       </div>
     </div>
@@ -1939,18 +1937,16 @@
         <span class="dark-data-headings">
           {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
           {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
-          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-
+          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}} ,
           {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
           {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} ,
           {{ApplicantPersonal[0].CURRENT_LANDMARK}}
           {{ApplicantPersonal[0].CURRENT_ADDRESS}}
           {{ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
           {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
-          ApplicantPersonal[0].CURRENT_PINCODE}}
+          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}
+          {{ApplicantPersonal[0].CURRENT_PINCODE}}
         </span>
         do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
         Ballari or order the sum of Rs
@@ -1968,15 +1964,15 @@
     <div nz-row>
       <div nz-col nzSpan="1">
       </div>
-      <div nz-col nzSpan="13" style="margin-top:10px;">
+      <div nz-col nzSpan="13" style="margin-top:30px;">
         <div nz-row>
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24" style="margin-top:20px;">
             Witness:
           </div>
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24"style="margin-top:30px;">
             1) _______________________________________________________
           </div>
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24"style="margin-top:20px;">
             (Name and designation of the BC authorized official)
           </div>
         </div>
@@ -1985,12 +1981,12 @@
       </div>
       <div nz-col nzSpan="1">
       </div>
-      <div nz-col nzSpan="2" style="border: 1px solid black; max-width: 180px; height: 80px; margin-top: 20px;">
+      <div nz-col nzSpan="2" style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px;">
       </div>
     </div>
 
 
-    <div nz-row style="margin-top:300px">
+    <div nz-row style="margin-top:250px">
 
       <div nz-col nzSpan="24" style="font-weight: bold;margin-top: 10px;text-align: center;">
         TAKE DELEVERY TO PRO NOTE
@@ -2022,7 +2018,11 @@
       </div>
       <div nz-col nzSpan="3">
       </div>
-      <div nz-col nzSpan="9" style="margin-top:10px;">
+      <!-- <div nz-col nzSpan="9" style="margin-top:10px;">
+      </div> -->
+      <div nz-col nzSpan="9" style="font-weight: bold">
+        The Manager,<br>
+        SUCO Souharda Sahakari Bank
       </div>
     </div>
 
@@ -2036,12 +2036,12 @@
         {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
         ApplicantPersonal[0].CURRENT_PINCODE}}
       </div>
-      <div nz-col nzSpan="3">
+      <div nz-col nzSpan="9">
+        <div nz-col nzSpan="9">
+          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}} </span>
+        </div>
       </div>
-      <div nz-col nzSpan="9" style="font-weight: bold">
-        The Manager,<br>
-        SUCO Souharda Sahakari Bank
-      </div>
+     
     </div>
     <div nz-row>
       <div nz-col nzSpan="1"></div>
@@ -2049,9 +2049,7 @@
       </div>
       <div nz-col nzSpan="3">
       </div>
-      <div nz-col nzSpan="9">
-        Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}} </span>
-      </div>
+      
     </div>
     <div nz-row>
       <div nz-col nzSpan="4">
@@ -2065,7 +2063,7 @@
     <div nz-row>
       <div nz-col nzSpan="1">
       </div>
-      <div nz-col nzSpan="21" style="margin-top: 10px;">
+      <div nz-col nzSpan="21" style="margin-top: 10px; text-align: justify;">
         I thank you for considering my request for sanction of Rs.5,000/- loan to meet my emergent personal needs. In
         this regard I am delivering the demand promissory note dated
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -2075,7 +2073,7 @@
         charges/service charges towards the loan/SB account as per the rules in force form time to time
       </div>
     </div>
-    <div nz-row style="margin-top: 60px;">
+    <div nz-row style="margin-top: 120px;">
       <div nz-col nzSpan="1"></div>
       <div nz-col nzSpan="11" style="font-weight: bold;">
         Date: <span class="dark-data-headings"></span>
