@@ -89,7 +89,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
     let isOk = true;
 
     if (!this.remarkComp.REMARK) {
-      this.message.error("Remark is mendetory field", '');
+      this.message.error("Remark is mandatory field", '');
       isOk = false;
     }
 
@@ -168,7 +168,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
     let isOk = true;
 
     if (!this.remarkComp.REMARK) {
-      this.message.error("Remark is mendetory field", '');
+      this.message.error("Remark is mandatory field", '');
       isOk = false;
     }
 
@@ -725,7 +725,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
     let isOk = true;
 
     if (!this.remarkComp.REMARK) {
-      this.message.error("Remark is mendetory field", '');
+      this.message.error("Remark is mandatory field", '');
       isOk = false;
     }
 

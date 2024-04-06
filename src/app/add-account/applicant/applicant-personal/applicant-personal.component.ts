@@ -139,7 +139,7 @@ export class ApplicantPersonalComponent implements OnInit {
   mendentory_minor = [
     { field: 'GUARDIAN_NAME', message: "Name of the Guardian" },
     { field: 'GUARDIAN_RELATION', message: "Relationship with minor" },
-    { field: 'GUARDIAN_PAN', message: "Guardian's PAN number" }
+    { field: 'GUARDIAN_ADDRESS', message: "Guardian's Address" }
   ]
 
   optionList = [
@@ -425,7 +425,7 @@ export class ApplicantPersonalComponent implements OnInit {
 
     for (let field of this.mendetory_all) {
       if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-        this.message.error(`${field.message} is Mandetory`, '');
+        this.message.error(`${field.message} is Mandatory`, '');
         isOk = false;
       }
     }
@@ -433,7 +433,7 @@ export class ApplicantPersonalComponent implements OnInit {
     // if (this.personalInfo.RELIGION == 'G') {
     //   for (let field of this.mendetory_religion) {
     //     if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-    //       this.message.error(`${field.message} is Mandetory`, '');
+    //       this.message.error(`${field.message} is Mandatory`, '');
     //       isOk = false;
     //     }
     //   }
@@ -442,7 +442,7 @@ export class ApplicantPersonalComponent implements OnInit {
     // if (this.personalInfo.CASTE == 'G') {
     //   for (let field of this.mendentory_cast) {
     //     if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-    //       this.message.error(`${field.message} is Mandetory`, '');
+    //       this.message.error(`${field.message} is Mandatory`, '');
     //       isOk = false;
     //     }
     //   }
@@ -451,7 +451,7 @@ export class ApplicantPersonalComponent implements OnInit {
     if (this.personalInfo.IS_MINOR) {
       for (let field of this.mendentory_minor) {
         if (!this.personalInfo[field.field as keyof PersonalInfo]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
         }
       }
@@ -487,7 +487,7 @@ export class ApplicantPersonalComponent implements OnInit {
       }
     }
     else {
-      personal.error("All mendetory fields are not filled");
+      personal.error("All mandatory fields are not filled");
     }
 
     return personal;

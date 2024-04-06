@@ -107,7 +107,7 @@ export class DepositComponent implements OnInit {
 
     for (let field of this.mendetory_all) {
       if (!this.depositInfo[field.field as keyof TermDeposite]) {
-        this.message.error(`${field.message} is Mandetory`, '');
+        this.message.error(`${field.message} is Mandatory`, '');
         isOk = false;
       }
     }
@@ -115,7 +115,7 @@ export class DepositComponent implements OnInit {
 
     // for (let field of this.mendetory_saving) {
     //   if (!this.depositInfo[field.field as keyof TermDeposite]) {
-    //     this.message.error(`${field.message} is Mandetory`, '');
+    //     this.message.error(`${field.message} is Mandatory`, '');
     //     isOk = false;
     //   }
     // }
@@ -123,7 +123,7 @@ export class DepositComponent implements OnInit {
     if (this.depositInfo.MODE_OF_PAYMENT == 'T') {
       for (let field of this.mendetory_saving_cheque) {
         if (!this.depositInfo[field.field as keyof TermDeposite]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
         }
       }
@@ -134,7 +134,7 @@ export class DepositComponent implements OnInit {
     if (this.catagoryB) {
       for (let field of this.mendetory_non_saving) {
         if (!this.depositInfo[field.field as keyof TermDeposite]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
         }
       }
@@ -194,7 +194,7 @@ export class DepositComponent implements OnInit {
       }
     }
     else {
-      deposit.error("All mendetory fields are not filled");
+      deposit.error("All mandatory fields are not filled");
     }
 
     return deposit;

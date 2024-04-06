@@ -158,7 +158,7 @@ export class ApplicantDetailsComponent implements OnInit {
           if (res.code == 200) {
             this.tabComp.loanInfoComp.getApplicantLoanInfo();
             this.tabComp.selectedTab = 3;
-            this.saveButtonTitle = 'Save and Next';
+            this.saveButtonTitle = 'Save and Close';
             this.tabComp.disabledTabs[2].disabled = true;
             this.tabComp.disabledTabs[3].disabled = false;
             this.saveButtonLoading = false;
@@ -181,7 +181,7 @@ export class ApplicantDetailsComponent implements OnInit {
           if (res.code == 200) {
             // this.tabComp.otherBankAccountComp.getApplicantOtherBankAccount();
 
-            this.saveButtonTitle = 'Save and Close'
+            this.saveButtonTitle = 'Save and Next'
             // this.tabComp.selectedTab = 4;
             this.tabComp.disabledTabs[3].disabled = true;
             // this.tabComp.disabledTabs[4].disabled = false;

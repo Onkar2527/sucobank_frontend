@@ -166,17 +166,17 @@
     <div nz-row>
 
         <nz-form-item nz-col nzSpan="11">
-            <nz-form-label nzNoColon>No Of Shares</nz-form-label>
+            <nz-form-label nzRequired nzNoColon>No Of Shares</nz-form-label>
             <nz-form-control>
 
-                <input nz-input type="number" name="ID_PROOF_NUMBER" [(ngModel)]="loanInfo.NO_OF_SHARES">
+                <input nz-input type="number" name="NO_OF_SHARES" [(ngModel)]="loanInfo.NO_OF_SHARES">
 
             </nz-form-control>
         </nz-form-item>
 
         <nz-form-item nz-col nzSpan="2"></nz-form-item>
         <nz-form-item nz-col nzSpan="11">
-            <nz-form-label nzNoColon>Category</nz-form-label>
+            <nz-form-label nzRequired nzNoColon>Category</nz-form-label>
             <nz-form-control>
 
 
@@ -190,7 +190,7 @@
             </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item nz-col nzSpan="11">
+        <nz-form-item nz-col nzSpan="24">
 
             <nz-form-control>
 
@@ -203,10 +203,23 @@
             </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item nz-col nzSpan="2"></nz-form-item>
 
         <nz-form-item nz-col nzSpan="11">
-            <nz-form-label nzNoColon>Loan Amount</nz-form-label>
+
+            <nz-form-control>
+
+                <p>Do you want to take loan?<span><nz-switch [(ngModel)]="loanInfo.IS_LOAN" nzCheckedChildren="Yes"
+                            nzUnCheckedChildren="No"></nz-switch>
+                    </span>
+                </p>
+
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-col nzSpan="2"></nz-form-item>
+
+        <nz-form-item nz-col nzSpan="11" *ngIf="loanInfo.IS_LOAN">
+            <nz-form-label nzRequired nzNoColon>Loan Amount</nz-form-label>
             <nz-form-control>
 
                 <input nz-input type="number" name="LOAN_AMOUNT" [(ngModel)]="loanInfo.LOAN_AMOUNT">
