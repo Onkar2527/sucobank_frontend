@@ -1108,7 +1108,7 @@ export class FormComponent implements OnInit, AfterViewInit {
       formPdfData = "";
 
     let options = {
-      margin: .3, image: { type: "jpeg", quality: .98 },
+      margin: .1, image: { type: "jpeg", quality: .98 },
       html2canvas: { scale: 4 }, pagebreak: { after: [".page"] }, jsPDF: { unit: "in", format: "legal", orientation: "portrait" }
     }
 
