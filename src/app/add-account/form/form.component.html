@@ -1,1399 +1,1425 @@
-<div id="contentToConvert" style="width: 100%;">
+<nz-spin [nzSpinning]="formSpinning">
+  <div id="contentToConvert" style="width: 100%;">
 
 
-  <!-- Form 1 -->
-
-  <div nz-row class="margin">
-    <div nz-col nzSpan="24">
-      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
-    </div>
-  </div>
-
-  <div class="page" id="page1" style="font-size: 11px;">
-    <div nz-row>
-      <div nz-col nzSpan="24" class="margin heading data-font">CENTRAL KYC REGISTRY I Know Your Customer (KYC)
-        Application Form I
-        Individual</div>
-    </div>
+    <!-- Form 1 -->
 
     <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="dark-data-headings">Important Instructions:</div>
-    </div>
-
-
-    <div nz-row>
-      <!-- <div nz-col nzSpan="24" class="data-heading">Important Instructions:</div> -->
-      <div nz-col nzSpan="10" class="data-heading">A) Fields marked with '*' are mandatory fields.</div>
-      <div nz-col nzSpan="2" class="data-heading"></div>
-      <div nz-col nzSpan="12" class="data-heading">F) List of State / U.T code as per Indian Motor Vehicle Act, 1988
-        is
-        available at the end.</div>
-
-      <div nz-col nzSpan="10" class="data-heading">B) Self Certification of Documents is mandatory</div>
-      <div nz-col nzSpan="2" class="data-heading"></div>
-      <div nz-col nzSpan="12" class="data-heading">G) List of two character ISO 3166 country codes is available at the
-        end.</div>
-
-      <div nz-col nzSpan="10" class="data-heading">C) Please fill the form in English and in BLOCK letters.</div>
-      <div nz-col nzSpan="2" class="data-heading"></div>
-      <div nz-col nzSpan="12" class="data-heading">H) KY'C number of applicant is mandatory for update application.
-      </div>
-
-      <div nz-col nzSpan="10" class="data-heading">D) Please fill the date in DD-MM-YYYY format.</div>
-      <div nz-col nzSpan="2" class="data-heading"></div>
-      <div nz-col nzSpan="12" class="data-heading">I) For particular section update, please tick ( ./) in the box
-        available before the section number and strike off the sections not required to be updated.</div>
-
-      <div nz-col nzSpan="10" class="data-heading">E) Please read section wise detailed guidelines / instructions at
-        the
-        end.</div>
-      <div nz-col nzSpan="2" class="data-heading"></div>
-      <div nz-col nzSpan="12" class="data-heading"></div>
-
-    </div>
-
-    <div nz-row class="margin page5data">
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">For office use only </div>
-      <div nz-col nzSpan="4" class="data-heading">Application Type </div>
-      <div nz-col nzSpan="12" class="data-heading">
-        ☐ New &nbsp; &nbsp; &nbsp;☐ Update &nbsp; &nbsp; &nbsp;
-      </div>
-
-      <div nz-col nzSpan="8" class="data-heading">(To be filled by financial institution) </div>
-      <div nz-col nzSpan="4" class="data-heading"> KYC Number </div>
-      <div nz-col nzSpan="12" class="data-heading"> (Mandatory for KYC update request)</div>
-
-      <div nz-col nzSpan="8" class="data-heading"> </div>
-      <div nz-col nzSpan="4" class="data-heading">Account Type </div>
-      <div nz-col nzSpan="12" class="data-heading">☐ Normal &nbsp; &nbsp; &nbsp;☐Simplified(for low risk customers)
-        &nbsp; &nbsp; &nbsp;☐ Small</div>
-    </div>
-
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">1. PERSONAL DETAILS (Please refer instruction A at the end)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ Name (Same as ID proof)</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}} {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
-        {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+      <div nz-col nzSpan="24">
+        <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
       </div>
     </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Maiden Name (If any)</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{ApplicantPersonal[0].APPLICANT_MAIDEN_F_NAME}} {{ApplicantPersonal[0].APPLICANT_MAIDEN_M_NAME}}
-        {{ApplicantPersonal[0].APPLICANT_MAIDEN_L_NAME}} </div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Father / Spouse Name</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-        {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+    <div class="page" id="page1" style="font-size: 11px;">
+      <div nz-row>
+        <div nz-col nzSpan="24" class="margin heading data-font">CENTRAL KYC REGISTRY I Know Your Customer (KYC)
+          Application Form I
+          Individual</div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Mother Name</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}
-        {{ApplicantPersonal[0].MOTHERS_NAME}} {{ApplicantPersonal[0].MOTHERS_MIDDLE_NAME}}
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="dark-data-headings">Important Instructions:</div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading"> Date of Birth</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].DATE_OF_BIRTH}}</div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Gender</div>
-      <div nz-col nzSpan="18" class="data-heading">
-        <!-- {{gender[ApplicantPersonal[0].GENDER]}} -->
+      <div nz-row>
+        <!-- <div nz-col nzSpan="24" class="data-heading">Important Instructions:</div> -->
+        <div nz-col nzSpan="10" class="data-heading">A) Fields marked with '*' are mandatory fields.</div>
+        <div nz-col nzSpan="2" class="data-heading"></div>
+        <div nz-col nzSpan="12" class="data-heading">F) List of State / U.T code as per Indian Motor Vehicle Act, 1988
+          is
+          available at the end.</div>
 
-        {{ApplicantPersonal[0].GENDER == "M"? "☑" : "☐"}} M-Male &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER ==
-        "F"? "☑" : "☐"}} F-Female &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER == "T"? "☑" : "☐"}} T-Transgender
-        &nbsp;&nbsp;&nbsp;
+        <div nz-col nzSpan="10" class="data-heading">B) Self Certification of Documents is mandatory</div>
+        <div nz-col nzSpan="2" class="data-heading"></div>
+        <div nz-col nzSpan="12" class="data-heading">G) List of two character ISO 3166 country codes is available at the
+          end.</div>
+
+        <div nz-col nzSpan="10" class="data-heading">C) Please fill the form in English and in BLOCK letters.</div>
+        <div nz-col nzSpan="2" class="data-heading"></div>
+        <div nz-col nzSpan="12" class="data-heading">H) KY'C number of applicant is mandatory for update application.
+        </div>
+
+        <div nz-col nzSpan="10" class="data-heading">D) Please fill the date in DD-MM-YYYY format.</div>
+        <div nz-col nzSpan="2" class="data-heading"></div>
+        <div nz-col nzSpan="12" class="data-heading">I) For particular section update, please tick ( ./) in the box
+          available before the section number and strike off the sections not required to be updated.</div>
+
+        <div nz-col nzSpan="10" class="data-heading">E) Please read section wise detailed guidelines / instructions at
+          the
+          end.</div>
+        <div nz-col nzSpan="2" class="data-heading"></div>
+        <div nz-col nzSpan="12" class="data-heading"></div>
+
       </div>
-    </div>
 
-    <!-- <div><span style="background-color: rgba(114, 241, 241, 0.747); color: black">PHOTO</span></div> -->
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Marital Status</div>
-      <div nz-col nzSpan="18" class="data-heading">
-        <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ? 'Married' : 'Unmarried'}} -->
-        {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} Married &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} Unmarried &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].MARITAL_STATUS == "O"? "☑" : "☐"}} Others &nbsp;&nbsp;&nbsp;
+      <div nz-row class="margin page5data">
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">For office use only </div>
+        <div nz-col nzSpan="4" class="data-heading">Application Type </div>
+        <div nz-col nzSpan="12" class="data-heading">
+          ☐ New &nbsp; &nbsp; &nbsp;☐ Update &nbsp; &nbsp; &nbsp;
+        </div>
+
+        <div nz-col nzSpan="8" class="data-heading">(To be filled by financial institution) </div>
+        <div nz-col nzSpan="4" class="data-heading"> KYC Number </div>
+        <div nz-col nzSpan="12" class="data-heading"> (Mandatory for KYC update request)</div>
+
+        <div nz-col nzSpan="8" class="data-heading"> </div>
+        <div nz-col nzSpan="4" class="data-heading">Account Type </div>
+        <div nz-col nzSpan="12" class="data-heading">☐ Normal &nbsp; &nbsp; &nbsp;☐Simplified(for low risk customers)
+          &nbsp; &nbsp; &nbsp;☐ Small</div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Citizenship (Nationality)</div>
-      <div nz-col nzSpan="18">
-        {{ApplicantPersonal[0].NATIONALITY == "A"? "☑" : "☐"}} IN-Indian &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].NATIONALITY == "B"? "☑" : "☐"}} Other(ISO 3166 Country Code ) &nbsp;&nbsp;&nbsp;
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">1. PERSONAL DETAILS (Please refer instruction A at the end)</div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Residential Status</div>
-      <div nz-col nzSpan="18">
-        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "A"? "☑" : "☐"}} Resident Individual &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "B"? "☑" : "☐"}} Non Resident Indian &nbsp;&nbsp;&nbsp;<br>
-        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "C"? "☑" : "☐"}} Foreign National &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "D"? "☑" : "☐"}} Person of Indian Origin &nbsp;&nbsp;&nbsp;
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ Name (Same as ID proof)</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}} {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
+          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Occupation Type</div>
-      <div nz-col nzSpan="18">
-        {{(ApplicantPersonal[0].PROFESSION == "A" || ApplicantPersonal[0].PROFESSION == "B" ||
-        ApplicantPersonal[0].PROFESSION == "C") ? "☑" : "☐"}}
-        S-Service &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "A"? "☑" : "☐"}} Private &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PROFESSION == "B"? "☑" : "☐"}} Public &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PROFESSION == "C"? "☑" : "☐"}}
-        Government &nbsp;&nbsp;&nbsp;)<br>
-
-        {{(ApplicantPersonal[0].PROFESSION == "D" || ApplicantPersonal[0].PROFESSION == "E" ||
-        ApplicantPersonal[0].PROFESSION == "F" ||
-        ApplicantPersonal[0].PROFESSION == "G"||
-        ApplicantPersonal[0].PROFESSION == "H") ? "☑" : "☐"}}
-
-        O-Others &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "D"? "☑" : "☐"}} Professional
-        &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "E"? "☑" : "☐"}} Self Employed &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PROFESSION == "F"? "☑" : "☐"}} retired
-        &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "G"? "☑" : "☐"}} Housewife &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PROFESSION == "H"? "☑" : "☐"}} Student &nbsp;&nbsp;&nbsp;)<br>
-        {{ApplicantPersonal[0].PROFESSION == "I"? "☑" : "☐"}} B-Business &nbsp;&nbsp;&nbsp;<br>
-        {{ApplicantPersonal[0].PROFESSION == "J"? "☑" : "☐"}} X-Not Categorised &nbsp;&nbsp;&nbsp;
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Maiden Name (If any)</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          {{ApplicantPersonal[0].APPLICANT_MAIDEN_F_NAME}} {{ApplicantPersonal[0].APPLICANT_MAIDEN_M_NAME}}
+          {{ApplicantPersonal[0].APPLICANT_MAIDEN_L_NAME}} </div>
       </div>
-    </div>
 
-    <div nz-row class="heading">
-      <div nz-col nzSpan="24" class="new-data">2. TICK IF APPLICABLE MJ RESIDENCE FOR TAX PURPOSES IN JURISDICTION(S)
-        OUTSIDE INDIA
-        (Please
-        refer instruction B at the end)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading">ADDITIONAL DETAILS REQUIRED (Mandatory only if section 2 is ticked)
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Father / Spouse Name</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+        </div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading">ISO 3166 Country Code of Jurisdiction of Residence</div>
-      <div nz-col nzSpan="12"> <span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_RESIDENCY}}</span>
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Mother Name</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}
+          {{ApplicantPersonal[0].MOTHERS_NAME}} {{ApplicantPersonal[0].MOTHERS_MIDDLE_NAME}}
+        </div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading">Tax Identification Number or equivalent (If issued by jurisdiction)
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading"> Date of Birth</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].DATE_OF_BIRTH}}</div>
       </div>
-      <div nz-col nzSpan="12"><span class="dark-data-headings">{{ApplicantPersonal[0].TAX_ID_NUMBER}}</span></div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Place / City of Birth</div>
-      <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].BIRTH_PLACE}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code of Birth</div>
-      <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</span></div>
-    </div>
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Gender</div>
+        <div nz-col nzSpan="18" class="data-heading">
+          <!-- {{gender[ApplicantPersonal[0].GENDER]}} -->
 
-    <div nz-row class="heading">
-      <div nz-col nzSpan="24" class="data-font">3. PROOF OF IDENTITY (Pol)* (Please refer instruction C at the end)
+          {{ApplicantPersonal[0].GENDER == "M"? "☑" : "☐"}} M-Male &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER ==
+          "F"? "☑" : "☐"}} F-Female &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].GENDER == "T"? "☑" : "☐"}} T-Transgender
+          &nbsp;&nbsp;&nbsp;
+        </div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data1">(Certified copy of any one of the following Proof of Identity[Pol] needs
-        to be
-        submitted)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ A- Passport Number </div>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="6" class="data-heading">Passport Expiry Date</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ B- Voter ID Card </div>
-      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.VOTER_ID_1}}</span></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ C- PAN Card </div>
-      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.PAN_NUMBER}}</span></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ D- Driving Licence </div>
-      <div nz-col nzSpan="6"><span class="dark-data-headings">{{basicInfo.LICENSE_NO_1}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
-      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.AADHAAR_NO_1}}</span></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ F- NREGA Job Card </div>
-      <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.NAREGA_JOB_CARD}}</span></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading">☐ Z- Others (any document notified by the central government) </div>
-      <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.OTHER_DOC_NUMBER}}</span></div>
-      <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
-      <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.ID_NUMBER}}</span></div>
-    </div>
-
-    <div nz-row class="heading">
-      <div nz-col nzSpan="24" class="data-font">4. PROOF OF ADDRESS (PoA)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.1 CURRENT / PERMANENT / OVERSEAS ADDRESS DETAILS (Please see
-        instruction
-        D at the end)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data1">(Certified copy of any one of the following Proof of Identity[Pol] needs
-        to be
-        submitted)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Address Type</div>
-      <div nz-col nzSpan="18"><span>☐ Residential/Business &nbsp;&nbsp;&nbsp; ☐ Residential &nbsp;&nbsp;&nbsp; ☐
-          Business
-          &nbsp;&nbsp;&nbsp; ☐ Registered Office &nbsp;&nbsp;&nbsp; ☐ Unspecified &nbsp;&nbsp;&nbsp;</span> </div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Proof of Address</div>
-      <div nz-col nzSpan="18">
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "A"? "☑" : "☐"}} Passport &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "B"? "☑" : "☐"}} Driving Licence &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "C"? "☑" : "☐"}} UID(Aadhaar)<br>
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "D"? "☑" : "☐"}} Voter Identity Card &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "E"? "☑" : "☐"}} NREGA Job Card &nbsp;&nbsp;&nbsp;
-        {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "F"? "☑" : "☐"}} Others <span
-          *ngIf="ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == 'F'">{{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF_NUMBER}}</span>
+      <!-- <div><span style="background-color: rgba(114, 241, 241, 0.747); color: black">PHOTO</span></div> -->
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Marital Status</div>
+        <div nz-col nzSpan="18" class="data-heading">
+          <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ? 'Married' : 'Unmarried'}} -->
+          {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} Married &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} Unmarried &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].MARITAL_STATUS == "O"? "☑" : "☐"}} Others &nbsp;&nbsp;&nbsp;
+        </div>
       </div>
-    </div>
 
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading dark-data-headings">Address</div>
-    </div>
-
-
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}} </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_AREA}}</div>
-      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_city}}
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Citizenship (Nationality)</div>
+        <div nz-col nzSpan="18">
+          {{ApplicantPersonal[0].NATIONALITY == "A"? "☑" : "☐"}} IN-Indian &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].NATIONALITY == "B"? "☑" : "☐"}} Other(ISO 3166 Country Code ) &nbsp;&nbsp;&nbsp;
+        </div>
       </div>
-    </div>
 
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_dist}}
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Residential Status</div>
+        <div nz-col nzSpan="18">
+          {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "A"? "☑" : "☐"}} Resident Individual &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "B"? "☑" : "☐"}} Non Resident Indian &nbsp;&nbsp;&nbsp;<br>
+          {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "C"? "☑" : "☐"}} Foreign National &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].RESIDENTIAL_STATUS == "D"? "☑" : "☐"}} Person of Indian Origin &nbsp;&nbsp;&nbsp;
+        </div>
       </div>
-      <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
-      <div nz-col nzSpan="4" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
-          {{applicantPersonalMasterData.permanent_state}}</span></div>
-      <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
-    </div>
 
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Occupation Type</div>
+        <div nz-col nzSpan="18">
+          {{(ApplicantPersonal[0].PROFESSION == "A" || ApplicantPersonal[0].PROFESSION == "B" ||
+          ApplicantPersonal[0].PROFESSION == "C") ? "☑" : "☐"}}
+          S-Service &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "A"? "☑" : "☐"}} Private &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PROFESSION == "B"? "☑" : "☐"}} Public &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PROFESSION == "C"? "☑" : "☐"}}
+          Government &nbsp;&nbsp;&nbsp;)<br>
 
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.2 CORRESPONDENCE / LOCAL ADDRESS DETAILS * (Please see
-        instruction E
-        at the end)</div>
-    </div>
+          {{(ApplicantPersonal[0].PROFESSION == "D" || ApplicantPersonal[0].PROFESSION == "E" ||
+          ApplicantPersonal[0].PROFESSION == "F" ||
+          ApplicantPersonal[0].PROFESSION == "G"||
+          ApplicantPersonal[0].PROFESSION == "H") ? "☑" : "☐"}}
 
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data1"> ☐ Same as Current / Permanent / Overseas Address details (In case of
-        multiple
-        correspondence / local addresses. please fill 'Annexure A1')</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_ADDRESS}}</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_LANDMARK}}</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10" class="data-heading dark-data-headings">
-        {{ApplicantPersonal[0].CURRENT_AREA}}
+          O-Others &nbsp;&nbsp;&nbsp;( {{ApplicantPersonal[0].PROFESSION == "D"? "☑" : "☐"}} Professional
+          &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "E"? "☑" : "☐"}} Self Employed &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PROFESSION == "F"? "☑" : "☐"}} retired
+          &nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].PROFESSION == "G"? "☑" : "☐"}} Housewife &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PROFESSION == "H"? "☑" : "☐"}} Student &nbsp;&nbsp;&nbsp;)<br>
+          {{ApplicantPersonal[0].PROFESSION == "I"? "☑" : "☐"}} B-Business &nbsp;&nbsp;&nbsp;<br>
+          {{ApplicantPersonal[0].PROFESSION == "J"? "☑" : "☐"}} X-Not Categorised &nbsp;&nbsp;&nbsp;
+        </div>
       </div>
-      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_city}}</div>
-    </div>
 
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_dist}}</div>
-      <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
-      <div nz-col nzSpan="4" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
-        {{applicantPersonalMasterData.current_state}}</div>
-      <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
-    </div>
-
-
-  </div>
-  <!-- page-2 -->
-
-  <div class="page page_second margindata" id="page=2" style="font-size: 11px;">
-
-
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading"> ☐ 4.3 ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS
-        RESIDENT
-        OUTSIDE INDIA FOR TAX PURPOSES* (Applicable if section 2 is ticked)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data1"> ☐ Same as Current / Permanent / Overseas Address details </div>
-      <div nz-col nzSpan="12" class="data1"> ☐ Same as Correspondence / Local Address details</div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 1</div>
-      <div nz-col nzSpan="22"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 2</div>
-      <div nz-col nzSpan="22"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Line 3</div>
-      <div nz-col nzSpan="10"></div>
-      <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">District</div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="6" class="data-heading">State / U.T Code</div>
-      <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
-    </div>
-
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">5. CONTACT DETAILS <span class="new-data">(All communications will be
-          sent on provided Mobile No./Email-ID)
-          (Please refer instruction 'F' at the end)</span>
+      <div nz-row class="heading">
+        <div nz-col nzSpan="24" class="new-data">2. TICK IF APPLICABLE MJ RESIDENCE FOR TAX PURPOSES IN JURISDICTION(S)
+          OUTSIDE INDIA
+          (Please
+          refer instruction B at the end)</div>
       </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">Tel. (Off. )</div>
-      <div nz-col nzSpan="6" class="dark-data-headings"></div>
-      <div nz-col nzSpan="2" class="data-heading">Tel. (Res.)</div>
-      <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER_2}}</div>
-      <div nz-col nzSpan="2" class="data-heading">Mobile</div>
-      <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="2" class="data-heading">FAX </div>
-      <div nz-col nzSpan="6" class="dark-data-headings"></div>
-      <div nz-col nzSpan="2" class="data-heading"> Email ID</div>
-      <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMAIL_ID}}</div>
-    </div>
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24"><span class="new-data data-font"> 6. DETAILS OF RELATED PERSON (in case of additional
-          related persons, please fill
-          'Annexure
-          B1' ) (please refer instruction G at the end)
-        </span></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading">☐ Addition of Related Person &nbsp;&nbsp;&nbsp;&nbsp; ☐ Deletion of
-        Related Person </div>
-      <div nz-col nzSpan="12" class="data-heading">KYC Number Of Related Person(if available)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="4" class="data-heading">Related Person Type</div>
-      <div nz-col nzSpan="20">
-        ☐ Guardian of Minor &nbsp;&nbsp; ☐ Nominee &nbsp;&nbsp; ☐ Assignee &nbsp;&nbsp; ☐ Authorized Representative
-        &nbsp;&nbsp; ☐ Beneficial owner &nbsp;&nbsp; ☐ Beneficiary
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading">ADDITIONAL DETAILS REQUIRED (Mandatory only if section 2 is ticked)
+        </div>
       </div>
-      <div nz-col nzSpan="4" class="data-heading">Name</div>
-      <div nz-col nzSpan="20"></div>
-    </div>
 
-    <div nz-row class="small-heading">
-      <div nz-col nzSpan="24">PROOF OF IDENTITY [Pol] OF RELATED PERSON* (Please see instruction (H) at the end)</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ A- Passport Number </div>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="6" class="data-heading">Passport Expiry Date</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading"> ☐ B- Voter ID Card </div>
-      <div nz-col nzSpan="18"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading"> ☐ C- PAN Card </div>
-      <div nz-col nzSpan="18"></div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading"> ☐ D- Driving Licence </div>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
-      <div nz-col nzSpan="18"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading"> ☐ F- NREGA Job Card </div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading"> ☐ Z- Others (any document notified by the central government) </div>
-      <div nz-col nzSpan="3" class="data-heading dark-data-headings"></div>
-      <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
-      <div nz-col nzSpan="3" class="data-heading dark-data-headings"></div>
-    </div>
-
-
-
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">7. Personal Details:</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Marital Status : </div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">
-        <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ?'Married' : 'Unmarried'}} -->
-        Single {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} &nbsp;&nbsp; Married
-        {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} &nbsp;&nbsp;
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading">ISO 3166 Country Code of Jurisdiction of Residence</div>
+        <div nz-col nzSpan="12"> <span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_RESIDENCY}}</span>
+        </div>
       </div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Anniversary Date:</div>
-      <div nz-col nzSpan="6"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading">Tax Identification Number or equivalent (If issued by jurisdiction)
+        </div>
+        <div nz-col nzSpan="12"><span class="dark-data-headings">{{ApplicantPersonal[0].TAX_ID_NUMBER}}</span></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Place / City of Birth</div>
+        <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].BIRTH_PLACE}}</span></div>
+        <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code of Birth</div>
+        <div nz-col nzSpan="4"><span class="dark-data-headings">{{ApplicantPersonal[0].COUNTRY_CODE_BIRTH}}</span></div>
+      </div>
+
+      <div nz-row class="heading">
+        <div nz-col nzSpan="24" class="data-font">3. PROOF OF IDENTITY (Pol)* (Please refer instruction C at the end)
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data1">(Certified copy of any one of the following Proof of Identity[Pol] needs
+          to be
+          submitted)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ A- Passport Number </div>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="6" class="data-heading">Passport Expiry Date</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ B- Voter ID Card </div>
+        <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.VOTER_ID_1}}</span></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ C- PAN Card </div>
+        <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.PAN_NUMBER}}</span></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ D- Driving Licence </div>
+        <div nz-col nzSpan="6"><span class="dark-data-headings">{{basicInfo.LICENSE_NO_1}}</span></div>
+        <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
+        <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.AADHAAR_NO_1}}</span></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ F- NREGA Job Card </div>
+        <div nz-col nzSpan="18"><span class="dark-data-headings">{{basicInfo.NAREGA_JOB_CARD}}</span></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading">☐ Z- Others (any document notified by the central government)
+        </div>
+        <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.OTHER_DOC_NUMBER}}</span></div>
+        <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
+        <div nz-col nzSpan="3"><span class="dark-data-headings">{{basicInfo.ID_NUMBER}}</span></div>
+      </div>
+
+      <div nz-row class="heading">
+        <div nz-col nzSpan="24" class="data-font">4. PROOF OF ADDRESS (PoA)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading"> ☐ 4.1 CURRENT / PERMANENT / OVERSEAS ADDRESS DETAILS (Please see
+          instruction
+          D at the end)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data1">(Certified copy of any one of the following Proof of Identity[Pol] needs
+          to be
+          submitted)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Address Type</div>
+        <div nz-col nzSpan="18"><span>☐ Residential/Business &nbsp;&nbsp;&nbsp; ☐ Residential &nbsp;&nbsp;&nbsp; ☐
+            Business
+            &nbsp;&nbsp;&nbsp; ☐ Registered Office &nbsp;&nbsp;&nbsp; ☐ Unspecified &nbsp;&nbsp;&nbsp;</span> </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Proof of Address</div>
+        <div nz-col nzSpan="18">
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "A"? "☑" : "☐"}} Passport &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "B"? "☑" : "☐"}} Driving Licence &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "C"? "☑" : "☐"}} UID(Aadhaar)<br>
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "D"? "☑" : "☐"}} Voter Identity Card &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "E"? "☑" : "☐"}} NREGA Job Card &nbsp;&nbsp;&nbsp;
+          {{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == "F"? "☑" : "☐"}} Others <span
+            *ngIf="ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF == 'F'">{{ApplicantPersonal[0].PERMANENT_ADDRESS_PROOF_NUMBER}}</span>
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading dark-data-headings">Address</div>
+      </div>
+
+
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 1</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_ADDRESS}}
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 2</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings"> {{ApplicantPersonal[0].PERMANENT_LANDMARK}}
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 3</div>
+        <div nz-col nzSpan="10" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_AREA}}</div>
+        <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_city}}
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">District</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_dist}}
+        </div>
+        <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
+        <div nz-col nzSpan="4" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
+            {{applicantPersonalMasterData.permanent_state}}</span></div>
+        <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading"> ☐ 4.2 CORRESPONDENCE / LOCAL ADDRESS DETAILS * (Please see
+          instruction E
+          at the end)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data1"> ☐ Same as Current / Permanent / Overseas Address details (In case of
+          multiple
+          correspondence / local addresses. please fill 'Annexure A1')</div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 1</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_ADDRESS}}</div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 2</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_LANDMARK}}</div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 3</div>
+        <div nz-col nzSpan="10" class="data-heading dark-data-headings">
+          {{ApplicantPersonal[0].CURRENT_AREA}}
+        </div>
+        <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_city}}
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">District</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_dist}}
+        </div>
+        <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
+        <div nz-col nzSpan="4" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
+          {{applicantPersonalMasterData.current_state}}</div>
+        <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
+      </div>
+
+
     </div>
+    <!-- page-2 -->
 
-    <div class="dashed-border"></div>
+    <div class="page page_second margindata" id="page=2" style="font-size: 11px;">
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Religion/Ethnic Origin: </div>
-      <div nz-col nzSpan="9" class="data-heading dark-data-headings">
 
-        Hindu {{ApplicantPersonal[0].RELIGION == "A"? "☑" : "☐"}} &nbsp;&nbsp; Muslim {{ApplicantPersonal[0].RELIGION ==
-        "B"? "☑" : "☐"}} &nbsp;&nbsp; Christian {{ApplicantPersonal[0].RELIGION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
-        <!-- <span *ngIf="applicant.RELIGION == 'G'">
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading"> ☐ 4.3 ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS
+          RESIDENT
+          OUTSIDE INDIA FOR TAX PURPOSES* (Applicable if section 2 is ticked)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data1"> ☐ Same as Current / Permanent / Overseas Address details </div>
+        <div nz-col nzSpan="12" class="data1"> ☐ Same as Correspondence / Local Address details</div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 1</div>
+        <div nz-col nzSpan="22"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 2</div>
+        <div nz-col nzSpan="22"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Line 3</div>
+        <div nz-col nzSpan="10"></div>
+        <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">District</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="6" class="data-heading">Pin / Post Code</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="6" class="data-heading">State / U.T Code</div>
+        <div nz-col nzSpan="6" class="data-heading">ISO 3166 Country Code</div>
+      </div>
+
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">5. CONTACT DETAILS <span class="new-data">(All communications will be
+            sent on provided Mobile No./Email-ID)
+            (Please refer instruction 'F' at the end)</span>
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">Tel. (Off. )</div>
+        <div nz-col nzSpan="6" class="dark-data-headings"></div>
+        <div nz-col nzSpan="2" class="data-heading">Tel. (Res.)</div>
+        <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER_2}}</div>
+        <div nz-col nzSpan="2" class="data-heading">Mobile</div>
+        <div nz-col nzSpan="6" class="dark-data-headings">{{ApplicantPersonal[0].MOBILE_NUMBER}}</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="2" class="data-heading">FAX </div>
+        <div nz-col nzSpan="6" class="dark-data-headings"></div>
+        <div nz-col nzSpan="2" class="data-heading"> Email ID</div>
+        <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMAIL_ID}}</div>
+      </div>
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24"><span class="new-data data-font"> 6. DETAILS OF RELATED PERSON (in case of additional
+            related persons, please fill
+            'Annexure
+            B1' ) (please refer instruction G at the end)
+          </span></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading">☐ Addition of Related Person &nbsp;&nbsp;&nbsp;&nbsp; ☐ Deletion of
+          Related Person </div>
+        <div nz-col nzSpan="12" class="data-heading">KYC Number Of Related Person(if available)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading">Related Person Type</div>
+        <div nz-col nzSpan="20">
+          ☐ Guardian of Minor &nbsp;&nbsp; ☐ Nominee &nbsp;&nbsp; ☐ Assignee &nbsp;&nbsp; ☐ Authorized Representative
+          &nbsp;&nbsp; ☐ Beneficial owner &nbsp;&nbsp; ☐ Beneficiary
+        </div>
+        <div nz-col nzSpan="4" class="data-heading">Name</div>
+        <div nz-col nzSpan="20"></div>
+      </div>
+
+      <div nz-row class="small-heading">
+        <div nz-col nzSpan="24">PROOF OF IDENTITY [Pol] OF RELATED PERSON* (Please see instruction (H) at the end)</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ A- Passport Number </div>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="6" class="data-heading">Passport Expiry Date</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading"> ☐ B- Voter ID Card </div>
+        <div nz-col nzSpan="18"></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading"> ☐ C- PAN Card </div>
+        <div nz-col nzSpan="18"></div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading"> ☐ D- Driving Licence </div>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="6" class="data-heading">Driving Licence Expiry Date</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">☐ E- UID (Aadhaar)</div>
+        <div nz-col nzSpan="18"></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading"> ☐ F- NREGA Job Card </div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings"></div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading"> ☐ Z- Others (any document notified by the central government)
+        </div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings"></div>
+        <div nz-col nzSpan="6" class="data-heading">Identification Number</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings"></div>
+      </div>
+
+
+
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">7. Personal Details:</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Marital Status : </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">
+          <!-- {{ApplicantPersonal[0].MARITAL_STATUS == 'M' ?'Married' : 'Unmarried'}} -->
+          Single {{ApplicantPersonal[0].MARITAL_STATUS == "U"? "☑" : "☐"}} &nbsp;&nbsp; Married
+          {{ApplicantPersonal[0].MARITAL_STATUS == "M"? "☑" : "☐"}} &nbsp;&nbsp;
+        </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Anniversary Date:</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Religion/Ethnic Origin: </div>
+        <div nz-col nzSpan="9" class="data-heading dark-data-headings">
+
+          Hindu {{ApplicantPersonal[0].RELIGION == "A"? "☑" : "☐"}} &nbsp;&nbsp; Muslim {{ApplicantPersonal[0].RELIGION
+          ==
+          "B"? "☑" : "☐"}} &nbsp;&nbsp; Christian {{ApplicantPersonal[0].RELIGION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+          <!-- <span *ngIf="applicant.RELIGION == 'G'">
             {{ApplicantPersonal[0].OTHER_RELIGION}}
           </span>
           <span *ngIf="applicant.RELIGION != 'G'">
             {{religion[ApplicantPersonal[0].RELIGION]}}
           </span> -->
+        </div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Specify if others</div>
+        <div nz-col nzSpan="3">
+          <span *ngIf="ApplicantPersonal[0].RELIGION == 'G'"
+            class="dark-data-headings">{{ApplicantPersonal[0].OTHER_RELIGION}}</span>
+        </div>
       </div>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Specify if others</div>
-      <div nz-col nzSpan="3">
-        <span *ngIf="ApplicantPersonal[0].RELIGION == 'G'"
-          class="dark-data-headings">{{ApplicantPersonal[0].OTHER_RELIGION}}</span>
-      </div>
-    </div>
-    <div class="dashed-border"></div>
+      <div class="dashed-border"></div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Caste category </div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        General/Other {{ApplicantPersonal[0].CASTE == "A"? "☑" : "☐"}} &nbsp;&nbsp;
-        BC {{ApplicantPersonal[0].CASTE == "D"? "☑" : "☐"}} &nbsp;&nbsp; OBC
-        {{ApplicantPersonal[0].CASTE == "B"? "☑" : "☐"}} &nbsp;&nbsp;
-        SC/ST {{ApplicantPersonal[0].CASTE == "C"? "☑" : "☐"}}
-        &nbsp;&nbsp;
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Caste category </div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          General/Other {{ApplicantPersonal[0].CASTE == "A"? "☑" : "☐"}} &nbsp;&nbsp;
+          BC {{ApplicantPersonal[0].CASTE == "D"? "☑" : "☐"}} &nbsp;&nbsp; OBC
+          {{ApplicantPersonal[0].CASTE == "B"? "☑" : "☐"}} &nbsp;&nbsp;
+          SC/ST {{ApplicantPersonal[0].CASTE == "C"? "☑" : "☐"}}
+          &nbsp;&nbsp;
 
-      </div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-
-
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name: <span
-          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span></div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation: <span
-          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span></div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children: <span
-          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
-
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">Spouse Name:
-        <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span>
-      </div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">Spouse Occupation:
-        <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span>
+        </div>
       </div>
 
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents: <span
-          *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
-
-    </div>
+      <div class="dashed-border"></div>
 
 
 
 
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name: <span
+            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span></div>
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation: <span
+            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span></div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children: <span
+            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
 
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">8. Other Details :</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Education :</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        <!-- {{education[ApplicantPersonal[0].EDUCATION]}} -->
-        Under Graduate {{ApplicantPersonal[0].EDUCATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;
-        Graduate {{ApplicantPersonal[0].EDUCATION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
-        Post Graduate {{ApplicantPersonal[0].EDUCATION == "E"? "☑" : "☐"}} &nbsp;&nbsp;
-        Professional {{ApplicantPersonal[0].EDUCATION == "F"? "☑" : "☐"}} &nbsp;&nbsp;
-        Not Educated {{ApplicantPersonal[0].EDUCATION == "G"? "☑" : "☐"}} &nbsp;&nbsp;
       </div>
-    </div>
-    <div class="dashed-border"></div>
 
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Occupation/Profession :</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+      <div nz-row>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Spouse Name:
+          <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span>
+        </div>
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Spouse Occupation:
+          <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span>
+        </div>
 
-        <span class="margin">
-          Salaried {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Business {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Self Employed {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Retired {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "D"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Home Maker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "E"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Student {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "F"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span><br>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents: <span
+            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
 
-        <span class="margin">
-          Doctor {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "G"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          C.A {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "H"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Engineer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "I"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Architect {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "J"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Lawyer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "K"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-          Banker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "L"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span>
+      </div>
 
-        <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.occupation}}</span>
+
+
+
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">8. Other Details :</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Education :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          <!-- {{education[ApplicantPersonal[0].EDUCATION]}} -->
+          Under Graduate {{ApplicantPersonal[0].EDUCATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;
+          Graduate {{ApplicantPersonal[0].EDUCATION == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+          Post Graduate {{ApplicantPersonal[0].EDUCATION == "E"? "☑" : "☐"}} &nbsp;&nbsp;
+          Professional {{ApplicantPersonal[0].EDUCATION == "F"? "☑" : "☐"}} &nbsp;&nbsp;
+          Not Educated {{ApplicantPersonal[0].EDUCATION == "G"? "☑" : "☐"}} &nbsp;&nbsp;
+        </div>
+      </div>
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Occupation/Profession :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+
+          <span class="margin">
+            Salaried {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Business {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Self Employed {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Retired {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "D"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Home Maker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "E"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Student {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "F"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span><br>
+
+          <span class="margin">
+            Doctor {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "G"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            C.A {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "H"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Engineer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "I"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Architect {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "J"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Lawyer {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "K"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+            Banker {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "L"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</span>
+
+          <!-- <span *ngIf="i == 0">{{applicantPersonalMasterData.occupation}}</span>
           <span *ngIf="i > 0"> {{profession[ApplicantPersonal[0].PROFESSION]}}</span> -->
-      </div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">
-        Consultant {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "M"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-        Software/IT {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "N"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-        Agriculturist {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "O"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</div>
-      <div nz-col nzSpan="3" class="data-heading dark-data-headings">Specify Other :</div>
-      <div nz-col nzSpan="3"><span
-          *ngIf="ApplicantPersonal[0].SOURCE_OF_FUNDS == 'P'">{{ApplicantPersonal[0].NATURE_OF_BUSINESS}}</span></div>
-    </div>
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employment Details :</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-
-        Public Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "A"? "☑" : "☐"}} &nbsp;&nbsp;
-        Private Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "B"? "☑" : "☐"}} &nbsp;&nbsp;
-        Government {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "C"? "☑" : "☐"}} &nbsp;&nbsp;
-        Multinational {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "D"? "☑" : "☐"}} &nbsp;&nbsp;
-        Self Employed {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "E"? "☑" : "☐"}} &nbsp;&nbsp;
-      </div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
-      <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
-      <div nz-col nzSpan="2" class="dark-data-headings">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
-      <div nz-col nzSpan="20" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Annual Income (In Lakhs) :</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        <!-- <span *ngIf="ApplicantFinancial.length > i">{{ApplicantFinancial[0].INCOME}}</span> -->
-
-        Below 1.20
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "A"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span>&nbsp;&nbsp;
-        1.21 to 2.40
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "B"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        2.41 to 6.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "C"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        6.01 to 9.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "D"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        9.01 to 12.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "E"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp; <br>
-        12.01 to 25.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "F"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        25.01 to 50.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "G"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        50.01 to 100.0
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "H"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
-        Above 100.00
-        <span *ngIf="ApplicantFinancial.length > 0">
-          {{ApplicantFinancial[0].INCOME == "I"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantFinancial.length ==  0">☐</span>
-        &nbsp;&nbsp;
-      </div>
-    </div>
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Residence :</div>
-      <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-        <!-- <span *ngIf="ApplicantProperty.length > i">{{residential_status[ApplicantProperty[i].HOUSE_DETAIL]}}</span> -->
-        Rented
-        <span *ngIf="ApplicantProperty.length > 0">
-          {{ApplicantProperty[0].HOUSE_DETAIL == "A"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
-        Own
-        <span *ngIf="ApplicantProperty.length > 0">
-          {{ApplicantProperty[0].HOUSE_DETAIL == "B"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
-        Company
-        <span *ngIf="ApplicantProperty.length > 0">
-          {{ApplicantProperty[0].HOUSE_DETAIL == "C"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
-        Ancestral
-        <span *ngIf="ApplicantProperty.length > 0">
-          {{ApplicantProperty[0].HOUSE_DETAIL == "D"? "☑" : "☐"}}
-        </span>
-        <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
-      </div>
-    </div>
-
-
-
-
-    <div nz-row class="heading">
-      <div nz-col nzSpan="6" class="data-font">8. REMARKS (if any)</div>
-      <div nz-col nzSpan="18" class="data-font"> Mobile no. / Email-ID (Please refer instruction F at the end)</div>
-    </div>
-
-    <div nz-row class="heading">
-      <div nz-col nzSpan="24" class="data-font">
-
-      </div>
-    </div>
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">9. APPLICANT DECLARATION</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="20" class="data-heading">I hereby declare thai the details furnished above are true and
-        comeci
-        to the best of my knowledge anc beliefand I undertake to inform you of any changes
-        therein, immediately. In case any of the above information is found to be false or untrue of misleading of
-        misrepresenting, I am aware thai I may be held liable
-        far it.
-      </div>
-      <div nz-col nzSpan="4"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="20" class="data-heading">I hereby consent to receiving informaton from Central KYC Registry
-        through 5M3/Email on the above registered numberemail address.</div>
-      <div nz-col nzSpan="4"></div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="4">Date</div>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="4">Place</div>
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="4"></div>
-    </div>
-
-
-    <div nz-row class="heading">
-      <div nz-col nzSpan="24" class="data-font">10. ATTESTATION / FOR OFFICE USE ONLY</div>
-    </div>
-
-    <div nz-row class="last-box margin">
-      <div nz-col nzSpan="11">Documents received &nbsp;&nbsp;&nbsp;&nbsp; ☐ Self-Certified &nbsp;&nbsp; ☐ True Copies
-        &nbsp;&nbsp; ☐ Notary</div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11">Risk Category &nbsp;&nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "A"? "☑" :
-        "☐"}} High &nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "B"? "☑" : "☐"}} Medium &nbsp;&nbsp;
-        {{ApplicantPersonal[0].RISK_CATEGORY == "C"? "☑" : "☐"}} Low
+        </div>
       </div>
 
-      <div nz-col nzSpan="11" class="last-box-div">KYC VERIFICATION CARRIED OUT BY</div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11" class="last-box-div">INSTITUTION DETAILS</div>
-
-      <div nz-col nzSpan="11">Date</div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"> Name <span class="dark-data-headings">SUCO SOU SAHAKARI BANK</span></div>
-
-      <div nz-col nzSpan="11">Emp.Name <span class="dark-data-headings">{{makerUserData.NAME}}</span></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11">code <span class="dark-data-headings">IN1299</span></div>
-
-      <div nz-col nzSpan="11">Emp.Code <span class="dark-data-headings">{{basicInfo.MAKER_USER_ID }}</span></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"></div>
-
-      <div nz-col nzSpan="11">Emp.Designation <span class="dark-data-headings">BA</span></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"></div>
-
-      <div nz-col nzSpan="11">Emp.Branch <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11"></div>
-
-      <div nz-col nzSpan="11" class="boxdata"></div>
-      <div nz-col nzSpan="2"></div>
-      <div nz-col nzSpan="11" class="boxdata"></div>
-    </div>
-
-  </div>
-
-
-
-  <!-- Form 2 -->
-  <div nz-row class="margin">
-    <div nz-col nzSpan="24">
-      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
-    </div>
-  </div>
-
-  <div class="page" id="page2" style="font-size: 11px;">
-
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="heading data margin data-font">
-        SAVING /TERM DEPOSIT ACCOUNT OPENING FORM
+      <div nz-row>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">
+          Consultant {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "M"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Software/IT {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "N"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Agriculturist {{ApplicantPersonal[0].SOURCE_OF_FUNDS == "O"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Specify Other :</div>
+        <div nz-col nzSpan="3"><span
+            *ngIf="ApplicantPersonal[0].SOURCE_OF_FUNDS == 'P'">{{ApplicantPersonal[0].NATURE_OF_BUSINESS}}</span></div>
       </div>
-    </div>
+      <div class="dashed-border"></div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="16" class="data-heading">Branch: <span
-          class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
-      <div nz-col nzSpan="2" class="data-heading">Date:</div>
-      <div nz-col nzSpan="4" class="data"> <span class="dark-data-headings"></span>
-      </div>
-    </div>
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employment Details :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
 
-    <div nz-row>
-      <div nz-col nzSpan="3" class="data-heading">Customer ID:</div>
-      <div nz-col nzSpan="7" class="data dark-data-headings">{{basicInfo.CUSTOMER_ID_1}}</div>
-      <div nz-col nzSpan="3" class="data-heading"> Account No:</div>
-      <div nz-col nzSpan="11" class="data dark-data-headings">{{basicInfo['ACCOUNT_NUMBER']}}</div>
-    </div>
-
-    <div nz-row class="heading margin">
-      <div nz-col nzSpan="24" class="data-font">Please open an account as per details given below ( whichever is
-        applicable)</div>
-    </div>
-
-    <div nz-row class="margin data-heading">
-      <div nz-col nzSpan="3" class="data-heading dark-data-headings">Savings :</div>
-      <div nz-col nzSpan="3"></div>
-      <div nz-col nzSpan="18">
-        Regular {{depositInfo.SCHEME_CODE == "A"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Premium* {{depositInfo.SCHEME_CODE == "B"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Basic {{depositInfo.SCHEME_CODE == "C"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Supreme {{depositInfo.SCHEME_CODE == "D"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Elite* {{depositInfo.SCHEME_CODE == "E"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Blip {{depositInfo.SCHEME_CODE == "F"? "☑" : "☐"}}
-      </div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading">Account Operation By :</div>
-      <div nz-col nzSpan="18" class="data-heading">
-        Single {{depositInfo.ACCOUNT_OPERATION == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-        Jointly {{depositInfo.ACCOUNT_OPERATION == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-        Either or Survivor {{depositInfo.ACCOUNT_OPERATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
-        Former / Survivor {{depositInfo.ACCOUNT_OPERATION == "D"? "☑" : "☐"}}
-        &nbsp;&nbsp;&nbsp; Minor by Guardian {{depositInfo.ACCOUNT_OPERATION == "E"? "☑" : "☐"}}
-      </div>
-    </div>
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="6"></div>
-      <div nz-col nzSpan="6" class="data-heading">Other (Please Specify)</div>
-      <div nz-col nzSpan="12"><span *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'"
-          class="dark-data-headings">{{depositInfo.OTHER_ACCOUNT_OP}}</span>
-      </div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="10" class="data-heading">1St Applicant's Name:</div>
-      <div nz-col nzSpan="14" class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
-        {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
-        {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-      </div>
-    </div>
-
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="10" class="data-heading">2nd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14" class="dark-data-headings">
-        {{basicInfo.JOINT_APP_1_F_NAME}}
-        {{basicInfo.JOINT_APP_1_M_NAME}}
-        {{basicInfo.JOINT_APP_1_L_NAME}}
-      </div>
-    </div>
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="10" class="data-heading">3rd Jt.Applicant's Name /Guardian's Name:</div>
-      <div nz-col nzSpan="14" class="dark-data-headings">
-        {{basicInfo.JOINT_APP_2_F_NAME}}
-        {{basicInfo.JOINT_APP_2_M_NAME}}
-        {{basicInfo.JOINT_APP_2_L_NAME}}
-      </div>
-    </div>
-
-
-
-    <div nz-row class="heading margin">
-      <div nz-col nzSpan="24" class="data-font">Please offer me</div>
-    </div>
-
-    <div nz-row class="data-heading margin">
-      <div nz-col nzSpan="4">
+          Public Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "A"? "☑" : "☐"}} &nbsp;&nbsp;
+          Private Sector {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "B"? "☑" : "☐"}} &nbsp;&nbsp;
+          Government {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "C"? "☑" : "☐"}} &nbsp;&nbsp;
+          Multinational {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "D"? "☑" : "☐"}} &nbsp;&nbsp;
+          Self Employed {{ApplicantPersonal[0].EMPLOYMENT_DETAIL == "E"? "☑" : "☐"}} &nbsp;&nbsp;
+        </div>
       </div>
 
-      <div nz-col nzSpan="4">
-        Cheque Book {{serviceInfo.CHEQUE_BOOK== true ? "☑" : "☐"}}
+      <div class="dashed-border"></div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
+        <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
+        <div nz-col nzSpan="2" class="dark-data-headings">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
       </div>
 
-      <div nz-col nzSpan="4">
-        Rupay Debit Card {{serviceInfo.ATM_CARD == true ? "☑" : "☐"}}
+      <div nz-row>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
+        <div nz-col nzSpan="20" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
       </div>
 
-      <div nz-col nzSpan="4">
-        IMPS {{serviceInfo.IMPS ? "☑" : "☐"}}
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Annual Income (In Lakhs) :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          <!-- <span *ngIf="ApplicantFinancial.length > i">{{ApplicantFinancial[0].INCOME}}</span> -->
+
+          Below 1.20
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "A"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span>&nbsp;&nbsp;
+          1.21 to 2.40
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "B"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          2.41 to 6.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "C"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          6.01 to 9.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "D"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          9.01 to 12.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "E"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp; <br>
+          12.01 to 25.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "F"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          25.01 to 50.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "G"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          50.01 to 100.0
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "H"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span> &nbsp;&nbsp;
+          Above 100.00
+          <span *ngIf="ApplicantFinancial.length > 0">
+            {{ApplicantFinancial[0].INCOME == "I"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantFinancial.length ==  0">☐</span>
+          &nbsp;&nbsp;
+        </div>
       </div>
+      <div class="dashed-border"></div>
 
-      <div nz-col nzSpan="4">
-        SMS alert {{serviceInfo.SMS_ALERT== true ? "☑" : "☐"}}
-      </div>
-
-      <div nz-col nzSpan="4">
-
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Residence :</div>
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
+          <!-- <span *ngIf="ApplicantProperty.length > i">{{residential_status[ApplicantProperty[i].HOUSE_DETAIL]}}</span> -->
+          Rented
+          <span *ngIf="ApplicantProperty.length > 0">
+            {{ApplicantProperty[0].HOUSE_DETAIL == "A"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
+          Own
+          <span *ngIf="ApplicantProperty.length > 0">
+            {{ApplicantProperty[0].HOUSE_DETAIL == "B"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
+          Company
+          <span *ngIf="ApplicantProperty.length > 0">
+            {{ApplicantProperty[0].HOUSE_DETAIL == "C"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantProperty.length ==  0">☐</span>&nbsp;&nbsp;
+          Ancestral
+          <span *ngIf="ApplicantProperty.length > 0">
+            {{ApplicantProperty[0].HOUSE_DETAIL == "D"? "☑" : "☐"}}
+          </span>
+          <span *ngIf="ApplicantProperty.length ==  0">☐</span> &nbsp;&nbsp;
+        </div>
       </div>
 
 
-    </div>
 
-    <div nz-row class="heading margin">
-      <div nz-col nzSpan="24" class="data-font">Instructions - About term Deposit</div>
-    </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Term Deposit : </div>
-      <div nz-col nzSpan="18" class="data-heading">
-        Fixed Deposit ☐ &nbsp;&nbsp;&nbsp; Recurring Deposit ☐
+      <div nz-row class="heading">
+        <div nz-col nzSpan="6" class="data-font">8. REMARKS (if any)</div>
+        <div nz-col nzSpan="18" class="data-font"> Mobile no. / Email-ID (Please refer instruction F at the end)</div>
       </div>
-    </div>
 
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="3"></div>
-      <div nz-col nzSpan="4" class="data-heading">Amount of Deposit</div>
-      <div nz-col nzSpan="4" class="dark-data-headings">{{depositInfo.DEPOSIT_AMOUNT}}</div>
-      <div nz-col nzSpan="4" class="data-heading">Duration</div>
-      <div nz-col nzSpan="4" class="data dark-data-headings">
-        {{depositInfo.TANURE_YEARS}} {{depositInfo.TANURE_MONTHS}} {{depositInfo.TANURE_DAYS}}
+      <div nz-row style="text-align:center;">
+        <div nz-col nzSpan="24" class="dark-data-headings">
+          <span *ngIf="REMARK_DATA.length > 0">{{REMARK_DATA[(REMARK_DATA.length - 1)].REMARK}}</span>
+        </div>
       </div>
-      <div nz-col nzSpan="5" class="data-heading">Rate of Interest <span>{{depositInfo.RATE_OF_INTEREST}}</span></div>
-    </div>
 
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="6" class="data-heading dark-data-headings">Interest</div>
-      <div nz-col nzSpan="18" class="data-heading">
-        Monthly ☐ &nbsp;&nbsp;&nbsp; Quarterly ☐ &nbsp;&nbsp;&nbsp; Half Yearly ☐ &nbsp;&nbsp;&nbsp; On Maturity ☐
-
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">9. APPLICANT DECLARATION</div>
       </div>
-    </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="14" class="data-heading">Interest on above deposit be credited to My / Our SB / CA / OD A/c
-        No:
+      <div nz-row>
+        <div nz-col nzSpan="20" class="data-heading">I hereby declare thai the details furnished above are true and
+          comeci
+          to the best of my knowledge anc beliefand I undertake to inform you of any changes
+          therein, immediately. In case any of the above information is found to be false or untrue of misleading of
+          misrepresenting, I am aware thai I may be held liable
+          far it.
+        </div>
+        <div nz-col nzSpan="4"></div>
       </div>
-      <div nz-col nzSpan="10"></div>
-    </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="5" class="data-heading">Deposit Maturity Date :</div>
-      <div nz-col nzSpan="7"></div>
-      <div nz-col nzSpan="6" class="data-heading">Deposit Maturity Amount :</div>
-      <div nz-col nzSpan="6"></div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="10" class="data-heading">Installment per months for Recurring A/c: Rs.</div>
-      <div nz-col nzSpan="12"></div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="14" class="data-heading dark-data-headings">Standing Instructions to Credit Deposit Interest
-        Through ECS-</div>
-      <div nz-col nzSpan="10"></div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="4" class="data-heading">Bank Name:</div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_BANK_NAME}}</div>
-      <div nz-col nzSpan="3" class="data-heading"> Branch Name:</div>
-      <div nz-col nzSpan="9" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_BRANCH_NAME}}</div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="6" class="data-heading">Branch MICR Code No: </div>
-      <div nz-col nzSpan="4"></div>
-      <div nz-col nzSpan="6" class="data-heading">Monthly Installment Rs:</div>
-      <div nz-col nzSpan="8"></div>
-    </div>
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="12" class="data-heading">may be recovered by debiting My / Our SB/CA/OD A/C No:</div>
-      <div nz-col nzSpan="12" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_ACCOUNT_NUMBER}}</div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="5" class="data-heading dark-data-headings">Member of Bank: </div>
-      <div nz-col nzSpan="5" class="data-heading">
-        Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
+      <div nz-row>
+        <div nz-col nzSpan="20" class="data-heading">I hereby consent to receiving informaton from Central KYC Registry
+          through 5M3/Email on the above registered numberemail address.</div>
+        <div nz-col nzSpan="4"></div>
       </div>
-      <div nz-col nzSpan="5" class="data-heading">Membership No. :</div>
-      <div nz-col nzSpan="9"></div>
 
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="5" class="data-heading dark-data-headings">Deduct TDS: </div>
-      <div nz-col nzSpan="6" class="data-heading"> Yes ☐ &nbsp;&nbsp;&nbsp; No ☐ </div>
-      <div nz-col nzSpan="7" class="data-heading dark-data-headings" style="text-align:right"> 15G/15H Form to be
-        Submitted:</div>
-      <div nz-col nzSpan="6">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
-      </div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="3" class="data-heading">Pan No.</div>
-      <div nz-col nzSpan="8" class="data-heading dark-data-headings"> {{basicInfo.PAN_NUMBER}}</div>
-      <div nz-col nzSpan="7" class="data-heading dark-data-headings" style="text-align:right">Auto Renewal:</div>
-      <div nz-col nzSpan="6" class="data-heading">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
-      </div>
-    </div>
-
-    <div class="dashed-border"></div>
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="instruction">lf any change in the renewal is required, the depositor has to
-        intimate
-        the bank along with the receipt at least 15 days prior to the maturity date.</div>
-    </div>
-
-    <div nz-row class="heading margin">
-      <div nz-col nzSpan="24" class="data-font">If Minor: (Details)</div>
-    </div>
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="8" class="data-heading">(Minor's Birth Certificate is manadatory)</div>
-      <div nz-col nzSpan="4"></div>
-      <div nz-col nzSpan="3" class="data-heading"> Date of Birth:</div>
-      <div nz-col nzSpan="9" class="data-heading dark-data-headings">
-        <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].DATE_OF_BIRTH}}</span>
-      </div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="4" class="data-heading">Guardian's Name</div>
-      <div nz-col nzSpan="20" class="data-heading dark-data-headings"> <span
-          *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].GUARDIAN_NAME}}</span></div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="4" class="data-heading">Guardian's Relation</div>
-      <div nz-col nzSpan="20" class="data-heading dark-data-headings">
-        <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{relation[ApplicantPersonal[0].GUARDIAN_RELATION]}}</span>
-      </div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="4" class="data-heading">Guardian's Address</div>
-      <div nz-col nzSpan="20">
-        <span *ngIf="ApplicantPersonal[0].IS_MINOR"
-          class="dark-data-headings">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
-      </div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading dark-data-headings">Declaration by Guardian in case of Minor
-        applicant:
-      </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">I hereby declare that the date of birth of minor who is my
-        <span></span>is <span></span>
+      <div nz-row>
+        <div nz-col nzSpan="4">Date</div>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="4">Place</div>
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="4"></div>
       </div>
 
 
-      <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">and I am his/her natural guardian/legal guardian appointed by
-        the
-        court order (copy enclosed).I shall represent the said minor in all
-        future transactions of any description in the above until the said minor attains majority. I indemnify the bank
-        against the claim of above
-        minor for any withdrawal/trasaction made by me in his/her account.
+      <div nz-row class="heading">
+        <div nz-col nzSpan="24" class="data-font">10. ATTESTATION / FOR OFFICE USE ONLY</div>
       </div>
-    </div>
 
+      <div nz-row class="last-box margin">
+        <div nz-col nzSpan="11">Documents received &nbsp;&nbsp;&nbsp;&nbsp; ☐ Self-Certified &nbsp;&nbsp; ☐ True Copies
+          &nbsp;&nbsp; ☐ Notary</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11">Risk Category &nbsp;&nbsp;&nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "A"? "☑"
+          :
+          "☐"}} High &nbsp;&nbsp; {{ApplicantPersonal[0].RISK_CATEGORY == "B"? "☑" : "☐"}} Medium &nbsp;&nbsp;
+          {{ApplicantPersonal[0].RISK_CATEGORY == "C"? "☑" : "☐"}} Low
+        </div>
 
-    <div nz-row class="margin-t-20">
-      <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
+        <div nz-col nzSpan="11" class="last-box-div">KYC VERIFICATION CARRIED OUT BY</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11" class="last-box-div">INSTITUTION DETAILS</div>
 
-      <div nz-col nzSpan="1">1]</div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11">Date</div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11"> Name <span class="dark-data-headings">SUCO SOU SAHAKARI BANK</span></div>
 
-      <div nz-col nzSpan="1"> 2] </div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11">Emp.Name <span class="dark-data-headings">{{makerUserData.NAME}}</span></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11">code <span class="dark-data-headings">IN1299</span></div>
 
-      <div nz-col nzSpan="1">3]</div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11">Emp.Code <span class="dark-data-headings">{{basicInfo.MAKER_USER_ID }}</span></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11"></div>
 
-    </div>
-  </div>
+        <div nz-col nzSpan="11">Emp.Designation <span class="dark-data-headings">BA</span></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11"></div>
 
-  <div class="page page_second" id="nomform" style="font-size: 11px;">
+        <div nz-col nzSpan="11">Emp.Branch <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11"></div>
 
-    <div nz-row class="margin heading center">
-      <div nz-col nzSpan="24" class="data-font">Nomination Form - DA -1</div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">Nominations under section 45 ZA read with section 56 of the
-        Banking
-        Regulation Act,1949 and rule 2 (1) of the Co-operative Banks
-        (Nomination) Rules,1985 in respect of bank deposits.
+        <div nz-col nzSpan="11" class="boxdata"></div>
+        <div nz-col nzSpan="2"></div>
+        <div nz-col nzSpan="11" class="boxdata"></div>
       </div>
-      <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">I/ We Nominate the following person to whom in the event of my /
-        our /minor's death ,the amount of the deposit, particulars whereof</div>
 
-      <div nz-col nzSpan="15" class="data-heading text">are given below, may be returned by SUCO Souharda Sahakari Bank
-        Ltd.</div>
-      <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{branchData.BRANCH_NAME}} Branch</div>
-    
     </div>
 
+
+
+    <!-- Form 2 -->
     <div nz-row class="margin">
       <div nz-col nzSpan="24">
-        <table>
-          <thead>
-            <tr>
-              <th>Nature of Deposit</th>
-              <th>Customer ID</th>
-              <th>Name & Address of Nominee</th>
-              <th>Relationship with the Depositor</th>
-              <th>Age</th>
-              <th>If Nominee is a minor his/her Date Of Birth</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="data-heading">
-              <td></td>
-              <td>{{nominationInfo.NOMINEE_CUSTOMER_ID}}</td>
-              <td>
-                {{nominationInfo.NOMINEE_NAME}} &nbsp;
-                {{nominationInfo.NOMINEE_ADDRESS}}
-              </td>
-              <td>
-                {{relation[nominationInfo.RELATION]}}
-              </td>
-              <td>{{nominationInfo.NOMINEE_AGE}}</td>
-              <td>
-                <span *ngIf="nominationInfo.IS_MINOR">{{nominationInfo.DOB}}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
       </div>
     </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading">As the nominee is a minor on this date, I/ we appoint Shri./Smt./Kum.
-        (Name, address & age)</div>
-    </div>
+    <div class="page" id="page2" style="font-size: 11px;">
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading"> {{nominationInfo.APONITED_NAME}}
-        {{nominationInfo.APONITED_ADDRESS}}  {{nominationInfo.APOINTED_PERSON_AGE}}</div>
-    </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading">to recieve the amount of the deposit on behalf of the nominee in the
-        event of my/our/minor's death during the minority of the nominee.
+      <div nz-row>
+        <div nz-col nzSpan="24" class="heading data margin data-font">
+          SAVING /TERM DEPOSIT ACCOUNT OPENING FORM
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="16" class="data-heading">Branch: <span
+            class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
+        <div nz-col nzSpan="2" class="data-heading">Date:</div>
+        <div nz-col nzSpan="4" class="data"> <span class="dark-data-headings"></span>
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="3" class="data-heading">Customer ID:</div>
+        <div nz-col nzSpan="7" class="data dark-data-headings">{{basicInfo.CUSTOMER_ID_1}}</div>
+        <div nz-col nzSpan="3" class="data-heading"> Account No:</div>
+        <div nz-col nzSpan="11" class="data dark-data-headings">{{basicInfo['ACCOUNT_NUMBER']}}</div>
+      </div>
+
+      <div nz-row class="heading margin">
+        <div nz-col nzSpan="24" class="data-font">Please open an account as per details given below ( whichever is
+          applicable)</div>
+      </div>
+
+      <div nz-row class="margin data-heading">
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Savings :</div>
+        <div nz-col nzSpan="3"></div>
+        <div nz-col nzSpan="18">
+          Regular {{depositInfo.SCHEME_CODE == "A"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Premium* {{depositInfo.SCHEME_CODE == "B"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Basic {{depositInfo.SCHEME_CODE == "C"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Supreme {{depositInfo.SCHEME_CODE == "D"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Elite* {{depositInfo.SCHEME_CODE == "E"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Blip {{depositInfo.SCHEME_CODE == "F"? "☑" : "☐"}}
+        </div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading">Account Operation By :</div>
+        <div nz-col nzSpan="18" class="data-heading">
+          Single {{depositInfo.ACCOUNT_OPERATION == "A"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Jointly {{depositInfo.ACCOUNT_OPERATION == "B"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Either or Survivor {{depositInfo.ACCOUNT_OPERATION == "C"? "☑" : "☐"}} &nbsp;&nbsp;&nbsp;
+          Former / Survivor {{depositInfo.ACCOUNT_OPERATION == "D"? "☑" : "☐"}}
+          &nbsp;&nbsp;&nbsp; Minor by Guardian {{depositInfo.ACCOUNT_OPERATION == "E"? "☑" : "☐"}}
+        </div>
+      </div>
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="6"></div>
+        <div nz-col nzSpan="6" class="data-heading">Other (Please Specify)</div>
+        <div nz-col nzSpan="12"><span *ngIf="depositInfo.ACCOUNT_OPERATION == 'F'"
+            class="dark-data-headings">{{depositInfo.OTHER_ACCOUNT_OP}}</span>
+        </div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="10" class="data-heading">1St Applicant's Name:</div>
+        <div nz-col nzSpan="14" class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+          {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
+          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+        </div>
+      </div>
+
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="10" class="data-heading">2nd Jt.Applicant's Name /Guardian's Name:</div>
+        <div nz-col nzSpan="14" class="dark-data-headings">
+          {{basicInfo.JOINT_APP_1_F_NAME}}
+          {{basicInfo.JOINT_APP_1_M_NAME}}
+          {{basicInfo.JOINT_APP_1_L_NAME}}
+        </div>
+      </div>
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="10" class="data-heading">3rd Jt.Applicant's Name /Guardian's Name:</div>
+        <div nz-col nzSpan="14" class="dark-data-headings">
+          {{basicInfo.JOINT_APP_2_F_NAME}}
+          {{basicInfo.JOINT_APP_2_M_NAME}}
+          {{basicInfo.JOINT_APP_2_L_NAME}}
+        </div>
+      </div>
+
+
+
+      <div nz-row class="heading margin">
+        <div nz-col nzSpan="24" class="data-font">Please offer me</div>
+      </div>
+
+      <div nz-row class="data-heading margin">
+        <div nz-col nzSpan="4">
+        </div>
+
+        <div nz-col nzSpan="4">
+          Cheque Book {{serviceInfo.CHEQUE_BOOK== true ? "☑" : "☐"}}
+        </div>
+
+        <div nz-col nzSpan="4">
+          Rupay Debit Card {{serviceInfo.ATM_CARD == true ? "☑" : "☐"}}
+        </div>
+
+        <div nz-col nzSpan="4">
+          IMPS {{serviceInfo.IMPS ? "☑" : "☐"}}
+        </div>
+
+        <div nz-col nzSpan="4">
+          SMS alert {{serviceInfo.SMS_ALERT== true ? "☑" : "☐"}}
+        </div>
+
+        <div nz-col nzSpan="4">
+
+        </div>
+
+
+      </div>
+
+      <div nz-row class="heading margin">
+        <div nz-col nzSpan="24" class="data-font">Instructions - About term Deposit</div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Term Deposit : </div>
+        <div nz-col nzSpan="18" class="data-heading">
+          Fixed Deposit ☐ &nbsp;&nbsp;&nbsp; Recurring Deposit ☐
+        </div>
+      </div>
+
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="3"></div>
+        <div nz-col nzSpan="4" class="data-heading">Amount of Deposit</div>
+        <div nz-col nzSpan="4" class="dark-data-headings">{{depositInfo.DEPOSIT_AMOUNT}}</div>
+        <div nz-col nzSpan="4" class="data-heading">Duration</div>
+        <div nz-col nzSpan="4" class="data dark-data-headings">
+          {{depositInfo.TANURE_YEARS}} {{depositInfo.TANURE_MONTHS}} {{depositInfo.TANURE_DAYS}}
+        </div>
+        <div nz-col nzSpan="5" class="data-heading">Rate of Interest <span>{{depositInfo.RATE_OF_INTEREST}}</span></div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Interest</div>
+        <div nz-col nzSpan="18" class="data-heading">
+          Monthly ☐ &nbsp;&nbsp;&nbsp; Quarterly ☐ &nbsp;&nbsp;&nbsp; Half Yearly ☐ &nbsp;&nbsp;&nbsp; On Maturity ☐
+
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="14" class="data-heading">Interest on above deposit be credited to My / Our SB / CA / OD A/c
+          No:
+        </div>
+        <div nz-col nzSpan="10"></div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="5" class="data-heading">Deposit Maturity Date :</div>
+        <div nz-col nzSpan="7"></div>
+        <div nz-col nzSpan="6" class="data-heading">Deposit Maturity Amount :</div>
+        <div nz-col nzSpan="6"></div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="10" class="data-heading">Installment per months for Recurring A/c: Rs.</div>
+        <div nz-col nzSpan="12"></div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="14" class="data-heading dark-data-headings">Standing Instructions to Credit Deposit Interest
+          Through ECS-</div>
+        <div nz-col nzSpan="10"></div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading">Bank Name:</div>
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_BANK_NAME}}</div>
+        <div nz-col nzSpan="3" class="data-heading"> Branch Name:</div>
+        <div nz-col nzSpan="9" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_BRANCH_NAME}}</div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="6" class="data-heading">Branch MICR Code No: </div>
+        <div nz-col nzSpan="4"></div>
+        <div nz-col nzSpan="6" class="data-heading">Monthly Installment Rs:</div>
+        <div nz-col nzSpan="8"></div>
+      </div>
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="12" class="data-heading">may be recovered by debiting My / Our SB/CA/OD A/C No:</div>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">{{depositInfo.DEPOSIT_ACCOUNT_NUMBER}}</div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">Member of Bank: </div>
+        <div nz-col nzSpan="5" class="data-heading">
+          Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
+        </div>
+        <div nz-col nzSpan="5" class="data-heading">Membership No. :</div>
+        <div nz-col nzSpan="9"></div>
+
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="5" class="data-heading dark-data-headings">Deduct TDS: </div>
+        <div nz-col nzSpan="6" class="data-heading"> Yes ☐ &nbsp;&nbsp;&nbsp; No ☐ </div>
+        <div nz-col nzSpan="7" class="data-heading dark-data-headings" style="text-align:right"> 15G/15H Form to be
+          Submitted:</div>
+        <div nz-col nzSpan="6">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="3" class="data-heading">Pan No.</div>
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings"> {{basicInfo.PAN_NUMBER}}</div>
+        <div nz-col nzSpan="7" class="data-heading dark-data-headings" style="text-align:right">Auto Renewal:</div>
+        <div nz-col nzSpan="6" class="data-heading">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yes ☐ &nbsp;&nbsp;&nbsp; No ☐
+        </div>
+      </div>
+
+      <div class="dashed-border"></div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="instruction">lf any change in the renewal is required, the depositor has to
+          intimate
+          the bank along with the receipt at least 15 days prior to the maturity date.</div>
+      </div>
+
+      <div nz-row class="heading margin">
+        <div nz-col nzSpan="24" class="data-font">If Minor: (Details)</div>
+      </div>
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="8" class="data-heading">(Minor's Birth Certificate is manadatory)</div>
+        <div nz-col nzSpan="4"></div>
+        <div nz-col nzSpan="3" class="data-heading"> Date of Birth:</div>
+        <div nz-col nzSpan="9" class="data-heading dark-data-headings">
+          <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].DATE_OF_BIRTH}}</span>
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading">Guardian's Name</div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings"> <span
+            *ngIf="ApplicantPersonal[0].IS_MINOR">{{ApplicantPersonal[0].GUARDIAN_NAME}}</span></div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading">Guardian's Relation</div>
+        <div nz-col nzSpan="20" class="data-heading dark-data-headings">
+          <span *ngIf="ApplicantPersonal[0].IS_MINOR">{{relation[ApplicantPersonal[0].GUARDIAN_RELATION]}}</span>
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="4" class="data-heading">Guardian's Address</div>
+        <div nz-col nzSpan="20">
+          <span *ngIf="ApplicantPersonal[0].IS_MINOR"
+            class="dark-data-headings">{{ApplicantPersonal[0].GUARDIAN_ADDRESS}}</span>
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading dark-data-headings">Declaration by Guardian in case of Minor
+          applicant:
+        </div>
+      </div>
+
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">I hereby declare that the date of
+          birth
+          of minor who is my
+          <span></span>is <span></span>
+        </div>
+
+
+        <div nz-col nzSpan="24" class="data-heading" style="text-align: justify;">and I am his/her natural
+          guardian/legal
+          guardian appointed by
+          the
+          court order (copy enclosed).I shall represent the said minor in all
+          future transactions of any description in the above until the said minor attains majority. I indemnify the
+          bank
+          against the claim of above
+          minor for any withdrawal/trasaction made by me in his/her account.
+        </div>
+      </div>
+
+
+      <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
+
+        <div nz-col nzSpan="1">1]</div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
+
+        <div nz-col nzSpan="1"> 2] </div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
+
+        <div nz-col nzSpan="1">3]</div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
+
       </div>
     </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="8">1] </div>
-      <div nz-col nzSpan="8">2]</div>
-      <div nz-col nzSpan="8">3]</div>
-    </div>
+    <div class="page page_second" id="nomform" style="font-size: 11px;">
 
-    <div nz-row style="margin-top: 20px;">
-      <div nz-col nzSpan="24" class="data-heading data">Signature(s)/Thumb Impression(s) of Depositor(s) </div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">Witness:</div>
-      <div nz-col nzSpan="22"></div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="2" class="data-heading dark-data-headings">Signature</div>
-      <div nz-col nzSpan="22"></div>
-    </div>
-
-    <div nz-row style="margin-top: 10px;">
-      <div nz-col nzSpan="2" class="data-heading">Name</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
-    </div>
-
-    <div nz-row style="margin-top: 5px;">
-      <div nz-col nzSpan="2" class="data-heading">Address</div>
-      <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
-    </div>
-
-    <div nz-row style="margin-top: 5px;">
-      <div nz-col nzSpan="24" class="data-heading text">Where deposit is made in the name of minor, the nomination
-        should
-        be signed by a person lawfully entitled to act on behalf of the minor.</div>
-    </div>
-
-    <div nz-row class="margin heading">
-      <div nz-col nzSpan="24" class="data-font">Declaration</div>
-    </div>
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24" class="data-heading text">I / we wish to open a Saving/Term Deposit A/c with your bank.
-        I/We
-        have read and understood the rules of Saving/Term Deposit A/c.
-        We hereby agree to abide with these rules and also rules bearing amended from time to time of the Saving/Term
-        Deposit A/c.
-        Bank reserves the right to increase the charges, minimum balance to be maintained or to discontinue any of the
-        services for the
-        Savings account by placing the information in the Branch Notice board / Bank's website. I/We authorize the bank
-        to
-        share
-        the account data for outsourced printing account statement / communications / activity to me / us apart from the
-        disclosure of customer data in the
-        routine course of business such as sharing of data among bankers regulatory authority / investigating authority.
-        We accept and agree to be bound by
-        the said terms and conditions including those / limiting Banks liability. I\We agree to notify the Bank if Ie
-        avail credit facility from any other Bank and
-        We authorize you to inform the existence of our account with you to the lending banker. I/We also request you to
-        accept the endorsement signed by
-        me/us cheques /orders/bills or notes payable to us. The cheques / bills presented by us in our account for
-        collection are at our sole risk and
-        responsibility and the bank is not liable for any, loss or damages in case the instruments are lost in transit.
-        We
-        accept the Banks right to take steps to
-        close the account if frequent return of cheques for want of funds or any other undesirable feature is observed.
-        I
-        / We acknowledge that the issue of
-        and usage of the Rupay Debit Card is governed by the terms and conditions as in force from time to time and
-        agree
-        to be bound by the same. I/We
-        further unconditionally and irrevocably authorize the Bank to Debit My/Our account annually towards fees /
-        charges. We under take to keep the bank
-        informed incase of change in the constitution / addition and /or deletion of partners / directors, address,
-        proof
-        of identity, telephone numbers etc. I/We
-        am/are aware that Money Laundering is a criminal offence under the law of land and the account shall not be
-        utilized We here by declare that the
-        information furnished above is true and correct to the best of my knowledge.I/We request to open my new
-        Saving/Term Deposit A/c with premium
-        status/ without premium status.
+      <div nz-row class="margin heading center">
+        <div nz-col nzSpan="24" class="data-font">Nomination Form - DA -1</div>
       </div>
-    </div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="16" class="data-heading">I/We declare that I/we do not enjoy any credit facility with any
-        other
-        banks. <span>{{depositInfo.CREDIT_FACILITY_OTHER_BANK ? "Yes" : "No"}}</span></div>
-      <div nz-col nzSpan="8"></div>
-    </div>
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">Nominations under section 45 ZA
+          read with section 56 of the
+          Banking
+          Regulation Act,1949 and rule 2 (1) of the Co-operative Banks
+          (Nomination) Rules,1985 in respect of bank deposits.
+        </div>
+        <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">I/ We Nominate the following
+          person
+          to whom in the event of my /
+          our /minor's death ,the amount of the deposit, particulars whereof</div>
 
+        <div nz-col nzSpan="15" class="data-heading text">are given below, may be returned by SUCO Souharda Sahakari
+          Bank
+          Ltd.</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{branchData.BRANCH_NAME}} Branch</div>
 
-    <div nz-row class="margin">
-      <div nz-col nzSpan="8">lf No the details are as below</div>
-      <div nz-col nzSpan="16"></div>
-    </div>
-
-
-    <div nz-row class="margin">
-      <div nz-col nzSpan="24">
-        <table>
-          <thead>
-            <tr>
-              <th>Bank</th>
-              <th>Branch</th>
-              <th>Facility</th>
-              <th>Account No.</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{depositInfo.CREDIT_FACILITY_OTHER_BANK}}</td>
-              <td>{{depositInfo.CREDIT_FACILITY_OTHER_BRANCH}}</td>
-              <td>{{depositInfo.CREDIT_FACILITY_OTHER_FACILITY}}</td>
-              <td>{{depositInfo.CREDIT_FACILITY_OTHER_AC_NO}}</td>
-              <td>{{depositInfo.CREDIT_FACILITY_OTHER_AMOUNT}}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-    </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24">
+          <table>
+            <thead>
+              <tr>
+                <th>Nature of Deposit</th>
+                <th>Customer ID</th>
+                <th>Name & Address of Nominee</th>
+                <th>Relationship with the Depositor</th>
+                <th>Age</th>
+                <th>If Nominee is a minor his/her Date Of Birth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data-heading">
+                <td></td>
+                <td>{{nominationInfo.NOMINEE_CUSTOMER_ID}}</td>
+                <td>
+                  {{nominationInfo.NOMINEE_NAME}} &nbsp;
+                  {{nominationInfo.NOMINEE_ADDRESS}}
+                </td>
+                <td>
+                  {{relation[nominationInfo.RELATION]}}
+                </td>
+                <td>{{nominationInfo.NOMINEE_AGE}}</td>
+                <td>
+                  <span *ngIf="nominationInfo.IS_MINOR">{{nominationInfo.DOB}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading">As the nominee is a minor on this date, I/ we appoint
+          Shri./Smt./Kum.
+          (Name, address & age)</div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading"> {{nominationInfo.APONITED_NAME}}
+          {{nominationInfo.APONITED_ADDRESS}} {{nominationInfo.APOINTED_PERSON_AGE}}</div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading">to recieve the amount of the deposit on behalf of the nominee in
+          the
+          event of my/our/minor's death during the minority of the nominee.
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="8">1] </div>
+        <div nz-col nzSpan="8">2]</div>
+        <div nz-col nzSpan="8">3]</div>
+      </div>
+
+      <div nz-row style="margin-top: 20px;">
+        <div nz-col nzSpan="24" class="data-heading data">Signature(s)/Thumb Impression(s) of Depositor(s) </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Witness:</div>
+        <div nz-col nzSpan="22"></div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Signature</div>
+        <div nz-col nzSpan="22"></div>
+      </div>
+
+      <div nz-row style="margin-top: 10px;">
+        <div nz-col nzSpan="2" class="data-heading">Name</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
+      </div>
+
+      <div nz-row style="margin-top: 5px;">
+        <div nz-col nzSpan="2" class="data-heading">Address</div>
+        <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
+      </div>
+
+      <div nz-row style="margin-top: 5px;">
+        <div nz-col nzSpan="24" class="data-heading text">Where deposit is made in the name of minor, the nomination
+          should
+          be signed by a person lawfully entitled to act on behalf of the minor.</div>
+      </div>
+
+      <div nz-row class="margin heading">
+        <div nz-col nzSpan="24" class="data-font">Declaration</div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24" class="data-heading text">I / we wish to open a Saving/Term Deposit A/c with your bank.
+          I/We
+          have read and understood the rules of Saving/Term Deposit A/c.
+          We hereby agree to abide with these rules and also rules bearing amended from time to time of the Saving/Term
+          Deposit A/c.
+          Bank reserves the right to increase the charges, minimum balance to be maintained or to discontinue any of the
+          services for the
+          Savings account by placing the information in the Branch Notice board / Bank's website. I/We authorize the
+          bank
+          to
+          share
+          the account data for outsourced printing account statement / communications / activity to me / us apart from
+          the
+          disclosure of customer data in the
+          routine course of business such as sharing of data among bankers regulatory authority / investigating
+          authority.
+          We accept and agree to be bound by
+          the said terms and conditions including those / limiting Banks liability. I\We agree to notify the Bank if Ie
+          avail credit facility from any other Bank and
+          We authorize you to inform the existence of our account with you to the lending banker. I/We also request you
+          to
+          accept the endorsement signed by
+          me/us cheques /orders/bills or notes payable to us. The cheques / bills presented by us in our account for
+          collection are at our sole risk and
+          responsibility and the bank is not liable for any, loss or damages in case the instruments are lost in
+          transit.
+          We
+          accept the Banks right to take steps to
+          close the account if frequent return of cheques for want of funds or any other undesirable feature is
+          observed.
+          I
+          / We acknowledge that the issue of
+          and usage of the Rupay Debit Card is governed by the terms and conditions as in force from time to time and
+          agree
+          to be bound by the same. I/We
+          further unconditionally and irrevocably authorize the Bank to Debit My/Our account annually towards fees /
+          charges. We under take to keep the bank
+          informed incase of change in the constitution / addition and /or deletion of partners / directors, address,
+          proof
+          of identity, telephone numbers etc. I/We
+          am/are aware that Money Laundering is a criminal offence under the law of land and the account shall not be
+          utilized We here by declare that the
+          information furnished above is true and correct to the best of my knowledge.I/We request to open my new
+          Saving/Term Deposit A/c with premium
+          status/ without premium status.
+        </div>
+      </div>
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="16" class="data-heading">I/We declare that I/we do not enjoy any credit facility with any
+          other
+          banks. <span>{{depositInfo.CREDIT_FACILITY_OTHER_BANK ? "Yes" : "No"}}</span></div>
+        <div nz-col nzSpan="8"></div>
+      </div>
 
 
-    <!-- <div nz-row class="margin">
+      <div nz-row class="margin">
+        <div nz-col nzSpan="8">lf No the details are as below</div>
+        <div nz-col nzSpan="16"></div>
+      </div>
+
+
+      <div nz-row class="margin">
+        <div nz-col nzSpan="24">
+          <table>
+            <thead>
+              <tr>
+                <th>Bank</th>
+                <th>Branch</th>
+                <th>Facility</th>
+                <th>Account No.</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{depositInfo.CREDIT_FACILITY_OTHER_BANK}}</td>
+                <td>{{depositInfo.CREDIT_FACILITY_OTHER_BRANCH}}</td>
+                <td>{{depositInfo.CREDIT_FACILITY_OTHER_FACILITY}}</td>
+                <td>{{depositInfo.CREDIT_FACILITY_OTHER_AC_NO}}</td>
+                <td>{{depositInfo.CREDIT_FACILITY_OTHER_AMOUNT}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- <div nz-row class="margin">
       <div nz-col nzSpan="3" class="data-heading">signatures</div>
       <div nz-col nzSpan="1">1]</div>
       <div nz-col nzSpan="6" class="box"></div>
@@ -1403,271 +1429,618 @@
       <div nz-col nzSpan="6" class="box"></div>
     </div> -->
 
-    <div nz-row class="margin-t-20">
-      <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
+      <div nz-row class="margin-t-20">
+        <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
 
-      <div nz-col nzSpan="1">1]</div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="1">1]</div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
 
-      <div nz-col nzSpan="1"> 2] </div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="1"> 2] </div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
 
-      <div nz-col nzSpan="1">3]</div>
-      <div nz-col nzSpan="5" class="box"></div>
-      <div nz-col nzSpan="1"></div>
-
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="16">
-        <b>The antecedents and KYC details of applicant
-          have been subjected to due diligence by us.The
-          the applicant has signed before me. We recommend for
-          opening of the Bank account for extending the
-          baking facilities.</b>
-      </div>
-      <div nz-col nzSpan="2">
+        <div nz-col nzSpan="1">3]</div>
+        <div nz-col nzSpan="5" class="box"></div>
+        <div nz-col nzSpan="1"></div>
 
       </div>
-      <div nz-col nzSpan="6" style="text-align: center;">
-        <b>For 97 North Technologies Pvt. Ltd. <br><br><br><br><br>
-          Authorized Person<br>
-          Name & Designation</b>
-      </div>
-    </div>
 
-    <div nz-row class="margin heading center">
-      <div nz-col nzSpan="24" class="data-font">For Office Use Only</div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="24" class="data-heading">I have verified the Original Documents submitted and confirm that KYC
-        Norms are fully complied with. I hereby confirm having done
-        due diligence and certify that this account opening form is complete in all respect and relevant documents have
-        been obtained. The account may please be opened in CBS.
-      </div>
-    </div>
-
-
-    <div nz-row class="margin2">
-      <div nz-col nzSpan="2">Date:</div>
-      <div nz-col nzSpan="10" class="data-heading dark-data-headings">
-
-      </div>
-      <div nz-col nzSpan="2">Officer </div>
-      <div nz-col nzSpan="4"></div>
-      <div nz-col nzSpan="6">Manager/Asst. Manager</div>
-      <!-- <div nz-col nzSpan="3"></div> -->
-    </div>
-  </div>
-
-  <!-- page-1 -->
-  <div nz-row class="margin">
-    <div nz-col nzSpan="24">
-      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
-    </div>
-  </div>
-
-  <div class="page" id="page5" >
-    <div>
       <div nz-row>
-        <div nz-col nzSpan="14" style="margin-top:20px;">
-          <div nz-row>
-            <div nz-col nzSpan="24">
-              To,
+        <div nz-col nzSpan="16">
+          <b>The antecedents and KYC details of applicant
+            have been subjected to due diligence by us.The
+            the applicant has signed before me. We recommend for
+            opening of the Bank account for extending the
+            baking facilities.</b>
+        </div>
+        <div nz-col nzSpan="2">
+
+        </div>
+        <div nz-col nzSpan="6" style="text-align: center;">
+          <b>For 97 North Technologies Pvt. Ltd. <br><br><br><br><br>
+            Authorized Person<br>
+            Name & Designation</b>
+        </div>
+      </div>
+
+      <div nz-row class="margin heading center">
+        <div nz-col nzSpan="24" class="data-font">For Office Use Only</div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24" class="data-heading">I have verified the Original Documents submitted and confirm that
+          KYC
+          Norms are fully complied with. I hereby confirm having done
+          due diligence and certify that this account opening form is complete in all respect and relevant documents
+          have
+          been obtained. The account may please be opened in CBS.
+        </div>
+      </div>
+
+
+      <div nz-row class="margin2">
+        <div nz-col nzSpan="2">Date:</div>
+        <div nz-col nzSpan="10" class="data-heading dark-data-headings">
+
+        </div>
+        <div nz-col nzSpan="2">Officer </div>
+        <div nz-col nzSpan="4"></div>
+        <div nz-col nzSpan="6">Manager/Asst. Manager</div>
+        <!-- <div nz-col nzSpan="3"></div> -->
+      </div>
+    </div>
+
+    <!-- page-1 -->
+    <div nz-row class="margin">
+      <div nz-col nzSpan="24">
+        <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
+      </div>
+    </div>
+
+    <div class="page" id="page5">
+      <div>
+        <div nz-row>
+          <div nz-col nzSpan="14" style="margin-top:20px;">
+            <div nz-row>
+              <div nz-col nzSpan="24">
+                To,
+              </div>
+              <div nz-col nzSpan="24">
+                SUCO SOUHARDA SAHAKARI BANK LTD..
+              </div>
+              <div nz-col nzSpan="24" style="margin-top:60px;">
+                <span class="dark-data-headings"> {{branchData.BRANCH_NAME}}</span> Branch
+              </div>
             </div>
-            <div nz-col nzSpan="24">
-              SUCO SOUHARDA SAHAKARI BANK LTD..
+          </div>
+          <div nz-col nzSpan="4">
+            <div *ngIf="PHOTOS.length > 0"
+              style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px; ">
+              <img [src]="PHOTOS[0]" width="100%" height="100%">
             </div>
-            <div nz-col nzSpan="24" style="margin-top:60px;">
-              <span class="dark-data-headings"> {{branchData.BRANCH_NAME}}</span> Branch
+          </div>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="4" style="margin-top:10px;">
+            <div nz-row>
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                CIF NO.
+              </div>
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                SB AC NO
+              </div>
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                SHARE NO.
+              </div>
             </div>
           </div>
         </div>
-        <div nz-col nzSpan="4" >
-          <div *ngIf="PHOTOS.length > 0" style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px; ">
-            <img [src]="PHOTOS[0]" width="100%" height="100%">
+        <div nz-row>
+          <div nz-col nzSpan="24" style="text-align: center;font-weight: bold;margin-top:30px;">
+            Request for Nominal /Regular Membership
           </div>
         </div>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="4" style="margin-top:10px;">
-          <div nz-row>
-            <div nz-col nzSpan="24" style="margin-top:10px;">
-              CIF NO.
-            </div>
-            <div nz-col nzSpan="24" style="margin-top:10px;">
-              SB AC NO
-            </div>
-            <div nz-col nzSpan="24" style="margin-top:10px;">
-              SHARE NO.
-            </div>
+        <div nz-row>
+          <div nz-col nzSpan="24" style="margin-top:20px;text-align: justify;">
+            I request you to enroll me as a member and allot me <span
+              *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].NO_OF_SHARES}}</span> shares of
+            your Bank. I hereby declare that I understood various provisions contained in Karnataka Souharda Sahakari
+            Act
+            and also the Bank's byelaws. I have furnished necessary KYC documents.
           </div>
         </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="24" style="text-align: center;font-weight: bold;margin-top:30px;">
-          Request for Nominal /Regular Membership
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            1.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Name&Age :&nbsp;
+            <span
+              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
+            </span>
+          </div>
         </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="24" style="margin-top:20px;text-align: justify;">
-          I request you to enroll me as a member and allot me <span
-            *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].NO_OF_SHARES}}</span> shares of
-          your Bank. I hereby declare that I understood various provisions contained in Karnataka Souharda Sahakari Act
-          and also the Bank's byelaws. I have furnished necessary KYC documents.
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            2.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Name of Father/Husband :&nbsp; &nbsp;
+            <span class="dark-data-headings">
+              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
+              {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            </span>
+          </div>
         </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          1.
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            3.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Category : <span *ngIf="ApplicantLoanInfo.length > 0"
+              class="dark-data-headings">{{ApplicantLoanInfo[0].CATEGORY}}</span>
+          </div>
         </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name&Age :&nbsp;
-          <span
-            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
-          </span>
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            4.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Name of the Nominee :&nbsp; &nbsp; <span class="dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</span>
+          </div>
         </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          2.
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name of Father/Husband :&nbsp; &nbsp;
-          <span class="dark-data-headings">
-            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
-            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-          </span>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          3.
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Category : <span *ngIf="ApplicantLoanInfo.length > 0"
-            class="dark-data-headings">{{ApplicantLoanInfo[0].CATEGORY}}</span>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          4.
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Name of the Nominee :&nbsp; &nbsp; <span class="dark-data-headings">{{nominationInfo.NOMINEE_NAME}}</span>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          5.
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Address :
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            5.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Address :
 
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            A)
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Residential Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
+              ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+              ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+              {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+              {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+              ApplicantPersonal[0].CURRENT_PINCODE}}
+            </span>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            B)
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Business/Professional Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
+              ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
+              ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
+              {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
+              {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
+              ApplicantPersonal[0].BUSINESS_PINCODE}}
+            </span>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1" style="margin-top:20px;">
+            6.
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:20px;">
+            Membership of other Souharda Sahakari Society/Bank,if any : <span class="dark-data-headings"
+              *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].IS_MEMBER_OTHER ? "Yes" : "No"}}</span>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="2" style="margin-top:20px;">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:20px;">
+            I hereby declare that the information furnished above is true and correct.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="16" style="margin-top:20px;">
+            Date: <span class="dark-data-headings"> </span>
+          </div>
+          <div nz-col nzSpan="8" style="margin-top:40px;text-align: center;">
+            Signature
+          </div>
+        </div>
+        <div nz-row style="margin-top:40px;">
+          <div nz-col nzSpan="16">
+            Place:
+          </div>
+          <div nz-col nzSpan="8" style="text-align: center;">
+            (Name:&nbsp;
+            <span
+              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>)
+          </div>
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          A)
+    </div>
+
+    <!-- LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY -->
+
+    <div nz-row class="margin" style="font-size: 12px;margin-top: 10px;">
+      <div nz-col nzSpan="24">
+        <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
+      </div>
+    </div>
+
+    <div class="page" id="page6">
+      <div>
+        <div nz-row>
+          <div nz-col nzSpan="24" style="margin-top: 10px;">
+            <div class="heading" style="font-size: 12px;">
+              LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY
+            </div>
+          </div>
         </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Residential Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
-            ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="17" style="margin-top:10px;">
+            Loan A/c. No:
+          </div>
+          <div nz-col nzSpan="6" style="margin-top:10px;">
+            Date:
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="margin-top:10px;">
+            From:&nbsp; <span
+              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
+          </div>
+          <div nz-col nzSpan="3">
+          </div>
+          <div nz-col nzSpan="9" style="margin-top:10px;">
+            To,
+          </div>
+        </div>
+
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="margin-top:10px;">
+            <span class="dark-data-headings">
+              {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+              {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+            </span>
+          </div>
+          <div nz-col nzSpan="3">
+          </div>
+          <div nz-col nzSpan="9" style="font-weight: bold">
+            The Manager,<br>
+            SUCO Souharda Sahakari Bank
+          </div>
+        </div>
+
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
+            {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
             ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
             {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
             {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
             ApplicantPersonal[0].CURRENT_PINCODE}}
-          </span>
+          </div>
+          <div nz-col nzSpan="3">
+          </div>
+          <div nz-col nzSpan="9">
+            Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
+          </div>
         </div>
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11">
+
+          </div>
+          <div nz-col nzSpan="12">
+          </div>
+
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
+            I am a member of the consumer group promoted and served by M/s.97 North Technologies Pvt Ltd, Bangalore.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="text-align: justify;">
+            1. &nbsp;&nbsp;&nbsp;&nbsp;I request you to grant me financial assistance of Rs.5,000/- (Rupees Five
+            Thousands
+            only) against the security of
+            the balance deposit in Savings banks Account for purpose of purchasing consumer goods on an ongoing basis.
+            The
+            branch can note lien/freeze SB account to the extent of loan amount.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="margin-top:5px;font-weight: bold">
+            SBACCOUNT No.:_____________________________
+          </div>
+          <div nz-col nzSpan="2">
+          </div>
+          <div nz-col nzSpan="10" style="margin-top:5px;font-weight: bold">
+            Balance Amount::_____________________________
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            2. &nbsp;&nbsp;&nbsp;&nbsp;I agree to pay the interest upfront at 12.00% pa rate for the above loan amount
+            requested by me.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            3. &nbsp;&nbsp;&nbsp;&nbsp;I hereby undertake to repay the loan with remittances from time to time and
+            however
+            ensure closure of the loan with up to date interest with in 12 months from the date of loan disbursement.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            4. &nbsp;&nbsp;&nbsp;&nbsp;The demand promissory note together with the Take Delivery letter duly executed
+            by
+            me
+            in bank's favour is here with enclosed
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            5. &nbsp;&nbsp;&nbsp;&nbsp; I hereby authorize you to debit the loan amount of Rs.5,000/- and credit the
+            same
+            to
+            the said SB Account.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            6. &nbsp;&nbsp;&nbsp;&nbsp; Also authorize you to debit and recover from My SB account an advance interest
+            amount
+            for one year period payable
+            on the above said loan to the bank.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            7. &nbsp;&nbsp;&nbsp;&nbsp;Bank is authorized to appropriate the balance in the saving deposit account for
+            due
+            repayment of the outstanding
+            balance in the loan account/s including interest/charges etc.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            8. &nbsp;&nbsp;&nbsp;&nbsp;It is specifically agreed that the security/ies held be continuing security for
+            ultimate balance of all monies that have fallen due or may become due for whom the Bank has provided
+            financial
+            assistance. Neither the security/ies nor the under taking shall be considered as terminated for reasons of
+            repayment of any particular loan/advance or by any change in the constitution by death or otherwise of
+            depositor/s.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
+            9. &nbsp;&nbsp;&nbsp;&nbsp;I/We agree to abide by all the rules and regulations of the Bank, already in
+            force
+            and
+            to be in force in future.
+          </div>
+        </div>
+        <div nz-row style="margin-top:60px">
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="font-weight: bold">
+            Date: <span class="dark-data-headings"></span>
+          </div>
+          <div nz-col nzSpan="3">
+          </div>
+          <div nz-col nzSpan="9" style="font-weight: bold">
+            BORROWER:&nbsp;
+            <span
+              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:10px;font-weight: bold">
+            Recommendations of the Business Correspondent: M/s.97 North Technologies Pvt Ltd. Bangalore
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
+            We confirm having subjected the applicant to the due diligence for enroling him/her as a member of the group
+            promoted by our company. The KYC documents have been verified and certified with due reference to the
+            originals
+            before us.
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
+            We recommend for sanctioning a loan of Rs.5,000/- to the applicant against the security of deposit amount
+            held
+            in
+            SB account of the said the applicant. We understand that as the business correspondent of the bank we have
+            the
+            responsibility to monitor, follow up and recover the loan amount for and on behalf of the bank,
+          </div>
+        </div>
+        <div nz-row style="margin-top:60px;font-weight: bold;">
+          <div nz-col nzSpan="24" style="text-align: right;">
+            Name and Designation of the Authorized Officer
+          </div>
+        </div>
+
+        <hr>
+        <div nz-row>
+
+          <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
+            FOR BRANCH USE
+          </div>
+
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="1">
+          </div>
+          <div nz-col nzSpan="23" style="margin-top:10px;">
+            The KYC particulars submitted by the BC and the loan documents executed by the applicant are found to be in
+            order.
+          </div>
+        </div>
+        <div nz-row>
+
+          <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
+            Sanctioned Rs.5,000/- Loan
+          </div>
+
+        </div>
+
+        <div nz-row>
+          <div nz-col nzSpan="1"></div>
+          <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
+            Credit Officer
+          </div>
+          <div nz-col nzSpan="6">
+          </div>
+          <div nz-col nzSpan="6" style="margin-top:10px;font-weight: bold">
+            Manager
+          </div>
+        </div>
+        <hr>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          B)
+    </div>
+    <!-- demand note -->
+
+    <div class="page" id="page7" style="margin-top: 10px;">
+      <div nz-row style="margin-top: 50px;">
+
+        <div nz-col nzSpan="24" style="font-weight: bold;text-align: center;margin-top: 10px;">
+          DEMAND PROMISSORY NOTE
         </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Business/Professional Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
-            ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
-            ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
-            {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
-            {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
-            ApplicantPersonal[0].BUSINESS_PINCODE}}
-          </span>
-        </div>
+
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="1" style="margin-top:20px;">
-          6.
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:20px;">
-          Membership of other Souharda Sahakari Society/Bank,if any : <span class="dark-data-headings"
-            *ngIf="ApplicantLoanInfo.length > 0">{{ApplicantLoanInfo[0].IS_MEMBER_OTHER ? "Yes" : "No"}}</span>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="2" style="margin-top:20px;">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:20px;">
-          I hereby declare that the information furnished above is true and correct.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="16" style="margin-top:20px;">
-          Date: <span class="dark-data-headings"> </span>
-        </div>
-        <div nz-col nzSpan="8" style="margin-top:40px;text-align: center;">
-          Signature
-        </div>
-      </div>
-      <div nz-row style="margin-top:40px;">
-        <div nz-col nzSpan="16">
+      <div nz-row style="margin-top: 30px;">
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
           Place:
         </div>
-        <div nz-col nzSpan="8" style="text-align: center;">
-          (Name:&nbsp;
-          <span
-            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>)
+        <div nz-col nzSpan="6">
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY -->
-
-  <div nz-row class="margin" style="font-size: 12px;margin-top: 10px;">
-    <div nz-col nzSpan="24">
-      <img src="assets/Suco Bank Logo.png" height="100%" width="100%">
-    </div>
-  </div>
-
-  <div class="page" id="page6">
-    <div>
-      <div nz-row>
-        <div nz-col nzSpan="24" style="margin-top: 10px;">
-          <div class="heading" style="font-size: 12px;">
-            LETTER FOR ADVANCES AGAINST THE AMOUNT HELD IN SAVINGS BANKS DEPOSITS AS PRIME SECURITY
-          </div>
+        <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
+          Rs. <span *ngIf="ApplicantLoanInfo.length > 0"
+            class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span>
         </div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="17" style="margin-top:10px;">
-          Loan A/c. No:
+        <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 20px;">
+          Date: <span class="dark-data-headings"></span>
         </div>
-        <div nz-col nzSpan="6" style="margin-top:10px;">
-          Date:
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
         </div>
+        <div nz-col nzSpan="21" style="margin-top: 10px;">
+          On demand I, &nbsp;
+          <span class="dark-data-headings">
+            {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+            {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
+            {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}} ,
+            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} ,
+            {{ApplicantPersonal[0].CURRENT_LANDMARK}}
+            {{ApplicantPersonal[0].CURRENT_ADDRESS}}
+            {{ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
+            {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
+            {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}
+            {{ApplicantPersonal[0].CURRENT_PINCODE}}
+          </span>
+          do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
+          Ballari or order the sum of Rs
+          <span *ngIf="ApplicantLoanInfo.length > 0"
+            class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span> (Rupees <span
+            *ngIf="ApplicantLoanInfo.length > 0"
+            class="dark-data-headings">{{toWords.convert(ApplicantLoanInfo[0].LOAN_AMOUNT ?
+            ApplicantLoanInfo[0].LOAN_AMOUNT : 0)}}</span> only)
+          together
+          with interest at 12% per annum at yearly rests and collected in advance for one year period at the time of
+          loan disbursement.
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="13" style="margin-top:30px;">
+          <div nz-row>
+            <div nz-col nzSpan="24" style="margin-top:20px;">
+              Witness:
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:30px;">
+              1) _______________________________________________________
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:20px;">
+              (Name and designation of the BC authorized official)
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="3">
+        </div>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="2" style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px;">
+        </div>
+      </div>
+
+
+      <div nz-row style="margin-top:250px">
+
+        <div nz-col nzSpan="24" style="font-weight: bold;margin-top: 10px;text-align: center;">
+          TAKE DELEVERY TO PRO NOTE
+        </div>
+
       </div>
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;">
           From:&nbsp; <span
-            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
+            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
+          </span>
         </div>
-        <div nz-col nzSpan="2">
+        <div nz-col nzSpan="3">
         </div>
         <div nz-col nzSpan="9" style="margin-top:10px;">
           To,
@@ -1685,11 +2058,14 @@
         </div>
         <div nz-col nzSpan="3">
         </div>
+        <!-- <div nz-col nzSpan="9" style="margin-top:10px;">
+      </div> -->
         <div nz-col nzSpan="9" style="font-weight: bold">
           The Manager,<br>
           SUCO Souharda Sahakari Bank
         </div>
       </div>
+
 
       <div nz-row>
         <div nz-col nzSpan="1"></div>
@@ -1700,404 +2076,70 @@
           {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
           ApplicantPersonal[0].CURRENT_PINCODE}}
         </div>
-        <div nz-col nzSpan="2">
+        <div nz-col nzSpan="3">
         </div>
         <div nz-col nzSpan="9">
-          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11">
+
+          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}} </span>
 
         </div>
-        <div nz-col nzSpan="2">
-        </div>
-        
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
-          I am a member of the consumer group promoted and served by M/s.97 North Technologies Pvt Ltd, Bangalore.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="text-align: justify;">
-          1. &nbsp;&nbsp;&nbsp;&nbsp;I request you to grant me financial assistance of Rs.5,000/- (Rupees Five Thousands
-          only) against the security of
-          the balance deposit in Savings banks Account for purpose of purchasing consumer goods on an ongoing basis. The
-          branch can note lien/freeze SB account to the extent of loan amount.
-        </div>
+
       </div>
       <div nz-row>
         <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11" style="margin-top:5px;font-weight: bold">
-          SBACCOUNT No.:_____________________________
-        </div>
-        <div nz-col nzSpan="2">
-        </div>
-        <div nz-col nzSpan="10" style="margin-top:5px;font-weight: bold">
-          Balance Amount::_____________________________
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          2. &nbsp;&nbsp;&nbsp;&nbsp;I agree to pay the interest upfront at 12.00% pa rate for the above loan amount
-          requested by me.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          3. &nbsp;&nbsp;&nbsp;&nbsp;I hereby undertake to repay the loan with remittances from time to time and however
-          ensure closure of the loan with up to date interest with in 12 months from the date of loan disbursement.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          4. &nbsp;&nbsp;&nbsp;&nbsp;The demand promissory note together with the Take Delivery letter duly executed by
-          me
-          in bank's favour is here with enclosed
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          5. &nbsp;&nbsp;&nbsp;&nbsp; I hereby authorize you to debit the loan amount of Rs.5,000/- and credit the same
-          to
-          the said SB Account.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          6. &nbsp;&nbsp;&nbsp;&nbsp; Also authorize you to debit and recover from My SB account an advance interest
-          amount
-          for one year period payable
-          on the above said loan to the bank.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          7. &nbsp;&nbsp;&nbsp;&nbsp;Bank is authorized to appropriate the balance in the saving deposit account for due
-          repayment of the outstanding
-          balance in the loan account/s including interest/charges etc.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          8. &nbsp;&nbsp;&nbsp;&nbsp;It is specifically agreed that the security/ies held be continuing security for
-          ultimate balance of all monies that have fallen due or may become due for whom the Bank has provided financial
-          assistance. Neither the security/ies nor the under taking shall be considered as terminated for reasons of
-          repayment of any particular loan/advance or by any change in the constitution by death or otherwise of
-          depositor/s.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="22" style="margin-top:5px;text-align: justify;">
-          9. &nbsp;&nbsp;&nbsp;&nbsp;I/We agree to abide by all the rules and regulations of the Bank, already in force
-          and
-          to be in force in future.
-        </div>
-      </div>
-      <div nz-row style="margin-top:60px">
-        <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11" style="font-weight: bold">
-          Date: <span class="dark-data-headings"></span>
+        <div nz-col nzSpan="11" class="dark-data-headings">
         </div>
         <div nz-col nzSpan="3">
         </div>
-        <div nz-col nzSpan="9" style="font-weight: bold">
-          BORROWER:&nbsp;
-          <span
-            class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
+        <div nz-col nzSpan="9"></div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="4">
+        </div>
+        <div nz-col nzSpan="18" style="font-weight: bold;margin-top: 10px;">
+          Subject: Delivery of Pro note executed by me in favour of your bank.
+        </div>
+        <div nz-col nzSpan="2">
         </div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="1">
         </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;font-weight: bold">
-          Recommendations of the Business Correspondent: M/s.97 North Technologies Pvt Ltd. Bangalore
+        <div nz-col nzSpan="21" style="margin-top: 10px; text-align: justify;">
+          I thank you for considering my request for sanction of Rs.5,000/- loan to meet my emergent personal needs. In
+          this regard I am delivering the demand promissory note dated
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          executed by me for Rs.5,000/- in favour of your bank. I hereby undertake to repay the loan with remittances
+          from
+          time to time and however ensure closure of the loan
+          with up to date interest with in 12 months from the date of loan disbursement. I am agreeable to pay the penal
+          charges/service charges towards the loan/SB account as per the rules in force form time to time
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
-          We confirm having subjected the applicant to the due diligence for enroling him/her as a member of the group
-          promoted by our company. The KYC documents have been verified and certified with due reference to the
-          originals
-          before us.
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;text-align: justify;">
-          We recommend for sanctioning a loan of Rs.5,000/- to the applicant against the security of deposit amount held
-          in
-          SB account of the said the applicant. We understand that as the business correspondent of the bank we have the
-          responsibility to monitor, follow up and recover the loan amount for and on behalf of the bank,
-        </div>
-      </div>
-      <div nz-row style="margin-top:60px;font-weight: bold;">
-        <div nz-col nzSpan="24" style="text-align: right;">
-          Name and Designation of the Authorized Officer
-        </div>
-      </div>
-
-      <hr>
-      <div nz-row>
-
-        <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
-          FOR BRANCH USE
-        </div>
-
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="1">
-        </div>
-        <div nz-col nzSpan="23" style="margin-top:10px;">
-          The KYC particulars submitted by the BC and the loan documents executed by the applicant are found to be in
-          order.
-        </div>
-      </div>
-      <div nz-row>
-
-        <div nz-col nzSpan="24" style="margin-top:10px;font-weight: bold;text-align: center;">
-          Sanctioned Rs.5,000/- Loan
-        </div>
-
-      </div>
-
-      <div nz-row>
+      <div nz-row style="margin-top: 120px;">
         <div nz-col nzSpan="1"></div>
-        <div nz-col nzSpan="11" style="margin-top:10px;font-weight: bold">
-          Credit Officer
+        <div nz-col nzSpan="11" style="font-weight: bold;">
+          Date: <span class="dark-data-headings"></span>
         </div>
         <div nz-col nzSpan="6">
         </div>
-        <div nz-col nzSpan="6" style="margin-top:10px;font-weight: bold">
-          Manager
+        <div nz-col nzSpan="6" style="font-weight: bold;">
+          Signature
         </div>
       </div>
-      <hr>
-    </div>
-  </div>
-  <!-- demand note -->
-
-  <div class="page" id="page7" style="margin-top: 10px;">
-    <div nz-row style="margin-top: 50px;">
-
-      <div nz-col nzSpan="24" style="font-weight: bold;text-align: center;margin-top: 10px;">
-        DEMAND PROMISSORY NOTE
-      </div>
-
-    </div>
-    <div nz-row style="margin-top: 30px;">
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="font-weight: bold;margin-top: 10px;">
-        Place:
-      </div>
-      <div nz-col nzSpan="6">
-      </div>
-      <div nz-col nzSpan="6" style="font-weight: bold;margin-top: 10px;">
-        Rs. <span *ngIf="ApplicantLoanInfo.length > 0"
-          class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span>
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 20px;">
-        Date: <span class="dark-data-headings"></span>
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="21" style="margin-top: 10px;">
-        On demand I, &nbsp;
-        <span class="dark-data-headings">
-          {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
-          {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
-          {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}} ,
-          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} ,
-          {{ApplicantPersonal[0].CURRENT_LANDMARK}}
-          {{ApplicantPersonal[0].CURRENT_ADDRESS}}
-          {{ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-          {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-          {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}
-          {{ApplicantPersonal[0].CURRENT_PINCODE}}
-        </span>
-        do hereby promise to pay SUCO Souharda Sahakari Bank Ltd,HO:
-        Ballari or order the sum of Rs
-        <span *ngIf="ApplicantLoanInfo.length > 0"
-          class="dark-data-headings">{{ApplicantLoanInfo[0].LOAN_AMOUNT}}</span> (Rupees <span
-          *ngIf="ApplicantLoanInfo.length > 0"
-          class="dark-data-headings">{{toWords.convert(ApplicantLoanInfo[0].LOAN_AMOUNT ?
-          ApplicantLoanInfo[0].LOAN_AMOUNT : 0)}}</span> only)
-        together
-        with interest at 12% per annum at yearly rests and collected in advance for one year period at the time of
-        loan disbursement.
-      </div>
-    </div>
-
-    <div nz-row>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="13" style="margin-top:30px;">
-        <div nz-row>
-          <div nz-col nzSpan="24" style="margin-top:20px;">
-            Witness:
-          </div>
-          <div nz-col nzSpan="24"style="margin-top:30px;">
-            1) _______________________________________________________
-          </div>
-          <div nz-col nzSpan="24"style="margin-top:20px;">
-            (Name and designation of the BC authorized official)
-          </div>
+      <div nz-row>
+        <div nz-col nzSpan="1">
+        </div>
+        <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
+          Place:
         </div>
       </div>
-      <div nz-col nzSpan="3">
-      </div>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="2" style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px;">
-      </div>
-    </div>
-
-
-    <div nz-row style="margin-top:250px">
-
-      <div nz-col nzSpan="24" style="font-weight: bold;margin-top: 10px;text-align: center;">
-        TAKE DELEVERY TO PRO NOTE
-      </div>
 
     </div>
-    <div nz-row>
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="margin-top:10px;">
-        From:&nbsp; <span
-          class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
-        </span>
-      </div>
-      <div nz-col nzSpan="3">
-      </div>
-      <div nz-col nzSpan="9" style="margin-top:10px;">
-        To,
-      </div>
-    </div>
 
-    <div nz-row>
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="margin-top:10px;">
-        <span class="dark-data-headings">
-          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-        </span>
-      </div>
-      <div nz-col nzSpan="3">
-      </div>
-      <!-- <div nz-col nzSpan="9" style="margin-top:10px;">
-      </div> -->
-      <div nz-col nzSpan="9" style="font-weight: bold">
-        The Manager,<br>
-        SUCO Souharda Sahakari Bank
-      </div>
-    </div>
-
-
-    <div nz-row>
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
-        {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-        ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-        {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-        {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
-        ApplicantPersonal[0].CURRENT_PINCODE}}
-      </div>
-      <div nz-col nzSpan="9">
-        <div nz-col nzSpan="9">
-          Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}} </span>
-        </div>
-      </div>
-     
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" class="dark-data-headings">
-      </div>
-      <div nz-col nzSpan="3">
-      </div>
-      
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="4">
-      </div>
-      <div nz-col nzSpan="18" style="font-weight: bold;margin-top: 10px;">
-        Subject: Delivery of Pro note executed by me in favour of your bank.
-      </div>
-      <div nz-col nzSpan="2">
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="21" style="margin-top: 10px; text-align: justify;">
-        I thank you for considering my request for sanction of Rs.5,000/- loan to meet my emergent personal needs. In
-        this regard I am delivering the demand promissory note dated
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        executed by me for Rs.5,000/- in favour of your bank. I hereby undertake to repay the loan with remittances from
-        time to time and however ensure closure of the loan
-        with up to date interest with in 12 months from the date of loan disbursement. I am agreeable to pay the penal
-        charges/service charges towards the loan/SB account as per the rules in force form time to time
-      </div>
-    </div>
-    <div nz-row style="margin-top: 120px;">
-      <div nz-col nzSpan="1"></div>
-      <div nz-col nzSpan="11" style="font-weight: bold;">
-        Date: <span class="dark-data-headings"></span>
-      </div>
-      <div nz-col nzSpan="6">
-      </div>
-      <div nz-col nzSpan="6" style="font-weight: bold;">
-        Signature
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="1">
-      </div>
-      <div nz-col nzSpan="21" style="font-weight: bold;margin-top: 10px;">
-        Place:
-      </div>
-    </div>
 
   </div>
-
-
-</div>
-
-
+</nz-spin>
 
 
 

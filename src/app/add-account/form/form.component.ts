@@ -289,8 +289,10 @@ export class FormComponent implements OnInit, AfterViewInit {
     { id: 9, data: <any>[], name: "caste", valueField: "CST_CD", lableField: "CST_NM" },
   ]
 
+  formSpinning: boolean = false;
 
   async getMasters() {
+    this.formSpinning = true;
     for (let i = 0; i < this.MASTERS.length; i++) {
       let result = await lastValueFrom(this.api.getMasters(this.MASTERS[i].id));
 
@@ -298,9 +300,8 @@ export class FormComponent implements OnInit, AfterViewInit {
         this.MASTERS[i].data = result['data'];
       }
     }
-
     this.mapMasters()
-
+    this.formSpinning = false;
     console.log('MASTERS', this.MASTERS);
 
   }
@@ -387,6 +388,17 @@ export class FormComponent implements OnInit, AfterViewInit {
     }
   }
 
+  REMARK_DATA:any = []
+  getRemarkData() {
+    this.api.getAllRemark(this.APPLICANT_ID).subscribe({
+      next: (res) => {
+        if (res['code'] == 200 && res['data'].length > 0) {
+          this.REMARK_DATA = res['data'];
+        }
+      }
+    })
+  }
+
 
 
 
@@ -466,7 +478,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
     this.getMasters();
 
-
+    this.getRemarkData();
 
     nominee.subscribe({
       next: (res3) => {
