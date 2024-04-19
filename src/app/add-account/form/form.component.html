@@ -1,7 +1,6 @@
 <nz-spin [nzSpinning]="formSpinning">
   <div id="contentToConvert" style="width: 100%;">
 
-
     <!-- Form 1 -->
 
     <div nz-row class="margin">
@@ -93,16 +92,18 @@
       <div nz-row>
         <div nz-col nzSpan="6" class="data-heading">Father / Spouse Name</div>
         <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+
         </div>
       </div>
 
       <div nz-row>
         <div nz-col nzSpan="6" class="data-heading">Mother Name</div>
         <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-          {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}
+
           {{ApplicantPersonal[0].MOTHERS_NAME}} {{ApplicantPersonal[0].MOTHERS_MIDDLE_NAME}}
+          {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}
         </div>
       </div>
 
@@ -1579,17 +1580,33 @@
             and also the Bank's byelaws. I have furnished necessary KYC documents.
           </div>
         </div>
-        <div nz-row>
-          <div nz-col nzSpan="1" style="margin-top:20px;">
+
+        <div nz-row style="margin-top:20px;">
+          <div nz-col nzSpan="1">
             1.
           </div>
-          <div nz-col nzSpan="23" style="margin-top:20px;">
-            Name&Age :&nbsp;
-            <span
-              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}&nbsp;{{basicInfo.AGE_1}}
+
+          <div nz-col nzSpan="11">
+            Name :
+            <span class="dark-data-headings">
+              {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+              {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}} {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}
             </span>
           </div>
+
+          <div nz-col nzSpan="1">
+
+          </div>
+
+          <div nz-col nzSpan="11">
+            Age :
+            <span class="dark-data-headings">
+              {{basicInfo.AGE_1}}
+            </span>
+          </div>
+
         </div>
+
         <div nz-row>
           <div nz-col nzSpan="1" style="margin-top:20px;">
             2.
@@ -1597,8 +1614,9 @@
           <div nz-col nzSpan="23" style="margin-top:20px;">
             Name of Father/Husband :&nbsp; &nbsp;
             <span class="dark-data-headings">
-              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}&nbsp;{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}&nbsp;
-              {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+
             </span>
           </div>
         </div>
@@ -1633,11 +1651,11 @@
             A)
           </div>
           <div nz-col nzSpan="23" style="margin-top:20px;">
-            Residential Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
+            Residential Address : <span class="dark-data-headings">{{
               ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-              ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-              {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-              {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
+              ApplicantPersonal[0].CURRENT_AREA}}
+              {{applicantPersonalMasterData.current_city}} {{applicantPersonalMasterData.current_taluka}}
+              {{applicantPersonalMasterData.current_dist}} {{applicantPersonalMasterData.current_state}} {{
               ApplicantPersonal[0].CURRENT_PINCODE}}
             </span>
           </div>
@@ -1647,11 +1665,11 @@
             B)
           </div>
           <div nz-col nzSpan="23" style="margin-top:20px;">
-            Business/Professional Address :&nbsp; &nbsp; <span class="dark-data-headings">{{
+            Business/Professional Address : <span class="dark-data-headings">{{
               ApplicantPersonal[0].BUSINESS_LANDMARK}} {{ ApplicantPersonal[0].BUSINESS_ADDRESS}} {{
-              ApplicantPersonal[0].BUSINESS_AREA}}&nbsp;
-              {{applicantPersonalMasterData.business_city}}&nbsp;{{applicantPersonalMasterData.business_taluka}}&nbsp;
-              {{applicantPersonalMasterData.business_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.business_state}}&nbsp;{{
+              ApplicantPersonal[0].BUSINESS_AREA}}
+              {{applicantPersonalMasterData.business_city}} {{applicantPersonalMasterData.business_taluka}}
+              {{applicantPersonalMasterData.business_dist}} {{applicantPersonalMasterData.business_state}} {{
               ApplicantPersonal[0].BUSINESS_PINCODE}}
             </span>
           </div>
@@ -1685,9 +1703,9 @@
             Place:
           </div>
           <div nz-col nzSpan="8" style="text-align: center;">
-            (Name:&nbsp;
-            <span
-              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>)
+            ( Name :
+            <span class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+              {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}} {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span> )
           </div>
         </div>
       </div>
