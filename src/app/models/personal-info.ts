@@ -171,4 +171,10 @@ export class PersonalInfo {
     YEARS_OF_SERVICES: string = '';
     GUARDIAN_ADDRESS: string = '';
 
+
+
+    MOTHER_OCCUPATION: string = '';
+    CHILDREN_NAMES: string = '';
+    CHILDREN_OCCUPATIONS: string = '';
+
 }

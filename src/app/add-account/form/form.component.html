@@ -617,6 +617,35 @@
 
       </div>
 
+      <div nz-row>
+
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Mother Name:
+          <span>{{ApplicantPersonal[0].MOTHERS_NAME}}
+            {{ApplicantPersonal[0].MOTHERS_MIDDLE_NAME}} {{ApplicantPersonal[0].MOTHERS_LAST_NAME}}</span>
+        </div>
+
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Mother Occupation:
+          <span>{{ApplicantPersonal[0].MOTHER_OCCUPATION}}</span>
+        </div>
+
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"></div>
+
+      </div>
+
+      <div nz-row>
+
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Children Names:
+          <span>{{ApplicantPersonal[0].CHILDREN_NAMES}}</span>
+        </div>
+
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Children Occupations:
+          <span>{{ApplicantPersonal[0].CHILDREN_OCCUPATIONS}}</span>
+        </div>
+
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings"></div>
+
+      </div>
+
 
 
 
@@ -1681,70 +1710,76 @@
             </div>
           </div>
         </div>
-        <div nz-row>
+
+        <div nz-row style="margin-top:10px;">
+
           <div nz-col nzSpan="1">
-          </div>
-          <div nz-col nzSpan="17" style="margin-top:10px;">
-            Loan A/c. No:
-          </div>
-          <div nz-col nzSpan="6" style="margin-top:10px;">
-            Date:
-          </div>
-        </div>
-        <div nz-row>
-          <div nz-col nzSpan="1"></div>
-          <div nz-col nzSpan="11" style="margin-top:10px;">
-            From:&nbsp; <span
-              class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}&nbsp;{{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
-          </div>
-          <div nz-col nzSpan="3">
-          </div>
-          <div nz-col nzSpan="9" style="margin-top:10px;">
-            To,
-          </div>
-        </div>
-
-        <div nz-row>
-          <div nz-col nzSpan="1"></div>
-          <div nz-col nzSpan="11" style="margin-top:10px;">
-            <span class="dark-data-headings">
-              {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-              {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-            </span>
-          </div>
-          <div nz-col nzSpan="3">
-          </div>
-          <div nz-col nzSpan="9" style="font-weight: bold">
-            The Manager,<br>
-            SUCO Souharda Sahakari Bank
-          </div>
-        </div>
-
-        <div nz-row>
-          <div nz-col nzSpan="1"></div>
-          <div nz-col nzSpan="11" style="margin-top:10px;" class="dark-data-headings">
-            {{ApplicantPersonal[0].CURRENT_LANDMARK}} {{ ApplicantPersonal[0].CURRENT_ADDRESS}} {{
-            ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
-            {{applicantPersonalMasterData.current_city}}&nbsp;{{applicantPersonalMasterData.current_taluka}}&nbsp;
-            {{applicantPersonalMasterData.current_dist}}&nbsp;&nbsp;{{applicantPersonalMasterData.current_state}}&nbsp;{{
-            ApplicantPersonal[0].CURRENT_PINCODE}}
-          </div>
-          <div nz-col nzSpan="3">
-          </div>
-          <div nz-col nzSpan="9">
-            Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
-          </div>
-        </div>
-        <div nz-row>
-          <div nz-col nzSpan="1"></div>
-          <div nz-col nzSpan="11">
 
           </div>
-          <div nz-col nzSpan="12">
+
+          <div nz-col nzSpan="16">
+            <div nz-row>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                Loan A/c. No:
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                From: <span class="dark-data-headings">{{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
+                  {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}} {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}}</span>
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                <span class="dark-data-headings">
+                  {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+                  {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+                  {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+                </span>
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                <span class="dark-data-headings">{{ApplicantPersonal[0].CURRENT_LANDMARK}} {{
+                  ApplicantPersonal[0].CURRENT_ADDRESS}} {{
+                  ApplicantPersonal[0].CURRENT_AREA}}
+                  {{applicantPersonalMasterData.current_city}} {{applicantPersonalMasterData.current_taluka}}
+                  {{applicantPersonalMasterData.current_dist}} {{applicantPersonalMasterData.current_state}} {{
+                  ApplicantPersonal[0].CURRENT_PINCODE}}</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div nz-col nzSpan="1">
+
+          </div>
+
+          <div nz-col nzSpan="6">
+            <div nz-row>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                Date:
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                To,
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                <span class="dark-data-headings">The Manager,<br>
+                  SUCO Souharda Sahakari Bank</span>
+              </div>
+
+              <div nz-col nzSpan="24" style="margin-top:10px;">
+                Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
+              </div>
+
+
+
+            </div>
           </div>
 
         </div>
+
         <div nz-row>
           <div nz-col nzSpan="1">
           </div>
