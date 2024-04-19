@@ -929,13 +929,13 @@
 
                         <div nz-col nzSpan="1"></div>
 
-                        <nz-form-item nz-col nzSpan="6">
+                        <!-- <nz-form-item nz-col nzSpan="6">
                             <nz-form-label [nzNoColon]="true"></nz-form-label>
                             <nz-form-control>
                                 <button nz-button nzType="primary" (click)="getOtp()" [nzLoading]="loadOtpButton">Get
                                     OTP</button>
                             </nz-form-control>
-                        </nz-form-item>
+                        </nz-form-item> -->
 
 
 
@@ -1120,20 +1120,20 @@
 
                     <div nz-row>
 
-                        <nz-form-item nz-col nzSpan="8">
+                        <!-- <nz-form-item nz-col nzSpan="8">
                             <nz-form-label nzRequired [nzNoColon]="true">Minor's DOB Proof</nz-form-label>
                             <nz-form-control>
-                                <!-- <nz-select nzShowSearch [(ngModel)]="personalInfo.MINOR_DATE_OF_BIRTH_PROOF"
+                                <nz-select nzShowSearch [(ngModel)]="personalInfo.MINOR_DATE_OF_BIRTH_PROOF"
                                     style="width: 100%;">
                                     <nz-option>
                                     </nz-option>
-                                </nz-select> -->
+                                </nz-select>
                                 <input nz-input name="MINOR_DATE_OF_BIRTH_PROOF"
                                     [(ngModel)]="personalInfo.MINOR_DATE_OF_BIRTH_PROOF" />
                             </nz-form-control>
-                        </nz-form-item>
+                        </nz-form-item> -->
 
-                        <div nz-col nzSpan="1"></div>
+                        <!-- <div nz-col nzSpan="1"></div> -->
 
                         <nz-form-item nz-col nzSpan="7">
                             <nz-form-label nzRequired [nzNoColon]="true">Name of the Guardian</nz-form-label>
@@ -1157,24 +1157,24 @@
                             </nz-form-control>
                         </nz-form-item>
 
-                        <nz-form-item nz-col nzSpan="8">
-                            <nz-form-label nzRequired [nzNoColon]="true">Guardian's PAN number</nz-form-label>
+                        <!-- <nz-form-item nz-col nzSpan="8">
+                            <nz-form-label  [nzNoColon]="true">Guardian's PAN number</nz-form-label>
                             <nz-form-control>
                                 <input nz-input name="GUARDIAN_PAN" [(ngModel)]="personalInfo.GUARDIAN_PAN"
                                     placeholder="Enter Guardian's PAN number" />
                             </nz-form-control>
-                        </nz-form-item>
+                        </nz-form-item> -->
 
-                        <div nz-col nzSpan="1"></div>
+                        <!-- <div nz-col nzSpan="1"></div>
 
                         <nz-form-item nz-col nzSpan="7">
-                            <nz-form-label nzRequired [nzNoColon]="true">Gaurdian's other Document</nz-form-label>
+                            <nz-form-label  [nzNoColon]="true">Gaurdian's other Document</nz-form-label>
                             <nz-form-control>
-                                <!-- <nz-select nzShowSearch [(ngModel)]="personalInfo.GUARDIAN_OTHER_DOCUMENT"
+                                <nz-select nzShowSearch [(ngModel)]="personalInfo.GUARDIAN_OTHER_DOCUMENT"
                                     style="width: 100%;">
                                     <nz-option>
                                     </nz-option>
-                                </nz-select> -->
+                                </nz-select>
 
                                 <input nz-input name="GUARDIAN_OTHER_DOCUMENT"
                                     [(ngModel)]="personalInfo.GUARDIAN_OTHER_DOCUMENT" />
@@ -1191,12 +1191,12 @@
                                     [(ngModel)]="personalInfo.GUARDIAN_OTHER_DOCUMENT_NUMBER"
                                     placeholder="Enter other Document number" />
                             </nz-form-control>
-                        </nz-form-item>
+                        </nz-form-item> -->
 
 
 
                         <nz-form-item nz-col nzSpan="24">
-                            <nz-form-label [nzNoColon]="true">Guardian's Address</nz-form-label>
+                            <nz-form-label nzRequired [nzNoColon]="true">Guardian's Address</nz-form-label>
                             <nz-form-control>
                                 <input nz-input name="GUARDIAN_ADDRESS" [(ngModel)]="personalInfo.GUARDIAN_ADDRESS"
                                     placeholder="Enter Guardian'ss Address" />

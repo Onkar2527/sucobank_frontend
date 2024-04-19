@@ -435,7 +435,7 @@ export class ProposalComponent implements OnInit {
   mendetoryDocs = [
     "Aadhaar",
     "PAN",
-    
+
   ]
 
   saveANext() {
@@ -447,10 +447,10 @@ export class ProposalComponent implements OnInit {
         next: (res) => {
           if (res['code'] == 200) {
             if (res['data'].length >= 3) {
-              this.velidateDocument(res['data']) ? this.addAccountComp.saveANext() : this.message.error(`Please Upload ${this.mendetoryDocs[0]}, ${this.mendetoryDocs[1]} and ${this.mendetoryDocs[2]}`, '');
+              this.velidateDocument(res['data']) ? this.addAccountComp.saveANext() : this.message.error(`Please Upload ${this.mendetoryDocs[0]} and ${this.mendetoryDocs[1]}`, '');
             }
             else {
-              this.message.error(`Please Upload ${this.mendetoryDocs[0]}, ${this.mendetoryDocs[1]} and ${this.mendetoryDocs[2]}`, '');
+              this.message.error(`Please Upload ${this.mendetoryDocs[0]} and ${this.mendetoryDocs[1]}`, '');
             }
           }
           else {
@@ -566,7 +566,7 @@ export class ProposalComponent implements OnInit {
       next: (res) => {
         if (res['code'] == 200) {
           if (type == 'C')
-          this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');
+            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');
 
           if (type == 'V')
             this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');

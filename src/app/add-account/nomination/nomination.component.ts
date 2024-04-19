@@ -73,7 +73,7 @@ export class NominationComponent implements OnInit {
 
     for (let field of this.mendetory_all) {
       if (!this.nomineeInfo[field.field as keyof NomineeDetails]) {
-        this.message.error(`${field.message} is Mandetory`, '');
+        this.message.error(`${field.message} is Mandatory`, '');
         isOk = false;
       }
     }
@@ -81,7 +81,7 @@ export class NominationComponent implements OnInit {
     if (this.nomineeInfo.IS_MINOR) {
       for (let field of this.mendetory_minor) {
         if (!this.nomineeInfo[field.field as keyof NomineeDetails]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
         }
       }
@@ -136,7 +136,7 @@ export class NominationComponent implements OnInit {
       }
     }
     else {
-      nominee.error("All mendetory fields are not filled");
+      nominee.error("All mandatory fields are not filled");
     }
 
 

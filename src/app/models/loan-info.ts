@@ -32,6 +32,7 @@ export class LoanInfo {
     NO_OF_SHARES?: number;
     CATEGORY !: string;
     IS_MEMBER_OTHER: boolean = false;
+    IS_LOAN: boolean = false;
     LOAN_AMOUNT?: number;
 
 }

@@ -774,7 +774,7 @@ export class PersonalComponent implements OnInit {
 
     for (let field of this.mendetory_all) {
       if (!this.basicInfo[field.field as keyof BasicInfo]) {
-        this.message.error(`${field.message} is Mandetory`, '');
+        this.message.error(`${field.message} is Mandatory`, '');
         isOk = false;
         personal.next({ code: 300 })
       }
@@ -784,7 +784,7 @@ export class PersonalComponent implements OnInit {
     if (this.basicInfo.NO_OF_APPLICANT == 2) {
       for (let field of this.mendetory_applicant_2) {
         if (!this.basicInfo[field.field as keyof BasicInfo]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
           personal.next({ code: 300 })
         }
@@ -794,7 +794,7 @@ export class PersonalComponent implements OnInit {
     if (this.basicInfo.IS_OLD_CUSTOMER_1) {
       for (let field of this.mendetory_customer) {
         if (!this.basicInfo[field.field as keyof BasicInfo]) {
-          this.message.error(`${field.message} is Mandetory`, '');
+          this.message.error(`${field.message} is Mandatory`, '');
           isOk = false;
           personal.next({ code: 300 })
         }
