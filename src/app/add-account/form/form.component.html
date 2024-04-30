@@ -91,9 +91,19 @@
 
       <div nz-row>
         <div nz-col nzSpan="6" class="data-heading">Father / Spouse Name</div>
-        <div nz-col nzSpan="18" class="data-heading dark-data-headings">
-          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-          {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
+        <div nz-col nzSpan="18" class="data-heading dark-data-headings"><span
+            *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'U'">
+            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span>
+          <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'">
+            {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].S_LAST_NAME}} </span>
+
+
+          <div
+            *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'; else Fatherblock">
+            {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].S_LAST_NAME}}</div>
 
         </div>
       </div>
@@ -594,27 +604,27 @@
 
 
       <div nz-row>
-        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name: <span
-            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span></div>
-        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation: <span
-            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span></div>
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children: <span
-            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'F'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
+        <div nz-col nzSpan="12" class="data-heading dark-data-headings">Father Name:
+          {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
+          {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</div>
+        <div nz-col nzSpan="8" class="data-heading dark-data-headings">Father Occupation:
+          {{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Children:
+          {{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</div>
 
       </div>
 
       <div nz-row>
         <div nz-col nzSpan="12" class="data-heading dark-data-headings">Spouse Name:
-          <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}} {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}</span>
+          {{ApplicantPersonal[0].S_FIRST_NAME}}
+          {{ApplicantPersonal[0].S_MIDDLE_NAME}} {{ApplicantPersonal[0].S_LAST_NAME}}
         </div>
         <div nz-col nzSpan="8" class="data-heading dark-data-headings">Spouse Occupation:
-          <span *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_OCCUPATION}}</span>
+          {{ApplicantPersonal[0].S_OCCUPATION}}
         </div>
 
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents: <span
-            *ngIf="ApplicantPersonal[0].FATHER_OR_SPOUSE == 'S'">{{ApplicantPersonal[0].F_OR_S_DEPENDENTS}}</span></div>
+        <div nz-col nzSpan="4" class="data-heading dark-data-headings">No. of Dependents:
+          {{ApplicantPersonal[0].S_DEPENDENTS}}</div>
 
       </div>
 
@@ -1613,11 +1623,12 @@
           </div>
           <div nz-col nzSpan="23" style="margin-top:20px;">
             Name of Father/Husband :&nbsp; &nbsp;
-            <span class="dark-data-headings">
+            <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'U'">
               {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-
-            </span>
+              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span>
+            <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'">
+              {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].S_LAST_NAME}} </span>
           </div>
         </div>
         <div nz-row>
@@ -1748,11 +1759,12 @@
               </div>
 
               <div nz-col nzSpan="24" style="margin-top:10px;">
-                <span class="dark-data-headings">
-                  {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-                  {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-                  {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-                </span>
+                <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'U'">
+                  {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+                  {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span>
+                <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'">
+                  {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+                  {{ApplicantPersonal[0].S_LAST_NAME}} </span>
               </div>
 
               <div nz-col nzSpan="24" style="margin-top:10px;">
@@ -2031,9 +2043,12 @@
             {{basicInfo.PRIMARY_APPLICANT_FIRST_NAME}}
             {{basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME}}
             {{basicInfo.PRIMARY_APPLICANT_LAST_NAME}} ,
-            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} ,
+            <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'U'">
+              {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span>
+            <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'">
+              {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+              {{ApplicantPersonal[0].S_LAST_NAME}} </span>
             {{ApplicantPersonal[0].CURRENT_LANDMARK}}
             {{ApplicantPersonal[0].CURRENT_ADDRESS}}
             {{ApplicantPersonal[0].CURRENT_AREA}}&nbsp;
@@ -2103,11 +2118,12 @@
       <div nz-row>
         <div nz-col nzSpan="1"></div>
         <div nz-col nzSpan="11" style="margin-top:10px;">
-          <span class="dark-data-headings">
-            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
-            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}}
-          </span>
+          <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'U'">
+            {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span>
+          <span *ngIf="ApplicantPersonal[0].GENDER == 'F' && ApplicantPersonal[0].MARITAL_STATUS == 'M'">
+            {{ApplicantPersonal[0].S_FIRST_NAME}} {{ApplicantPersonal[0].S_MIDDLE_NAME}}
+            {{ApplicantPersonal[0].S_LAST_NAME}} </span>
         </div>
         <div nz-col nzSpan="3">
         </div>
@@ -2190,6 +2206,9 @@
 
     </div>
 
+    <ng-template #Fatherblock><span>
+        {{ApplicantPersonal[0].F_OR_H_FIRST_NAME}} {{ApplicantPersonal[0].F_OR_H_MIDDLE_NAME}}
+        {{ApplicantPersonal[0].F_OR_H_LAST_NAME}} </span></ng-template>
 
   </div>
 </nz-spin>
