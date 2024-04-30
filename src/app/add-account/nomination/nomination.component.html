@@ -9,10 +9,31 @@
                                 nzUnCheckedChildren="No"></nz-switch></span></p>
                 </div>
 
-                <nz-form-item nz-col nzSpan="24">
+                <!-- <nz-form-item nz-col nzSpan="24">
                     <nz-form-label [nzNoColon]="true">Nominee Customer ID</nz-form-label>
                     <nz-form-control>
                         <input nz-input name="NOMINEE_CUSTOMER_ID" [(ngModel)]="nomineeInfo.NOMINEE_CUSTOMER_ID">
+                    </nz-form-control>
+                </nz-form-item> -->
+
+
+
+                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label nzRequired [nzNoColon]="true">Name of Nominee</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="nominee" [(ngModel)]="nomineeInfo.NOMINEE_NAME"
+                            placeholder="Enter Name of Nominee" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label nzRequired [nzNoColon]="true">Relationship with Applicant</nz-form-label>
+                    <nz-form-control>
+                        <nz-select nzShowSearch [(ngModel)]="nomineeInfo.RELATION" style="width: 100%;">
+                            <nz-option *ngFor="let option of optionList" [nzValue]="option.value"
+                                [nzLabel]="option.label">
+                            </nz-option>
+                        </nz-select>
                     </nz-form-control>
                 </nz-form-item>
 
@@ -33,29 +54,6 @@
                     <nz-form-control>
                         <input nz-input name="NOMINEE_AGE" type="text" style="width: 100%;"
                             [(ngModel)]="nomineeInfo.NOMINEE_AGE" disabled />
-                    </nz-form-control>
-                </nz-form-item>
-
-                <nz-form-item nz-col nzSpan="24">
-                    <nz-form-label nzRequired [nzNoColon]="true">Name of Nominee</nz-form-label>
-                    <nz-form-control>
-                        <input nz-input name="nominee" [(ngModel)]="nomineeInfo.NOMINEE_NAME"
-                            placeholder="Enter Name of Nominee" />
-                    </nz-form-control>
-                </nz-form-item>
-
-
-
-
-
-                <nz-form-item nz-col nzSpan="24">
-                    <nz-form-label nzRequired [nzNoColon]="true">Relationship with Applicant</nz-form-label>
-                    <nz-form-control>
-                        <nz-select nzShowSearch [(ngModel)]="nomineeInfo.RELATION" style="width: 100%;">
-                            <nz-option *ngFor="let option of optionList" [nzValue]="option.value"
-                                [nzLabel]="option.label">
-                            </nz-option>
-                        </nz-select>
                     </nz-form-control>
                 </nz-form-item>
 
