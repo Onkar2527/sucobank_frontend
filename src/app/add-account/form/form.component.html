@@ -77,7 +77,7 @@
 
 
       <div nz-row>
-        <div nz-col nzSpan="14">
+        <div nz-col nzSpan="18">
 
           <div nz-row>
             <div nz-col nzSpan="6" class="data-heading">☐ Name (Same as ID proof)</div>
@@ -188,7 +188,7 @@
           </div>
         </div>
 
-        <div nz-col nzSpan="10" style="display:flex;align-items: center;justify-content: center;">
+        <div nz-col nzSpan="6" style="display:flex;align-items: center;justify-content: center;">
           <div *ngIf="PHOTOS.length > 0"
             style="border: 1px solid black; width: 100px; height: 120px; margin-top: 20px; ">
             <img [src]="PHOTOS[0]" width="100%" height="100%">
@@ -346,8 +346,8 @@
         <div nz-col nzSpan="2" class="data-heading">Line 3</div>
         <div nz-col nzSpan="10" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_LANDMARK}}
         </div>
-        <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-        <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_city}}
+        <div nz-col nzSpan="12" class="data-heading">City / Town / Village :
+          <span class="data-heading dark-data-headings">{{applicantPersonalMasterData.permanent_city}}</span>
         </div>
       </div>
 
@@ -357,8 +357,8 @@
         <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.permanent_dist}}
         </div>
         <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
-        <div nz-col nzSpan="4" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].PERMANENT_PINCODE}} </div>
+        <div nz-col nzSpan="6" class="data-heading">State / U.T Code :<span class="data-heading dark-data-headings">
             {{applicantPersonalMasterData.permanent_state}}</span></div>
         <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
       </div>
@@ -394,9 +394,9 @@
         <div nz-col nzSpan="10" class="data-heading dark-data-headings">
           {{ApplicantPersonal[0].CURRENT_LANDMARK}}
         </div>
-        <div nz-col nzSpan="6" class="data-heading">City / Town / Village</div>
-        <div nz-col nzSpan="6" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_city}}
-        </div>
+        <div nz-col nzSpan="12" class="data-heading">City / Town / Village : <span
+            class="data-heading dark-data-headings">{{applicantPersonalMasterData.current_city}}</span></div>
+
       </div>
 
 
@@ -405,9 +405,10 @@
         <div nz-col nzSpan="2" class="data-heading dark-data-headings"> {{applicantPersonalMasterData.current_dist}}
         </div>
         <div nz-col nzSpan="3" class="data-heading">Pin / Post Code</div>
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
-        <div nz-col nzSpan="4" class="data-heading" class="data-heading dark-data-headings">State / U.T Code :
-          {{applicantPersonalMasterData.current_state}}</div>
+        <div nz-col nzSpan="2" class="data-heading dark-data-headings">{{ApplicantPersonal[0].CURRENT_PINCODE}}</div>
+        <div nz-col nzSpan="6" class="data-heading" class="data-heading">State / U.T Code :
+          <span class="data-heading dark-data-headings">{{applicantPersonalMasterData.current_state}}</span>
+        </div>
         <div nz-col nzSpan="4" class="data-heading">ISO 3166 Country Code</div>
       </div>
 
@@ -485,11 +486,13 @@
       </div>
 
       <div nz-row class="margin heading">
-        <div nz-col nzSpan="24"><span class="new-data data-font"> 6. DETAILS OF RELATED PERSON (in case of additional
+        <div nz-col nzSpan="24"><span class="new-data data-font"> 6. DETAILS OF RELATED PERSON
+          </span>
+          <span class="new-data">(in case of additional
             related persons, please fill
             'Annexure
-            B1' ) (please refer instruction G at the end)
-          </span></div>
+            B1' ) (please refer instruction G at the end)</span>
+        </div>
       </div>
 
       <div nz-row>
@@ -683,7 +686,7 @@
 
       </div>
 
-      
+
 
 
 
@@ -760,14 +763,15 @@
 
       <div nz-row>
         <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer / Firm Name :</div>
-        <div nz-col nzSpan="14" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
-        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Year of Service</div>
-        <div nz-col nzSpan="2" class="dark-data-headings">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
+        <div nz-col nzSpan="12" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_NAME}}</div>
+        <div nz-col nzSpan="3" class="data-heading dark-data-headings">Year of Service</div>
+        <div nz-col nzSpan="3" class="dark-data-headings">{{ApplicantPersonal[0].YEARS_OF_SERVICES}}</div>
       </div>
 
       <div nz-row>
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">Employer/Firm Address :</div>
-        <div nz-col nzSpan="20" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
+        <div nz-col nzSpan="6" class="data-heading dark-data-headings">Employer/Firm Address :
+        </div>
+        <div nz-col nzSpan="12" class="dark-data-headings">{{ApplicantPersonal[0].EMPLOYER_FIRM_ADDRESS}}</div>
       </div>
 
       <div nz-row>
@@ -1818,12 +1822,12 @@
                 To,
               </div>
 
-              <div nz-col nzSpan="24" >
+              <div nz-col nzSpan="24">
                 <span class="dark-data-headings">The Manager,<br>
                   SUCO Souharda Sahakari Bank</span>
               </div>
 
-              <div nz-col nzSpan="24" >
+              <div nz-col nzSpan="24">
                 Branch: <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span>
               </div>
 
