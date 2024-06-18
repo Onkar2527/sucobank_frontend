@@ -165,7 +165,7 @@ nz-layout {
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
-  width:100%;
+  width: 100%;
 }
 
 .logout-button:hover {
@@ -183,5 +183,62 @@ nz-layout {
 @media only screen and (min-width: 600px) {
   .title {
     font-size: 16px;
+  }
+}
+
+
+.main-container__marquee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* width: 80vw; */
+  max-width: 100%;
+  min-height: 2rem;
+  overflow-x: hidden;
+  font-family: "Merriweather", serif;
+  text-transform: camalcase;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgb(190, 0, 0);
+  margin-bottom: 30px;
+}
+
+.main-container__marquee-track {
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.main-container__marquee-items {
+  flex-shrink: 0;
+  display: flex;
+  gap: 40px;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+.main-container__marquee-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: auto;
+  transition: all 0.1s ease-in-out;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
   }
 }

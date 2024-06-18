@@ -21,6 +21,7 @@
     </div>
   </nz-header>
 
+
   <nz-layout class="layout">
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzTrigger]="null">
 
@@ -47,8 +48,27 @@
 
     </nz-sider>
 
+
+
     <nz-content>
       <div class="inner-content">
+        <article class="main-container__marquee">
+          <div class="main-container__marquee-track">
+            <div class="main-container__marquee-items">
+              <span class="main-container__marquee-item">Immediate Action Required: Cloud Service Renewal Notice.
+                This is a final reminder that
+                your subscription for SUCO Bank's Cloud will be suspended on
+                01-06-2024. Please renew it before then.</span>
+            </div>
+            <div aria-hidden="true" class="main-container__marquee-items">
+              <span class="main-container__marquee-item">Immediate Action Required: Cloud Service Renewal Notice.
+                This is a final reminder that
+                your subscription for SUCO Bank's Cloud will be suspended on
+                01-06-2024. Please renew it before then.</span>
+            </div>
+          </div>
+        </article>
+
         <router-outlet></router-outlet>
       </div>
     </nz-content>
@@ -59,9 +79,11 @@
 
 <ng-template #userPopover>
   <div>
-    <p nz-row><span nz-col nzSpan="12"> Branch </span> <span nz-col nzSpan="12"><b>{{userExtraInformation.BRANCH}}</b></span></p>
-    <p nz-row><span nz-col nzSpan="12"> Role </span> <span nz-col nzSpan="12"><b>{{userExtraInformation.ROLE}}</b></span></p>
-    
+    <p nz-row><span nz-col nzSpan="12"> Branch </span> <span nz-col
+        nzSpan="12"><b>{{userExtraInformation.BRANCH}}</b></span></p>
+    <p nz-row><span nz-col nzSpan="12"> Role </span> <span nz-col
+        nzSpan="12"><b>{{userExtraInformation.ROLE}}</b></span></p>
+
     <nz-divider></nz-divider>
     <button (click)="logout()" class="logout-button">logout</button>
   </div>
