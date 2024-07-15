@@ -68,6 +68,17 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/dashboard']);
     this.route = 'tabs';
   }
+
+  passwordReset() {
+    this.route = 'passReset';
+    this.router.navigate(['reset-password'])
+  }
+
+  gotoLogin() {
+    this.router.navigate(['login']);
+    this.route = 'login';
+  }
+
   user: string = '';
 
 

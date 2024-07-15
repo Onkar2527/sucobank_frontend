@@ -122,10 +122,10 @@ export class ApiService implements HttpInterceptor {
   verifyPanUrl = "https://kyc-api.aadhaarkyc.io/api/v1/pan/pan";
   // aadhaarBaseUrl = "http://aadharverifybackend.kredpool.in/api/addhar/";
 
-  baseUrl = 'https://sucobankbackend.kredpool.in/api/';
+  // baseUrl = 'https://sucobankbackend.kredpool.in/api/';
 
   // baseUrl local
-  // baseUrl = 'http://localhost:8079/api/';
+  baseUrl = 'http://localhost:8079/api/';
 
   // baseUrl server
 
@@ -821,6 +821,23 @@ export class ApiService implements HttpInterceptor {
   setDocVerifyRate(data: any) {
 
     return this.httpClient.post<any>(this.baseUrl + 'doc_verify/setRate', data, this.optionMain)
+  }
+
+  getPasswordPolicyData() {
+    return this.httpClient.get<any>(this.baseUrl + 'passwordPolicy/get', this.optionMain);
+  }
+
+  savePasswordPolicyData(data: any) {
+    return this.httpClient.post<any>(this.baseUrl + 'passwordPolicy/save', data, this.optionMain)
+  }
+
+  resetPassword(username: string, oldpass: string, newpass: string) {
+    let data = {
+      username: username,
+      oldpass: oldpass,
+      newpass: newpass
+    }
+    return this.httpClient.post<any>(this.baseUrl + 'user/resetPassword', data, this.optionMain);
   }
 
 }

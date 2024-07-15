@@ -72,4 +72,9 @@
   </div>
 </ng-template>
 
-<app-login *ngIf="route == 'login'" (logined)="login()"></app-login>
+<app-login *ngIf="route == 'login'" (logined)="login()" (passwordReset)="passwordReset()"></app-login>
+
+
+<div *ngIf="route == 'passReset'" style="width:100%">
+  <app-password-change (passwordResetEvent)="gotoLogin()"></app-password-change>
+</div>
