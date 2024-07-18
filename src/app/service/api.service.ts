@@ -129,7 +129,7 @@ export class ApiService implements HttpInterceptor {
 
   // baseUrl server
 
-  baseUrl = 'http://142.93.210.59:2000/api/'
+  baseUrl = 'https://fcoprobackend.sucofcopro.in/api/'
 
   decryptData(data: any) {
     console.log("data in decryption", data.data)
