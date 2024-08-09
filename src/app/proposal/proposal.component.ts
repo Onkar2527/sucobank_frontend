@@ -13,6 +13,7 @@ import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { EditStatusComponent } from '../admin-panel/proposal-master/edit-status/edit-status.component';
 import { TermDeposite } from '../models/term-deposite';
 import * as XLSX from 'xlsx';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-proposal',
@@ -153,6 +154,7 @@ export class ProposalComponent implements OnInit {
   footer: any;
   title: string = '';
 
+  excelButtonLoading = false;
 
   openTabsDrawer(data: BasicInfo) {
 
@@ -668,34 +670,44 @@ export class ProposalComponent implements OnInit {
   }
 
 
-  downloadExcel() {
 
+
+  async downloadExcel() {
+
+    this.excelButtonLoading = true;
 
     let xlsx_data = []
     let data = <any>{}
 
-    for (let proposal of this.DraftsData) {
-      data = {};
-      let fullName = `${proposal.PRIMARY_APPLICANT_FIRST_NAME} ${proposal.PRIMARY_APPLICANT_MIDDLE_NAME} ${proposal.PRIMARY_APPLICANT_LAST_NAME}`
-      data["Applicant ID"] = proposal.ID
-      data["Applicant Name"] = fullName;
-      data["Aadhaar Number"] = proposal.AADHAAR_NO_1;
-      data["Branch"] = this.getBranchName(proposal.CREATED_BRANCH_ID);
-      data["Status"] = this.getStatusName(proposal.TRACK_ID);
+    let user_data = SessionUserDetails.getSessionStorage();
 
-      xlsx_data.push(data);
+    let result = await lastValueFrom(this.api.getDraft(0, 0, user_data, this.cpcFilter));
+    if (result['code'] == 200) {
+      for (let proposal of result['data']) {
+        data = {};
+        let fullName = `${proposal.PRIMARY_APPLICANT_FIRST_NAME} ${proposal.PRIMARY_APPLICANT_MIDDLE_NAME} ${proposal.PRIMARY_APPLICANT_LAST_NAME}`
+        data["Applicant ID"] = proposal.ID
+        data["Applicant Name"] = fullName;
+        data["Aadhaar Number"] = proposal.AADHAAR_NO_1;
+        data["Branch"] = this.getBranchName(proposal.CREATED_BRANCH_ID);
+        data["Status"] = this.getStatusName(proposal.TRACK_ID);
+
+        xlsx_data.push(data);
+      }
+      console.log("Data", xlsx_data);
+
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(xlsx_data);
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, "Applicant List.xlsx");
     }
 
-    console.log("Data", xlsx_data);
+    this.excelButtonLoading = false;
 
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(xlsx_data);
-
-    /* generate workbook and add the worksheet */
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    /* save to file */
-    XLSX.writeFile(wb, "Applicant List.xlsx");
   }
 
 }

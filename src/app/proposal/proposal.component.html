@@ -85,7 +85,7 @@
   <div nz-col nzSpan="16"></div>
   <div nz-col nzSpan="8" style="text-align:right;">
 
-    <button nz-button nzType="primary" nzJustify="end" (click)="downloadExcel()">
+    <button nz-button nzType="primary" nzJustify="end" [nzLoading]="excelButtonLoading" (click)="downloadExcel()">
       <i nz-icon nzType="file-excel"></i> Export Excel
     </button>
   </div>
