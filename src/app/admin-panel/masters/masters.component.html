@@ -2,7 +2,7 @@
 
   <div nz-col nzSpan="13"></div>
 
-  <nz-form-item nz-col nzSpan="6">
+  <nz-form-item nz-col nzSpan="6" [hidden]="true">
     <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
       <input type="text" name="search" nz-input [(ngModel)]="SEARCH_FIELD" placeholder="Search any Master" />
     </nz-input-group>
@@ -13,7 +13,7 @@
 
   <div nz-col nzSpan="1"></div>
 
-  <nz-form-item nz-col nzSpan="4">
+  <nz-form-item nz-col nzSpan="4" [hidden]="true">
     <button nz-button nzType="primary" (click)="addNewDropdown()"><i nz-icon nzType="plus"></i>Add New
       Dropdown</button>
   </nz-form-item>
@@ -32,7 +32,7 @@
           <th>Sr. No.</th>
           <th>Name</th>
           <th>Edit Dropdown Items</th>
-          <th>Action</th>
+          <th [hidden]="true">Action</th>
         </tr>
       </thead>
 
@@ -42,9 +42,9 @@
           <td>{{i+1}}</td>
           <td>{{data.NAME}}</td>
 
-          <td><a (click)="editItems(data)">Edit Dropdown Items</a></td>
+          <td><a (click)="editItems(data)">Edit Items</a></td>
 
-          <td>
+          <td [hidden]="true">
             <a (click)="editDropdown(data)">Edit</a>
             <nz-divider nzType="vertical"></nz-divider>
             <a nz-popconfirm nzPopconfirmTitle="Do you want to delete this dropdown?" nzPopconfirmPlacement="bottom"

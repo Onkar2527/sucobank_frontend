@@ -7,7 +7,7 @@
     "build": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "createComp":"ng g c /login/password-change --module=app.module"
+    "createComp": "ng g c /login/password-change --module=app.module"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     "rxjs": "~7.5.0",
     "to-words": "^4.0.1",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
