@@ -38,7 +38,9 @@
 
             <li nz-menu-item nzMatchRouter>
               <a [routerLink]="[menu.ROUTE]">
-                <i nz-icon [nzType]="menu.ICON" *ngIf="menu.ICON"></i> {{menu.NAME}}</a>
+                <i nz-icon [nzType]="menu.ICON" *ngIf="menu.ICON"></i> {{menu.NAME}} <nz-badge [nzCount]="0"  nzSize="small" nzShowZero *ngIf="menu.ID ==12">
+  
+                </nz-badge></a>
             </li>
 
           </ng-container>

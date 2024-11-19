@@ -315,9 +315,16 @@ export class ProposalComponent implements OnInit {
     this.TableLoading = true;
     // let User_id = sessionStorage.getItem('lk0oh6fdb4567');
     console.log("In Draft Function");
-
+    
     let user_data = SessionUserDetails.getSessionStorage();
-
+    if(user_data.ROLE_ID != "4" && user_data.ROLE_ID != "3"){
+      this.cpcFilter.BRANCH_ID = Number(sessionStorage.getItem('BRANCH_ID'))
+    }
+    
+    console.log("user_data",user_data);
+    console.log("cpcFilter",this.cpcFilter);
+    
+    
     this.api.getDraft(this.pageSize, this.pageIndex, user_data, this.cpcFilter).subscribe({
       next: (res) => {
         if (res['code'] == 200) {

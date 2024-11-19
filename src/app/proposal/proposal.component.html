@@ -1,9 +1,9 @@
-<div *ngIf="ROLE_ID == 4">
+<div>
   <div class="box">
 
     <div nz-row class="content-box">
 
-      <nz-form-item nz-col nzSpan="7">
+      <nz-form-item nz-col nzSpan="5" *ngIf="ROLE_ID == 4 || ROLE_ID == 3">
         <nz-form-label [nzNoColon]="true">Select Branch</nz-form-label>
         <nz-form-control>
           <nz-select [(ngModel)]="cpcFilter.BRANCH_ID">
@@ -18,7 +18,7 @@
 
       <div nz-col nzSpan="1"></div>
 
-      <nz-form-item nz-col nzSpan="7">
+      <nz-form-item nz-col nzSpan="6">
         <nz-form-label [nzNoColon]="true">Select Status</nz-form-label>
         <nz-form-control>
           <nz-select [(ngModel)]="cpcFilter.TRACK_ID">
@@ -33,7 +33,7 @@
       <div nz-col nzSpan="1"></div>
 
 
-      <div nz-col nzSpan="8">
+      <div nz-col nzSpan="7">
         <div nz-row>
 
 
@@ -48,7 +48,7 @@
           </nz-form-item>
 
 
-          <div nz-col nzSpan="2"></div>
+          <div nz-col nzSpan="1"></div>
 
           <nz-form-item nz-col nzSpan="11">
 
@@ -63,8 +63,10 @@
 
         </div>
       </div>
+      <div nz-col nzSpan="1"></div>
 
-      <nz-form-item nz-col nzSpan="8">
+      <nz-form-item nz-col nzSpan="2">
+
         <nz-form-label [nzNoColon]="true"></nz-form-label>
         <nz-form-control>
           <nz-button-group>
@@ -81,19 +83,35 @@
 </div>
 
 
-<div nz-row *ngIf="ROLE_ID == 4">
-  <div nz-col nzSpan="16"></div>
-  <div nz-col nzSpan="8" style="text-align:right;">
-
-    <button nz-button nzType="primary" nzJustify="end" [nzLoading]="excelButtonLoading" (click)="downloadExcel()">
-      <i nz-icon nzType="file-excel"></i> Export Excel
-    </button>
-  </div>
+<div nz-row>
+ 
 </div>
 
-<div nz-row *ngIf="ROLE_ID == 1">
-  <div nz-col nzSpan="16"></div>
-  <div nz-col nzSpan="8" style="text-align:right;">
+<div nz-row>
+  <div nz-col nzSpan="18"></div>
+  <div nz-col nzSpan="3">
+    <!-- <a >
+      <span nz-icon nzType="bell" nzTheme="fill">
+        
+      </span>
+    
+      <nz-badge [nzCount]="0" nzShowZero>
+     
+      </nz-badge>
+    </a> -->
+
+    <div nz-col nzSpan="21"></div>
+    <div nz-col nzSpan="3" style="text-align:right;">
+  
+      <button nz-button nzType="primary" nzJustify="end" [nzLoading]="excelButtonLoading" (click)="downloadExcel()">
+        <i nz-icon nzType="file-excel"></i> Export Excel
+      </button>
+    </div>
+
+
+
+  </div>
+  <div nz-col nzSpan="3" style="text-align:right;"  *ngIf="ROLE_ID == 1">
 
     <button nz-button nzType="primary" nzJustify="end" (click)="openBasicDrawer()">
       <i nz-icon nzType="plus"></i>New Proposal

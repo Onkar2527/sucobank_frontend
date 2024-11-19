@@ -67,6 +67,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
+import {NzBadgeModule } from 'ng-zorro-antd/badge'
+
 import { MakerVerificationComponent } from './verification/maker-verification/maker-verification.component';
 import { CheckerVerificationComponent } from './verification/checker-verification/checker-verification.component';
 import { VerifierVerificationComponent } from './verification/verifier-verification/verifier-verification.component';
@@ -163,7 +165,8 @@ registerLocaleData(en);
     NzCollapseModule,
     NzCardModule,
     NzSpinModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzBadgeModule 
   ],
   providers: [
 
