@@ -269,3 +269,65 @@ td {
   padding-bottom: 250px;
   height: 100%;
 }
+
+
+
+/*  */
+
+.aadhaar-card {
+  width: 550px;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.aadhaar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.aadhaar-left {
+  flex: 3;
+  font-size: 14px;
+  color: #222;
+}
+
+.aadhaar-left p {
+  margin: 6px 0;
+}
+
+.age {
+  float: right;
+}
+
+.address {
+  font-weight: bold;
+  color: #000;
+}
+
+.aadhaar-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aadhaar-photo {
+  width: 90px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #888;
+  border-radius: 4px;
+}

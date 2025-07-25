@@ -13,6 +13,7 @@ import { ServicesComponent } from '../services/services.component';
 import { RemarkCompComponent } from '../remark-comp/remark-comp.component';
 import { RemarkModel } from 'src/app/models/remark-model';
 import { lastValueFrom } from 'rxjs';
+import { NotificationsService } from 'src/app/service/notifications.service';
 
 @Component({
   selector: 'app-add-account',
@@ -35,7 +36,8 @@ export class AddAccountComponent implements OnInit, OnDestroy {
 
 
   @Input() BasicInfo: BasicInfo = new BasicInfo();
-  constructor(private api: ApiService, private message: NzNotificationService) { }
+  @Input() NotificationId !: number
+  constructor(private api: ApiService, private message: NzNotificationService, private notifications :NotificationsService) { }
   @Output() ChangeIndex = new EventEmitter<number>();
   @Output() CloseDrawer = new EventEmitter<void>();
 
@@ -65,6 +67,8 @@ export class AddAccountComponent implements OnInit, OnDestroy {
 
   }
   ngOnInit(): void {
+    console.log("nid", this.NotificationId);
+    
     if (this.BasicInfo.ID) {
       this.getTabs(this.BasicInfo.ID, this.BasicInfo.TRACK_ID);
       this.APPLICANT_ID = this.BasicInfo.ID;
@@ -101,6 +105,8 @@ export class AddAccountComponent implements OnInit, OnDestroy {
         next: (res) => {
           if (res.code == 200) {
             this.saveRemark();
+            this.notifications.closeNotification(this.APPLICANT_ID, Number(sessionStorage.getItem('USER_ID')), this.NotificationId)
+            this.notifications.generateNotification(this.APPLICANT_ID,3, 'B')
             this.message.success("Proposal has been sent to Refill", '')
             this.CloseDrawer.emit();
           }
@@ -125,6 +131,9 @@ export class AddAccountComponent implements OnInit, OnDestroy {
         next: (res) => {
           if (res.code == 200) {
             this.saveRemark();
+            this.notifications.closeNotification(this.APPLICANT_ID, Number(sessionStorage.getItem('USER_ID')), this.NotificationId)
+          
+            this.notifications.generateNotification(this.APPLICANT_ID,3, 'F')  // need for future
             this.message.success("Account has been created", "");
             this.CloseDrawer.emit();
           }
@@ -181,7 +190,11 @@ export class AddAccountComponent implements OnInit, OnDestroy {
         next: (res) => {
           if (res.code == 200) {
             this.saveRemark();
+            this.notifications.closeNotification(this.APPLICANT_ID, Number(sessionStorage.getItem('USER_ID')), this.NotificationId)
+          
+            this.notifications.generateNotification(this.APPLICANT_ID,2, 'B')
             this.message.success("Proposal has been sent to Refill", '')
+            
             this.CloseDrawer.emit();
           }
           else {
@@ -208,6 +221,9 @@ export class AddAccountComponent implements OnInit, OnDestroy {
               next: (res) => {
                 if (res.code == 200) {
                   this.saveRemark();
+                  this.notifications.closeNotification(this.APPLICANT_ID, Number(sessionStorage.getItem('USER_ID')), this.NotificationId)
+          
+                  this.notifications.generateNotification(this.APPLICANT_ID,2, 'F')
                   this.message.success("Proposal has been sent to Verification", '')
                   this.CloseDrawer.emit();
                 }
@@ -733,16 +749,24 @@ export class AddAccountComponent implements OnInit, OnDestroy {
       this.personalComp.basicInfo.TRACK_ID = 2;
       this.personalComp.basicInfo.FILLED_DATE_TIME = new Date().toString();
       this.api.getUser({ role_id: 2, branch_id: this.personalComp.basicInfo.CREATED_BRANCH_ID }).subscribe({
-        next: (res) => {
+        next:  (res) => {
           if (res.code == 200 && res.data.length > 0) {
             this.personalComp.basicInfo.CHACKER_USER_ID = res.data[0].ID;
             this.saveRemark();
+            
+         
             let personal = this.personalComp.save();
             personal.subscribe({
               next: (res) => {
                 if (res.code == 200) {
                   this.message.success("Proposal has been sent to verify", '')
-                  this.CloseDrawer.emit();
+                  
+                  this.notifications.closeNotification(this.APPLICANT_ID, Number(sessionStorage.getItem('USER_ID')), this.NotificationId)
+          
+                      this.notifications.generateNotification(this.APPLICANT_ID,1, 'F')
+                      this.CloseDrawer.emit();
+                   
+               
                 }
                 else {
                   this.message.error("Something went wrong", '');

@@ -1,0 +1,31 @@
+<nz-table nzBordered [nzData]="notifications" #rowSelectionTable nzShowPagination nzShowSizeChanger
+  [nzTotal]="dataCount" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzScroll]="{ y: '100vh' }">
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Notification Discription</th>
+      <th>Application No</th>
+      <th>Applicant Name</th>
+      <!-- <th>Account Type</th> -->
+      <th>Date Of application</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let notification of notifications">
+      <td><a (click)="markAsRead(notification.ID)">Mark As Read</a></td>
+      <td>{{notification.NOTIFICATION_DETAIL}}</td>
+      <td>{{notification.APPLICANT_ID}}</td>
+      <td>{{notification.APPLICANT_NAME}}</td>
+      <!-- <td>{{notification.ACCOUNT_TYPE}}</td> -->
+      <td>
+        {{notification.APPLICATION_DATE | date:"dd/MM/yyyy hh:mm:ss"}}
+      </td>
+    </tr>
+
+ 
+
+    
+
+    <br />
+  </tbody>
+</nz-table>

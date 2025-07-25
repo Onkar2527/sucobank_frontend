@@ -129,7 +129,10 @@ export class ApiService implements HttpInterceptor {
 
   // baseUrl server
 
-  baseUrl = 'https://fcoprobackend.sucofcopro.in/api/'
+  // baseUrl = 'https://fcoprobackend.sucofcopro.in/api/'
+
+  baseUrl = 'http://localhost:3000/api/'
+
 
   decryptData(data: any) {
     console.log("data in decryption", data.data)
@@ -840,5 +843,72 @@ export class ApiService implements HttpInterceptor {
     }
     return this.httpClient.post<any>(this.baseUrl + 'user/resetPassword', data, this.optionMain);
   }
+
+//  notifications start
+  getNotifcations(branchId: number, userId : number, status: string){
+
+    const data = {
+         BRANCH_ID : branchId,
+         USER_ID : userId,
+         STATUS : status
+    }
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/get', data ,this.optionMain )
+  }
+  
+  getNotificationRelatedProposal( branch_id: number,propsal_id: number){
+    const data = {
+      APPLICANT_ID : propsal_id,
+      BRANCH_ID : branch_id
+    }
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/getProposal', data ,this.optionMain )
+  }
+
+  createNotifications(data: any){
+
+    
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/create', data ,this.optionMain )
+  }
+
+  updateNotifications(data: any){
+
+    
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/update', data ,this.optionMain )
+  }
+
+
+getUserToNotify(branchId:number, roleId:number){
+
+  let data ={
+    BRANCH_ID : branchId,
+    ROLE_ID : roleId
+  }
+
+  return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data ,this.optionMain )
+  
+}
+
+getCurrentUserDetails(branchId:number, roleId:number){
+
+  let data ={
+    BRANCH_ID : branchId,
+    ROLE_ID : roleId
+  }
+
+  return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data ,this.optionMain )
+  
+}
+
+closeNotification(notificationId:number ){
+  
+  let data ={ 
+  
+    NOTIFICATION_ID : notificationId
+  }
+
+  return this.httpClient.post<any>(this.baseUrl + 'notifications/closeNotification', data ,this.optionMain )
+  
+}
+
+//  notifications  End
 
 }

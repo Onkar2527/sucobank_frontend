@@ -83,7 +83,10 @@ import { OvdHitsComponent } from './admin-panel/dashboard-modules/ovd-hits/ovd-h
 import { PasswordManagerComponent } from './admin-panel/password-manager/password-manager.component';
 import { PasswordPolicyManagerComponent } from './admin-panel/password-manager/password-policy-manager/password-policy-manager.component';
 import { PasswordChangeComponent } from './login/password-change/password-change.component';
-
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NotificationsHistoryComponent } from './notifications-history/notifications-history.component';
+import { NonActionableNotificationsComponent } from './non-actionable-notifications/non-actionable-notifications.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 registerLocaleData(en);
@@ -120,7 +123,10 @@ registerLocaleData(en);
     OvdHitsComponent,
     PasswordManagerComponent,
     PasswordPolicyManagerComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    NotificationsComponent,
+    NotificationsHistoryComponent,
+    NonActionableNotificationsComponent
   ],
   imports: [
     //System Imports
@@ -166,7 +172,8 @@ registerLocaleData(en);
     NzCardModule,
     NzSpinModule,
     NzInputNumberModule,
-    NzBadgeModule 
+    NzBadgeModule ,
+    NzPaginationModule
   ],
   providers: [
 

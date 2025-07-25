@@ -934,7 +934,7 @@
         <div nz-col nzSpan="2"></div>
         <div nz-col nzSpan="11"></div>
 
-        <div nz-col nzSpan="11">Emp.Branch <span class="dark-data-headings">{{branchData.BRANCH_NAME}}</span></div>
+        <div nz-col nzSpan="11">Emp.Branch <span class="dark-data-headings">{{branchData?.BRANCH_NAME}}</span></div>
         <div nz-col nzSpan="2"></div>
         <div nz-col nzSpan="11"></div>
 
@@ -1285,284 +1285,77 @@
       </div>
     </div>
 
-    <div class="page page_second" id="nomform" style="font-size: 11px;">
+    
 
-      <div nz-row class="margin heading center">
-        <div nz-col nzSpan="24" class="data-font">Nomination Form - DA -1</div>
-      </div>
+ <div class="page page_second" id="nomform" style="font-size: 11px; padding: 20px 0 20px 0;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
 
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">Nominations under section 45 ZA
-          read with section 56 of the
-          Banking
-          Regulation Act,1949 and rule 2 (1) of the Co-operative Banks
-          (Nomination) Rules,1985 in respect of bank deposits.
+    <!-- Aadhaar Card -->
+    <div class="aadhaar-card" style="width: 500px; border: 1px solid #ddd; border-radius: 10px; padding: 15px;">
+      <h3 class="title" style="margin-bottom: 15px; color: #333;">Aadhaar Details</h3>
+      <div class="aadhaar-content" style="display: flex; justify-content: space-between;">
+        <div class="aadhaar-left" style="flex: 1;">
+          <p><strong>{{ aadharData_1.AADHAAR_NUMBER }}</strong></p>
+          <p><strong>Name:</strong> {{ aadharData_1.APPLICANT_FULL_NAME }}</p>
+          <p>
+            <strong>DOB:</strong> {{ aadharData_1.DOB }}
+            <span class="age"><strong>Age:</strong> {{ calculatePriciseAge(aadharData_1.DOB).years }}</span>
+          </p>
+          <p><strong>Gender:</strong> {{ aadharData_1.GENDER }}</p>
+          <p>
+            <strong>Address:</strong>
+            <span class="address">
+              {{
+                aadharData_1.ADDRESS_ID[0].HOUSE ? aadharData_1.ADDRESS_ID[0].HOUSE + ', ' : ''
+              }}
+              {{
+                aadharData_1.ADDRESS_ID[0].LANDMARK ? aadharData_1.ADDRESS_ID[0].LANDMARK + ', ' : ''
+              }}
+              {{ aadharData_1.ADDRESS_ID[0].STREET }},
+              {{ aadharData_1.ADDRESS_ID[0].LOC }},
+              {{ aadharData_1.ADDRESS_ID[0].VTC }},
+              {{ aadharData_1.ADDRESS_ID[0].SUB_DISTRICT }},
+              {{ aadharData_1.ADDRESS_ID[0].DISTRICT }},
+              {{ aadharData_1.ADDRESS_ID[0].STATE }},
+              {{ aadharData_1.ADDRESS_ID[0].COUNTRY }}
+              {{
+                aadharData_1.ADDRESS_ID[0].ZIPCODE ? ' - ' + aadharData_1.ADDRESS_ID[0].ZIPCODE : ''
+              }}
+            </span>
+          </p>
         </div>
-        <div nz-col nzSpan="24" class="data-heading text" style="text-align: justify;">I/ We Nominate the following
-          person
-          to whom in the event of my /
-          our /minor's death ,the amount of the deposit, particulars whereof</div>
-
-        <div nz-col nzSpan="15" class="data-heading text">are given below, may be returned by SUCO Souharda Sahakari
-          Bank
-          Ltd.</div>
-        <div nz-col nzSpan="4" class="data-heading dark-data-headings">{{branchData.BRANCH_NAME}} Branch</div>
-
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24">
-          <table>
-            <thead>
-              <tr>
-                <th>Nature of Deposit</th>
-                <th>Name of Nominee</th>
-                <th>Address of Nominee</th>
-                <th>Relationship with the Depositor</th>
-                <th>Age</th>
-                <th>If Nominee is a minor his/her Date Of Birth</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="data-heading">
-                <td></td>
-                <td>{{nominationInfo.NOMINEE_NAME}}</td>
-                <td>
-                  {{nominationInfo.NOMINEE_ADDRESS}}
-                </td>
-                <td>
-                  {{relation[nominationInfo.RELATION]}}
-                </td>
-                <td>{{nominationInfo.NOMINEE_AGE}}</td>
-                <td>
-                  <span *ngIf="nominationInfo.IS_MINOR">{{nominationInfo.DOB}}</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="aadhaar-right" style="margin-left: 10px;">
+          <img [src]="aadharData_1.PROFILE_IMAGE" alt="Photo" class="aadhaar-photo" style="width: 100px; height: auto; border-radius: 5px;" />
         </div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24" class="data-heading">As the nominee is a minor on this date, I/ we appoint
-          Shri./Smt./Kum.
-          (Name, address & age)</div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24" class="data-heading"> {{nominationInfo.APONITED_NAME}}
-          {{nominationInfo.APONITED_ADDRESS}} {{nominationInfo.APOINTED_PERSON_AGE}}</div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24" class="data-heading">to recieve the amount of the deposit on behalf of the nominee in
-          the
-          event of my/our/minor's death during the minority of the nominee.
-        </div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="8">1] </div>
-        <div nz-col nzSpan="8">2]</div>
-        <div nz-col nzSpan="8">3]</div>
-      </div>
-
-      <div nz-row style="margin-top: 20px;">
-        <div nz-col nzSpan="24" class="data-heading data">Signature(s)/Thumb Impression(s) of Depositor(s) </div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Witness:</div>
-        <div nz-col nzSpan="22"></div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="2" class="data-heading dark-data-headings">Signature</div>
-        <div nz-col nzSpan="22"></div>
-      </div>
-
-      <div nz-row style="margin-top: 10px;">
-        <div nz-col nzSpan="2" class="data-heading">Name</div>
-        <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
-      </div>
-
-      <div nz-row style="margin-top: 5px;">
-        <div nz-col nzSpan="2" class="data-heading">Address</div>
-        <div nz-col nzSpan="22" class="data-heading dark-data-headings"></div>
-      </div>
-
-      <div nz-row style="margin-top: 5px;">
-        <div nz-col nzSpan="24" class="data-heading text">Where deposit is made in the name of minor, the nomination
-          should
-          be signed by a person lawfully entitled to act on behalf of the minor.</div>
-      </div>
-
-      <div nz-row class="margin heading">
-        <div nz-col nzSpan="24" class="data-font">Declaration</div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24" class="data-heading text">I / we wish to open a Saving/Term Deposit A/c with your bank.
-          I/We
-          have read and understood the rules of Saving/Term Deposit A/c.
-          We hereby agree to abide with these rules and also rules bearing amended from time to time of the Saving/Term
-          Deposit A/c.
-          Bank reserves the right to increase the charges, minimum balance to be maintained or to discontinue any of the
-          services for the
-          Savings account by placing the information in the Branch Notice board / Bank's website. I/We authorize the
-          bank
-          to
-          share
-          the account data for outsourced printing account statement / communications / activity to me / us apart from
-          the
-          disclosure of customer data in the
-          routine course of business such as sharing of data among bankers regulatory authority / investigating
-          authority.
-          We accept and agree to be bound by
-          the said terms and conditions including those / limiting Banks liability. I\We agree to notify the Bank if Ie
-          avail credit facility from any other Bank and
-          We authorize you to inform the existence of our account with you to the lending banker. I/We also request you
-          to
-          accept the endorsement signed by
-          me/us cheques /orders/bills or notes payable to us. The cheques / bills presented by us in our account for
-          collection are at our sole risk and
-          responsibility and the bank is not liable for any, loss or damages in case the instruments are lost in
-          transit.
-          We
-          accept the Banks right to take steps to
-          close the account if frequent return of cheques for want of funds or any other undesirable feature is
-          observed.
-          I
-          / We acknowledge that the issue of
-          and usage of the Rupay Debit Card is governed by the terms and conditions as in force from time to time and
-          agree
-          to be bound by the same. I/We
-          further unconditionally and irrevocably authorize the Bank to Debit My/Our account annually towards fees /
-          charges. We under take to keep the bank
-          informed incase of change in the constitution / addition and /or deletion of partners / directors, address,
-          proof
-          of identity, telephone numbers etc. I/We
-          am/are aware that Money Laundering is a criminal offence under the law of land and the account shall not be
-          utilized We here by declare that the
-          information furnished above is true and correct to the best of my knowledge.I/We request to open my new
-          Saving/Term Deposit A/c with premium
-          status/ without premium status.
-        </div>
-      </div>
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="16" class="data-heading">I/We declare that I/we do not enjoy any credit facility with any
-          other
-          banks. <span>{{depositInfo.CREDIT_FACILITY_OTHER_BANK ? "Yes" : "No"}}</span></div>
-        <div nz-col nzSpan="8"></div>
-      </div>
-
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="8">lf No the details are as below</div>
-        <div nz-col nzSpan="16"></div>
-      </div>
-
-
-      <div nz-row class="margin">
-        <div nz-col nzSpan="24">
-          <table>
-            <thead>
-              <tr>
-                <th>Bank</th>
-                <th>Branch</th>
-                <th>Facility</th>
-                <th>Account No.</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{depositInfo.CREDIT_FACILITY_OTHER_BANK}}</td>
-                <td>{{depositInfo.CREDIT_FACILITY_OTHER_BRANCH}}</td>
-                <td>{{depositInfo.CREDIT_FACILITY_OTHER_FACILITY}}</td>
-                <td>{{depositInfo.CREDIT_FACILITY_OTHER_AC_NO}}</td>
-                <td>{{depositInfo.CREDIT_FACILITY_OTHER_AMOUNT}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-
-      <!-- <div nz-row class="margin">
-      <div nz-col nzSpan="3" class="data-heading">signatures</div>
-      <div nz-col nzSpan="1">1]</div>
-      <div nz-col nzSpan="6" class="box"></div>
-      <div nz-col nzSpan="1"> 2] </div>
-      <div nz-col nzSpan="6" class="box"></div>
-      <div nz-col nzSpan="1">3]</div>
-      <div nz-col nzSpan="6" class="box"></div>
-    </div> -->
-
-      <div nz-row class="margin-t-20">
-        <div nz-col nzSpan="3" style="font-size: 12px;">Signatures</div>
-
-        <div nz-col nzSpan="1">1]</div>
-        <div nz-col nzSpan="5" class="box"></div>
-        <div nz-col nzSpan="1"></div>
-
-        <div nz-col nzSpan="1"> 2] </div>
-        <div nz-col nzSpan="5" class="box"></div>
-        <div nz-col nzSpan="1"></div>
-
-        <div nz-col nzSpan="1">3]</div>
-        <div nz-col nzSpan="5" class="box"></div>
-        <div nz-col nzSpan="1"></div>
-
-      </div>
-
-      <div nz-row>
-        <div nz-col nzSpan="16">
-          <b>The antecedents and KYC details of applicant
-            have been subjected to due diligence by us.The
-            the applicant has signed before me. We recommend for
-            opening of the Bank account for extending the
-            baking facilities.</b>
-        </div>
-        <div nz-col nzSpan="2">
-
-        </div>
-        <div nz-col nzSpan="6" style="text-align: center;">
-          <b>For 97 North Technologies Pvt. Ltd. <br><br><br><br><br>
-            Authorized Person<br>
-            Name & Designation</b>
-        </div>
-      </div>
-
-      <div nz-row class="margin heading center">
-        <div nz-col nzSpan="24" class="data-font">For Office Use Only</div>
-      </div>
-
-      <div nz-row>
-        <div nz-col nzSpan="24" class="data-heading">I have verified the Original Documents submitted and confirm that
-          KYC
-          Norms are fully complied with. I hereby confirm having done
-          due diligence and certify that this account opening form is complete in all respect and relevant documents
-          have
-          been obtained. The account may please be opened in CBS.
-        </div>
-      </div>
-
-
-      <div nz-row class="margin2">
-        <div nz-col nzSpan="2">Date:</div>
-        <div nz-col nzSpan="10" class="data-heading dark-data-headings">
-
-        </div>
-        <div nz-col nzSpan="2">Officer </div>
-        <div nz-col nzSpan="4"></div>
-        <div nz-col nzSpan="6">Manager/Asst. Manager</div>
-        <!-- <div nz-col nzSpan="3"></div> -->
       </div>
     </div>
 
-  
+    <!-- PAN Card -->
+    <div class="pan-card"
+      style="width: 500px; border: 1px solid #ddd; border-radius: 10px; padding: 15px;">
+      <h3 class="title" style="margin-bottom: 15px; color: #333;">PAN Details</h3>
+      <div class="pan-content" style="display: flex; flex-wrap: wrap;">
+        <div class="pan-field" style="flex: 0 0 50%; margin-bottom: 10px;">
+          <strong>Name:</strong> {{ panData1.APPLICANT_FULL_NAME }}
+        </div>
+        <div class="pan-field" style="flex: 0 0 50%; margin-bottom: 10px;">
+          <strong>PAN Number:</strong> {{ panData1.PAN_NUMBER }}
+        </div>
+        <div class="pan-field" style="flex: 0 0 50%; margin-bottom: 10px;">
+          <strong>Verified:</strong>
+          <span [style.color]="panData1.IS_VERIFIED ? 'green' : 'red'">
+            {{ panData1.IS_VERIFIED ? 'Yes' : 'No' }}
+          </span>
+        </div>
+        <div class="pan-field" style="flex: 0 0 50%; margin-bottom: 10px;">
+          <strong>Category:</strong> {{ panData1.CATEGORY }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
     <ng-template #Fatherblock let-applicantpersonal='applicantpersonal' let-istitle="istitle"><span
         class="dark-data-headings">

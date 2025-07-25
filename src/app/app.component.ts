@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { SessionUserDetails } from './common_modules/session_storage/SessionUserDetails';
+import { ProposalComponent } from './proposal/proposal.component';
+
+
 
 @Component({
   selector: 'app-root',
@@ -10,11 +13,21 @@ import { SessionUserDetails } from './common_modules/session_storage/SessionUser
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  @ViewChild(ProposalComponent)
+  proposalComp!: ProposalComponent;
+
+  isdiabled : boolean = false
+
   title = 'FACO';
   //find a better alternative for 
   isLoggedIn = false           //
   //this
   isCollapsed = false;
+
+
+  isHaveNotifications : boolean = false;
+  notificationCOunt : number = 0;
 
   route = ''
 
@@ -39,12 +52,21 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(()=>{
+      this.getNotifications()
+    },5000)
     if (SessionUserDetails.checkSessionStorage()) {
       this.login();
+     
+    
     }
     else {
       this.router.navigate(['login']);
+      
+ 
+
       this.route = 'login';
+     
     }
 
     if (window.screen.availWidth < 1000) {
@@ -124,6 +146,62 @@ export class AppComponent implements OnInit {
       }
     })
   }
+
+
+
+
+  disableProposal(route:any){
+    // if(!this.isdiabled  && route == '/notifications'){
+
+    //   this.isdiabled = true
+    // }
+
+    // if(this.isdiabled  && route == '/dashboard'){
+
+    //   this.isdiabled = false
+    // }
+
+    
+    //  if(this.isdiabled && route == '/notifications'){
+    //   this.isdiabled = true
+     
+    // }
+    
+
+  }
+
+  getNotifications() {
+    // Retrieve branchId and userId from sessionStorage
+    const branchId = Number(sessionStorage.getItem('BRANCH_ID'));
+    const userId = Number(sessionStorage.getItem('USER_ID'));
+  
+    // Check if the IDs are valid
+    if (!branchId || !userId) {
+      console.error("Branch ID or User ID is missing or invalid. Ensure sessionStorage values are set correctly.");
+      return;
+    }
+  
+    console.log("Fetching notifications for:", { branchId, userId });
+  
+    // API call to fetch notifications
+    this.api.getNotifcations(branchId, userId, 'A').subscribe({
+      next: (res) => {
+        if (res['code'] === 200) {
+          console.log("Notification data retrieved:", res['data']);
+          this.isHaveNotifications = res['data'].length > 0;
+          this.notificationCOunt = res['data'].length;
+        } else {
+          console.warn("Unexpected API response code:", res['code']);
+        }
+      },
+      error: (err) => {
+        console.error("Error while fetching notifications:", err);
+      }
+    });
+  }
+  
+
+
 
 
 }

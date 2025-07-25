@@ -4,6 +4,9 @@ import { Subject, first, lastValueFrom } from 'rxjs';
 import { Aadhaar, Aadhaar_History, License_History, Pan_History, Voter_History } from 'src/app/models/aadhaar';
 import { BasicInfo } from 'src/app/models/basicInfo';
 import { ApiService } from 'src/app/service/api.service';
+import { NotificationsService } from 'src/app/service/notifications.service';
+
+NotificationsService
 
 @Component({
   selector: 'app-personal',
@@ -13,8 +16,9 @@ import { ApiService } from 'src/app/service/api.service';
 export class PersonalComponent implements OnInit {
 
   maskedAadharNumber: string = '';
+  isAadharVerifeied: boolean = false
 
-  constructor(private api: ApiService, private message: NzNotificationService) { }
+  constructor(private api: ApiService, private message: NzNotificationService, private notifications: NotificationsService) { }
 
 
   mendetory_all = [
@@ -25,7 +29,7 @@ export class PersonalComponent implements OnInit {
 
     { field: 'DOB_1', message: 'Applicant 1 Date Of Birth' },
     { field: 'MOBILE_1', message: 'Applicant 1 Mobile Number' },
-    { field: 'PAN_NUMBER', message: 'Applicant 1 PAN Number' },
+    // { field: 'PAN_NUMBER', message: 'Applicant 1 PAN Number' },
     { field: 'AADHAAR_NO_1', message: 'Applicant 1 Aadhaar Number' }
 
   ]
@@ -122,12 +126,33 @@ export class PersonalComponent implements OnInit {
 
 
   saveAadhaarData(applicant_no: number) {
+    console.log("aadhar data from upstream", this.aadhaarVerify.aadhar_history);
     if (applicant_no == 1) {
       this.aadhaarVerify.aadhar_history.APPLICANT_ID = this.APPLICANT_ID;
       this.aadhaarVerify.aadhar_history.APPLICANT_NO = 1;
       this.aadhaarVerify.aadhar_history.ADDRESS_ID = [this.aadhaarVerify.aadhar_address]
       this.basicInfo.AADHAAR_NO_1 = this.aadhaarVerify.aadhar_history.AADHAAR_NUMBER;
       this.saveAadhaar(this.aadhaarVerify.aadhar_history);
+
+      // data from aadhar
+
+      if (this.isAadharVerifeied) {
+        this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
+        this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
+        this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
+
+        this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
+
+        const dob = this.aadhaarVerify.aadhar_history.DOB;
+        const parts = dob.split("-");
+        this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+        console.log("triggered");
+
+        this.calculateAge(1)
+
+      }
+
     }
     else if (applicant_no == 2) {
       this.aadhaarVerify2.aadhar_history.APPLICANT_ID = this.APPLICANT_ID;
@@ -551,12 +576,19 @@ export class PersonalComponent implements OnInit {
       case 1: {
         this.loadAadhaarButton = true
         let aadhar_data = this.aadhaarVerify.getData();
+
+
         aadhar_data.subscribe({
           next: (res) => {
             if (res == true) {
+              this.isAadharVerifeied = true
               this.saveAadhaarData(1);
+
               this.Hit(1);
               this.loadAadhaarButton = false
+
+
+
             }
             else {
               this.loadAadhaarButton = false
@@ -841,6 +873,7 @@ export class PersonalComponent implements OnInit {
             if (res.code == 200) {
               this.message.success("Personal Information added successfully!", '');
               this.APPLICANT_ID = res['APPLICANT_ID'];
+              this.notifications.generateNotification(this.APPLICANT_ID, 0, 'I')
               this.getBasicInfo();
 
               personal.next(res);
@@ -1429,6 +1462,7 @@ export class PersonalComponent implements OnInit {
     }
   }
 
+  isMinor: boolean = true
   calculateAge(applicant_no: 1 | 2 | 3 | 4) {
 
     let key: 'AGE_1' | 'AGE_2' | 'AGE_3' | 'AGE_4' = `AGE_${applicant_no}`
@@ -1440,10 +1474,69 @@ export class PersonalComponent implements OnInit {
       let currentDate = new Date();
       let currentYear = currentDate.getFullYear();
       this.basicInfo[key] = currentYear - year;
+
+
+     let agePricise =  this.calculatePriciseAge(this.basicInfo.DOB_1)
+
+     this.basicInfo.AGE_1 = agePricise.years;
+
+if (this.basicInfo.AGE_1 >= 18) {
+  const alreadyExists = this.mendetory_all.some(
+    (item) => item.field === 'PAN_NUMBER'
+  );
+
+  if (!alreadyExists) {
+    this.mendetory_all.push({
+      field: 'PAN_NUMBER',
+      message: 'Applicant 1 PAN Number'
+    });
+    console.log("PAN is mandatory due to age", Number(this.basicInfo.AGE_1));
+  }
+
+  this.isMinor = true;
+
+} else {
+  // 🔻 Remove PAN_NUMBER if it exists and age is < 18
+  this.mendetory_all = this.mendetory_all.filter(
+    (item) => item.field !== 'PAN_NUMBER'
+  );
+
+  this.isMinor = false;
+}
+
+
+      console.log(this.isMinor, "isMinor");
+
+
+
     }
     else {
       this.basicInfo[key] = 0;
     }
+  }
+
+
+  calculatePriciseAge(date: string) {
+    const [day, month, year] = date.split('/').map(Number);
+    const dob = new Date(year, month - 1, day);
+    const today = new Date();
+
+    let years = today.getFullYear() - dob.getFullYear();
+    let months = today.getMonth() - dob.getMonth();
+    let days = today.getDate() - dob.getDate();
+
+    if (days < 0) {
+      months--;
+      const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return { years, months, days };
   }
 
 

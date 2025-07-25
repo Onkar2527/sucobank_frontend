@@ -15,6 +15,11 @@ import { TermDeposite } from '../models/term-deposite';
 import * as XLSX from 'xlsx';
 import { lastValueFrom } from 'rxjs';
 
+import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from '../service/notifications.service';
+
+
+
 @Component({
   selector: 'app-proposal',
   templateUrl: './proposal.component.html',
@@ -63,7 +68,7 @@ export class ProposalComponent implements OnInit {
 
   @ViewChild('TabFooterTplVerifier', { static: false }) TabFooterTplVerifier?: TemplateRef<{}>;
 
-  constructor(private api: ApiService, private message: NzNotificationService, private drawerService: NzDrawerService, private modal: NzModalService) { }
+  constructor(private api: ApiService, private message: NzNotificationService, private drawerService: NzDrawerService, private modal: NzModalService, private route: ActivatedRoute, private notifications: NotificationsService) { }
 
   ROLE_ID!: number;
 
@@ -73,9 +78,61 @@ export class ProposalComponent implements OnInit {
 
   cpcFilter: CpcFilter = new CpcFilter()
 
+  hideActionable: boolean = false
+
+  disableAction: boolean = false
+
+  notificationId !: number
+
+  isLoading : boolean = false
+
+ applicantId !: number
   ngOnInit(): void {
-    this.getDrafts();
-    this.getUser();
+
+
+    this.route.queryParams.subscribe(params => {
+      var { APPLICANT_ID, NOTIFICATION_ID } = params;
+      this.notificationId = Number(params['NOTIFICATION_ID'])
+      this.applicantId = Number(params['APPLICANT_ID'])
+      console.log("here is prams", params);
+
+      if (this.applicantId) {
+
+        this.hideActionable = true
+        this.disableAction = true
+       // this.notificationId = params['notificationId']
+        let BRANCH_ID = Number(sessionStorage.getItem('BRANCH_ID'))
+        this.api.getNotificationRelatedProposal(BRANCH_ID, APPLICANT_ID).subscribe({
+          next: (res) => {
+            if (res['code'] == 200) {
+              this.DraftsData = res['data'];
+              this.getUser();
+              this.getDepositeInfo()
+              this.getStatusList();
+              this.getBranchList();
+              this.DraftsData = res['data'];
+              console.log('Received ID:', this.DraftsData);
+
+            }
+            else {
+              this.DraftsData = []
+            }
+
+          },
+          error: () => {
+
+          }
+        })
+
+
+
+      } else {
+        this.hideActionable = false
+        this.getDrafts();
+        this.getUser();
+
+      }
+    });
   }
   Tabs: ExtraInfo[] = []
   userDetails: any;
@@ -264,8 +321,22 @@ export class ProposalComponent implements OnInit {
   }
 
   completeVerifier() {
-    this.validateDocs('C');
+    this.validateDocs('V');
   }
+
+  verifyNSendNextStage() {
+    let role_id = Number(sessionStorage.getItem('ROLE_ID'))
+    console.log("role id verification stage", role_id);
+
+    if (role_id == 2) {
+      this.completeChecker()
+    }
+    if (role_id == 3) {
+      this.completeVerifier()
+    }
+  }
+
+
 
   openBasicDrawer() {
     // const drawerRef = this.drawerService.create({
@@ -315,16 +386,16 @@ export class ProposalComponent implements OnInit {
     this.TableLoading = true;
     // let User_id = sessionStorage.getItem('lk0oh6fdb4567');
     console.log("In Draft Function");
-    
+
     let user_data = SessionUserDetails.getSessionStorage();
-    if(user_data.ROLE_ID != "4" && user_data.ROLE_ID != "3"){
+    if (user_data.ROLE_ID != "4" && user_data.ROLE_ID != "3") {
       this.cpcFilter.BRANCH_ID = Number(sessionStorage.getItem('BRANCH_ID'))
     }
-    
-    console.log("user_data",user_data);
-    console.log("cpcFilter",this.cpcFilter);
-    
-    
+
+    console.log("user_data", user_data);
+    console.log("cpcFilter", this.cpcFilter);
+
+
     this.api.getDraft(this.pageSize, this.pageIndex, user_data, this.cpcFilter).subscribe({
       next: (res) => {
         if (res['code'] == 200) {
@@ -451,6 +522,7 @@ export class ProposalComponent implements OnInit {
   ]
 
   saveANext() {
+    
     if (this.selectedIndex != 5) {
       this.addAccountComp.saveANext();
     }
@@ -459,7 +531,9 @@ export class ProposalComponent implements OnInit {
         next: (res) => {
           if (res['code'] == 200) {
             if (res['data'].length >= 3) {
-              this.velidateDocument(res['data']) ? this.addAccountComp.saveANext() : this.message.error(`Please Upload ${this.mendetoryDocs[0]} and ${this.mendetoryDocs[1]}`, '');
+             
+              this.velidateDocument(res['data']) ? this.addAccountComp.saveANext()
+               : this.message.error(`Please Upload ${this.mendetoryDocs[0]} and ${this.mendetoryDocs[1]}`, '');
             }
             else {
               this.message.error(`Please Upload ${this.mendetoryDocs[0]} and ${this.mendetoryDocs[1]}`, '');
@@ -578,10 +652,12 @@ export class ProposalComponent implements OnInit {
       next: (res) => {
         if (res['code'] == 200) {
           if (type == 'C')
-            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');
+            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeChecker()
+            : this.message.error("Verify All Documents first.", '');
 
           if (type == 'V')
-            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier() : this.message.error("Verify All Documents first", '');
+            this.velidateDocChacker(res['data'], type) ? this.addAccountComp.completeVerifier()
+               : this.message.error("Verify All Documents first", '');
         }
         else {
           this.message.error("Something Went Wrong!", "")
@@ -663,7 +739,34 @@ export class ProposalComponent implements OnInit {
     this.drawerReferance = drawerRef;
     drawerRef.afterClose.subscribe(() => {
       this.selectedIndex = 0;
-      this.getDrafts();
+      let BRANCH_ID = Number(sessionStorage.getItem('BRANCH_ID'))
+      if(this.applicantId){
+        this.api.getNotificationRelatedProposal(BRANCH_ID, this.applicantId).subscribe({
+          next: (res) => {
+            if (res['code'] == 200) {
+              this.DraftsData = res['data'];
+              this.getUser();
+              this.getDepositeInfo()
+              this.getStatusList();
+              this.getBranchList();
+              this.DraftsData = res['data'];
+              console.log('Received ID:', this.DraftsData);
+
+            }
+            else {
+              this.DraftsData = []
+            }
+
+          },
+          error: () => {
+
+          }
+        })
+      }
+      else{
+        this.getDrafts();
+      }
+  
     })
   }
 
