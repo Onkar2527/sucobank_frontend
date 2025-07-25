@@ -1137,15 +1137,15 @@
             <div nz-row class="content-box">
                 <nz-form-item nz-col nzSpan="24">
                     <nz-form-control>
-                        <nz-radio-group [(ngModel)]="personalInfo.EDUCATION">
-                            <label nz-radio [nzValue]="'A'">10th class</label>
-                            <label nz-radio [nzValue]="'B'">12th class</label>
-                            <label nz-radio [nzValue]="'C'">Under Graduate</label>
-                            <label nz-radio [nzValue]="'D'">Graduate</label>
-                            <label nz-radio [nzValue]="'E'">Post Graduate</label>
-                            <label nz-radio [nzValue]="'F'">Professional</label>
-                            <label nz-radio [nzValue]="'G'">Not Educated</label>
-                        </nz-radio-group>
+                        <nz-select [(ngModel)]="personalInfo.EDUCATION">
+                            <nz-option  [nzValue]="'A'" nzLabel=" below 10th "></nz-option>
+                            <nz-option  [nzValue]="'B'" nzLabel="matriculate"></nz-option>
+                            <nz-option  [nzValue]="'C'" nzLabel="Graduate"></nz-option>
+                            <nz-option  [nzValue]="'D'" nzLabel="Post Graduate"></nz-option>
+                            <nz-option  [nzValue]="'E'" nzLabel="Professional"></nz-option>
+                            <nz-option  [nzValue]="'F'" nzLabel="Illiterate"></nz-option>
+
+                        </nz-select>
                     </nz-form-control>
                 </nz-form-item>
             </div>
