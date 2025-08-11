@@ -119,10 +119,13 @@ export class ApiService implements HttpInterceptor {
 
   genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
   getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
+  getDrivingLicense = "https://kyc-api.aadhaarkyc.io/api/v1/driving-license/driving-license"
   verifyPanUrl = "https://kyc-api.aadhaarkyc.io/api/v1/pan/pan";
+
+  VoterDataUrl = 'https://kyc-api.aadhaarkyc.io/api/v1/voter-id/voter-id'
   // aadhaarBaseUrl = "http://aadharverifybackend.kredpool.in/api/addhar/";
 
-  // baseUrl = 'https://sucobankbackend.kredpool.in/api/';
+  baseUrl = 'https://sucobankbackend.kredpool.in/api/';
 
   // baseUrl local
   // baseUrl = 'http://localhost:8079/api/';
@@ -131,7 +134,7 @@ export class ApiService implements HttpInterceptor {
 
   // baseUrl = 'https://fcoprobackend.sucofcopro.in/api/'
 
-  baseUrl = 'http://localhost:3000/api/'
+  //  baseUrl = 'http://localhost:3000/api/'
 
 
   decryptData(data: any) {
@@ -597,7 +600,7 @@ export class ApiService implements HttpInterceptor {
 
   // voter id and License api
 
-  voterID_License_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Mzk4MjU0OSwianRpIjoiNjViMmQ1ODAtZTAyMC00NmU2LTgxYmYtZDUxNTEwZWZhOWI4IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LmtyZWRwb29sQHN1cmVwYXNzLmlvIiwibmJmIjoxNjkzOTgyNTQ5LCJleHAiOjE2OTQ1ODczNDksInVzZXJfY2xhaW1zIjp7InNjb3BlcyI6WyJ1c2VyIl19fQ.Dj97vyCTartwh7MEWIwCb54MJ_AqdyZDLa7c0ykIgA4';
+  voterID_License_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
   voterID_License_httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.voterID_License_token}`
@@ -611,7 +614,7 @@ export class ApiService implements HttpInterceptor {
       id_number: voter_id
     }
 
-    return this.httpClient.post<any>("https://sandbox.surepass.io/api/v1/voter-id/voter-id", JSON.stringify(data), this.voterID_License_options);
+    return this.httpClient.post<any>(this.VoterDataUrl, JSON.stringify(data), this.voterID_License_options);
   }
 
   getLicenseData(license_no: string, dob: string) {
@@ -620,7 +623,7 @@ export class ApiService implements HttpInterceptor {
       dob: dob
     }
 
-    return this.httpClient.post<any>("https://sandbox.surepass.io/api/v1/driving-license/driving-license", JSON.stringify(data), this.voterID_License_options);
+    return this.httpClient.post<any>(this.getDrivingLicense, JSON.stringify(data), this.voterID_License_options);
   }
 
   getPassportDetails(passportID: string) {
@@ -844,71 +847,97 @@ export class ApiService implements HttpInterceptor {
     return this.httpClient.post<any>(this.baseUrl + 'user/resetPassword', data, this.optionMain);
   }
 
-//  notifications start
-  getNotifcations(branchId: number, userId : number, status: string){
+  //  notifications start
+  getNotifcations(branchId: number, userId: number, status: string) {
 
     const data = {
-         BRANCH_ID : branchId,
-         USER_ID : userId,
-         STATUS : status
+      BRANCH_ID: branchId,
+      USER_ID: userId,
+      STATUS: status
     }
-    return this.httpClient.post<any>(this.baseUrl + 'notifications/get', data ,this.optionMain )
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/get', data, this.optionMain)
   }
-  
-  getNotificationRelatedProposal( branch_id: number,propsal_id: number){
+
+  getNotificationRelatedProposal(branch_id: number, propsal_id: number) {
     const data = {
-      APPLICANT_ID : propsal_id,
-      BRANCH_ID : branch_id
+      APPLICANT_ID: propsal_id,
+      BRANCH_ID: branch_id
     }
-    return this.httpClient.post<any>(this.baseUrl + 'notifications/getProposal', data ,this.optionMain )
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/getProposal', data, this.optionMain)
   }
 
-  createNotifications(data: any){
+  createNotifications(data: any) {
 
-    
-    return this.httpClient.post<any>(this.baseUrl + 'notifications/create', data ,this.optionMain )
+
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/create', data, this.optionMain)
   }
 
-  updateNotifications(data: any){
+  updateNotifications(data: any) {
 
-    
-    return this.httpClient.post<any>(this.baseUrl + 'notifications/update', data ,this.optionMain )
+
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/update', data, this.optionMain)
   }
 
 
-getUserToNotify(branchId:number, roleId:number){
+  getUserToNotify(branchId: number, roleId: number) {
 
-  let data ={
-    BRANCH_ID : branchId,
-    ROLE_ID : roleId
+    let data = {
+      BRANCH_ID: branchId,
+      ROLE_ID: roleId
+    }
+
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data, this.optionMain)
+
   }
 
-  return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data ,this.optionMain )
-  
-}
+  getCurrentUserDetails(branchId: number, roleId: number) {
 
-getCurrentUserDetails(branchId:number, roleId:number){
+    let data = {
+      BRANCH_ID: branchId,
+      ROLE_ID: roleId
+    }
 
-  let data ={
-    BRANCH_ID : branchId,
-    ROLE_ID : roleId
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data, this.optionMain)
+
   }
 
-  return this.httpClient.post<any>(this.baseUrl + 'notifications/getUserToNotify', data ,this.optionMain )
-  
-}
+  closeNotification(notificationId: number) {
 
-closeNotification(notificationId:number ){
-  
-  let data ={ 
-  
-    NOTIFICATION_ID : notificationId
+    let data = {
+
+      NOTIFICATION_ID: notificationId
+    }
+
+    return this.httpClient.post<any>(this.baseUrl + 'notifications/closeNotification', data, this.optionMain)
+
   }
 
-  return this.httpClient.post<any>(this.baseUrl + 'notifications/closeNotification', data ,this.optionMain )
-  
-}
+  aadharPANComprehensive(pan_no: string){
+    let data = {
+      id_number : pan_no
+    }
+      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+    this.httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    this.options = {
+      headers: this.httpHeaders
+    };
+    return this.httpClient.post('https://kyc-api.aadhaarkyc.io/api/v1/pan/pan-comprehensive',data ,this.options )
 
-//  notifications  End
+  }
+  //  notifications  End
+
+  saveAadharPANComprehensive(data: any){
+    return this.httpClient.post(this.baseUrl +  'aadhaar/savePanComprehensive', data, this.optionMain)
+  }
+
+getPanComprehensiveData(pan_number: string){
+  let data = {
+    pan_number : pan_number
+  }
+    return this.httpClient.post(this.baseUrl +  'aadhaar/getPanComprehensiveData', data, this.optionMain)
+  }
 
 }

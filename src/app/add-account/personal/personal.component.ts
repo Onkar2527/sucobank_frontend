@@ -6,7 +6,17 @@ import { BasicInfo } from 'src/app/models/basicInfo';
 import { ApiService } from 'src/app/service/api.service';
 import { NotificationsService } from 'src/app/service/notifications.service';
 
-NotificationsService
+interface PanCompData {
+  pan_number: string;
+  full_name: string;
+  masked_aadhaar: string;
+  gender: string;
+  dob: string;
+  aadhaar_linked: boolean;
+  category: string;
+
+}
+
 
 @Component({
   selector: 'app-personal',
@@ -21,10 +31,11 @@ export class PersonalComponent implements OnInit {
   constructor(private api: ApiService, private message: NzNotificationService, private notifications: NotificationsService) { }
 
 
+
   mendetory_all = [
     { field: 'PRIMARY_APPLICANT_FIRST_NAME', message: 'Applicant 1 First Name' },
-    { field: 'PRIMARY_APPLICANT_MIDDLE_NAME', message: 'Applicant 1 Middle Name' },
-    { field: 'PRIMARY_APPLICANT_LAST_NAME', message: 'Applicant 1 Last Name' },
+    // { field: 'PRIMARY_APPLICANT_MIDDLE_NAME', message: 'Applicant 1 Middle Name' },
+    // { field: 'PRIMARY_APPLICANT_LAST_NAME', message: 'Applicant 1 Last Name' },
     { field: 'CUSTOMER_TYPE_1', message: 'Applicant 1 Customer Type' },
 
     { field: 'DOB_1', message: 'Applicant 1 Date Of Birth' },
@@ -104,6 +115,11 @@ export class PersonalComponent implements OnInit {
     this.clientAreaWidth = window.screen.availWidth;
     this.setAllView();
     this.getMasters();
+    this.panNumber = this.basicInfo.PAN_NUMBER
+    if (this.panNumber) {
+      this.panComprehensive()
+    }
+
   }
 
   MASTERS = [
@@ -134,24 +150,7 @@ export class PersonalComponent implements OnInit {
       this.basicInfo.AADHAAR_NO_1 = this.aadhaarVerify.aadhar_history.AADHAAR_NUMBER;
       this.saveAadhaar(this.aadhaarVerify.aadhar_history);
 
-      // data from aadhar
 
-      if (this.isAadharVerifeied) {
-        this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
-        this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
-        this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
-
-        this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
-
-        const dob = this.aadhaarVerify.aadhar_history.DOB;
-        const parts = dob.split("-");
-        this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
-
-        console.log("triggered");
-
-        this.calculateAge(1)
-
-      }
 
     }
     else if (applicant_no == 2) {
@@ -257,6 +256,9 @@ export class PersonalComponent implements OnInit {
               this.aadhaarVerify.aadhar_address = this.aadhaarVerify.aadhar_history.ADDRESS_ID[0];
             }
             // this.hideAadhar = true;
+
+      
+
             this.aadhaarVerify.MakeHistory();
           }
           else if (applicant_no == 2) {
@@ -578,10 +580,28 @@ export class PersonalComponent implements OnInit {
         let aadhar_data = this.aadhaarVerify.getData();
 
 
+
         aadhar_data.subscribe({
           next: (res) => {
             if (res == true) {
               this.isAadharVerifeied = true
+                    if (this.isAadharVerifeied) {
+              this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
+              this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
+              this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
+
+              this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
+
+              const dob = this.aadhaarVerify.aadhar_history.DOB;
+              const parts = dob.split("-");
+              this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+              console.log("triggered");
+
+              this.calculateAge(1)
+
+            }
+
               this.saveAadhaarData(1);
 
               this.Hit(1);
@@ -694,7 +714,9 @@ export class PersonalComponent implements OnInit {
               this.basicInfo.PAN_NUMBER = this.aadhaarVerify.pan_history.PAN_NUMBER;
               this.savePanData(1);
               this.Hit(2);
-              this.loadPanButton = false
+              this.Hit(6); this.loadPanButton = false
+
+
             }
             else {
               this.loadPanButton = false
@@ -811,8 +833,20 @@ export class PersonalComponent implements OnInit {
         personal.next({ code: 300 })
       }
 
+
+
+    }
+    if (!this.aadhaarVerify.aadhar_history.IS_VERIFIED) {
+      this.message.error(`Aadhaar  Verification Manditory is Mandatory`, '');
+      isOk = false;
+      personal.next({ code: 300 })
     }
 
+    if (!this.aadhaarVerify.pan_history.IS_VERIFIED) {
+      this.message.error(`Pan Verification Manditory is Mandatory`, '');
+      isOk = false;
+      personal.next({ code: 300 })
+    }
     if (this.basicInfo.NO_OF_APPLICANT == 2) {
       for (let field of this.mendetory_applicant_2) {
         if (!this.basicInfo[field.field as keyof BasicInfo]) {
@@ -1210,6 +1244,14 @@ export class PersonalComponent implements OnInit {
   loadLicenseButton3: boolean = false;
   loadLicenseButton4: boolean = false;
 
+  convertDatetoYMD(dateStr: string) {
+
+    const [day, month, year] = dateStr.split('/');
+
+
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  }
+
   async verifyLicense(AplicantNo: number) {
 
     if ((await this.checkBalance(4)) == 0) {
@@ -1219,6 +1261,7 @@ export class PersonalComponent implements OnInit {
     switch (AplicantNo) {
       case 1: {
         this.loadLicenseButton = true
+        this.aadhaarVerify.license_history.DOB = this.convertDatetoYMD(this.basicInfo.DOB_1)
 
         let licenseVerify = this.aadhaarVerify.getLicenseData();
 
@@ -1476,33 +1519,33 @@ export class PersonalComponent implements OnInit {
       this.basicInfo[key] = currentYear - year;
 
 
-     let agePricise =  this.calculatePriciseAge(this.basicInfo.DOB_1)
+      let agePricise = this.calculatePriciseAge(this.basicInfo.DOB_1)
 
-     this.basicInfo.AGE_1 = agePricise.years;
+      this.basicInfo.AGE_1 = agePricise.years;
 
-if (this.basicInfo.AGE_1 >= 18) {
-  const alreadyExists = this.mendetory_all.some(
-    (item) => item.field === 'PAN_NUMBER'
-  );
+      if (this.basicInfo.AGE_1 >= 18) {
+        const alreadyExists = this.mendetory_all.some(
+          (item) => item.field === 'PAN_NUMBER'
+        );
 
-  if (!alreadyExists) {
-    this.mendetory_all.push({
-      field: 'PAN_NUMBER',
-      message: 'Applicant 1 PAN Number'
-    });
-    console.log("PAN is mandatory due to age", Number(this.basicInfo.AGE_1));
-  }
+        if (!alreadyExists) {
+          this.mendetory_all.push({
+            field: 'PAN_NUMBER',
+            message: 'Applicant 1 PAN Number'
+          });
+          console.log("PAN is mandatory due to age", Number(this.basicInfo.AGE_1));
+        }
 
-  this.isMinor = true;
+        this.isMinor = true;
 
-} else {
-  // 🔻 Remove PAN_NUMBER if it exists and age is < 18
-  this.mendetory_all = this.mendetory_all.filter(
-    (item) => item.field !== 'PAN_NUMBER'
-  );
+      } else {
+        // 🔻 Remove PAN_NUMBER if it exists and age is < 18
+        this.mendetory_all = this.mendetory_all.filter(
+          (item) => item.field !== 'PAN_NUMBER'
+        );
 
-  this.isMinor = false;
-}
+        this.isMinor = false;
+      }
 
 
       console.log(this.isMinor, "isMinor");
@@ -1603,6 +1646,88 @@ if (this.basicInfo.AGE_1 >= 18) {
     let dd = firstPart[0], mm = firstPart[1], yy = firstPart[2];
 
     return `${dd}/${mm}/${yy}`;
+  }
+
+
+  panNumber: string = ''
+  loadPanCompButton: boolean = false
+  panCompData: PanCompData = {
+    pan_number: '',
+    full_name: '',
+    masked_aadhaar: '',
+    gender: '',
+    dob: '',
+    aadhaar_linked: false,
+    category: ''
+  };
+  verifiedAt: any
+  panComprehensive() {
+    this.panCompData = {
+      pan_number: '',
+      full_name: '',
+      masked_aadhaar: '',
+      gender: '',
+      dob: '',
+      aadhaar_linked: false,
+      category: ''
+    };
+    this.api.getPanComprehensiveData(this.panNumber).subscribe({
+      next: (panCompDatar: any) => {
+        let data = panCompDatar['data']
+        this.verifiedAt = data[0]?.verifiedAt
+        console.log("verfied date", this.verifiedAt);
+
+        if (data.length > 0) {
+          this.panCompData = data[0]
+        } else {
+          this.api.aadharPANComprehensive(this.panNumber).subscribe({
+            next: (panComprehensive: any) => {
+
+
+              let data = panComprehensive['data']
+              console.log("pan c data", data);
+
+              this.panCompData.pan_number = data.pan_number
+              this.panCompData.full_name = data.full_name
+              this.panCompData.masked_aadhaar = data.masked_aadhaar
+              this.panCompData.gender = data.gender
+              this.panCompData.dob = data.dob
+              this.panCompData.aadhaar_linked = data.aadhaar_linked
+              this.panCompData.category = data.category
+
+
+              this.Hit(6)
+              this.savePanCompData()
+
+            },
+            error: (error) => {
+              console.log(error);
+
+            }
+          })
+        }
+
+      }, error: (error) => {
+        console.log('error', error);
+
+      }
+    })
+
+
+
+  }
+
+  savePanCompData() {
+    this.api.saveAadharPANComprehensive(this.panCompData).subscribe({
+      next: (resp) => {
+        console.log(resp);
+
+
+      }, error: (error) => {
+        console.log(error);
+
+      }
+    })
   }
 
 }

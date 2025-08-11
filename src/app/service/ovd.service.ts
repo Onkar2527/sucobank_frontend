@@ -63,5 +63,7 @@ export class OvdService {
     return this.httpClient.post<any>(this.getAadhaarDataUrl, JSON.stringify(data), this.options);
   }
 
+
+  
   
 }

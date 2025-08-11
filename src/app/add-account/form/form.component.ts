@@ -56,9 +56,10 @@ export class FormComponent implements OnInit, AfterViewInit {
   };
 
 
- aadharData_1 : any 
- panData1 : any
+  aadharData_1: any
+  panData1: any
   PHOTOS: any[] = [];
+  SIGNITURE: any[] = [];
 
   account_type = {
     'A': 'Saving',
@@ -263,7 +264,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     if (this.APPLICANT_ID) {
       this.getAllData();
-    
+
       this.convertImageUrlToBase64();
 
     }
@@ -301,11 +302,14 @@ export class FormComponent implements OnInit, AfterViewInit {
 
       if (result['code'] == 200 && result["data"].length > 0) {
         this.MASTERS[i].data = result['data'];
+            this.formSpinning = false;
       }
     }
     this.mapMasters()
     this.formSpinning = false;
     console.log('MASTERS', this.MASTERS);
+    console.log("spinning ",this.formSpinning);
+    
 
   }
 
@@ -677,8 +681,8 @@ export class FormComponent implements OnInit, AfterViewInit {
       next: (res) => {
         if (res['code'] == 200 && res['data'].length > 0) {
           this.basicInfo = res['data'][0];
-            this.getAadharDetails()
-            this.getPanDetails()
+          this.getAadharDetails()
+          this.getPanDetails()
           this.getBranchData();
           this.getUserMaker();
           this.getUserChecker();
@@ -931,6 +935,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   getDocuments() {
     this.PHOTOS = [];
+    this.SIGNITURE = [];
     let document: Subject<any> = new Subject();
     this.api.getDocument(this.APPLICANT_ID, null).subscribe({
       next: (res) => {
@@ -940,6 +945,10 @@ export class FormComponent implements OnInit, AfterViewInit {
             if (document.DOCUMENT_NAME == 'Applicant Photo') {
               this.PHOTOS.push(document.IMAGE_DATA)
 
+            }
+
+            if (document.DOCUMENT_NAME == 'Signature') {
+              this.SIGNITURE.push(document.IMAGE_DATA)
             }
           }
 
@@ -1026,10 +1035,10 @@ export class FormComponent implements OnInit, AfterViewInit {
     //PDFDocument = pdfDocument
     let pngArray = [], jpegArray = [], pdfArray = [];
 
-    pngArray = this.documentData.filter(Pn => "image/png" == Pn.FILE_TYPE  && Pn.DOCUMENT_NAME != 'Aadhaar'  && Pn.DOCUMENT_NAME != 'PAN' );
-    
-    jpegArray = this.documentData.filter(Pn => ("image/jpeg" == Pn.FILE_TYPE || "image/jpg" == Pn.FILE_TYPE) && Pn.DOCUMENT_NAME != 'Applicant Photo'  && Pn.DOCUMENT_NAME != 'Aadhaar'  && Pn.DOCUMENT_NAME != 'PAN' );
-    pdfArray = this.documentData.filter(Pn => "application/pdf" == Pn.FILE_TYPE && Pn.DOCUMENT_NAME != 'Applicant Photo' && Pn.DOCUMENT_NAME != 'Aadhaar'  && Pn.DOCUMENT_NAME != 'PAN' );
+    pngArray = this.documentData.filter(Pn => "image/png" == Pn.FILE_TYPE && Pn.DOCUMENT_NAME != 'Aadhaar' && Pn.DOCUMENT_NAME != 'PAN');
+
+    jpegArray = this.documentData.filter(Pn => ("image/jpeg" == Pn.FILE_TYPE || "image/jpg" == Pn.FILE_TYPE) && Pn.DOCUMENT_NAME != 'Applicant Photo' && Pn.DOCUMENT_NAME != 'Aadhaar' && Pn.DOCUMENT_NAME != 'PAN');
+    pdfArray = this.documentData.filter(Pn => "application/pdf" == Pn.FILE_TYPE && Pn.DOCUMENT_NAME != 'Applicant Photo' && Pn.DOCUMENT_NAME != 'Aadhaar' && Pn.DOCUMENT_NAME != 'PAN');
 
     let totalImageArrayLength = pngArray.length + jpegArray.length,
       imagePages = new Array(Math.trunc(totalImageArrayLength / 6) + (totalImageArrayLength % 6 == 0 ? 0 : 1)),
@@ -1200,56 +1209,69 @@ export class FormComponent implements OnInit, AfterViewInit {
     return source;
   }
 
-  getAadharDetails(){
-    console.log("madhar",this.basicInfo.AADHAAR_NO_1);
-    
-    this.api.getAadhaarData(1,this.basicInfo.AADHAAR_NO_1 ).subscribe({
-      next : (response) =>{
+  getAadharDetails() {
+    console.log("madhar", this.basicInfo.AADHAAR_NO_1);
+
+    this.api.getAadhaarData(1, this.basicInfo.AADHAAR_NO_1).subscribe({
+      next: (response) => {
         console.log(response, "aadhar");
         this.aadharData_1 = response['data'][0]
-      }, 
-      error : (error)=>{
+      },
+      error: (error) => {
 
       }
     })
   }
 
 
-  getPanDetails(){
+  getPanDetails() {
 
     this.api.getPanData(1, this.basicInfo.PAN_NUMBER).subscribe({
-      next : (response) =>{
+      next: (response) => {
 
         this.panData1 = response['data'][0]
         console.log("pan data ", this.panData1);
-        
-      }, error : (error)=>{
+
+      }, error: (error) => {
 
       }
     })
   }
 
-   calculatePriciseAge(date: string) {
-    const [ year,  month,day] = date.split('-').map(Number);
-    const dob = new Date(year, month - 1, day);
-    const today = new Date();
+  calculatePriciseAge(date: string) {
 
-    let years = today.getFullYear() - dob.getFullYear();
-    let months = today.getMonth() - dob.getMonth();
-    let days = today.getDate() - dob.getDate();
+    let year;
+    let month;
+    let day;
 
-    if (days < 0) {
-      months--;
-      const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-      days += previousMonth.getDate();
+  let years
+        let months 
+          let days
+
+    if (date && date !== '') {
+      [year, month, day] = date.split('-').map(Number);
+      const dob = new Date(year, month - 1, day);
+      const today = new Date();
+
+       years = today.getFullYear() - dob.getFullYear();
+       months = today.getMonth() - dob.getMonth();
+       days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += previousMonth.getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
     }
-
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-
     return { years, months, days };
+
+
+
   }
 
 }

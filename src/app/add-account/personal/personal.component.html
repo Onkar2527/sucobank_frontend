@@ -117,7 +117,7 @@
               </nz-form-item>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label nzRequired nzNoColon>Middle Name</nz-form-label>
+                <nz-form-label  nzNoColon>Middle Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME" name="applicant1middle"
                     placeholder="Enter Middle Name" />
@@ -125,7 +125,7 @@
               </nz-form-item>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label nzRequired nzNoColon>Last Name</nz-form-label>
+                <nz-form-label  nzNoColon>Last Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.PRIMARY_APPLICANT_LAST_NAME" name="applicant1last"
                     placeholder="Enter Last Name" />
@@ -185,7 +185,7 @@
                   <nz-form-item nz-col nzSpan="5">
                     <nz-form-control>
 
-                      <nz-form-label  nzNoColon> Title</nz-form-label>
+                      <nz-form-label nzNoColon> Title</nz-form-label>
 
                       <nz-select [(ngModel)]="basicInfo.JOINT_APP_1_TITLE">
                         <nz-option *ngFor="let title of MASTERS[0].data" [nzValue]="title.TITLEDESC"
@@ -198,7 +198,7 @@
                   <div nz-col nzSpan="1"></div>
 
                   <nz-form-item nz-col nzSpan="18">
-                    <nz-form-label  nzNoColon>Joint Applicant 1 First Name</nz-form-label>
+                    <nz-form-label nzNoColon>Joint Applicant 1 First Name</nz-form-label>
                     <nz-form-control>
                       <input nz-input [(ngModel)]="basicInfo.JOINT_APP_1_F_NAME" name="JOINT_APP_1_F_NAME"
                         placeholder="Enter First Name" />
@@ -209,7 +209,7 @@
               </div>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label  nzNoColon>Joint Applicant 1 Middle Name</nz-form-label>
+                <nz-form-label nzNoColon>Joint Applicant 1 Middle Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.JOINT_APP_1_M_NAME" name="JOINT_APP_1_M_NAME"
                     placeholder="Enter Middle Name" />
@@ -217,7 +217,7 @@
               </nz-form-item>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label  nzNoColon>Joint Applicant 1 Last Name</nz-form-label>
+                <nz-form-label nzNoColon>Joint Applicant 1 Last Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.JOINT_APP_1_L_NAME" name="JOINT_APP_1_L_NAME"
                     placeholder="Enter Last Name" />
@@ -232,7 +232,7 @@
                   <nz-form-item nz-col nzSpan="5">
                     <nz-form-control>
 
-                      <nz-form-label  nzNoColon>Title</nz-form-label>
+                      <nz-form-label nzNoColon>Title</nz-form-label>
 
                       <nz-select [(ngModel)]="basicInfo.JOINT_APP_2_TITLE">
                         <nz-option *ngFor="let title of MASTERS[0].data" [nzValue]="title.TITLEDESC"
@@ -245,7 +245,7 @@
                   <div nz-col nzSpan="1"></div>
 
                   <nz-form-item nz-col nzSpan="18">
-                    <nz-form-label  nzNoColon>Joint Applicant 2 First Name</nz-form-label>
+                    <nz-form-label nzNoColon>Joint Applicant 2 First Name</nz-form-label>
                     <nz-form-control>
                       <input nz-input [(ngModel)]="basicInfo.JOINT_APP_2_F_NAME" name="JOINT_APP_2_F_NAME"
                         placeholder="Enter First Name" />
@@ -256,7 +256,7 @@
               </div>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label  nzNoColon>Joint Applicant 2 Middle Name</nz-form-label>
+                <nz-form-label nzNoColon>Joint Applicant 2 Middle Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.JOINT_APP_2_M_NAME" name="JOINT_APP_2_M_NAME"
                     placeholder="Enter Middle Name" />
@@ -264,7 +264,7 @@
               </nz-form-item>
 
               <nz-form-item nz-col nzSpan="24">
-                <nz-form-label  nzNoColon>Joint Applicant 2 Last Name</nz-form-label>
+                <nz-form-label nzNoColon>Joint Applicant 2 Last Name</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.JOINT_APP_2_L_NAME" name="JOINT_APP_2_L_NAME"
                     placeholder="Enter Last Name" />
@@ -351,6 +351,53 @@
                       Pan verified successfully {{aadhaarVerify.pan_history.APPLICANT_FULL_NAME}}
                     </div>
                   </div>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item nz-col nzSpan="24">
+                <nz-form-label [nzNoColon]="true">Aadhaar PAN Link Status</nz-form-label>
+                <nz-form-control>
+                  <div nz-row>
+                    <div nz-col [nzSpan]="17">
+                      <input nz-input name="pan" [(ngModel)]="panNumber" placeholder="Enter Pan Number" />
+                    </div>
+                    <div nz-col nzSpan="1">
+
+                    </div>
+                    <div nz-col [nzSpan]="5">
+                      <button nz-button nzType="primary" [nzLoading]="loadPanCompButton" (click)="panComprehensive()">
+                        Check
+                      </button>
+                    </div>
+                  </div>
+            <div nz-row class="success-tip">
+  <div nz-col nzSpan="24" *ngIf="panCompData?.aadhaar_linked">
+   Aadhaar and PAN are linked
+
+  </div>
+
+  <div nz-col nzSpan="24" *ngIf="panCompData?.full_name">
+    Full Name: {{ panCompData?.full_name }}
+  </div> 
+  
+  <div nz-col nzSpan="24" *ngIf="panCompData?.dob">
+    Date of Birth: {{ panCompData?.dob | date:'dd/MM/yyyy' }}
+  </div>
+
+  <div nz-col nzSpan="24" *ngIf="panCompData?.gender">
+    Gender: {{ panCompData?.gender === 'M' ? 'Male' : 'Female' }}
+  </div>
+
+  <div nz-col nzSpan="24" *ngIf="panCompData?.masked_aadhaar">
+    Aadhaar: {{ panCompData?.masked_aadhaar }}
+  </div>
+
+  <div nz-col nzSpan="24" *ngIf="verifiedAt">
+    Verified Date: {{ verifiedAt | date:'dd/MM/yyyy hh:mm a'}}
+  </div>
+</div>
+
+
                 </nz-form-control>
               </nz-form-item>
 
@@ -452,7 +499,7 @@
 
 
               <nz-form-item nz-col nzSpan="17">
-                <nz-form-label  nzNoColon>Identification Number</nz-form-label>
+                <nz-form-label nzNoColon>Identification Number</nz-form-label>
                 <nz-form-control>
                   <input nz-input [(ngModel)]="basicInfo.ID_NUMBER" name="ID_NUMBER">
                 </nz-form-control>
@@ -529,7 +576,7 @@
           </div>
         </div>
 
-        
+
 
         <!-- show aadhaar applicant 1  -->
         <div nz-col [nzSpan]="cardSize">
@@ -1067,7 +1114,7 @@
     </nz-collapse-panel>
 
 
-   
+
 
 
 
