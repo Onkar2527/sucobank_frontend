@@ -4,4 +4,5 @@ export class Financial {
     APPLICANT_NO?:number;
 
     INCOME :  "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" = "A" ;
+    INCOME1 :  "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" = "A" ;
 }

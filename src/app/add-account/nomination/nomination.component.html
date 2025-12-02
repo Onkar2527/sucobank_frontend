@@ -21,8 +21,7 @@
                 <nz-form-item nz-col nzSpan="24">
                     <nz-form-label nzRequired [nzNoColon]="true">Name of Nominee</nz-form-label>
                     <nz-form-control>
-                        <input nz-input name="nominee" [(ngModel)]="nomineeInfo.NOMINEE_NAME"
-                            placeholder="Enter Name of Nominee" />
+                        <input nz-input name="nominee" [(ngModel)]="nomineeInfo.NOMINEE_NAME" placeholder="Enter Name of Nominee" />
                     </nz-form-control>
                 </nz-form-item>
 
@@ -30,20 +29,17 @@
                     <nz-form-label nzRequired [nzNoColon]="true">Relationship with Applicant</nz-form-label>
                     <nz-form-control>
                         <nz-select nzShowSearch [(ngModel)]="nomineeInfo.RELATION" style="width: 100%;">
-                            <nz-option *ngFor="let option of optionList" [nzValue]="option.value"
-                                [nzLabel]="option.label">
+                            <nz-option *ngFor="let option of optionList" [nzValue]="option.value" [nzLabel]="option.label">
                             </nz-option>
                         </nz-select>
                     </nz-form-control>
                 </nz-form-item>
 
                 <nz-form-item nz-col nzSpan="12">
-                    <nz-form-label [nzRequired]="nomineeInfo.IS_MINOR ? true :false" [nzNoColon]="true">Nominee's
-                        DOB</nz-form-label>
+                    <nz-form-label [nzRequired]="nomineeInfo.IS_MINOR ? true :false" [nzNoColon]="true">Nominee's DOB
+                    </nz-form-label>
                     <nz-form-control>
-                        <input nz-input name="DOB" placeholder="dd/mm/yyyy" [(ngModel)]="nomineeInfo.DOB"
-                            mask="d0/M0/0000" [leadZeroDateTime]="true" [dropSpecialCharacters]="false"
-                            (ngModelChange)="calculateAge()" />
+                        <input nz-input name="DOB" placeholder="dd/mm/yyyy" [(ngModel)]="nomineeInfo.DOB" mask="d0/M0/0000" [leadZeroDateTime]="true" [dropSpecialCharacters]="false" />
                     </nz-form-control>
                 </nz-form-item>
 
@@ -52,8 +48,7 @@
                 <nz-form-item nz-col nzSpan="11">
                     <nz-form-label nzNoColon>Nominee's Age</nz-form-label>
                     <nz-form-control>
-                        <input nz-input name="NOMINEE_AGE" type="text" style="width: 100%;"
-                            [(ngModel)]="nomineeInfo.NOMINEE_AGE" disabled />
+                        <input nz-input name="NOMINEE_AGE" type="text" style="width: 100%;" [(ngModel)]="nomineeInfo.NOMINEE_AGE" />
                     </nz-form-control>
                 </nz-form-item>
 
@@ -78,8 +73,7 @@
                 <nz-form-item nz-col nzSpan="24">
                     <nz-form-label nzRequired [nzNoColon]="true">Name of Appointed Person</nz-form-label>
                     <nz-form-control>
-                        <input nz-input name="appointed" [(ngModel)]="nomineeInfo.APONITED_NAME"
-                            placeholder="Enter Name of Appointed Person" />
+                        <input nz-input name="appointed" [(ngModel)]="nomineeInfo.APONITED_NAME" placeholder="Enter Name of Appointed Person" />
                     </nz-form-control>
                 </nz-form-item>
 
@@ -96,6 +90,16 @@
                         <div nz-row>
                             <textarea rows="2" nz-input [(ngModel)]="nomineeInfo.APONITED_ADDRESS"></textarea>
                         </div>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item nz-col nzSpan="24">
+                    <nz-form-label nzRequired [nzNoColon]="true">Relationship with Nominee</nz-form-label>
+                    <nz-form-control>
+                        <nz-select nzShowSearch [(ngModel)]="nomineeInfo.RELATION1" style="width: 100%;">
+                            <nz-option *ngFor="let option of optionList" [nzValue]="option.value" [nzLabel]="option.label">
+                            </nz-option>
+                        </nz-select>
                     </nz-form-control>
                 </nz-form-item>
 

@@ -15,4 +15,6 @@ export class NomineeDetails {
 
     NOMINEE_CUSTOMER_ID :string ='';
     APOINTED_PERSON_AGE?:number;
+
+    RELATION1:'A'|'B'|'C'|'D'|'E'|'F'|'G' | 'H' = 'A'
 }

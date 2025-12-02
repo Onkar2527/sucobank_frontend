@@ -27,6 +27,7 @@ export class PersonalComponent implements OnInit {
 
   maskedAadharNumber: string = '';
   isAadharVerifeied: boolean = false
+  IS_DRVING_VERIFIED: number =0;
 
   constructor(private api: ApiService, private message: NzNotificationService, private notifications: NotificationsService) { }
 
@@ -257,7 +258,7 @@ export class PersonalComponent implements OnInit {
             }
             // this.hideAadhar = true;
 
-      
+
 
             this.aadhaarVerify.MakeHistory();
           }
@@ -585,22 +586,22 @@ export class PersonalComponent implements OnInit {
           next: (res) => {
             if (res == true) {
               this.isAadharVerifeied = true
-                    if (this.isAadharVerifeied) {
-              this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
-              this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
-              this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
+              if (this.isAadharVerifeied) {
+                this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
+                this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
+                this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
 
-              this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
+                this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
 
-              const dob = this.aadhaarVerify.aadhar_history.DOB;
-              const parts = dob.split("-");
-              this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
+                const dob = this.aadhaarVerify.aadhar_history.DOB;
+                const parts = dob.split("-");
+                this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
 
-              console.log("triggered");
+                console.log("triggered");
 
-              this.calculateAge(1)
+                this.calculateAge(1)
 
-            }
+              }
 
               this.saveAadhaarData(1);
 
@@ -1271,6 +1272,9 @@ export class PersonalComponent implements OnInit {
               this.basicInfo.LICENSE_NO_1 = this.aadhaarVerify.license_history.LICENSE_NUMBER;
               this.saveLicenseData(1);
               this.Hit(4);
+              this.IS_DRVING_VERIFIED = this.aadhaarVerify.license_history.IS_VERIFIED ? 1 : 0
+              console.log("is licen", this.IS_DRVING_VERIFIED);
+              console.log("data disat  nahi", this.aadhaarVerify.license_history)
               this.loadLicenseButton = false
             }
             else {
@@ -1362,6 +1366,7 @@ export class PersonalComponent implements OnInit {
 
   saveLicenseData(applicant_no: number) {
     if (applicant_no == 1) {
+
       this.basicInfo.LICENSE_NO_1 = this.aadhaarVerify.license_history.LICENSE_NUMBER;
       this.saveLicense(this.aadhaarVerify.license_history, applicant_no);
     }
@@ -1536,7 +1541,8 @@ export class PersonalComponent implements OnInit {
           console.log("PAN is mandatory due to age", Number(this.basicInfo.AGE_1));
         }
 
-        this.isMinor = true;
+        // this.isMinor = true;
+        this.isMinor = false;
 
       } else {
         // 🔻 Remove PAN_NUMBER if it exists and age is < 18
@@ -1544,7 +1550,8 @@ export class PersonalComponent implements OnInit {
           (item) => item.field !== 'PAN_NUMBER'
         );
 
-        this.isMinor = false;
+        // this.isMinor = false;
+        this.isMinor = true;
       }
 
 

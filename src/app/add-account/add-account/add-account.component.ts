@@ -552,7 +552,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
     }
     else if (this.selectedIndex == 4) {
 
-      this.api.getLoanInfo(this.APPLICANT_ID, 1).subscribe(
+      this.api.getProperty(this.APPLICANT_ID, 1).subscribe(
         {
           next: (res) => {
             if (res['code'] == 200) {
@@ -716,6 +716,7 @@ export class AddAccountComponent implements OnInit, OnDestroy {
     _REMARK_.REMARK_DATE = new Date().toString();
     _REMARK_.USER_ID = Number(sessionStorage.getItem('USER_ID'));
     _REMARK_.REMARK = this.remarkComp.REMARK;
+    _REMARK_.CMID = this.remarkComp.CMID;
 
     this.api.getUserRole(Number(sessionStorage.getItem('ROLE_ID'))).subscribe({
       next: (res) => {

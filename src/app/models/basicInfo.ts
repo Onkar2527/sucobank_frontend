@@ -108,6 +108,7 @@ export class BasicInfo {
     OTP_AUTH_2: 'A' | 'B' | 'C' = 'C'
 
     ACCOUNT_NUMBER: string = '';
+    CMID: string = '';
 
     // ACCOUNT_TYPE: 'S' | 'F' | 'R' | 'P' = 'S';
 

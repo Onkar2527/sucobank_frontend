@@ -89,7 +89,8 @@ export class FormComponent implements OnInit, AfterViewInit {
     "D": "ST",
     "E": "NT",
     "F": "VJNT",
-    "G": "Other"
+    "G": "Other",
+    "H": "ST",
   }
 
 
@@ -129,6 +130,22 @@ export class FormComponent implements OnInit, AfterViewInit {
     'F': 'Daughter',
     'G': 'Husband',
     'H': 'Wife',
+
+    'I': 'Father-in-law',
+    'J': 'Mother-in-law',
+    'K': 'Sister-in-law',
+    'L': 'Brother-in-law',
+    'M': 'Daughter-in-law',
+    'N': 'Son-in-law',
+    'O': 'Grand Mother',
+    'P': 'Grand Father',
+    'Q': 'Grand Son',
+    'R': 'Grand Daughter',
+    'S': 'Paternal Uncle',
+    'T': 'Paternal Aunt',
+    'U': 'Maternal Uncle',
+    'V': 'Maternal Aunt',
+    'W': 'Friend'
   }
   account_operation = {
     "A": "Individual",
@@ -302,14 +319,14 @@ export class FormComponent implements OnInit, AfterViewInit {
 
       if (result['code'] == 200 && result["data"].length > 0) {
         this.MASTERS[i].data = result['data'];
-            this.formSpinning = false;
+        this.formSpinning = false;
       }
     }
     this.mapMasters()
     this.formSpinning = false;
     console.log('MASTERS', this.MASTERS);
-    console.log("spinning ",this.formSpinning);
-    
+    console.log("spinning ", this.formSpinning);
+
 
   }
 
@@ -1244,18 +1261,18 @@ export class FormComponent implements OnInit, AfterViewInit {
     let month;
     let day;
 
-  let years
-        let months 
-          let days
+    let years
+    let months
+    let days
 
     if (date && date !== '') {
       [year, month, day] = date.split('-').map(Number);
       const dob = new Date(year, month - 1, day);
       const today = new Date();
 
-       years = today.getFullYear() - dob.getFullYear();
-       months = today.getMonth() - dob.getMonth();
-       days = today.getDate() - dob.getDate();
+      years = today.getFullYear() - dob.getFullYear();
+      months = today.getMonth() - dob.getMonth();
+      days = today.getDate() - dob.getDate();
 
       if (days < 0) {
         months--;

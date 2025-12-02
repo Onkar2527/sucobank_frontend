@@ -107,6 +107,7 @@ export class Voter_History {
   AREA: string = '';
   STATE: string = '';
   IS_VERIFIED: boolean = false;
+  APPLICANT_NO!: number;
 }
 
 export class License_History {
@@ -168,6 +169,7 @@ export class License_History {
   VEHICLE_CLASSES: string = '';
 
   IS_VERIFIED: boolean = false;
+  APPLICANT_NO!: number;
 
 }
 
@@ -202,7 +204,7 @@ export class Aadhaar {
     this.api.Aadhaar_GetOTP(this.meta)
       .subscribe({
         next: (res) => {
-          if (res['status_code'] == 200) {
+          if (res['statuscode'] == 200) {
             const RequestedData = res['data']
             this.meta.client_id = RequestedData["client_id"];
             this.message.success('OTP sent!', 'The unique otp has been sent to user\'s registered mobile number');
@@ -236,7 +238,7 @@ export class Aadhaar {
       this.api.Aadhaar_GetData(this.meta)
         .subscribe({
           next: (res) => {
-            if (res['status_code'] == "200") {
+            if (res['statuscode'] == "200") {
               this.aadhar_history.DOB = res['data']['dob'];
               this.aadhar_history.APPLICANT_FULL_NAME = res['data']['full_name'];
               this.aadhar_history.GENDER = this.getGender(res['data']['gender']);
@@ -406,7 +408,9 @@ export class Aadhaar {
         this.license_history.IS_VERIFIED = false;
         console.log("license error",err)
         // this.message.error('License Verification Failed', 'Please try again after sometimes');
-        this.OVD_ERROR(err.error.status_code);
+        // this.OVD_ERROR(err.error.status_code);
+        this.message.error('DOB does not match with Driving License.','');
+
         license.error(err);
       }
     });

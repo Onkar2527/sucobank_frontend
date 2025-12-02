@@ -1,83 +1,81 @@
 <nz-layout *ngIf="route == 'tabs'">
 
-  <nz-header>
-    <div nz-row style="width:100%;">
-      <div nz-col nzSpan="5" style="display: flex;align-items: center;">
-        <span class="header-trigger" style="display: flex;align-items: center;" (click)="collapseMenu()">
+    <nz-header>
+        <div nz-row style="width:100%;">
+            <div nz-col nzSpan="5" style="display: flex;align-items: center;">
+                <span class="header-trigger" style="display: flex;align-items: center;" (click)="collapseMenu()">
           <i nz-icon nzType="menu"></i>
         </span>
-      </div>
+            </div>
 
-      <div nz-col nzSpan="14" style="display: flex;align-items: center;justify-content: center;">
-        <img src="../assets/Suco Bank Small Logo.png" height="40px" width="50px">
-        <span class="title" style="color: white;margin-left: 5px;">SUCO SOUHARDA SAHAKARI BANK</span>
-      </div>
-      <div nz-col nzSpan="5" style="display: flex;align-items: center;
+            <div nz-col nzSpan="14" style="display: flex;align-items: center;justify-content: center;">
+                <img src="../assets/suco_new_logo.png" height="40px" width="50px">
+                <span class="title" style="color: white;margin-left: 5px;">SUCO SOUHARDA SAHAKARI BANK</span>
+            </div>
+            <div nz-col nzSpan="5" style="display: flex;align-items: center;
       justify-content: right;">
-    
-        <span style="color: white;font-size: 14px;margin-right: 5px;cursor: pointer;font-weight: bold;" nz-popover
-          nzPopoverTitle="User Information" nzPopoverPlacement="bottom"
-          [nzPopoverContent]="userPopover">{{userDetails.NAME}}</span>
-      </div>
-    </div>
-  </nz-header>
+
+                <span style="color: white;font-size: 14px;margin-right: 5px;cursor: pointer;font-weight: bold;" nz-popover nzPopoverTitle="User Information" nzPopoverPlacement="bottom" [nzPopoverContent]="userPopover">{{userDetails.NAME}}</span>
+            </div>
+        </div>
+    </nz-header>
 
 
-  <nz-layout class="layout">
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzTrigger]="null">
+    <nz-layout class="layout">
+        <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzTrigger]="null">
 
-      <!-- <div class="user-box">
+            <!-- <div class="user-box">
         <nz-avatar nzSize="large" [nzText]="user" style="margin-left: 5px;"></nz-avatar>
         <span class="user-name">{{userDetails.USER_NAME}}</span>
       </div> -->
 
-      <ul nz-menu nzTheme="dark" nzMode="inline" class="sider">
+            <ul nz-menu nzTheme="dark" nzMode="inline" class="sider">
 
-        <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: sideMenu }"></ng-container>
-        <ng-template #menuTpl let-menus>
-          <ng-container *ngFor="let menu of menus">
+                <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: sideMenu }"></ng-container>
+                <ng-template #menuTpl let-menus>
+                    <ng-container *ngFor="let menu of menus">
 
-            <li nz-menu-item nzMatchRouter [nzDisabled]="menu.ROUTE == '/proposal' && isdiabled ? true : false" (click)="disableProposal(menu.ROUTE)">
-              <a [routerLink]="[menu.ROUTE]">
-                <i nz-icon [nzType]="menu.ICON" *ngIf="menu.ICON"></i> {{menu.NAME}} <nz-badge  [nzCount]="notificationCOunt"  [nzOffset]="[5, 15]"  *ngIf="menu.ID == 12 || menu.ID == 13 || menu.ID == 14">
-  
-                </nz-badge></a>
-            </li>
+                        <li nz-menu-item nzMatchRouter [nzDisabled]="menu.ROUTE == '/proposal' && isdiabled ? true : false" (click)="disableProposal(menu.ROUTE)">
+                            <a [routerLink]="[menu.ROUTE]">
+                                <i nz-icon [nzType]="menu.ICON" *ngIf="menu.ICON"></i> {{menu.NAME}}
+                                <nz-badge [nzCount]="notificationCOunt" [nzOffset]="[5, 15]" *ngIf="menu.ID == 12 || menu.ID == 13 || menu.ID == 14">
 
-          </ng-container>
-        </ng-template>
+                                </nz-badge>
+                            </a>
+                        </li>
 
-      </ul>
+                    </ng-container>
+                </ng-template>
 
-    </nz-sider>
+            </ul>
+
+        </nz-sider>
 
 
 
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
 
-  </nz-layout>
+    </nz-layout>
 
 </nz-layout>
 
 <ng-template #userPopover>
-  <div>
-    <p nz-row><span nz-col nzSpan="12"> Branch </span> <span nz-col
-        nzSpan="12"><b>{{userExtraInformation.BRANCH}}</b></span></p>
-    <p nz-row><span nz-col nzSpan="12"> Role </span> <span nz-col
-        nzSpan="12"><b>{{userExtraInformation.ROLE}}</b></span></p>
+    <div>
+        <p nz-row><span nz-col nzSpan="12"> Branch </span> <span nz-col nzSpan="12"><b>{{userExtraInformation.BRANCH}}</b></span></p>
+        <p nz-row><span nz-col nzSpan="12"> Role </span> <span nz-col nzSpan="12"><b>{{userExtraInformation.ROLE}}</b></span></p>
 
-    <nz-divider></nz-divider>
-    <button (click)="logout()" class="logout-button">logout</button>
-  </div>
+        <nz-divider></nz-divider>
+        <button (click)="logout()" class="logout-button">logout</button>
+    </div>
 </ng-template>
 
 <app-login *ngIf="route == 'login'" (logined)="login()" (passwordReset)="passwordReset()"></app-login>
 
 
 <div *ngIf="route == 'passReset'" style="width:100%">
-  <app-password-change (passwordResetEvent)="gotoLogin()"></app-password-change>
+    <app-password-change (passwordResetEvent)="gotoLogin()"></app-password-change>
 </div>

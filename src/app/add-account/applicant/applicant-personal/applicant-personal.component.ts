@@ -64,16 +64,16 @@ export class ApplicantPersonalComponent implements OnInit {
     { field: 'BLOOD_TYPE', message: 'Blood Type' },
 
     { field: 'FIRST_NAME', message: "Applicant First Name" },
-    { field: 'MIDDLE_NAME', message: "Applicant Middle Name" },
-    { field: 'LAST_NAME', message: "Applicant Last Name" },
+    // { field: 'MIDDLE_NAME', message: "Applicant Middle Name" },
+    // { field: 'LAST_NAME', message: "Applicant Last Name" },
 
     { field: 'F_OR_H_FIRST_NAME', message: "Father / Husband First Name" },
-    { field: 'F_OR_H_MIDDLE_NAME', message: "Father / Husband Middle Name" },
-    { field: 'F_OR_H_LAST_NAME', message: "Father / Husband Last Name" },
+    // { field: 'F_OR_H_MIDDLE_NAME', message: "Father / Husband Middle Name" },
+    // { field: 'F_OR_H_LAST_NAME', message: "Father / Husband Last Name" },
 
     { field: 'MOTHERS_NAME', message: "Mother's First Name" },
-    { field: 'MOTHERS_MIDDLE_NAME', message: "Mother's Middle Name" },
-    { field: 'MOTHERS_LAST_NAME', message: "Mother's Last Name" },
+    // { field: 'MOTHERS_MIDDLE_NAME', message: "Mother's Middle Name" },
+    // { field: 'MOTHERS_LAST_NAME', message: "Mother's Last Name" },
 
     { field: 'DATE_OF_BIRTH', message: "Date of Birth" },
 

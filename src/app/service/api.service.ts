@@ -117,8 +117,13 @@ export class ApiService implements HttpInterceptor {
 
 
 
-  genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
-  getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
+  // genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
+  genAadhaarOtpUrl = "/validator/aadhaar_sendotp";
+
+  // getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
+  getAadhaarDataUrl = "/validator/aadhaar_verifyotp";
+
+
   getDrivingLicense = "https://kyc-api.aadhaarkyc.io/api/v1/driving-license/driving-license"
   verifyPanUrl = "https://kyc-api.aadhaarkyc.io/api/v1/pan/pan";
 
@@ -126,6 +131,8 @@ export class ApiService implements HttpInterceptor {
   // aadhaarBaseUrl = "http://aadharverifybackend.kredpool.in/api/addhar/";
 
   baseUrl = 'https://sucobankbackend.kredpool.in/api/';
+
+  // baseUrl ='http://127.0.0.1:8070';
 
   // baseUrl local
   // baseUrl = 'http://localhost:8079/api/';
@@ -180,6 +187,17 @@ export class ApiService implements HttpInterceptor {
     }
     return this.httpClient.post<any>(this.baseUrl + "basicDetails/get", data, this.optionMain)
   }
+
+  updateBasicAcc(key: any, accountNumber: string, cmid: string): Observable<any> {
+    let data = {
+      ID: key,
+      ACCOUNT_NUMBER: accountNumber,
+      CMID: cmid
+    }
+    return this.httpClient.post<any>(this.baseUrl + "basicDetails/updateAccountNumber", data, this.optionMain)
+  }
+
+
 
   //term deposit
   addDeposite(data: TermDeposite): Observable<any> {
@@ -406,10 +424,17 @@ export class ApiService implements HttpInterceptor {
 
 
   Aadhaar_GetOTP(data: AadhaarMeta): Observable<any> {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+    // const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
+
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'bankName': 'Kredpool Solutions Pvt Ltd',
+      'branchName': 'HEAD Office',
+      'userName': 'KredpoolUser',
+      'callerSystem': 'SysKred'
+      // 'Access-Control-Allow-Origin': '*'
     });
     this.options = {
       headers: this.httpHeaders
@@ -435,11 +460,15 @@ export class ApiService implements HttpInterceptor {
 
   Aadhaar_GetData(data: AadhaarMeta): Observable<any> {
 
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
 
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'bankName': 'Kredpool Solutions Pvt Ltd',
+      'branchName': 'HEAD Office',
+      'userName': 'KredpoolUser',
+      'callerSystem': 'SysKred'
     });
     this.options = {
       headers: this.httpHeaders
@@ -912,11 +941,11 @@ export class ApiService implements HttpInterceptor {
 
   }
 
-  aadharPANComprehensive(pan_no: string){
+  aadharPANComprehensive(pan_no: string) {
     let data = {
-      id_number : pan_no
+      id_number: pan_no
     }
-      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -924,20 +953,20 @@ export class ApiService implements HttpInterceptor {
     this.options = {
       headers: this.httpHeaders
     };
-    return this.httpClient.post('https://kyc-api.aadhaarkyc.io/api/v1/pan/pan-comprehensive',data ,this.options )
+    return this.httpClient.post('https://kyc-api.aadhaarkyc.io/api/v1/pan/pan-comprehensive', data, this.options)
 
   }
   //  notifications  End
 
-  saveAadharPANComprehensive(data: any){
-    return this.httpClient.post(this.baseUrl +  'aadhaar/savePanComprehensive', data, this.optionMain)
+  saveAadharPANComprehensive(data: any) {
+    return this.httpClient.post(this.baseUrl + 'aadhaar/savePanComprehensive', data, this.optionMain)
   }
 
-getPanComprehensiveData(pan_number: string){
-  let data = {
-    pan_number : pan_number
-  }
-    return this.httpClient.post(this.baseUrl +  'aadhaar/getPanComprehensiveData', data, this.optionMain)
+  getPanComprehensiveData(pan_number: string) {
+    let data = {
+      pan_number: pan_number
+    }
+    return this.httpClient.post(this.baseUrl + 'aadhaar/getPanComprehensiveData', data, this.optionMain)
   }
 
 }

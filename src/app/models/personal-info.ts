@@ -46,7 +46,7 @@ export class PersonalInfo {
   RELIGION: string = 'A';
   OTHER_RELIGION: string = '';
 
-  CASTE: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' = 'A';
+  CASTE: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'|'H' = 'A';
   OTHER_CASTE: string = '';
 
   MARITAL_STATUS!: string;

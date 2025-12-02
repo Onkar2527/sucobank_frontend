@@ -21,6 +21,8 @@ export class NonActionableNotificationsComponent implements OnInit {
     let branchId = Number(sessionStorage.getItem('BRANCH_ID'));
     let userId = Number(sessionStorage.getItem('USER_ID'));
 
+     this.getBranchList();
+
     if (branchId && userId) {
       this.api.getNotifcations(branchId, userId, 'N').subscribe({
         next: (res) => {
@@ -67,5 +69,36 @@ export class NonActionableNotificationsComponent implements OnInit {
     })
 
   }
+
+
+  BRANCH_LIST: any = [];
+   getBranchList() {
+    this.api.getAllBranch().subscribe({
+      next: (res) => {
+        if (res['code'] == 200 && res['data'].length > 0) {
+          this.BRANCH_LIST = res['data'];
+        }
+      }
+    })
+  }
+
+  getBranchName(branch_id?: number) {
+    if (!branch_id)
+      return ''
+
+    let our_branch = this.BRANCH_LIST.filter((value: any) => {
+      return value.ID == branch_id
+    });
+
+    if (our_branch.length > 0) {
+      return our_branch[0].BRANCH_NAME ? our_branch[0].BRANCH_NAME : ''
+    }
+    else {
+      return '';
+    }
+
+
+  }
+
 
 }

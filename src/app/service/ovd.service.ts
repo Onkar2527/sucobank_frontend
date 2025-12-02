@@ -16,13 +16,15 @@ export class OvdService {
     headers: this.httpHeaders
   };
   
-  genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
-  getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
+  // genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
+  genAadhaarOtpUrl = "/validator/aadhaar_sendotp";
+  // getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
+  getAadhaarDataUrl = "/validator/aadhaar_verifyotp";
   verifyPanUrl = "https://kyc-api.aadhaarkyc.io/api/v1/pan/pan";
 
 
   Aadhaar_GetOTP(data: AadhaarMeta): Observable<any> {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1NjkzNDMzNywianRpIjoiZDU1MGEwNzktZjYxYS00MWMzLTgxYjMtNWJmZjlkNWNlYzc4IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnRlY3Bvb2xAc3VyZXBhc3MuaW8iLCJuYmYiOjE2NTY5MzQzMzcsImV4cCI6MTk3MjI5NDMzNywidXNlcl9jbGFpbXMiOnsic2NvcGVzIjpbIndhbGxldCJdfX0.EsnCsWhjMNVUCXT3ehEUsbyGgoKhYxlOwegDHNfZedQ';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -51,7 +53,7 @@ export class OvdService {
 
   Aadhaar_GetData(data: AadhaarMeta): Observable<any> {
 
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1NjkzNDMzNywianRpIjoiZDU1MGEwNzktZjYxYS00MWMzLTgxYjMtNWJmZjlkNWNlYzc4IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnRlY3Bvb2xAc3VyZXBhc3MuaW8iLCJuYmYiOjE2NTY5MzQzMzcsImV4cCI6MTk3MjI5NDMzNywidXNlcl9jbGFpbXMiOnsic2NvcGVzIjpbIndhbGxldCJdfX0.EsnCsWhjMNVUCXT3ehEUsbyGgoKhYxlOwegDHNfZedQ';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
 
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

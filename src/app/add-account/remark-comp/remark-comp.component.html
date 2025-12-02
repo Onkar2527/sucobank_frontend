@@ -1,7 +1,6 @@
 <div nz-row>
     <div nz-col nzSpan="24">
-        <nz-table [nzData]="Tabs" style="margin-top: 20px;" nzBordered #table nzShowSizeChanger
-            [nzFrontPagination]="false" [nzLoading]="TableLoading">
+        <nz-table [nzData]="Tabs" style="margin-top: 20px;" nzBordered #table nzShowSizeChanger [nzFrontPagination]="false" [nzLoading]="TableLoading">
 
             <thead nzSingleSort>
                 <tr>
@@ -42,8 +41,7 @@
     <!-- <div nz-col nzSpan="2"></div> -->
 
     <div nz-col nzSpan="24">
-        <nz-table [nzData]="REMARK_DATA" style="margin-top: 20px;" nzBordered #remarkTable nzShowSizeChanger
-            [nzFrontPagination]="false" [nzLoading]="remark_table_loading" [nzScroll]="{ y: '400px' }">
+        <nz-table [nzData]="REMARK_DATA" style="margin-top: 20px;" nzBordered #remarkTable nzShowSizeChanger [nzFrontPagination]="false" [nzLoading]="remark_table_loading" [nzScroll]="{ y: '400px' }">
 
             <thead nzSingleSort>
                 <tr>
@@ -77,4 +75,60 @@
         </nz-form-control>
     </nz-form-item>
 
+    <nz-form-item nz-col nzSpan="7" *ngIf="basicInfo.MAKER_USER_ID">
+        <nz-form-label nzRequired [nzNoColon]="true">Account Number</nz-form-label>
+        <nz-form-control>
+            <div nz-row>
+                <!-- <textarea rows="2" nz-input [(ngModel)]="basicInfo.ACCOUNT_NUMBER"></textarea> -->
+                <input nz-input name="ACCOUNT_NUMBER" [(ngModel)]="basicInfo.ACCOUNT_NUMBER" />
+
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-col nzSpan="7" *ngIf="basicInfo.MAKER_USER_ID">
+        <nz-form-label nzRequired [nzNoColon]="true">Account Number</nz-form-label>
+        <nz-form-control>
+            <div nz-row>
+                <input nz-input name="ACCOUNT_NUMBER" [(ngModel)]="basicInfo.ACCOUNT_NUMBER" [disabled]="!basicInfo.VERIFIER_USER_ID" />
+                <!-- फक्त VERIFIER_USER_ID असेल तेव्हाच editable -->
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+
+    <div nz-col nzSpan="1"></div>
+    <nz-form-item nz-col nzSpan="7">
+        <nz-form-label nzRequired [nzNoColon]="true">CMID</nz-form-label>
+        <nz-form-control>
+            <div nz-row>
+                <!-- <textarea rows="2" nz-input [(ngModel)]="basicInfo.ACCOUNT_NUMBER"></textarea> -->
+                <input nz-input name="CMID" [(ngModel)]="basicInfo.CMID" />
+
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+    <div nz-col nzSpan="1"></div>
+    <nz-form-item nz-col nzSpan="8">
+        <nz-form-label [nzNoColon]="true"></nz-form-label>
+        <nz-form-control>
+            <div nz-row>
+                <!-- <textarea rows="2" nz-input [(ngModel)]="basicInfo.ACCOUNT_NUMBER"></textarea> -->
+                <button nz-button nzType="primary" (click)="saveBasicInfo()">Save</button>
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+    <!-- <div nz-col nzSpan="8" style="margin-top: 10px;">
+        <button nz-button nzType="primary" (click)="saveBasicInfo()">Save</button>
+    </div> -->
+
+
+    <!-- <nz-form-item nz-col nzSpan="24">
+        <nz-form-label nzRequired [nzNoColon]="true">Account Number</nz-form-label>
+        <nz-form-control>
+            <div nz-row>
+                <textarea rows="2" nz-input [(ngModel)]="CMID"></textarea>
+            </div>
+        </nz-form-control>
+    </nz-form-item> -->
 </div>

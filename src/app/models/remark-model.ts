@@ -6,4 +6,7 @@ export class RemarkModel {
     APPLICANT_ID!: number;
     USER_NAME: string = '';
     ROLE: string = '';
+
+    CMID : string = '';
+    ACCOUNT_NUMBER :number =0;
 }
