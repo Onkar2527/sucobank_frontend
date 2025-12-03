@@ -17,14 +17,19 @@ export class OvdService {
   };
   
   // genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
-  genAadhaarOtpUrl = "/validator/aadhaar_sendotp";
+  // genAadhaarOtpUrl = "/validator/aadhaar_sendotp";
   // getAadhaarDataUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/submit-otp ";
-  getAadhaarDataUrl = "/validator/aadhaar_verifyotp";
+  // getAadhaarDataUrl = "/validator/aadhaar_verifyotp";
+
+
+  genAadhaarOtpUrl = "https://lvf.listspl.com:1355/ListValidationFramework/validator/aadhaar_sendotp";
+  getAadhaarDataUrl = "https://lvf.listspl.com:1355/ListValidationFramework/validator/aadhaar_verifyotp";
+
   verifyPanUrl = "https://kyc-api.aadhaarkyc.io/api/v1/pan/pan";
 
 
   Aadhaar_GetOTP(data: AadhaarMeta): Observable<any> {
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ2Njg3MDQsImV4cCI6MTc2NDc1NTEwNH0.lm-57eO929OEdhXq3IZZr2qCCh27Z6bcss43CGY3DAA';
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -53,7 +58,7 @@ export class OvdService {
 
   Aadhaar_GetData(data: AadhaarMeta): Observable<any> {
 
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ1NzYwNTUsImV4cCI6MTc2NDY2MjQ1NX0.EP6OwkWNqaUjiNG4K5f7IdVTW9vluGd8fidIXHXRYIE';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLcmVkcG9vbHVzZXIiLCJpYXQiOjE3NjQ2Njg3MDQsImV4cCI6MTc2NDc1NTEwNH0.lm-57eO929OEdhXq3IZZr2qCCh27Z6bcss43CGY3DAA';
 
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
