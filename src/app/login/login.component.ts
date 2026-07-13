@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   getPasswordPolicy() {
     this.api.getPasswordPolicyData().subscribe({
       next: (res) => {
-        if (res['code'] == 200) {
+        if (res['code'] == 200 && res['data']) {
           this.passwordPolicy = res['data'];
         }
       }
@@ -66,29 +66,53 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         if (data['code'] == 200 && data['data']) {
 
-          let passwordPatternStr = `^(?=(.*[A-Z]){${this.passwordPolicy.FR_CAPITAL_LETTERS},})(?=(.*[a-z]){${this.passwordPolicy.FR_SMALL_LETTERS},})(?=(.*\\d){${this.passwordPolicy.FR_NUMBERS},})(?=(.*[\\W_]){${this.passwordPolicy.FR_SYMBOLS},}).{${this.passwordPolicy.PASSWORD_LENGTH},}$`
-          let passwordPatternRegex = new RegExp(String.raw`${passwordPatternStr}`);
+          const verifyPasswordAndProceed = (policy: any) => {
+            let passwordPatternStr = `^(?=(.*[A-Z]){${policy.FR_CAPITAL_LETTERS},})(?=(.*[a-z]){${policy.FR_SMALL_LETTERS},})(?=(.*\\d){${policy.FR_NUMBERS},})(?=(.*[\\W_]){${policy.FR_SYMBOLS},}).{${policy.PASSWORD_LENGTH},}$`
+            let passwordPatternRegex = new RegExp(String.raw`${passwordPatternStr}`);
 
-          if (!data['data']['PASSWORD_RESET_DATE']) {
-            this.message.warning("Please reset the password to something secure", "");
-            this.passwordReset.emit(true);
-            return;
-          }
-          else if (!passwordPatternRegex.test(this.PASSWORD)) {
-            this.message.warning("Password policy has been updated", "Please reset the password");
-            this.passwordReset.emit(true);
-            return;
-          }
-          else if (data['data']['DAYS_OF_RESET_PASS'] >= this.passwordPolicy.FR_PASSWORD_RESET) {
-            this.message.warning("Your password has been expired", "Please reset the password");
-            this.passwordReset.emit(true);
-            return;
-          }
+            if (!data['data']['PASSWORD_RESET_DATE']) {
+              this.message.warning("Please reset the password to something secure", "");
+              this.passwordReset.emit(true);
+              this.isloginSpinning = false;
+              return;
+            }
+            else if (!passwordPatternRegex.test(this.PASSWORD)) {
+              this.message.warning("Password policy has been updated", "Please reset the password");
+              this.passwordReset.emit(true);
+              this.isloginSpinning = false;
+              return;
+            }
+            else if (data['data']['DAYS_OF_RESET_PASS'] >= policy.FR_PASSWORD_RESET) {
+              this.message.warning("Your password has been expired", "Please reset the password");
+              this.passwordReset.emit(true);
+              this.isloginSpinning = false;
+              return;
+            }
+            else {
+              SessionUserDetails.setSessionStorage(data['data']);
+              this.logined.emit(true);
+              this.isloginSpinning = false;
+            }
+          };
 
-          else {
-            SessionUserDetails.setSessionStorage(data['data']);
-            this.logined.emit(true);
-            this.isloginSpinning = false
+          if (this.passwordPolicy) {
+            verifyPasswordAndProceed(this.passwordPolicy);
+          } else {
+            this.api.getPasswordPolicyData().subscribe({
+              next: (res) => {
+                if (res['code'] == 200 && res['data']) {
+                  this.passwordPolicy = res['data'];
+                  verifyPasswordAndProceed(this.passwordPolicy);
+                } else {
+                  this.message.error("Failed to fetch password policy from the database", "");
+                  this.isloginSpinning = false;
+                }
+              },
+              error: () => {
+                this.message.error("Failed to fetch password policy from the database", "");
+                this.isloginSpinning = false;
+              }
+            });
           }
 
         }

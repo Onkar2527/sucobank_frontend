@@ -46,41 +46,50 @@ export class PasswordChangeComponent implements OnInit {
     this.getPasswordPolicy();
   }
 
+  setPolicy(policy: any) {
+    this.passwordPolicyData = policy;
+    this.passwordPatternStr = `^(?=(.*[A-Z]){${this.passwordPolicyData.FR_CAPITAL_LETTERS},})(?=(.*[a-z]){${this.passwordPolicyData.FR_SMALL_LETTERS},})(?=(.*\\d){${this.passwordPolicyData.FR_NUMBERS},})(?=(.*[\\W_]){${this.passwordPolicyData.FR_SYMBOLS},}).{${this.passwordPolicyData.PASSWORD_LENGTH},}$`
+    this.passwordPatternRegex = new RegExp(String.raw`${this.passwordPatternStr}`);
+    console.log(this.passwordPatternStr, this.passwordPatternRegex);
+
+    this.passwordPolicyStrObj.capital_letter = `${this.passwordPolicyData.FR_CAPITAL_LETTERS ? `${this.passwordPolicyData.FR_CAPITAL_LETTERS} capital (uppercase) letter${this.passwordPolicyData.FR_CAPITAL_LETTERS != 1 ? 's' : ''}` : ''}`
+    this.passwordPolicyStrObj.small_letter = `${this.passwordPolicyData.FR_SMALL_LETTERS ? `${this.passwordPolicyData.FR_SMALL_LETTERS} lowercase letter${this.passwordPolicyData.FR_SMALL_LETTERS != 1 ? 's' : ''}` : ''}`
+    this.passwordPolicyStrObj.number = `${this.passwordPolicyData.FR_NUMBERS ? `${this.passwordPolicyData.FR_NUMBERS} number${this.passwordPolicyData.FR_NUMBERS != 1 ? 's' : ''}` : ''}`
+    this.passwordPolicyStrObj.symbol = `${this.passwordPolicyData.FR_SYMBOLS ? `${this.passwordPolicyData.FR_SYMBOLS} symbol${this.passwordPolicyData.FR_SYMBOLS != 1 ? 's' : ''}` : ''}`
+    this.passwordPolicyStrObj.passLength =  `${this.passwordPolicyData.PASSWORD_LENGTH ? `Minimum ${this.passwordPolicyData.PASSWORD_LENGTH} character${this.passwordPolicyData.PASSWORD_LENGTH != 1 ? 's' : ''}` : ''}`
+
+    this.validationString = `Password must contain the following : ${this.passwordPolicyStrObj.small_letter}
+    ${this.passwordPolicyStrObj.capital_letter}
+    ${this.passwordPolicyStrObj.number}
+    ${this.passwordPolicyStrObj.symbol}
+    ${this.passwordPolicyStrObj.passLength}`.split("\n")
+    .map(s => s.trim())
+    .filter(Boolean)
+    .join(", ");
+
+    console.log(this.validationString);
+  }
+
   getPasswordPolicy() {
     this.isSpinning = true;
     this.api.getPasswordPolicyData().subscribe({
       next: (res) => {
-        if (res['code'] == 200) {
-          this.isSpinning = false;
-          this.passwordPolicyData = res['data'];
-          this.passwordPatternStr = `^(?=(.*[A-Z]){${this.passwordPolicyData.FR_CAPITAL_LETTERS},})(?=(.*[a-z]){${this.passwordPolicyData.FR_SMALL_LETTERS},})(?=(.*\\d){${this.passwordPolicyData.FR_NUMBERS},})(?=(.*[\\W_]){${this.passwordPolicyData.FR_SYMBOLS},}).{${this.passwordPolicyData.PASSWORD_LENGTH},}$`
-          this.passwordPatternRegex = new RegExp(String.raw`${this.passwordPatternStr}`);
-          console.log(this.passwordPatternStr, this.passwordPatternRegex);
-
-          this.passwordPolicyStrObj.capital_letter = `${this.passwordPolicyData.FR_CAPITAL_LETTERS ? `${this.passwordPolicyData.FR_CAPITAL_LETTERS} capital (uppercase) letter${this.passwordPolicyData.FR_CAPITAL_LETTERS != 1 ? 's' : ''}` : ''}`
-          this.passwordPolicyStrObj.small_letter = `${this.passwordPolicyData.FR_SMALL_LETTERS ? `${this.passwordPolicyData.FR_SMALL_LETTERS} lowercase letter${this.passwordPolicyData.FR_SMALL_LETTERS != 1 ? 's' : ''}` : ''}`
-          this.passwordPolicyStrObj.number = `${this.passwordPolicyData.FR_NUMBERS ? `${this.passwordPolicyData.FR_NUMBERS} number${this.passwordPolicyData.FR_NUMBERS != 1 ? 's' : ''}` : ''}`
-          this.passwordPolicyStrObj.symbol = `${this.passwordPolicyData.FR_SYMBOLS ? `${this.passwordPolicyData.FR_SYMBOLS} symbol${this.passwordPolicyData.FR_SYMBOLS != 1 ? 's' : ''}` : ''}`
-          this.passwordPolicyStrObj.passLength =  `${this.passwordPolicyData.PASSWORD_LENGTH ? `Minimum ${this.passwordPolicyData.PASSWORD_LENGTH} character${this.passwordPolicyData.PASSWORD_LENGTH != 1 ? 's' : ''}` : ''}`
-
-          this.validationString = `Password must contain the following : ${this.passwordPolicyStrObj.small_letter}
-          ${this.passwordPolicyStrObj.capital_letter}
-          ${this.passwordPolicyStrObj.number}
-          ${this.passwordPolicyStrObj.symbol}
-          ${this.passwordPolicyStrObj.passLength}`.split("\n")
-          .map(s => s.trim())
-          .filter(Boolean)
-          .join(", ");
-
-          console.log(this.validationString);
+        this.isSpinning = false;
+        if (res['code'] == 200 && res['data']) {
+          this.setPolicy(res['data']);
+        } else {
+          this.message.error("Failed to fetch password policy from the database", "");
         }
-
+      },
+      error: () => {
+        this.isSpinning = false;
+        this.message.error("Failed to fetch password policy from the database", "");
       }
     })
   }
 
   newPasswordChange() {
-    if (this.passwordPatternRegex.test(this.passwordReset.NEW_PASSWORD)) {
+    if (this.passwordPatternRegex && this.passwordPatternRegex.test(this.passwordReset.NEW_PASSWORD)) {
       this.newPasswordStatus = '';
     }
     else {
@@ -114,6 +123,11 @@ export class PasswordChangeComponent implements OnInit {
 
     if (!this.passwordReset.OLD_PASSWORD) {
       this.message.error("Please Provide Old Password", "");
+      return;
+    }
+
+    if (!this.passwordPatternRegex) {
+      this.message.error("Password policy not loaded from the database yet. Please try again.", "");
       return;
     }
 

@@ -20,7 +20,7 @@ export class PasswordPolicyManagerComponent implements OnInit {
   get() {
     this.api.getPasswordPolicyData().subscribe({
       next: (res) => {
-        if (res['code'] == 200) {
+        if (res['code'] == 200 && res['data']) {
           this.passwordPolicy = res['data'];
         }
       }

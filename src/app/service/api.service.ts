@@ -78,7 +78,7 @@ export class ApiService implements HttpInterceptor {
     );
   }
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   httpHeaders = new HttpHeaders();
   options = {
@@ -149,7 +149,7 @@ export class ApiService implements HttpInterceptor {
   VoterDataUrl = 'https://kyc-api.aadhaarkyc.io/api/v1/voter-id/voter-id';
   // aadhaarBaseUrl = "http://aadharverifybackend.kredpool.in/api/addhar/";
 
-  baseUrl = 'https://sucobankbackend.kredpool.in/api/';
+  baseUrl = 'http://localhost:8673/api/';
 
   // baseUrl ='http://127.0.0.1:8070';
 
