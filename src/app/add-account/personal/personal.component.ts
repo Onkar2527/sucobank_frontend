@@ -468,108 +468,144 @@ export class PersonalComponent implements OnInit {
     let res = lastValueFrom(this.api.docVerifyHit(BRANCH_ID, USER_ID, doc_type));
   }
 
-  async getOtp(AplicantNo: number) {
-
+  async initializeAadhaarVerification(AplicantNo: number) {
     if ((await this.checkBalance(1)) == 0) {
       return;
     }
 
-
     switch (AplicantNo) {
       case 1: {
-        this.loadOtpButton = true
-        let otpData = this.aadhaarVerify.getOTP();
-        otpData.subscribe({
+        if (!this.aadhaarVerify.aadhar_history.AADHAAR_NUMBER) {
+          this.message.error(
+            'Aadhaar No missing',
+            'Please enter aadhaar number first to start verification'
+          );
+          return;
+        }
+        this.aadhaarVerify.initializeAadhaarVerification().subscribe({
           next: (res) => {
-            if (res == true) {
-              this.loadOtpButton = false;
-
-            }
-            else {
-              this.loadOtpButton = false;
-
+            const childWindow = window.open(this.aadhaarVerify.meta.url);
+            if (childWindow) {
+              this.aadhaarVerify.verfication_window_open = true;
+              const checkInterval = setInterval(() => {
+                if (childWindow.closed) {
+                  clearInterval(checkInterval);
+                  this.aadhaarVerify.verfication_window_open = false;
+                  this.getAadhaarData(1);
+                  console.log('Child window is closed');
+                }
+              }, 500);
+            } else {
+              alert('Please allow popups');
             }
           },
-          error: () => {
-            this.loadOtpButton = false;
-
-          }
+          error: () => {},
         });
         break;
       }
 
       case 2: {
-        this.loadOtpButton2 = true
-        let otpData = this.aadhaarVerify2.getOTP();
-        otpData.subscribe({
+        if (!this.aadhaarVerify2.aadhar_history.AADHAAR_NUMBER) {
+          this.message.error(
+            'Aadhaar No missing',
+            'Please enter aadhaar number first to start verification'
+          );
+          return;
+        }
+        this.aadhaarVerify2.initializeAadhaarVerification().subscribe({
           next: (res) => {
-            if (res == true) {
-              this.loadOtpButton2 = false;
-
-            }
-            else {
-              this.loadOtpButton2 = false;
-
+            const childWindow = window.open(this.aadhaarVerify2.meta.url);
+            if (childWindow) {
+              this.aadhaarVerify2.verfication_window_open = true;
+              const checkInterval = setInterval(() => {
+                if (childWindow.closed) {
+                  clearInterval(checkInterval);
+                  this.aadhaarVerify2.verfication_window_open = false;
+                  this.getAadhaarData(2);
+                  console.log('Child window is closed');
+                }
+              }, 500);
+            } else {
+              alert('Please allow popups');
             }
           },
-          error: () => {
-            this.loadOtpButton2 = false;
-
-          }
+          error: () => {},
         });
         break;
       }
 
       case 3: {
-        this.loadOtpButton3 = true
-        let otpData = this.aadhaarVerify3.getOTP();
-        otpData.subscribe({
+        if (!this.aadhaarVerify3.aadhar_history.AADHAAR_NUMBER) {
+          this.message.error(
+            'Aadhaar No missing',
+            'Please enter aadhaar number first to start verification'
+          );
+          return;
+        }
+        this.aadhaarVerify3.initializeAadhaarVerification().subscribe({
           next: (res) => {
-            if (res == true) {
-              this.loadOtpButton3 = false;
-
-            }
-            else {
-              this.loadOtpButton3 = false;
-
+            const childWindow = window.open(this.aadhaarVerify3.meta.url);
+            if (childWindow) {
+              this.aadhaarVerify3.verfication_window_open = true;
+              const checkInterval = setInterval(() => {
+                if (childWindow.closed) {
+                  clearInterval(checkInterval);
+                  this.aadhaarVerify3.verfication_window_open = false;
+                  this.getAadhaarData(3);
+                  console.log('Child window is closed');
+                }
+              }, 500);
+            } else {
+              alert('Please allow popups');
             }
           },
-          error: () => {
-            this.loadOtpButton3 = false;
-
-          }
+          error: () => {},
         });
         break;
       }
 
       case 4: {
-        this.loadOtpButton4 = true
-        let otpData = this.aadhaarVerify4.getOTP();
-        otpData.subscribe({
+        if (!this.aadhaarVerify4.aadhar_history.AADHAAR_NUMBER) {
+          this.message.error(
+            'Aadhaar No missing',
+            'Please enter aadhaar number first to start verification'
+          );
+          return;
+        }
+        this.aadhaarVerify4.initializeAadhaarVerification().subscribe({
           next: (res) => {
-            if (res == true) {
-              this.loadOtpButton4 = false;
-
-            }
-            else {
-              this.loadOtpButton4 = false;
-
+            const childWindow = window.open(this.aadhaarVerify4.meta.url);
+            if (childWindow) {
+              this.aadhaarVerify4.verfication_window_open = true;
+              const checkInterval = setInterval(() => {
+                if (childWindow.closed) {
+                  clearInterval(checkInterval);
+                  this.aadhaarVerify4.verfication_window_open = false;
+                  this.getAadhaarData(4);
+                  console.log('Child window is closed');
+                }
+              }, 500);
+            } else {
+              alert('Please allow popups');
             }
           },
-          error: () => {
-            this.loadOtpButton4 = false;
-
-          }
+          error: () => {},
         });
         break;
       }
 
       default: {
-        console.error("Inside function getOtp : AplicantNo is Invalid - ", AplicantNo);
+        console.error(
+          'Inside function initializeAadhaarVerification : AplicantNo is Invalid - ',
+          AplicantNo
+        );
         break;
       }
     }
+  }
 
+  async getOtp(AplicantNo: number) {
+    return this.initializeAadhaarVerification(AplicantNo);
   }
 
 
@@ -577,116 +613,110 @@ export class PersonalComponent implements OnInit {
 
     switch (AplicantNo) {
       case 1: {
-        this.loadAadhaarButton = true
+        this.loadAadhaarButton = true;
         let aadhar_data = this.aadhaarVerify.getData();
 
-
-
         aadhar_data.subscribe({
-          next: (res) => {
+          next: (res: any) => {
             if (res == true) {
-              this.isAadharVerifeied = true
+              this.isAadharVerifeied = true;
               if (this.isAadharVerifeied) {
-                this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0]
-                this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1]
-                this.basicInfo.PRIMARY_APPLICANT_LAST_NAME = this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2]
+                this.basicInfo.PRIMARY_APPLICANT_FIRST_NAME =
+                  this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[0];
+                this.basicInfo.PRIMARY_APPLICANT_MIDDLE_NAME =
+                  this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[1];
+                this.basicInfo.PRIMARY_APPLICANT_LAST_NAME =
+                  this.aadhaarVerify.aadhar_history.APPLICANT_FULL_NAME.split(' ')[2];
 
-                this.basicInfo.GENDER_1 = this.aadhaarVerify.aadhar_history.GENDER === 'Male' ? 'M' : this.aadhaarVerify.aadhar_history.GENDER === 'Female' ? 'F' : 'O'
+                this.basicInfo.GENDER_1 =
+                  this.aadhaarVerify.aadhar_history.GENDER === 'Male'
+                    ? 'M'
+                    : this.aadhaarVerify.aadhar_history.GENDER === 'Female'
+                    ? 'F'
+                    : 'O';
 
                 const dob = this.aadhaarVerify.aadhar_history.DOB;
-                const parts = dob.split("-");
+                const parts = dob.split('-');
                 this.basicInfo.DOB_1 = `${parts[2]}/${parts[1]}/${parts[0]}`;
 
-                console.log("triggered");
+                console.log('triggered');
 
-                this.calculateAge(1)
-
+                this.calculateAge(1);
               }
 
               this.saveAadhaarData(1);
 
               this.Hit(1);
-              this.loadAadhaarButton = false
-
-
-
-            }
-            else {
-              this.loadAadhaarButton = false
+              this.loadAadhaarButton = false;
+            } else {
+              this.loadAadhaarButton = false;
             }
           },
-          error: (err) => {
-            this.loadAadhaarButton = false
-          }
-
+          error: (err: any) => {
+            this.loadAadhaarButton = false;
+          },
         });
         break;
       }
 
       case 2: {
-        this.loadAadhaarButton2 = true
+        this.loadAadhaarButton2 = true;
         let aadhar_data = this.aadhaarVerify2.getData();
         aadhar_data.subscribe({
-          next: (res) => {
+          next: (res: any) => {
             if (res == true) {
               this.saveAadhaarData(2);
               this.Hit(1);
-              this.loadAadhaarButton2 = false
-            }
-            else {
-              this.loadAadhaarButton2 = false
+              this.loadAadhaarButton2 = false;
+            } else {
+              this.loadAadhaarButton2 = false;
             }
           },
-          error: (err) => {
-            this.loadAadhaarButton2 = false
-          }
-
+          error: (err: any) => {
+            this.loadAadhaarButton2 = false;
+          },
         });
 
         break;
       }
 
       case 3: {
-        this.loadAadhaarButton3 = true
+        this.loadAadhaarButton3 = true;
         let aadhar_data = this.aadhaarVerify3.getData();
         aadhar_data.subscribe({
-          next: (res) => {
+          next: (res: any) => {
             if (res == true) {
               this.saveAadhaarData(3);
               this.Hit(1);
-              this.loadAadhaarButton3 = false
-            }
-            else {
-              this.loadAadhaarButton3 = false
+              this.loadAadhaarButton3 = false;
+            } else {
+              this.loadAadhaarButton3 = false;
             }
           },
-          error: (err) => {
-            this.loadAadhaarButton3 = false
-          }
-
+          error: (err: any) => {
+            this.loadAadhaarButton3 = false;
+          },
         });
 
         break;
       }
 
       case 4: {
-        this.loadAadhaarButton4 = true
+        this.loadAadhaarButton4 = true;
         let aadhar_data = this.aadhaarVerify4.getData();
         aadhar_data.subscribe({
-          next: (res) => {
+          next: (res: any) => {
             if (res == true) {
               this.saveAadhaarData(4);
               this.Hit(1);
-              this.loadAadhaarButton4 = false
-            }
-            else {
-              this.loadAadhaarButton4 = false
+              this.loadAadhaarButton4 = false;
+            } else {
+              this.loadAadhaarButton4 = false;
             }
           },
-          error: (err) => {
-            this.loadAadhaarButton4 = false
-          }
-
+          error: (err: any) => {
+            this.loadAadhaarButton4 = false;
+          },
         });
 
         break;

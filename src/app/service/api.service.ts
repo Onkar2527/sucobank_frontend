@@ -9,13 +9,18 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
+  catchError,
+  filter,
+  from,
+  map,
   Observable,
   ObservableInput,
-  from,
   observable,
   of,
   switchMap,
+  take,
   tap,
+  timer,
 } from 'rxjs';
 import {
   AadhaarMeta,
@@ -130,6 +135,10 @@ export class ApiService implements HttpInterceptor {
   optionMain = {
     headers: this.httpHeaderMain,
   };
+
+  surepass_token =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTY5MjMyNiwianRpIjoiNzcxMzZmYWEtYzM2MC00MDY5LWIzZGUtODMyNWVmZmYwZWEwIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsIm5iZiI6MTcxNTY5MjMyNiwiZXhwIjoyMDMxMDUyMzI2LCJlbWFpbCI6InVzZXJuYW1lXzJ2MHBpZGNhdHlpdTJvcjVmbjV5OG96aG9oc0BzdXJlcGFzcy5pbyIsInRlbmFudF9pZCI6Im1haW4iLCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.7Mz0n2rBsMQUpu0m6-AYn7ZaSrUkiprnhANo3678wIc';
+  surepass_url = 'https://kyc-api.surepass.io/';
 
   // genAadhaarOtpUrl = "https://kyc-api.aadhaarkyc.io/api/v1/aadhaar-v2/generate-otp";
   // genAadhaarOtpUrl = "/validator/aadhaar_sendotp";
@@ -580,29 +589,70 @@ export class ApiService implements HttpInterceptor {
   }
 
   /** -----------------------------------------
-   * Aadhaar_GetData
+   * DigiLocker / Aadhaar Surepass Integration
    * ----------------------------------------- */
-  Aadhaar_GetData(data: AadhaarMeta): Observable<any> {
-    return this.generateToken().pipe(
-      switchMap((result: any) => {
-        const token = result.token;
+  Aadhaar_GetStatus(client_id: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${this.surepass_token}`,
+    });
+    return this.httpClient.get(
+      `${this.surepass_url}api/v1/digilocker/status/${client_id}`,
+      { headers }
+    );
+  }
 
-        const headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-          bankName: 'Kredpool Solutions Pvt Ltd',
-          branchName: 'HEAD Office',
-          userName: 'KredpoolUser',
-          callerSystem: 'SysKred',
-        });
+  checkAadhaarStatus(client_id: any): Observable<any> {
+    return client_id
+      ? timer(0, 3000).pipe(
+          take(60),
+          switchMap(() =>
+            this.Aadhaar_GetStatus(client_id).pipe(
+              catchError(() => of({ completed: false }))
+            )
+          ),
+          map((a: any) => !!a?.data?.completed),
+          filter((a: any) => a === true),
+          take(1),
+          catchError(() => of(false))
+        )
+      : of(false);
+  }
 
-        return this.httpClient.post(this.getAadhaarDataUrl, data, { headers });
-      })
+  Aadhaar_GetData(client_id: any): Observable<any> {
+    if (!client_id) return of(false);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.surepass_token}`,
+    });
+    return this.checkAadhaarStatus(client_id).pipe(
+      switchMap((i: any) =>
+        i
+          ? this.httpClient.get(
+              `${this.surepass_url}api/v1/digilocker/download-aadhaar/${client_id}`,
+              { headers }
+            )
+          : of(false)
+      ),
+      catchError(() => of(false))
+    );
+  }
+
+  verifyAadhaar(data: any): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.surepass_token}`,
+      }),
+    };
+    return this.httpClient.post(
+      `${this.surepass_url}api/v1/digilocker/initialize`,
+      { data: data },
+      options
     );
   }
 
   /** -----------------------------------------
-   * Aadhaar_GetOTP
+   * Aadhaar_GetOTP (Legacy LVF OTP flow fallback)
    * ----------------------------------------- */
   Aadhaar_GetOTP(data: AadhaarMeta): Observable<any> {
     return this.generateToken().pipe(
@@ -1363,6 +1413,22 @@ export class ApiService implements HttpInterceptor {
     return this.httpClient.post(
       this.baseUrl + 'aadhaar/getPanComprehensiveData',
       data,
+      this.optionMain
+    );
+  }
+
+  getAllReports() {
+    return this.httpClient.post(
+      this.baseUrl + 'report/getAllReports',
+      {},
+      this.optionMain
+    );
+  }
+
+  getStageWiseReport() {
+    return this.httpClient.post(
+      this.baseUrl + 'report/getStageWiseReport',
+      {},
       this.optionMain
     );
   }

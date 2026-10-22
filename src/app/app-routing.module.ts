@@ -9,6 +9,7 @@ import { PasswordChangeComponent } from './login/password-change/password-change
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationsHistoryComponent } from './notifications-history/notifications-history.component';
 import { NonActionableNotificationsComponent } from './non-actionable-notifications/non-actionable-notifications.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: "reset-password", component: PasswordChangeComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'notificationhistory', component: NotificationsHistoryComponent },
-  { path: 'nonActionableNotifications', component: NonActionableNotificationsComponent }
-  
+  { path: 'nonActionableNotifications', component: NonActionableNotificationsComponent },
+  { path: 'report', component: ReportComponent }
 ];
 
 @NgModule({

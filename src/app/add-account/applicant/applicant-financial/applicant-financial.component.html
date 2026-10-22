@@ -7,30 +7,7 @@
                 <nz-form-item nz-col nzSpan="12">
 
                     <nz-form-control>
-                        <nz-form-label nzRequired [nzNoColon]="true">Annual Income (in lakhs)(Old)</nz-form-label>
-                        <!-- <nz-select nzShowSearch nzPlaceHolder="Select Income"
-                            [(ngModel)]="financialInfo.INCOME" style="width: 100%;">
-                            <nz-option *ngFor="let income of incomeList" [nzValue]="income.value"
-                                [nzLabel]="income.label">
-                            </nz-option>
-                        </nz-select> -->
-
-                        <!-- <input type="text" nz-input name="INCOME" [(ngModel)]="financialInfo.INCOME"> -->
-
-                        <!-- <nz-select [(ngModel)]="financialInfo.INCOME">
-
-                            <nz-option [nzValue]="'A'" nzLabel="Below 1.20"></nz-option>
-                            <nz-option [nzValue]="'B'" nzLabel="1.21 to 2.40"></nz-option>
-                            <nz-option [nzValue]="'C'" nzLabel="2.41 to 6.00"></nz-option>
-                            <nz-option [nzValue]="'D'" nzLabel="6.01 to 9.00"></nz-option>
-                            <nz-option [nzValue]="'E'" nzLabel="9.01 to 12.00"></nz-option>
-                            <nz-option [nzValue]="'F'" nzLabel="12.01 to 25.00"></nz-option>
-                            <nz-option [nzValue]="'G'" nzLabel="25.01 to 50.00"></nz-option>
-                            <nz-option [nzValue]="'H'" nzLabel="50.01 to 100.0"></nz-option>
-                            <nz-option [nzValue]="'I'" nzLabel="Above 100.00"></nz-option>
-
-                        </nz-select> -->
-
+                        <nz-form-label nzRequired [nzNoColon]="true">Annual Income (in lakhs)</nz-form-label>
                         <nz-select [(ngModel)]="financialInfo.INCOME">
                             <nz-option [nzValue]="'A'" nzLabel="Below Rs 50,000"></nz-option>
                             <nz-option [nzValue]="'B'" nzLabel="Rs. 50,001 - Rs. 2 Lakh"></nz-option>
@@ -41,52 +18,8 @@
                             <nz-option [nzValue]="'G'" nzLabel="Above Rs. 25 Lakh"></nz-option>
                         </nz-select>
 
-
                     </nz-form-control>
                 </nz-form-item>
-
-                <nz-form-item nz-col nzSpan="12">
-
-                    <nz-form-control>
-                        <nz-form-label nzRequired [nzNoColon]="true">Annual Income (in lakhs)(New)</nz-form-label>
-                        <!-- <nz-select nzShowSearch nzPlaceHolder="Select Income"
-                            [(ngModel)]="financialInfo.INCOME" style="width: 100%;">
-                            <nz-option *ngFor="let income of incomeList" [nzValue]="income.value"
-                                [nzLabel]="income.label">
-                            </nz-option>
-                        </nz-select> -->
-
-                        <!-- <input type="text" nz-input name="INCOME" [(ngModel)]="financialInfo.INCOME"> -->
-
-                        <nz-select [(ngModel)]="financialInfo.INCOME1">
-
-                            <nz-option [nzValue]="'A'" nzLabel="Below 1.20"></nz-option>
-                            <nz-option [nzValue]="'B'" nzLabel="1.21 to 2.40"></nz-option>
-                            <nz-option [nzValue]="'C'" nzLabel="2.41 to 6.00"></nz-option>
-                            <nz-option [nzValue]="'D'" nzLabel="6.01 to 9.00"></nz-option>
-                            <nz-option [nzValue]="'E'" nzLabel="9.01 to 12.00"></nz-option>
-                            <nz-option [nzValue]="'F'" nzLabel="12.01 to 25.00"></nz-option>
-                            <nz-option [nzValue]="'G'" nzLabel="25.01 to 50.00"></nz-option>
-                            <nz-option [nzValue]="'H'" nzLabel="50.01 to 100.0"></nz-option>
-                            <nz-option [nzValue]="'I'" nzLabel="Above 100.00"></nz-option>
-
-                        </nz-select>
-
-                        <!-- <nz-select [(ngModel)]="financialInfo.INCOME">
-                            <nz-option [nzValue]="'A'" nzLabel="Below Rs 50,000"></nz-option>
-                            <nz-option [nzValue]="'B'" nzLabel="Rs. 50,001 - Rs. 2 Lakh"></nz-option>
-                            <nz-option [nzValue]="'C'" nzLabel="Rs. 2.01 Lakh - Rs. 5 Lakh"></nz-option>
-                            <nz-option [nzValue]="'D'" nzLabel="Rs. 5.01 Lakh - Rs. 10 Lakh"></nz-option>
-                            <nz-option [nzValue]="'E'" nzLabel="Rs. 10.01 Lakh - Rs. 15 Lakh"></nz-option>
-                            <nz-option [nzValue]="'F'" nzLabel="Rs. 15.01 Lakh - Rs. 25 Lakh"></nz-option>
-                            <nz-option [nzValue]="'G'" nzLabel="Above Rs. 25 Lakh"></nz-option>
-                        </nz-select> -->
-
-
-                    </nz-form-control>
-                </nz-form-item>
-
-
 
             </div>
         </div>

@@ -280,31 +280,14 @@
 
                                         </div>
                                         <div nz-col [nzSpan]="5">
-                                            <button nz-button nzType="primary" (click)="getOtp(1)" [nzLoading]="loadOtpButton">Get
-                        OTP</button>
+                                            <button nz-button nzType="primary" (click)="initializeAadhaarVerification(1)" [nzLoading]="loadAadhaarButton">Verify Aadhaar</button>
                                         </div>
                                     </div>
+                                    <p *ngIf="aadhaarVerify.verfication_window_open" style="color:red">Please close verification window to fetch Aadhaar details.</p>
                                     <p>{{previewAdhaar1}}</p>
                                     <div nz-row *ngIf="aadhaarVerify.aadhar_history.IS_VERIFIED" class="success-tip">
                                         <div nz-col nzSpan="24">
                                             Aadhaar verified successfully
-                                        </div>
-                                    </div>
-                                </nz-form-control>
-                            </nz-form-item>
-
-                            <nz-form-item nz-col nzSpan="24" *ngIf="aadhaarVerify.showOtp">
-                                <nz-form-label [nzNoColon]="true">OTP (For Aadhaar Card Verification)</nz-form-label>
-                                <nz-form-control>
-                                    <div nz-row>
-                                        <div nz-col [nzSpan]="17">
-                                            <input type="password" nz-input name="otp" [(ngModel)]="aadhaarVerify.meta.otp" placeholder="Enter OTP" />
-                                        </div>
-                                        <div nz-col nzSpan="1">
-
-                                        </div>
-                                        <div nz-col [nzSpan]="5">
-                                            <button nz-button nzType="primary" (click)="getAadhaarData(1)" [nzLoading]="loadAadhaarButton">Verify OTP</button>
                                         </div>
                                     </div>
                                 </nz-form-control>
@@ -351,25 +334,25 @@
                                         </div>
                                     </div>
                                     <div nz-row class="success-tip">
-                                        <div nz-col nzSpan="24" *ngIf="panCompData?.aadhaar_linked">
+                                        <div nz-col nzSpan="24" *ngIf="panCompData.aadhaar_linked">
                                             Aadhaar and PAN are linked
 
                                         </div>
 
-                                        <div nz-col nzSpan="24" *ngIf="panCompData?.full_name">
-                                            Full Name: {{ panCompData?.full_name }}
+                                        <div nz-col nzSpan="24" *ngIf="panCompData.full_name">
+                                            Full Name: {{ panCompData.full_name }}
                                         </div>
 
-                                        <div nz-col nzSpan="24" *ngIf="panCompData?.dob">
-                                            Date of Birth: {{ panCompData?.dob | date:'dd/MM/yyyy' }}
+                                        <div nz-col nzSpan="24" *ngIf="panCompData.dob">
+                                            Date of Birth: {{ panCompData.dob | date:'dd/MM/yyyy' }}
                                         </div>
 
-                                        <div nz-col nzSpan="24" *ngIf="panCompData?.gender">
-                                            Gender: {{ panCompData?.gender === 'M' ? 'Male' : 'Female' }}
+                                        <div nz-col nzSpan="24" *ngIf="panCompData.gender">
+                                            Gender: {{ panCompData.gender === 'M' ? 'Male' : 'Female' }}
                                         </div>
 
-                                        <div nz-col nzSpan="24" *ngIf="panCompData?.masked_aadhaar">
-                                            Aadhaar: {{ panCompData?.masked_aadhaar }}
+                                        <div nz-col nzSpan="24" *ngIf="panCompData.masked_aadhaar">
+                                            Aadhaar: {{ panCompData.masked_aadhaar }}
                                         </div>
 
                                         <div nz-col nzSpan="24" *ngIf="verifiedAt">
@@ -827,31 +810,14 @@
 
                                         </div>
                                         <div nz-col [nzSpan]="5">
-                                            <button nz-button nzType="primary" (click)="getOtp(2)" [nzLoading]="loadOtpButton2">Get
-                        OTP</button>
+                                            <button nz-button nzType="primary" (click)="initializeAadhaarVerification(2)" [nzLoading]="loadAadhaarButton2">Verify Aadhaar</button>
                                         </div>
                                     </div>
+                                    <p *ngIf="aadhaarVerify2.verfication_window_open" style="color:red">Please close verification window to fetch Aadhaar details.</p>
                                     <p>{{previewAdhaar2}}</p>
                                     <div nz-row *ngIf="aadhaarVerify2.aadhar_history.IS_VERIFIED" class="success-tip">
                                         <div nz-col nzSpan="24">
                                             Aadhaar verified successfully
-                                        </div>
-                                    </div>
-                                </nz-form-control>
-                            </nz-form-item>
-
-                            <nz-form-item nz-col nzSpan="24" *ngIf="aadhaarVerify2.showOtp">
-                                <nz-form-label [nzNoColon]="true">OTP (For Aadhaar Card Verification)</nz-form-label>
-                                <nz-form-control>
-                                    <div nz-row>
-                                        <div nz-col [nzSpan]="17">
-                                            <input type="password" nz-input name="otp" [(ngModel)]="aadhaarVerify2.meta.otp" placeholder="Enter OTP" />
-                                        </div>
-                                        <div nz-col nzSpan="1">
-
-                                        </div>
-                                        <div nz-col [nzSpan]="5">
-                                            <button nz-button nzType="primary" (click)="getAadhaarData(2)" [nzLoading]="loadAadhaarButton2">Verify OTP</button>
                                         </div>
                                     </div>
                                 </nz-form-control>
@@ -1240,33 +1206,15 @@
 
                             </div>
                             <div nz-col [nzSpan]="5">
-                                <button nz-button nzType="primary" (click)="getOtp(3)" [nzLoading]="loadOtpButton3">Get
-                  OTP</button>
+                                <button nz-button nzType="primary" (click)="initializeAadhaarVerification(3)" [nzLoading]="loadAadhaarButton3">Verify Aadhaar</button>
                             </div>
                         </div>
+                        <p *ngIf="aadhaarVerify3.verfication_window_open" style="color:red">Please close verification window to fetch Aadhaar details.</p>
                         <p>{{previewAdhaar3}}</p>
 
                         <div nz-row *ngIf="aadhaarVerify3.showAadhaar" class="success-tip">
                             <div nz-col nzSpan="24">
                                 Aadhaar verified successfully
-                            </div>
-                        </div>
-                    </nz-form-control>
-                </nz-form-item>
-
-                <nz-form-item nz-col nzSpan="24" *ngIf="aadhaarVerify3.showOtp">
-                    <nz-form-label [nzNoColon]="true">OTP (For Aadhaar Card Verification)</nz-form-label>
-                    <nz-form-control>
-                        <div nz-row>
-                            <div nz-col [nzSpan]="17">
-                                <input type="password" nz-input name="otp3" [(ngModel)]="aadhaarVerify3.meta.otp" placeholder="Enter OTP" />
-                            </div>
-                            <div nz-col nzSpan="1">
-
-                            </div>
-                            <div nz-col [nzSpan]="5">
-                                <button nz-button nzType="primary" (click)="getAadhaarData(3)" [nzLoading]="loadAadhaarButton3">Verify
-                  OTP</button>
                             </div>
                         </div>
                     </nz-form-control>
@@ -1520,32 +1468,14 @@
                             </div>
 
                             <div nz-col [nzSpan]="5">
-                                <button nz-button nzType="primary" (click)="getOtp(4)" [nzLoading]="loadOtpButton4">Get
-                  OTP</button>
+                                <button nz-button nzType="primary" (click)="initializeAadhaarVerification(4)" [nzLoading]="loadAadhaarButton4">Verify Aadhaar</button>
                             </div>
                         </div>
+                        <p *ngIf="aadhaarVerify4.verfication_window_open" style="color:red">Please close verification window to fetch Aadhaar details.</p>
                         <p>{{previewAdhaar4}}</p>
                         <div nz-row *ngIf="aadhaarVerify4.showAadhaar" class="success-tip">
                             <div nz-col nzSpan="24">
                                 Aadhaar verified successfully
-                            </div>
-                        </div>
-                    </nz-form-control>
-                </nz-form-item>
-
-                <nz-form-item nz-col nzSpan="24" *ngIf="aadhaarVerify4.showOtp">
-                    <nz-form-label [nzNoColon]="true">OTP (For Aadhaar Card Verification)</nz-form-label>
-                    <nz-form-control>
-                        <div nz-row>
-                            <div nz-col [nzSpan]="17">
-                                <input type="password" nz-input name="otp4" [(ngModel)]="aadhaarVerify4.meta.otp" placeholder="Enter OTP" />
-                            </div>
-                            <div nz-col nzSpan="1">
-
-                            </div>
-                            <div nz-col [nzSpan]="5">
-                                <button nz-button nzType="primary" (click)="getAadhaarData(4)" [nzLoading]="loadAadhaarButton2">Verify
-                  OTP</button>
                             </div>
                         </div>
                     </nz-form-control>

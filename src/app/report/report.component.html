@@ -1,0 +1,36 @@
+<div class="card">
+  <h3>Manage Report</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sr No.</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of reportList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.REPORT_NAME }}</td>
+        <td>
+          <a style="cursor: pointer;" (click)="openReport(item)"> Report </a>
+        </td>
+      </tr>
+      <tr *ngIf="reportList.length === 0 && !loading">
+        <td colspan="3" class="text-center"> No Reports Found </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<nz-drawer
+  nzTitle="Stage Wise Report"
+  nzPlacement="right"
+  [nzVisible]="isDrawerVisible"
+  [nzWidth]="900"
+  (nzOnClose)="isDrawerVisible = false"
+>
+  <ng-container *nzDrawerContent>
+    <app-main-report *ngIf="selectedReportId === 1" [reportId]="selectedReportId"></app-main-report>
+  </ng-container>
+</nz-drawer>

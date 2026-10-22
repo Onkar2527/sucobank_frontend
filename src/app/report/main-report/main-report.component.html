@@ -1,0 +1,30 @@
+<div class="card">
+  <h3>Stage Wise Report</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Branch</th>
+        <th>Account No</th>
+        <th>Applicant Name</th>
+        <th>Account Type</th>
+        <th>Stage</th>
+        <th>Filled Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of reportData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.BRANCH_NAME }}</td>
+        <td>{{ item.ACCOUNT_NUMBER }}</td>
+        <td> {{ item.PRIMARY_APPLICANT_FIRST_NAME }} {{ item.PRIMARY_APPLICANT_MIDDLE_NAME }} {{ item.PRIMARY_APPLICANT_LAST_NAME }} </td>
+        <td>{{ item.ACCOUNT_TYPE }}</td>
+        <td>{{ item.STAGE_NAME }}</td>
+        <td>{{ item.FILLED_DATE_TIME }}</td>
+      </tr>
+      <tr *ngIf="reportData.length === 0 && !loading">
+        <td colspan="7" class="text-center"> No data found </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

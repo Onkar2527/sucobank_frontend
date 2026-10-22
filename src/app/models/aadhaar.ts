@@ -64,8 +64,20 @@ class AadhaarAddress {
 }
 
 export class AadhaarMeta {
+  prefill_options = {
+    id_number: '',
+  };
+  expiry_minutes = 10;
+  send_sms = false;
+  send_email = false;
+  verify_phone = false;
+  verify_email = false;
+  signup_flow = true;
+  redirect_url = 'https://google.com/';
+  state = 'test';
+  client_id: any = null;
+  url?: string;
   id_number: string = '';
-  client_id: string = '';
   otp_sent?: boolean;
   if_number?: boolean;
   otp: string = '';
@@ -196,86 +208,84 @@ export class Aadhaar {
   pan_history: Pan_History = new Pan_History();
 
   voter_history: Voter_History = new Voter_History();
-
   license_history: License_History = new License_History();
 
-  getOTP() {
-    this.meta.id_number = this.aadhar_history.AADHAAR_NUMBER;
-    this.api.Aadhaar_GetOTP(this.meta)
-      .subscribe({
-        next: (res) => {
-          if (res['statuscode'] == 200) {
-            const RequestedData = res['data']
-            this.meta.client_id = RequestedData["client_id"];
-            this.message.success('OTP sent!', 'The unique otp has been sent to user\'s registered mobile number');
-            this.showOtp = true;
-            this.otpSubject.next(true);
-          }
-          else {
-            this.message.error('Network Error❗', 'Please try again after sometimes');
-            this.showOtp = false;
-            this.otpSubject.next(res);
-          }
-        },
-        error: (err) => {
-          // this.message.error('Network Error❗', 'Please try again after sometimes');
-          this.OVD_ERROR(err.error.status_code);
+  verfication_window_open: boolean = false;
+
+  initializeAadhaarVerification() {
+    this.meta.prefill_options.id_number = this.aadhar_history.AADHAAR_NUMBER.replace(/\s/g, '');
+    this.meta.client_id = null;
+    this.meta.url = undefined;
+    this.isok = false;
+    this.showAadhaar = false;
+    this.showOtp = false;
+    this.aadhar_history.IS_VERIFIED = false;
+
+    this.api.verifyAadhaar(this.meta).subscribe({
+      next: (n: any) => {
+        if (n.status_code == 200) {
+          const e = n.data;
+          this.meta.client_id = e.client_id;
+          this.meta.url = e.url;
+          this.message.success('Initialized Request', 'The digilocker varification window will open shortly.');
+          this.showOtp = true;
+          this.otpSubject.next(true);
+        } else {
+          this.message.error('Network Error❗', 'Please try again after sometimes');
           this.showOtp = false;
-          this.otpSubject.error(err);
+          this.otpSubject.next(n);
         }
-      });
+      },
+      error: (n: any) => {
+        this.OVD_ERROR(n.error?.status_code || 500);
+        this.showOtp = false;
+        this.otpSubject.error(n);
+      }
+    });
 
     return this.otpSubject;
   }
 
-  getData() {
-    if (this.meta.otp_sent == true) {
-      if (!this.meta.otp && !this.meta.client_id) {
-        this.message.error('please enter otp or client_id first', 'OTP or client_id feilds are probabily empty!')
+  getOTP() {
+    return this.initializeAadhaarVerification();
+  }
+
+  getData(): Subject<any> {
+    this.api.Aadhaar_GetData(this.meta.client_id).subscribe({
+      next: (n: any) => {
+        if (n && n.data && n.data.aadhaar_xml_data) {
+          this.aadhar_history.DOB = n.data.aadhaar_xml_data.dob;
+          this.aadhar_history.APPLICANT_FULL_NAME = n.data.aadhaar_xml_data.full_name;
+          this.aadhar_history.GENDER = this.getGender(n.data.aadhaar_xml_data.gender);
+          this.aadhar_history.PROFILE_IMAGE = 'data:image/png;base64,' + n.data.aadhaar_xml_data.profile_image;
+          this.aadhar_history.IS_VERIFIED = true;
+
+          this.aadhar_address.DISTRICT = n.data.aadhaar_xml_data.address?.dist || '';
+          this.aadhar_address.HOUSE = n.data.aadhaar_xml_data.address?.house || '';
+          this.aadhar_address.COUNTRY = n.data.aadhaar_xml_data.address?.country || '';
+          this.aadhar_address.SUB_DISTRICT = n.data.aadhaar_xml_data.address?.subdist || '';
+          this.aadhar_address.VTC = n.data.aadhaar_xml_data.address?.vtc || '';
+          this.aadhar_address.PO = n.data.aadhaar_xml_data.address?.po || '';
+          this.aadhar_address.STATE = n.data.aadhaar_xml_data.address?.state || '';
+          this.aadhar_address.STREET = n.data.aadhaar_xml_data.address?.street || '';
+          this.aadhar_address.LOC = n.data.aadhaar_xml_data.address?.loc || '';
+
+          this.message.success('Infomation fetched  successfully', '');
+          this.MakeHistory();
+          this.showAadhaar = true;
+          this.subject.next(true);
+        } else {
+          this.message.error('Verification Pending', 'Please complete the verification in verification window');
+          this.subject.next(false);
+        }
+      },
+      error: (n: any) => {
+        this.showAadhaar = false;
+        this.subject.error(n);
+        this.OVD_ERROR(n?.error?.status_code || 500);
       }
-    }
-    else {
-      this.api.Aadhaar_GetData(this.meta)
-        .subscribe({
-          next: (res) => {
-            if (res['statuscode'] == "200") {
-              this.aadhar_history.DOB = res['data']['dob'];
-              this.aadhar_history.APPLICANT_FULL_NAME = res['data']['full_name'];
-              this.aadhar_history.GENDER = this.getGender(res['data']['gender']);
-              this.aadhar_history.PROFILE_IMAGE = "data:image/png;base64," + res['data']['profile_image']
-
-              this.aadhar_history.IS_VERIFIED = true;
-
-              this.aadhar_address.DISTRICT = res['data']['address']['dist'];
-              this.aadhar_address.HOUSE = res['data']['address']['house'];
-              this.aadhar_address.COUNTRY = res['data']['address']['country'];
-              this.aadhar_address.SUB_DISTRICT = res['data']['address']['subdist'];
-              this.aadhar_address.VTC = res['data']['address']['vtc'];
-              this.aadhar_address.PO = res['data']['address']['po'];
-              this.aadhar_address.STATE = res['data']['address']['state'];
-              this.aadhar_address.STREET = res['data']['address']['street'];
-              this.aadhar_address.LOC = res['data']['address']['loc']
-
-              this.message.success('Infomation fetched  successfully', '');
-              this.subject.next(true);
-            }
-            else {
-              // console.log(res)
-              this.showAadhaar = false;
-              this.message.error('Failed', "");
-              this.subject.next(res);
-            }
-          },
-          error: (err) => {
-            this.showAadhaar = false;
-            this.subject.error(err);
-            // this.message.error('Something went wrong', "Please try again after sometimes");
-            this.OVD_ERROR(err.error.status_code);
-          }
-        });
-    }
+    });
     return this.subject;
-
   }
 
   MakeHistory() {

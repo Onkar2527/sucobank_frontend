@@ -31,7 +31,16 @@
                             "src/theme.less",
                             "src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [],
+                        "allowedCommonJsDependencies": [
+                            "canvg",
+                            "core-js",
+                            "raf",
+                            "rgbcolor",
+                            "pako",
+                            "buffer",
+                            "node-forge"
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -34,10 +34,10 @@ export class FormComponent implements OnInit, AfterViewInit {
   serviceInfo: Facilities = new Facilities();
   nominationInfo: NomineeDetails = new NomineeDetails();
 
-  ApplicantPersonal: PersonalInfo[] = []
-  ApplicantFinancial: Financial[] = []
-  ApplicantProperty: Property[] = []
-  ApplicantLoanInfo: LoanInfo[] = []
+  ApplicantPersonal: PersonalInfo[] = [];
+  ApplicantFinancial: Financial[] = [];
+  ApplicantProperty: Property[] = [];
+  ApplicantLoanInfo: LoanInfo[] = [];
   // ApplicantOtherBank: OtherBankAccount[] = []
 
 

@@ -87,6 +87,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NotificationsHistoryComponent } from './notifications-history/notifications-history.component';
 import { NonActionableNotificationsComponent } from './non-actionable-notifications/non-actionable-notifications.component';
+import { ReportComponent } from './report/report.component';
+import { MainReportComponent } from './report/main-report/main-report.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 registerLocaleData(en);
@@ -126,7 +128,9 @@ registerLocaleData(en);
     PasswordChangeComponent,
     NotificationsComponent,
     NotificationsHistoryComponent,
-    NonActionableNotificationsComponent
+    NonActionableNotificationsComponent,
+    ReportComponent,
+    MainReportComponent
   ],
   imports: [
     //System Imports
